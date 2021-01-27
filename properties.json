@@ -1,0 +1,878 @@
+{
+    "streams": [
+        {
+            "stream": "Invoice",
+            "tap_stream_id": "Invoice",
+            "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "AllowIPNPayment": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "AllowOnlinePayment": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "AllowOnlineCreditCardPayment": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "AllowOnlineACHPayment": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "Id": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "MetaData": {
+                        "type": [
+                            "null",
+                            "object"
+                        ],
+                        "properties": {
+                            "CreateTime": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "LastUpdatedTime": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "CustomField": {
+                        "type": "array",
+                        "items": {
+                            "type": [
+                                "null",
+                                "object"
+                            ],
+                            "properties": {
+                                "DefinitionId": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "Name": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "Type": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "StringValue": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "DocNumber": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "TxnDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "CurrencyRef": {
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "name": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        }
+                    },
+                    "CustomerRef": {
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "name": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        }
+                    },
+                    "Line": {
+                        "type": "array",
+                        "items": {
+                            "type": [
+                                "null",
+                                "object"
+                            ],
+                            "properties": {
+                                "Id": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "LineNum": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "Amount": {
+                                    "type": [
+                                        "null",
+                                        "number"
+                                    ]
+                                },
+                                "DetailType": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "SalesItemLineDetail": {
+                                    "type": [
+                                        "null",
+                                        "object"
+                                    ],
+                                    "properties": {
+                                        "ItemRef": {
+                                            "type": "object",
+                                            "properties": {
+                                                "value": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "name": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "ItemAccountRef": {
+                                            "type": "object",
+                                            "properties": {
+                                                "value": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "name": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "TaxCodeRef": {
+                                            "type": "object",
+                                            "properties": {
+                                                "value": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "name": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "SubTotalLineDetail": {
+                                    "type": [
+                                        "null",
+                                        "object"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "FreeFormAddress": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "ShipFromAddr": {
+                        "type": [
+                            "null",
+                            "object"
+                        ],
+                        "properties": {
+                            "CountrySubDivisionCode": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "City": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "PostalCode": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "Line1": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "Country": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "Id": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "Line2": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        }
+                    },
+                    "DueDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "TotalAmt": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "ApplyTaxAfterDiscount": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "PrintStatus": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "Balance": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    }
+                }
+            },
+            "metadata": [
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "AllowIPNPayment"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "AllowOnlinePayment"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "AllowOnlineCreditCardPayment"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "AllowOnlineACHPayment"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Id"
+                    ],
+                    "metadata": {
+                        "inclusion": "automatic",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "MetaData"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CustomField"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "DocNumber"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "TxnDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CurrencyRef"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CustomerRef"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Line"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FreeFormAddress"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ShipFromAddr"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "DueDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "TotalAmt"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ApplyTaxAfterDiscount"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "PrintStatus"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Balance"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastUpdatedTime"
+                    ],
+                    "metadata": {
+                        "inclusion": "automatic"
+                    }
+                },
+                {
+                    "breadcrumb": [],
+                    "metadata": {
+                        "valid-replication-keys": [
+                            "MetaData.LastUpdatedTime"
+                        ],
+                        "table-key-properties": [
+                            "Id"
+                        ],
+                        "selected": false,
+                        "replication-method": "INCREMENTAL",
+                        "replication-key": "MetaData.LastUpdatedTime"
+                    }
+                }
+            ]
+        },
+        {
+            "stream": "Account",
+            "tap_stream_id": "Account",
+            "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "Name": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "SubAccount": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "Description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "FullyQualifiedName": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "Active": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "Classification": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "AccountType": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "AccountSubType": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "AcctNum": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "CurrentBalance": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "CurrentBalanceWithSubAccounts": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "CurrencyRef": {
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "name": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        }
+                    },
+                    "Id": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "MetaData": {
+                        "type": [
+                            "null",
+                            "object"
+                        ],
+                        "properties": {
+                            "CreateTime": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "LastUpdatedTime": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "metadata": [
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Name"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "SubAccount"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Description"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FullyQualifiedName"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Active"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Classification"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "AccountType"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "AccountSubType"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "AcctNum"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CurrentBalance"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CurrentBalanceWithSubAccounts"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CurrencyRef"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Id"
+                    ],
+                    "metadata": {
+                        "inclusion": "automatic",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "MetaData"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastUpdatedTime"
+                    ],
+                    "metadata": {
+                        "inclusion": "automatic"
+                    }
+                },
+                {
+                    "breadcrumb": [],
+                    "metadata": {
+                        "valid-replication-keys": [
+                            "MetaData.LastUpdatedTime"
+                        ],
+                        "table-key-properties": [
+                            "Id"
+                        ],
+                        "selected": true,
+                        "replication-method": "INCREMENTAL",
+                        "replication-key": "MetaData.LastUpdatedTime"
+                    }
+                }
+            ]
+        }
+    ]
+}

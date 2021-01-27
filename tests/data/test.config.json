@@ -1,0 +1,13 @@
+{
+  "client_id": "ABUFso8RZ0hi1DSyGd5WN4C5snJomABqxoW1qeAzy5d9yWXr4U",
+  "client_secret": "8w64y8mZvDTxicpUaHw0N9x57UkjAe9reAMCDWNO",
+  "refresh_token": "AB11591803714GXzd9Gb94gsCwHoXptKzRiup0mliww9V1Ieqx",
+  "start_date": "2019-09-02T00:00:00Z",
+  "redirect_uri": "http://localhost:4000/callback",
+  "api_type": "REST",
+  "select_fields_by_default": true,
+  "environment": "sandbox",
+  "refresh_token_expires_at": 8726111,
+  "realm_id": 4620816365037847830
+}
+
