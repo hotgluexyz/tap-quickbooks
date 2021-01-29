@@ -20,12 +20,11 @@ setup(name='tap-quickbooks',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
       py_modules=['tap_quickbooks'],
       install_requires=[
-          'requests==2.21.0',
+          'requests==2.20.0',
           'singer-python==5.3.1',
           'xmltodict==0.11.0',
           'jsonpath-ng==1.4.3',
-          'jsonschema==3.2.0',
-          'pytz==2020.1'
+          'pytz==2018.4'
       ],
       entry_points='''
           [console_scripts]
