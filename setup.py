@@ -13,9 +13,9 @@ with open('README.md', 'r') as f:
     readme = f.read()
 
 setup(name='tap-quickbooks',
-      version='1.4.29',
+      version='1.4.30',
       description='Singer.io tap for extracting data from the Quickbooks API',
-      author='HotGlue',
+      author='hotglue',
       url='http://hotglue.xyz/',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
       py_modules=['tap_quickbooks'],
