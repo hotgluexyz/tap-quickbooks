@@ -412,6 +412,6 @@ class Quickbooks():
                     self.api_type))
 
     def query_report(self, catalog_entry, state):
-
-        reader = ProfitAndLossDetailReport(self)
+        start_date = self.get_start_date(state, catalog_entry)
+        reader = ProfitAndLossDetailReport(self, start_date)
         return reader.sync(catalog_entry)

@@ -15,8 +15,9 @@ class ProfitAndLossDetailReport(QuickbooksStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
 
-    def __init__(self, qb):
+    def __init__(self, qb, start_date):
         self.qb = qb
+        self.start_date = start_date
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -51,7 +52,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 categories.pop()
 
     def sync(self, catalog_entry):
-
+        LOGGER.info(f"ignoring config start date {self.start_date}")
         end_date = datetime.date.today()
 
         for i in range(NUMBER_OF_PERIODS):
@@ -73,7 +74,9 @@ class ProfitAndLossDetailReport(QuickbooksStream):
             row_array = row_group.get("Row")
 
             if row_array is None:
-                return
+                # Update end date
+                end_date = start_date - datetime.timedelta(days=1)
+                continue
 
             output = []
             categories = []
