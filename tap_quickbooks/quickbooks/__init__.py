@@ -402,7 +402,7 @@ class Quickbooks():
         else:
             return query
 
-    def query(self, catalog_entry, state):
+    def query(self, catalog_entry, state, state_passed):
         if self.api_type == REST_API_TYPE:
             rest = Rest(self)
             return rest.query(catalog_entry, state)
