@@ -162,7 +162,7 @@ def do_discover(qb):
     result = {'streams': entries}
     json.dump(result, sys.stdout, indent=4)
 
-def do_sync(qb, catalog, state):
+def do_sync(qb, catalog, state, state_passed):
     starting_stream = state.get("current_stream")
 
     if starting_stream:
@@ -239,7 +239,7 @@ def do_sync(qb, catalog, state):
                                               catalog_entry['tap_stream_id'],
                                               'version',
                                               stream_version)
-            counter = sync_stream(qb, catalog_entry, state)
+            counter = sync_stream(qb, catalog_entry, state, state_passed)
             LOGGER.info("%s: Completed sync (%s rows)", stream_name, counter.value)
 
     state["current_stream"] = None
@@ -271,8 +271,9 @@ def main_impl():
             do_discover(qb)
         elif args.properties:
             catalog = args.properties
+            state_passed = bool(args.state)
             state = build_state(args.state, catalog)
-            do_sync(qb, catalog, state)
+            do_sync(qb, catalog, state, state_passed)
     finally:
         if qb:
             if qb.rest_requests_attempted > 0:

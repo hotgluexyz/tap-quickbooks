@@ -54,12 +54,12 @@ def get_stream_version(catalog_entry, state):
     return int(time.time() * 1000)
 
 
-def sync_stream(qb, catalog_entry, state):
+def sync_stream(qb, catalog_entry, state, state_passed):
     stream = catalog_entry['stream']
 
     with metrics.record_counter(stream) as counter:
         try:
-            sync_records(qb, catalog_entry, state, counter)
+            sync_records(qb, catalog_entry, state, counter, state_passed)
             singer.write_state(state)
         except RequestException as ex:
             raise Exception("Error syncing {}: {} Response: {}".format(
@@ -71,7 +71,7 @@ def sync_stream(qb, catalog_entry, state):
         return counter
 
 
-def sync_records(qb, catalog_entry, state, counter):
+def sync_records(qb, catalog_entry, state, counter, state_passed):
     chunked_bookmark = singer_utils.strptime_with_tz(qb.get_start_date(state, catalog_entry))
     stream = catalog_entry['stream']
     schema = catalog_entry['schema']
@@ -92,7 +92,7 @@ def sync_records(qb, catalog_entry, state, counter):
     if stream.endswith("Report"):
         query_func = qb.query_report
 
-    for rec in query_func(catalog_entry, state):
+    for rec in query_func(catalog_entry, state, state_passed):
 
         counter.increment()
         with Transformer(pre_hook=transform_data_hook) as transformer:

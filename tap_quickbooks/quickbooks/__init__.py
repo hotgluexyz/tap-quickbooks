@@ -411,7 +411,7 @@ class Quickbooks():
                 "api_type should be REST was: {}".format(
                     self.api_type))
 
-    def query_report(self, catalog_entry, state):
-        start_date = self.get_start_date(state, catalog_entry)
-        reader = ProfitAndLossDetailReport(self, start_date)
+    def query_report(self, catalog_entry, state, state_passed):
+        start_date = singer_utils.strptime_with_tz(self.get_start_date(state, catalog_entry))
+        reader = ProfitAndLossDetailReport(self, start_date, state_passed)
         return reader.sync(catalog_entry)
