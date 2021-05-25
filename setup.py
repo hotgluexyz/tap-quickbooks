@@ -13,7 +13,7 @@ with open('README.md', 'r') as f:
     readme = f.read()
 
 setup(name='tap-quickbooks',
-      version='1.4.34',
+      version='1.4.35',
       description='Singer.io tap for extracting data from the Quickbooks API',
       author='hotglue',
       url='http://hotglue.xyz/',

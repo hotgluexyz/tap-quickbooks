@@ -86,6 +86,10 @@ class ProfitAndLossDetailReport(QuickbooksStream):
             # Zip columns and row data.
             for raw_row in output:
                 row = dict(zip(columns, raw_row))
+                if not row.get("Amount"):
+                    # If a row is missing the amount, skip it
+                    continue
+
                 cleansed_row = {}
                 for k, v in row.items():
                     if v == "":
@@ -133,6 +137,10 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 # Zip columns and row data.
                 for raw_row in output:
                     row = dict(zip(columns, raw_row))
+                    if not row.get("Amount"):
+                        # If a row is missing the amount, skip it
+                        continue
+
                     cleansed_row = {}
                     for k, v in row.items():
                         if v == "":
