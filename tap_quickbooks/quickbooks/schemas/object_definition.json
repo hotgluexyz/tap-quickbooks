@@ -21,6 +21,22 @@
     {"name":"PrintStatus", "type": "string"},
     {"name":"Balance", "type": "number"}
   ],
+  "SalesReceipt": [
+    {"name":"Id", "type": "string"},
+    {"name":"MetaData", "type": "string"},
+    {"name":"CustomField","type": "array", "child_type": "custom_field"},
+    {"name":"DocNumber", "type": "string"},
+    {"name":"TxnDate", "type": "datetime"},
+    {"name":"CurrencyRef", "type": "string"},
+    {"name":"CustomerRef", "type": "string"},
+    {"name":"Line", "type": "array", "child_type": "invoice_line"},
+    {"name":"FreeFormAddress", "type": "boolean"},
+    {"name":"ShipFromAddr", "type": "string"},
+    {"name":"TotalAmt", "type": "number"},
+    {"name":"ApplyTaxAfterDiscount", "type": "boolean"},
+    {"name":"PrintStatus", "type": "string"},
+    {"name":"Balance", "type": "number"}
+  ],
   "Account": [
     {"name":  "Name", "type": "string"},
     {"name":  "SubAccount", "type": "boolean"},
