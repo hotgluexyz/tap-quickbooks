@@ -136,6 +136,7 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
             "LineNum": string_type,
             "Amount": number_type,
             "DetailType": string_type,
+            "Description": string_type,
             "SalesItemLineDetail": {
                 "type": object_type["type"],
                 "properties": {
@@ -153,6 +154,13 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                 "type": object_type["type"],
                 "properties": {
                     "DiscountAccountRef": qb_types["object_reference"]
+                }
+            },
+            "DescriptionLineDetail": {
+                "type": object_type["type"],
+                "properties": {
+                    "TaxCodeRef": qb_types["object_reference"],
+                    "ServiceDate": qb_types["datetime"]
                 }
             }
         }
