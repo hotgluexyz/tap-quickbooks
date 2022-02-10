@@ -4,7 +4,7 @@ import sys
 import singer
 import singer.utils as singer_utils
 from singer import metadata, metrics
-import tap_quickbooks.quickbooks
+import tap_quickbooks.quickbooks as quickbooks
 from tap_quickbooks.sync import (sync_stream, get_stream_version)
 from tap_quickbooks.quickbooks import Quickbooks
 from tap_quickbooks.quickbooks.exceptions import (
@@ -296,3 +296,6 @@ def main():
     except Exception as e:
         LOGGER.critical(e)
         raise e
+
+if __name__=="__main__":
+    main()
