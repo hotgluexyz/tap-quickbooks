@@ -159,5 +159,13 @@
     {"name": "Amount", "type": "number"},
     {"name": "Balance", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"}
+  ],
+  "Vendor": [
+    {"name": "Id", "type": "string"},
+    {"name": "DisplayName", "type": "string"},
+    {"name": "PrintOnCheckName", "type": "string"},
+    {"name": "sparse", "type": "boolean"},
+    {"name": "Active", "type": "boolean"},
+    {"name": "Balance", "type": "number"}
   ]
 }
