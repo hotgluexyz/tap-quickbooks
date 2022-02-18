@@ -84,7 +84,8 @@
     {"name": "PurchaseCost", "type": "number"},
     {"name": "TrackQtyOnHand", "type": "boolean"},
     {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"}
+    {"name": "MetaData", "type": "string"},
+    {"name": "PrefVendorRef", "type": "string"}
   ],
   "CreditMemo": [
     {"name": "RemainingCredit", "type": "number"},
