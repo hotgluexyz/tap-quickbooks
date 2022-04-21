@@ -114,6 +114,8 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
             if replication_key and len(match) > 0:
                 original_replication_key_value = match[0].value
                 replication_key_value = singer_utils.strptime_with_tz(original_replication_key_value)
+            else:
+                replication_key_value = None
 
             # Before writing a bookmark, make sure Quickbooks has not given us a
             # record with one outside our range
