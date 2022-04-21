@@ -108,7 +108,7 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
 
         if replication_key:
             jsonpath_expression = parse(f"$.{replication_key}")
-            _rec = {'MetaData': json.loads(rec.get('MetaData', {}))}
+            _rec = {'MetaData': json.loads(rec.get('MetaData', "{}"))}
             match = jsonpath_expression.find(_rec)
             original_replication_key_value = ""
             if replication_key and len(match) > 0:
