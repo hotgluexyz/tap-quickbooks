@@ -165,6 +165,7 @@
     {"name": "Id", "type": "string"},
     {"name": "DisplayName", "type": "string"},
     {"name": "PrintOnCheckName", "type": "string"},
+    {"name": "MetaData", "type": "string"},
     {"name": "sparse", "type": "boolean"},
     {"name": "Active", "type": "boolean"},
     {"name": "Balance", "type": "number"}
