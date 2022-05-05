@@ -169,5 +169,22 @@
     {"name": "sparse", "type": "boolean"},
     {"name": "Active", "type": "boolean"},
     {"name": "Balance", "type": "number"}
+  ],
+  "Employee": [
+    {"name": "Id", "type": "string"},
+    {"name": "DisplayName", "type": "string"},
+    {"name": "PrintOnCheckName", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "BillableTime", "type": "boolean"},
+    {"name": "HiredDate", "type": "string"},
+    {"name": "domain", "type": "string"},
+    {"name": "sparse", "type": "boolean"},
+    {"name": "PrimaryAddr", "type": "string"},
+    {"name": "GivenName", "type": "string"},
+    {"name": "FamilyName", "type": "string"},
+    {"name": "Active", "type": "boolean"},
+    {"name": "V4IDPseudonym", "type": "string"},
+    {"name": "PrimaryPhone", "type": "string"},
+    {"name": "SyncToken", "type": "string"}
   ]
 }
