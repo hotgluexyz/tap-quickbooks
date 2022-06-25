@@ -161,6 +161,41 @@
     {"name": "Balance", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"}
   ],
+  "GeneralLedgerReport": [
+    {"name": "Date", "type": "string"},
+    {"name": "TransactionType", "type": "string"},
+    {"name": "Num", "type": "string"},
+    {"name": "Name", "type": "string"},
+    {"name": "Memo", "type": "string"},
+    {"name": "Split", "type": "string"},
+    {"name": "Class", "type": "string"},
+    {"name": "Amount", "type": "number"},
+    {"name": "Balance", "type": "number"},
+    {"name": "Categories", "type": "array", "child_type": "string"}
+  ],
+  "TransactionListReport": [
+    {"name": "Date", "type": "string"},
+    {"name": "TransactionType", "type": "string"},
+    {"name": "Num", "type": "string"},
+    {"name": "Posting", "type": "string"},
+    {"name": "Name", "type": "string"},
+    {"name": "Memo", "type": "string"},
+    {"name": "Account", "type": "string"},
+    {"name": "Split", "type": "string"},
+    {"name": "Class", "type": "string"},
+    {"name": "Amount", "type": "number"},
+    {"name": "Categories", "type": "array", "child_type": "string"}
+  ],
+  "CashFlowReport": [
+    {"name": "Total", "type": "number"},
+    {"name": "Account", "type": "string"},
+    {"name": "Categories", "type": "array", "child_type": "string"}
+  ],
+  "BalanceSheetReport": [
+    {"name": "Total", "type": "number"},
+    {"name": "Account", "type": "string"},
+    {"name": "Categories", "type": "array", "child_type": "string"}
+  ],
   "Vendor": [
     {"name": "Id", "type": "string"},
     {"name": "DisplayName", "type": "string"},
