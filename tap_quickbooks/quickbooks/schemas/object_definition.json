@@ -21,6 +21,26 @@
     {"name":"PrintStatus", "type": "string"},
     {"name":"Balance", "type": "number"}
   ],
+  "Bill": [
+    {"name":"Id", "type": "string"},
+    {"name":"VendorRef", "type": "string"},
+    {"name": "Line", "type": "string"},
+    {"name": "CurrencyRef", "type": "string"},
+    {"name":"TxnDate", "type": "datetime"},
+    {"name": "APAccountRef", "type": "string"},
+    {"name": "SalesTermRef", "type": "string"},
+    {"name": "LinkedTxn", "type": "string"},
+    {"name": "TotalAmt", "type": "string"},
+    {"name": "DueDate", "type": "datetime"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "DocNumber", "type": "string"},
+    {"name": "PrivateNote", "type": "string"},
+    {"name": "ExchangeRate", "type": "number"},
+    {"name": "DepartmentRef", "type": "string"},
+    {"name": "HomeBalance", "type": "number"},
+    {"name": "RecurDataRef", "type": "datetime"},
+    {"name": "Balance", "type": "number"}
+  ],
   "SalesReceipt": [
     {"name":"Id", "type": "string"},
     {"name":"MetaData", "type": "string"},
