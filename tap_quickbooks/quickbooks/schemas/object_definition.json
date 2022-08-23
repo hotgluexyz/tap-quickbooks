@@ -117,6 +117,7 @@
     {"name": "TxnDate", "type": "datetime"},
     {"name": "CurrencyRef", "type": "string"},
     {"name": "CustomerRef", "type": "string"},
+    {"name": "ClassRef", "type": "string"},
     {"name": "Line", "type": "array", "child_type": "invoice_line"},
     {"name": "CustomerMemo", "type": "string"},
     {"name": "TotalAmt", "type": "number"},
