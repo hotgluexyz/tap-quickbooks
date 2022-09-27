@@ -56,52 +56,57 @@ class ProfitAndLossDetailReport(QuickbooksStream):
         full_sync = not self.state_passed
 
         if full_sync:
-            LOGGER.info(f"Starting full sync of P&L")
-            end_date = datetime.date.today()
-            start_date = self.start_date
-            params = {
-                "start_date": start_date.strftime("%Y-%m-%d"),
-                "end_date": end_date.strftime("%Y-%m-%d"),
-                "accounting_method": "Accrual"
-            }
+            start_date = self.start_date.date()
+            delta = 364
+            while start_date<datetime.date.today():
+                LOGGER.info(f"Starting full sync of P&L")
+                end_date = (start_date + datetime.timedelta(delta))
+                if end_date>datetime.date.today():
+                    end_date = datetime.date.today()
+                params = {
+                    "start_date": start_date.strftime("%Y-%m-%d"),
+                    "end_date": end_date.strftime("%Y-%m-%d"),
+                    "accounting_method": "Accrual"
+                }
 
-            LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
-            resp = self._get(report_entity='ProfitAndLossDetail', params=params)
+                LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
+                resp = self._get(report_entity='ProfitAndLossDetail', params=params)
+                start_date = end_date + datetime.timedelta(1)
 
-            # Get column metadata.
-            columns = self._get_column_metadata(resp)
+                # Get column metadata.
+                columns = self._get_column_metadata(resp)
 
-            # Recursively get row data.
-            row_group = resp.get("Rows")
-            row_array = row_group.get("Row")
+                # Recursively get row data.
+                row_group = resp.get("Rows")
+                row_array = row_group.get("Row")
 
-            if row_array is None:
-                return
-
-            output = []
-            categories = []
-            for row in row_array:
-                self._recursive_row_search(row, output, categories)
-
-            # Zip columns and row data.
-            for raw_row in output:
-                row = dict(zip(columns, raw_row))
-                if not row.get("Amount"):
-                    # If a row is missing the amount, skip it
+                if row_array is None:
                     continue
 
-                cleansed_row = {}
-                for k, v in row.items():
-                    if v == "":
+                output = []
+                categories = []
+                for row in row_array:
+                    self._recursive_row_search(row, output, categories)
+
+                # Zip columns and row data.
+                for raw_row in output:
+                    row = dict(zip(columns, raw_row))
+                    if not row.get("Amount"):
+                        # If a row is missing the amount, skip it
                         continue
-                    else:
-                        cleansed_row.update({k: v})
 
-                cleansed_row["Amount"] = float(row.get("Amount"))
-                cleansed_row["Balance"] = float(row.get("Balance"))
-                cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                    cleansed_row = {}
+                    for k, v in row.items():
+                        if v == "":
+                            continue
+                        else:
+                            cleansed_row.update({k: v})
 
-                yield cleansed_row
+                    cleansed_row["Amount"] = float(row.get("Amount"))
+                    cleansed_row["Balance"] = float(row.get("Balance"))
+                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+
+                    yield cleansed_row
         else:
             LOGGER.info(f"Syncing P&L of last {NUMBER_OF_PERIODS} periods")
             end_date = datetime.date.today()
