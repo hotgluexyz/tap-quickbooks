@@ -145,6 +145,7 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                 "type": object_type["type"],
                 "properties": {
                     "ItemRef": qb_types["object_reference"],
+                    "ClassRef": qb_types["object_reference"],
                     "ItemAccountRef": qb_types["object_reference"],
                     "TaxCodeRef": qb_types["object_reference"],
                     "Qty": number_type,
