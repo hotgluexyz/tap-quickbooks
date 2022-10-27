@@ -190,7 +190,8 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                         }
                     },
                     "AccountRef": qb_types["object_reference"],
-                    "ClassRef": qb_types["object_reference"]
+                    "ClassRef": qb_types["object_reference"],
+                    "DepartmentRef": qb_types["object_reference"]
                 }
             }
         }
