@@ -179,6 +179,7 @@
     {"name": "Memo", "type": "string"},
     {"name": "Split", "type": "string"},
     {"name": "Class", "type": "string"},
+    {"name": "Location", "type": "string"},
     {"name": "Amount", "type": "number"},
     {"name": "Balance", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"}
