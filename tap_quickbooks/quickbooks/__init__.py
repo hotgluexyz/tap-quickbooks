@@ -16,6 +16,7 @@ from tap_quickbooks.quickbooks.reportstreams.BalanceSheetReport import BalanceSh
 from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerReport import GeneralLedgerReport
 from tap_quickbooks.quickbooks.reportstreams.CashFlowReport import CashFlowReport
 from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import TransactionListReport
+from tap_quickbooks.quickbooks.reportstreams.CustomerBalanceReport import CustomerBalanceReport
 
 from tap_quickbooks.quickbooks.rest import Rest
 from tap_quickbooks.quickbooks.exceptions import (
@@ -435,6 +436,8 @@ class Quickbooks():
             reader = CashFlowReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "TransactionListReport":
             reader = TransactionListReport(self, start_date, state_passed)
+        elif catalog_entry["stream"] == "CustomerBalanceReport":
+            reader = CustomerBalanceReport(self, start_date, state_passed)
         else:
             reader = ProfitAndLossDetailReport(self, start_date, state_passed)
         return reader.sync(catalog_entry)

@@ -237,6 +237,10 @@
     {"name": "Account", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"}
   ],
+  "CustomerBalanceReport": [
+    {"name": "Customer", "type": "string"},
+    {"name": "Total", "type": "number"}
+  ],
   "CashFlowReport": [
     {"name": "Total", "type": "number"},
     {"name": "Account", "type": "string"},
