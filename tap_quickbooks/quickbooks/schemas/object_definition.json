@@ -144,7 +144,8 @@
     {"name": "TrackQtyOnHand", "type": "boolean"},
     {"name": "Id", "type": "string"},
     {"name": "MetaData", "type": "string"},
-    {"name": "PrefVendorRef", "type": "string"}
+    {"name": "PrefVendorRef", "type": "string"},
+    {"name": "Sku", "type": "string"}
   ],
   "JournalEntry": [
     {"name": "Adjustment", "type": "boolean"},
