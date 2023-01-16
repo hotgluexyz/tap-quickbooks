@@ -13,11 +13,10 @@ class GeneralLedgerReport(QuickbooksStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
 
-    def __init__(self, qb, start_date, state_passed, accounting_method):
+    def __init__(self, qb, start_date, state_passed):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
-        self.accounting_method = accounting_method
 
     def _get_column_metadata(self, resp):
         columns = []

@@ -13,8 +13,4 @@ class GeneralLedgerCashReport(GeneralLedgerReport):
     tap_stream_id: ClassVar[str] = 'GeneralLedgerCashReport'
     stream: ClassVar[str] = 'GeneralLedgerCashReport'
     
-    def __init__(self, qb, start_date, state_passed):
-        self.qb = qb
-        self.start_date = start_date
-        self.state_passed = state_passed
-        self.accounting_method = "Cash"
+    accounting_method = "Cash"
