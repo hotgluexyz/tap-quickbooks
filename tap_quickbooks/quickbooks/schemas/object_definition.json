@@ -243,7 +243,19 @@
     {"name": "Account", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"}
   ],
-  "GeneralLedgerReport": [
+  "GeneralLedgerAccrualReport": [
+    {"name": "Date", "type": "string"},
+    {"name": "TransactionType", "type": "string"},
+    {"name": "Num", "type": "string"},
+    {"name": "Name", "type": "string"},
+    {"name": "Memo", "type": "string"},
+    {"name": "Split", "type": "string"},
+    {"name": "Class", "type": "string"},
+    {"name": "Amount", "type": "number"},
+    {"name": "Balance", "type": "number"},
+    {"name": "Categories", "type": "array", "child_type": "string"}
+  ],
+  "GeneralLedgerCashReport": [
     {"name": "Date", "type": "string"},
     {"name": "TransactionType", "type": "string"},
     {"name": "Num", "type": "string"},

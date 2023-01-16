@@ -13,7 +13,8 @@ from typing import Dict
 from singer import metadata, metrics
 from tap_quickbooks.quickbooks.reportstreams.ProfitAndLossDetailReport import ProfitAndLossDetailReport
 from tap_quickbooks.quickbooks.reportstreams.BalanceSheetReport import BalanceSheetReport
-from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerReport import GeneralLedgerReport
+from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerAccrualReport import GeneralLedgerAccrualReport
+from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerCashReport import GeneralLedgerCashReport
 from tap_quickbooks.quickbooks.reportstreams.CashFlowReport import CashFlowReport
 from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import TransactionListReport
 
@@ -429,8 +430,10 @@ class Quickbooks():
         start_date = singer_utils.strptime_with_tz(self.get_start_date(state, catalog_entry))
         if catalog_entry["stream"] == "BalanceSheetReport":
             reader = BalanceSheetReport(self, start_date, state_passed)
-        elif catalog_entry["stream"] == "GeneralLedgerReport":
-            reader = GeneralLedgerReport(self, start_date, state_passed)
+        elif catalog_entry["stream"] == "GeneralLedgerAccrualReport":
+            reader = GeneralLedgerAccrualReport(self, start_date, state_passed)
+        elif catalog_entry["stream"] == "GeneralLedgerCashReport":
+            reader = GeneralLedgerCashReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "CashFlowReport":
             reader = CashFlowReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "TransactionListReport":

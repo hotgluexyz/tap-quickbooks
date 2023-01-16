@@ -10,8 +10,6 @@ LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
 
 class GeneralLedgerReport(QuickbooksStream):
-    tap_stream_id: ClassVar[str] = 'GeneralLedgerReport'
-    stream: ClassVar[str] = 'GeneralLedgerReport'
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
 
@@ -62,7 +60,7 @@ class GeneralLedgerReport(QuickbooksStream):
             params = {
                 "start_date": start_date.strftime("%Y-%m-%d"),
                 "end_date": end_date.strftime("%Y-%m-%d"),
-                "accounting_method": "Accrual"
+                "accounting_method": self.accounting_method
             }
 
             LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
@@ -111,7 +109,7 @@ class GeneralLedgerReport(QuickbooksStream):
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),
                     "end_date": end_date.strftime("%Y-%m-%d"),
-                    "accounting_method": "Accrual"
+                    "accounting_method": self.accounting_method
                 }
 
                 LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
