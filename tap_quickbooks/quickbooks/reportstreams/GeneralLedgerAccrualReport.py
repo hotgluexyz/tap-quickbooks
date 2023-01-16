@@ -9,12 +9,13 @@ from tap_quickbooks.sync import transform_data_hook
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
 
-class GeneralLedgerCashReport(GeneralLedgerReport):
-    tap_stream_id: ClassVar[str] = 'GeneralLedgerCashReport'
-    stream: ClassVar[str] = 'GeneralLedgerCashReport'
+class GeneralLedgerAccrualReport(GeneralLedgerReport):
+    tap_stream_id: ClassVar[str] = 'GeneralLedgerAccrualReport'
+    stream: ClassVar[str] = 'GeneralLedgerAccrualReport'
     
     def __init__(self, qb, start_date, state_passed):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
-        self.accounting_method = "Cash"
+        self.accounting_method = "Accrual"
+
