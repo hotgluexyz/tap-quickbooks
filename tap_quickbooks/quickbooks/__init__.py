@@ -14,6 +14,7 @@ from singer import metadata, metrics
 from tap_quickbooks.quickbooks.reportstreams.ProfitAndLossDetailReport import ProfitAndLossDetailReport
 from tap_quickbooks.quickbooks.reportstreams.BalanceSheetReport import BalanceSheetReport
 from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerReport import GeneralLedgerReport
+from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerCashReport import GeneralLedgerCashReport
 from tap_quickbooks.quickbooks.reportstreams.CashFlowReport import CashFlowReport
 from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import TransactionListReport
 
@@ -431,6 +432,8 @@ class Quickbooks():
             reader = BalanceSheetReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "GeneralLedgerReport":
             reader = GeneralLedgerReport(self, start_date, state_passed)
+        elif catalog_entry["stream"] == "GeneralLedgerCashReport":
+            reader = GeneralLedgerCashReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "CashFlowReport":
             reader = CashFlowReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "TransactionListReport":
