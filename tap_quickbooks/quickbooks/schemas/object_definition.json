@@ -145,7 +145,8 @@
     {"name": "Id", "type": "string"},
     {"name": "MetaData", "type": "string"},
     {"name": "PrefVendorRef", "type": "string"},
-    {"name": "Sku", "type": "string"}
+    {"name": "Sku", "type": "string"},
+    {"name": "Barcode", "type": "string"}
   ],
   "JournalEntry": [
     {"name": "Adjustment", "type": "boolean"},
