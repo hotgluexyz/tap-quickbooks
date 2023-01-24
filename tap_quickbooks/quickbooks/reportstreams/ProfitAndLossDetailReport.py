@@ -5,6 +5,7 @@ import singer
 
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
+from dateutil.parser import parse
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
@@ -94,6 +95,11 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     if not row.get("Amount"):
                         # If a row is missing the amount, skip it
                         continue
+                    try:
+                        #if date is parse means its valid
+                        parse(row.get('Date'))
+                    except:
+                        continue    
 
                     cleansed_row = {}
                     for k, v in row.items():
