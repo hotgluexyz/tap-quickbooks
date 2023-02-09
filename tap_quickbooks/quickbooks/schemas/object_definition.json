@@ -142,6 +142,7 @@
     {"name": "IncomeAccountRef", "type": "string"},
     {"name": "PurchaseCost", "type": "number"},
     {"name": "TrackQtyOnHand", "type": "boolean"},
+    {"name": "QtyOnHand", "type": "string"},
     {"name": "Id", "type": "string"},
     {"name": "MetaData", "type": "string"},
     {"name": "PrefVendorRef", "type": "string"},
