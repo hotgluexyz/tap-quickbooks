@@ -33,7 +33,7 @@ class GeneralLedgerReport(QuickbooksStream):
         if 'ColData' in list(row.keys()):
             # Write the row
             data = row.get("ColData")
-            values = [column.get("value") for column in data]
+            values = [column for column in data]
             categories_copy = categories.copy()
             values.append(categories_copy)
             values_copy = values.copy()
@@ -49,19 +49,91 @@ class GeneralLedgerReport(QuickbooksStream):
                 self._recursive_row_search(row, output, categories)
             if header is not None:
                 categories.pop()
+        
+    def clean_row(self, output, columns):
+        # Zip columns and row data.
+        for raw_row in output:
+            row = {}
+            for c, v in zip(columns, raw_row):
+                if isinstance(v, dict):
+                    row[c] = v.get("value")
+                    if "id" in v:
+                        row[f"{c}Id"] = v.get("id")
+                else:
+                    row[c] = v
+
+            if not row.get("Amount"):
+                # If a row is missing the amount, skip it
+                continue
+
+            cleansed_row = {}
+            for k, v in row.items():
+                if v == "":
+                    continue
+                else:
+                    cleansed_row.update({k: v})
+
+            cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+
+            yield cleansed_row
 
     def sync(self, catalog_entry):
         full_sync = not self.state_passed
 
+        cols = [
+            "account_name",
+            "chk_print_state",
+            "create_by",
+            "create_date",
+            "cust_name",
+            "doc_num",
+            "emp_name",
+            "inv_date",
+            "is_adj",
+            "is_ap_paid",
+            "is_ar_paid",
+            "is_cleared",
+            "item_name",
+            "last_mod_by",
+            "last_mod_date",
+            "memo",
+            "name",
+            "quantity",
+            "rate",
+            "split_acc",
+            "tx_date",
+            "txn_type",
+            "vend_name",
+            "net_amount",
+            "tax_amount",
+            "tax_code",
+            "account_num",
+            "klass_name",
+            "dept_name",
+            "debt_amt",
+            "credit_amt",
+            "nat_open_bal",
+            "subt_nat_amount",
+            "subt_nat_amount_nt",
+            "debt_home_amt",
+            "credit_home_amt",
+            "currency",
+            "exch_rate",
+            "nat_home_open_bal",
+            "nat_foreign_open_bal",
+            "subt_nat_home_amount",
+            "subt_nat_amount_home_nt",
+        ]
+        
+        params = {
+            "accounting_method": self.accounting_method,
+            "columns": ",".join(cols)
+        }
+
         if full_sync:
             LOGGER.info(f"Starting full sync of GeneralLedgerReport")
-            end_date = datetime.date.today()
-            start_date = self.start_date
-            params = {
-                "start_date": start_date.strftime("%Y-%m-%d"),
-                "end_date": end_date.strftime("%Y-%m-%d"),
-                "accounting_method": self.accounting_method
-            }
+            params["end_date"] = datetime.date.today().strftime("%Y-%m-%d")
+            params["start_date"] = self.start_date.strftime("%Y-%m-%d")
 
             LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
             resp = self._get(report_entity='GeneralLedger', params=params)
@@ -81,36 +153,16 @@ class GeneralLedgerReport(QuickbooksStream):
             for row in row_array:
                 self._recursive_row_search(row, output, categories)
 
-            # Zip columns and row data.
-            for raw_row in output:
-                row = dict(zip(columns, raw_row))
-                if not row.get("Amount"):
-                    # If a row is missing the amount, skip it
-                    continue
-
-                cleansed_row = {}
-                for k, v in row.items():
-                    if v == "":
-                        continue
-                    else:
-                        cleansed_row.update({k: v})
-
-                cleansed_row["Amount"] = float(row.get("Amount"))
-                cleansed_row["Balance"] = float(row.get("Balance"))
-                cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-
-                yield cleansed_row
+            yield from self.clean_row(output, columns)
         else:
             LOGGER.info(f"Syncing GeneralLedgerReport of last {NUMBER_OF_PERIODS} periods")
             end_date = datetime.date.today()
 
             for i in range(NUMBER_OF_PERIODS):
                 start_date = end_date.replace(day=1)
-                params = {
-                    "start_date": start_date.strftime("%Y-%m-%d"),
-                    "end_date": end_date.strftime("%Y-%m-%d"),
-                    "accounting_method": self.accounting_method
-                }
+
+                params["start_date"] = end_date.replace(day=1).strftime("%Y-%m-%d"),
+                params["end_date"] = end_date.strftime("%Y-%m-%d"),
 
                 LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
                 resp = self._get(report_entity='GeneralLedger', params=params)
@@ -132,24 +184,6 @@ class GeneralLedgerReport(QuickbooksStream):
                 for row in row_array:
                     self._recursive_row_search(row, output, categories)
 
-                # Zip columns and row data.
-                for raw_row in output:
-                    row = dict(zip(columns, raw_row))
-                    if not row.get("Amount"):
-                        # If a row is missing the amount, skip it
-                        continue
-
-                    cleansed_row = {}
-                    for k, v in row.items():
-                        if v == "":
-                            continue
-                        else:
-                            cleansed_row.update({k: v})
-
-                    cleansed_row["Amount"] = float(row.get("Amount"))
-                    cleansed_row["Balance"] = float(row.get("Balance"))
-                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-
-                    yield cleansed_row
+                yield from self.clean_row(output, columns)
 
                 end_date = start_date - datetime.timedelta(days=1)
