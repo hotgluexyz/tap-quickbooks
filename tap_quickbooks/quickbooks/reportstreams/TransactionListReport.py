@@ -154,8 +154,12 @@ class TransactionListReport(QuickbooksStream):
                             continue
                         else:
                             cleansed_row.update({k: v})
-
-                    cleansed_row["Amount"] = float(row.get("Amount"))
+          
+                    if type(row.get("Amount")) is dict:
+                        cleansed_row['Amount'] = row["Amount"].get("value", 0)
+                    else:
+                        cleansed_row["Amount"] = float(row.get("Amount"))
+            
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
 
                     yield cleansed_row
