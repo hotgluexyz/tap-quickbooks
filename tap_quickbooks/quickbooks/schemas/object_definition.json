@@ -47,6 +47,65 @@
     {"name": "Id", "type": "string"},
     {"name": "MetaData", "type": "string"}
   ],
+  "CustomerType": [
+    {"name": "Name", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "Active", "type": "boolean"},
+    {"name": "Id", "type": "string"},
+    {"name": "MetaData", "type": "string"}
+  ],
+  "PaymentMethod": [
+    {"name": "Name", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "Type", "type": "string"},
+    {"name": "Active", "type": "boolean"},
+    {"name": "Id", "type": "string"},
+    {"name": "MetaData", "type": "string"}
+  ],
+  "TaxRate": [
+    {"name": "Name", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "RateValue", "type": "string"},
+    {"name": "AgencyRef", "type": "string"},
+    {"name": "SpecialTaxType", "type": "string"},
+    {"name": "EffectiveTaxRate", "type": "string"},
+    {"name": "DisplayType", "type": "string"},
+    {"name": "TaxReturnLineRef", "type": "string"},
+    {"name": "Active", "type": "boolean"},
+    {"name": "OriginalTaxRate", "type": "string"},
+    {"name": "Description", "type": "string"},
+    {"name": "Id", "type": "string"},
+    {"name": "MetaData", "type": "string"}
+  ],
+
+  "Term": [
+    {"name": "Id", "type": "string"},
+    {"name": "Name", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name":  "DiscountPercent", "type": "number"},
+    {"name":  "DiscountDays", "type": "number"},
+    {"name": "Active", "type": "boolean"},
+    {"name": "Type", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name":  "DayOfMonthDue", "type": "number"},
+    {"name":  "DiscountDayOfMonth", "type": "number"},
+    {"name":  "DueNextMonthDays", "type": "number"},
+    {"name":  "DueDays", "type": "number"}
+
+  ],
+
+  "Department": [
+    {"name": "Name", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "Type", "type": "string"},
+    {"name": "ParentRef", "type": "string"},
+    {"name": "Active", "type": "boolean"},
+    {"name": "Id", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "FullyQualifiedName", "type": "string"},
+    {"name": "SubDepartment", "type": "boolean"}
+  ],
+  
   "CreditMemo": [
     {"name": "RemainingCredit", "type": "number"},
     {"name": "Id", "type": "string"},
@@ -82,17 +141,7 @@
     {"name": "Active", "type": "boolean"},
     {"name": "PrimaryEmailAddr", "type": "string"}
   ],
-  "Department": [
-    {"name": "FullyQualifiedName", "type": "string"},
-    {"name": "domain", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "SubDepartment", "type": "boolean"},
-    {"name": "sparse", "type": "boolean"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"}
-  ],
+  
   "Employee": [
     {"name": "Id", "type": "string"},
     {"name": "DisplayName", "type": "string"},
