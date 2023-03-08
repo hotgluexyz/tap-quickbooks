@@ -12,6 +12,7 @@
     {"name":  "CurrentBalance", "type": "number"},
     {"name":  "CurrentBalanceWithSubAccounts", "type": "number"},
     {"name":  "CurrencyRef", "type": "string"},
+    {"name": "ParentRef", "type": "string"},
     {"name":  "Id", "type": "string"},
     {"name":  "MetaData", "type": "string"}
   ],
