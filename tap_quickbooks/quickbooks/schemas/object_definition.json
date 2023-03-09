@@ -114,6 +114,7 @@
     {"name": "MetaData", "type": "string"},
     {"name": "CompanyStartDate", "type": "string"}
   ],
+
   "TaxRate": [
     {"name": "Name", "type": "string"},
     {"name": "SyncToken", "type": "string"},
