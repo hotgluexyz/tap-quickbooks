@@ -62,6 +62,59 @@
     {"name": "Id", "type": "string"},
     {"name": "MetaData", "type": "string"}
   ],
+
+  "Payment": [
+    {"name": "Id", "type": "string"},
+    {"name": "TotalAmt", "type": "number"},
+    {"name": "CustomerRef", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "CurrencyRef", "type": "string"},
+    {"name": "PrivateNote", "type": "string"},
+    {"name": "PaymentMethodRef", "type": "string"},
+    {"name": "UnappliedAmt", "type": "number"},
+    {"name": "DepositToAccountRef", "type": "string"},
+    {"name": "ExchangeRate", "type": "number"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "Line", "type": "string"},
+    {"name": "TxnSource", "type": "string"},
+    {"name": "ARAccountRef", "type": "string"},
+    {"name": "TxnDate", "type": "string"},
+    {"name": "CreditCardPayment", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "TaxExemptionRef", "type": "string"}
+  ],
+
+  "Transfer": [
+    {"name": "Id", "type": "string"},
+    {"name": "ToAccountRef", "type": "string"},
+    {"name": "Amount", "type": "number"},
+    {"name": "FromAccountRef", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "PrivateNote", "type": "string"},
+    {"name": "TxnDate", "type": "string"},
+    {"name": "TransactionLocationType", "type": "string"},
+    {"name": "MetaData", "type": "string"}
+  ],
+
+  "CompanyInfo": [
+    {"name": "Id", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "CompanyName", "type": "string"},
+    {"name": "CompanyAddr", "type": "string"},
+    {"name": "LegalAddr", "type": "string"},
+    {"name": "SupportedLanguages", "type": "string"},
+    {"name": "Country", "type": "string"},
+    {"name": "Email", "type": "string"},
+    {"name": "WebAddr", "type": "string"},
+    {"name": "NameValue", "type": "string"},
+    {"name": "FiscalYearStartMonth", "type": "string"},
+    {"name": "CustomerCommunicationAddr", "type": "string"},
+    {"name": "PrimaryPhone", "type": "string"},
+    {"name": "LegalName", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "CompanyStartDate", "type": "string"}
+  ],
+
   "TaxRate": [
     {"name": "Name", "type": "string"},
     {"name": "SyncToken", "type": "string"},
