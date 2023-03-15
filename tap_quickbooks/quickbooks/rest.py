@@ -102,6 +102,7 @@ class Rest():
         offset = 0;
         max = 100
         while True:
+            headers.update(self.qb._get_standard_headers())
             params['query'] = f"{query}  STARTPOSITION {offset} MAXRESULTS {max}"
             resp = self.qb._make_request('GET', url, headers=headers, params=params)
             resp_json = resp.json()
