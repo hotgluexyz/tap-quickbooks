@@ -42,6 +42,7 @@
     {"name": "Name", "type": "string"},
     {"name": "SyncToken", "type": "string"},
     {"name": "SubClass", "type": "boolean"},
+    {"name": "ParentRef", "type": "string"},
     {"name": "sparse", "type": "boolean"},
     {"name": "Active", "type": "boolean"},
     {"name": "Id", "type": "string"},
