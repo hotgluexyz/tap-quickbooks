@@ -150,7 +150,9 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                     "ItemAccountRef": qb_types["object_reference"],
                     "TaxCodeRef": qb_types["object_reference"],
                     "Qty": number_type,
-                    "UnitPrice": number_type
+                    "UnitPrice": number_type,
+                    "ServiceDate": qb_types["datetime"],
+                    "Description" : string_type
                 }
             },
             "SubTotalLineDetail": {
