@@ -201,7 +201,10 @@
     {"name": "DisplayName", "type": "string"},
     {"name": "PrintOnCheckName", "type": "string"},
     {"name": "Active", "type": "boolean"},
-    {"name": "PrimaryEmailAddr", "type": "string"}
+    {"name": "PrimaryEmailAddr", "type": "string"},
+    {"name": "PrimaryPhone", "type": "string"},
+    {"name": "AlternatePhone", "type": "string"},
+    {"name": "Fax", "type": "string"}
   ],
   
   "Employee": [
@@ -275,7 +278,11 @@
     {"name": "MetaData", "type": "string"},
     {"name": "PrefVendorRef", "type": "string"},
     {"name": "Sku", "type": "string"},
-    {"name": "Barcode", "type": "string"}
+    {"name": "Barcode", "type": "string"},
+    {"name": "Description", "type": "string"},
+    {"name": "PurchaseDesc", "type": "string"},
+    {"name": "ExpenseAccountRef", "type": "string"}
+    
   ],
   "JournalEntry": [
     {"name": "Adjustment", "type": "boolean"},
