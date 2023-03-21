@@ -266,6 +266,8 @@
     {"name": "Active", "type": "boolean"},
     {"name": "FullyQualifiedName", "type": "string"},
     {"name": "reorderPoint", "type": "number"},
+    {"name": "SubItem", "type": "boolean"},
+    {"name": "ParentRef", "type": "string"},
     {"name": "Taxable", "type": "boolean"},
     {"name": "UnitPrice", "type": "number"},
     {"name": "Type", "type": "string"},
