@@ -343,6 +343,15 @@ class Quickbooks():
             self.access_token = auth['access_token']
 
             new_refresh_token = auth['refresh_token']
+            
+            # persist access_token
+            parser = argparse.ArgumentParser()
+            parser.add_argument('-c', '--config', help='Config file', required=True)
+            _args, unknown = parser.parse_known_args()
+            config_file = _args.config
+            config_content = read_json_file(config_file)
+            config_content['access_token'] = self.access_token
+            write_json_file(config_file, config_content)
 
             # Check if the refresh token is update, if so update the config file with new refresh token.
             if new_refresh_token != self.refresh_token:
