@@ -16,6 +16,7 @@ from tap_quickbooks.quickbooks.reportstreams.BalanceSheetReport import BalanceSh
 from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerAccrualReport import GeneralLedgerAccrualReport
 from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerCashReport import GeneralLedgerCashReport
 from tap_quickbooks.quickbooks.reportstreams.CashFlowReport import CashFlowReport
+from tap_quickbooks.quickbooks.reportstreams.DailyCashFlowReport import DailyCashFlowReport
 from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import TransactionListReport
 
 from tap_quickbooks.quickbooks.rest import Rest
@@ -438,6 +439,8 @@ class Quickbooks():
             reader = GeneralLedgerCashReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "CashFlowReport":
             reader = CashFlowReport(self, start_date, state_passed)
+        elif catalog_entry["stream"] == "DailyCashFlowReport":
+            reader = DailyCashFlowReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "TransactionListReport":
             reader = TransactionListReport(self, start_date, state_passed)
         else:

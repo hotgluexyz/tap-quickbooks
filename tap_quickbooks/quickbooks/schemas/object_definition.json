@@ -376,6 +376,25 @@
     {"name": "Account", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"}
   ],
+  "DailyCashFlowReport": [
+    {"name": "Total", "type": "number"},
+    {"name": "Account", "type": "string"},
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "DailyTotal", "type": "array", "child_type": "string"}
+
+  ],
+  "Budget": [
+    {"name": "Id", "type": "string"},
+    {"name": "Name", "type": "string"},
+    {"name": "BudgetType", "type": "string"},
+    {"name": "BudgetEntryType", "type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "Active", "type": "boolean"},
+    {"name": "BudgetDetail", "type": "array", "child_type" : "string"}
+  ],
   "GeneralLedgerAccrualReport": [
     {"name": "Date", "type": "string"},
     {"name": "TransactionType", "type": "string"},
