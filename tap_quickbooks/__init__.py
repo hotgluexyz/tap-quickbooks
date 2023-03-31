@@ -264,7 +264,8 @@ def main_impl():
             select_fields_by_default=CONFIG.get('select_fields_by_default'),
             default_start_date=CONFIG.get('start_date'),
             api_type='REST',
-            realm_id = CONFIG.get('realmId'))
+            realm_id = CONFIG.get('realmId'),
+            report_period_days = CONFIG.get('report_period_days'))
         qb.login()
 
         if args.discover:
