@@ -36,7 +36,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
         if 'ColData' in list(row.keys()):
             # Write the row
             data = row.get("ColData")
-            values = [column.get("value") for column in data]
+            values = [column for column in data]
             categories_copy = categories.copy()
             values.append(categories_copy)
             values_copy = values.copy()
@@ -56,18 +56,59 @@ class ProfitAndLossDetailReport(QuickbooksStream):
     def sync(self, catalog_entry):
         full_sync = not self.state_passed
 
+        cols = [
+            "create_by",
+            "create_date",
+            "doc_num",
+            "last_mod_by",
+            "last_mod_date",
+            "memo",
+            "name",
+            "pmt_mthd",
+            "split_acc",
+            "tx_date",
+            "txn_type",
+            "tax_code",
+            "klass_name",
+            "dept_name",
+            "debt_amt",
+            "debt_home_amt",
+            "credit_amt",
+            "credit_home_amt",
+            "currency",
+            "exch_rate",
+            "nat_open_bal",
+            "nat_home_open_bal",
+            "nat_foreign_open_bal",
+            "subt_nat_amount",
+            "subt_nat_home_amount",
+            "subt_nat_amount_nt",
+            "subt_nat_amount_home_nt",
+            "rbal_nat_amount",
+            "rbal_nat_home_amount",
+            "rbal_nat_amount_nt",
+            "rbal_nat_amount_home_nt",
+            "tax_amount",
+            "home_tax_amount",
+            "net_amount",
+            "home_net_amount",
+        ]
+
         if full_sync:
             start_date = self.start_date.date()
             delta = 364
+
             while start_date<datetime.date.today():
                 LOGGER.info(f"Starting full sync of P&L")
                 end_date = (start_date + datetime.timedelta(delta))
                 if end_date>datetime.date.today():
                     end_date = datetime.date.today()
+
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),
                     "end_date": end_date.strftime("%Y-%m-%d"),
-                    "accounting_method": "Accrual"
+                    "accounting_method": "Accrual",
+                    "columns": ",".join(cols)
                 }
 
                 LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
@@ -103,13 +144,15 @@ class ProfitAndLossDetailReport(QuickbooksStream):
 
                     cleansed_row = {}
                     for k, v in row.items():
-                        if v == "":
-                            continue
+                        if isinstance(v, dict):
+                            cleansed_row[k] = v.get("value")
+                            if "id" in v:
+                                cleansed_row[f"{k}Id"] = v.get("id")
                         else:
-                            cleansed_row.update({k: v})
+                            cleansed_row[k] = v
 
-                    cleansed_row["Amount"] = float(row.get("Amount"))
-                    cleansed_row["Balance"] = float(row.get("Balance"))
+                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
+                    cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
 
                     yield cleansed_row
@@ -122,7 +165,8 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),
                     "end_date": end_date.strftime("%Y-%m-%d"),
-                    "accounting_method": "Accrual"
+                    "accounting_method": "Accrual",
+                    "columns": ",".join(cols)
                 }
 
                 LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
@@ -154,13 +198,15 @@ class ProfitAndLossDetailReport(QuickbooksStream):
 
                     cleansed_row = {}
                     for k, v in row.items():
-                        if v == "":
-                            continue
+                        if isinstance(v, dict):
+                            cleansed_row[k] = v.get("value")
+                            if "id" in v:
+                                cleansed_row[f"{k}Id"] = v.get("id")
                         else:
-                            cleansed_row.update({k: v})
+                            cleansed_row[k] = v
 
-                    cleansed_row["Amount"] = float(row.get("Amount"))
-                    cleansed_row["Balance"] = float(row.get("Balance"))
+                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
+                    cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
 
                     yield cleansed_row
