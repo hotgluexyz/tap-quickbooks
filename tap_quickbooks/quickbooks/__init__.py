@@ -222,8 +222,10 @@ class Quickbooks():
                  select_fields_by_default=None,
                  default_start_date=None,
                  api_type=None,
+                 report_period_days = None,
                  realm_id=None):
         self.api_type = api_type.upper() if api_type else None
+        self.report_period_days = report_period_days
         self.realm_id = realm_id
         self.refresh_token = refresh_token
         self.token = token
