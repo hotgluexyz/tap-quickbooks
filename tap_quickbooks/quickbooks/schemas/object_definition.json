@@ -540,6 +540,8 @@
     {"name": "Split", "type": "string"},
     {"name": "Class", "type": "string"},
     {"name": "ClassId", "type": "string"},
+    {"name": "LocationId", "type": "string"},
+    {"name": "Location", "type": "string"},
     {"name": "Amount", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"}
   ]
