@@ -540,8 +540,6 @@
     {"name": "Split", "type": "string"},
     {"name": "Class", "type": "string"},
     {"name": "ClassId", "type": "string"},
-    {"name": "DepartmentId", "type": "string"},
-    {"name": "Department", "type": "string"},
     {"name": "Amount", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"}
   ]
