@@ -59,10 +59,39 @@ class TransactionListReport(QuickbooksStream):
             LOGGER.info(f"Starting full sync of TransactionListReport")
             end_date = datetime.date.today()
             start_date = self.start_date
+            cols = [
+                'account_name',
+                'create_by',
+                'create_date',
+                'cust_msg',
+                'due_date',
+                'doc_num',
+                'inv_date',
+                'is_ap_paid',
+                'is_cleared',
+                'is_no_post',
+                'last_mod_by',
+                'memo',
+                'name',
+                'other_account',
+                'pmt_mthd',
+                'printed',
+                'sales_cust1',
+                'sales_cust2',
+                'sales_cust3',
+                'term_name',
+                'tracking_num',
+                'tx_date',
+                'txn_type',
+                'term_name',
+                'dept_name',
+                'subt_nat_amount'
+            ]
             params = {
                 "start_date": start_date.strftime("%Y-%m-%d"),
                 "end_date": end_date.strftime("%Y-%m-%d"),
-                "accounting_method": "Accrual"
+                "accounting_method": "Accrual",
+                "columns": ",".join(cols)
             }
 
             LOGGER.info(f"Fetch TransactionListReport for period {params['start_date']} to {params['end_date']}")
