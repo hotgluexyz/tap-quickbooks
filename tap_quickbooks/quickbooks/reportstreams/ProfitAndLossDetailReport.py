@@ -15,6 +15,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
     stream: ClassVar[str] = 'ProfitAndLossDetailReport'
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
+    current_account = {}
 
     def __init__(self, qb, start_date, state_passed):
         self.qb = qb
@@ -33,6 +34,10 @@ class ProfitAndLossDetailReport(QuickbooksStream):
 
     def _recursive_row_search(self, row, output, categories):
         row_group = row.get("Rows")
+        if row.get("type")=="Section":
+            if row.get("Header", {}).get("ColData", [{}]):
+                if row.get("Header", {}).get("ColData", [{}])[0].get("id"):
+                    self.current_account = row.get("Header", {}).get("ColData", [{}])[0]
         if 'ColData' in list(row.keys()):
             # Write the row
             data = row.get("ColData")
@@ -40,6 +45,8 @@ class ProfitAndLossDetailReport(QuickbooksStream):
             categories_copy = categories.copy()
             values.append(categories_copy)
             values_copy = values.copy()
+            if values_copy:
+                values_copy += [self.current_account]
             output.append(values_copy)
         elif row_group is None or row_group == {}:
             pass
@@ -117,6 +124,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
+                columns += ["Account"]
 
                 # Recursively get row data.
                 row_group = resp.get("Rows")
@@ -136,11 +144,6 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     if not row.get("Amount"):
                         # If a row is missing the amount, skip it
                         continue
-                    try:
-                        #if date is parse means its valid
-                        parse(row.get('Date'))
-                    except:
-                        continue    
 
                     cleansed_row = {}
                     for k, v in row.items():
@@ -154,6 +157,8 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
                     cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                    if cleansed_row.get('Date'):
+                        cleansed_row["Date"] = parse(cleansed_row['Date'])
 
                     yield cleansed_row
         else:
@@ -208,6 +213,8 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
                     cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                    if cleansed_row.get('Date'):
+                        cleansed_row["Date"] = parse(cleansed_row['Date'])
 
                     yield cleansed_row
 
