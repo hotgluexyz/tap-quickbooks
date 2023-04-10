@@ -390,6 +390,13 @@
     {"name": "DailyTotal", "type": "array", "child_type": "string"}
 
   ],
+  "MonthlyCashFlowReport": [
+    {"name": "Total", "type": "number"},
+    {"name": "Account", "type": "string"},
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "MonthlyTotal", "type": "array", "child_type": "string"}
+
+  ],
   "Budget": [
     {"name": "Id", "type": "string"},
     {"name": "Name", "type": "string"},
