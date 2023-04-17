@@ -163,7 +163,8 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
             "DiscountLineDetail": {
                 "type": object_type["type"],
                 "properties": {
-                    "DiscountAccountRef": qb_types["object_reference"]
+                    "DiscountAccountRef": qb_types["object_reference"],
+                    "DiscountPercent": number_type
                 }
             },
             "DescriptionLineDetail": {
