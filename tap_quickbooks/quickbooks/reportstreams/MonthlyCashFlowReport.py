@@ -59,7 +59,7 @@ class MonthlyCashFlowReport(QuickbooksStream):
 
         if full_sync or self.qb.report_period_days:
             LOGGER.info(f"Starting full sync of MonthlyCashFlow")
-            end_date = datetime.date.today() + datetime.timedelta(60)
+            end_date = datetime.date.today() 
             if self.qb.report_period_days:
                 start_date = datetime.date.today() - datetime.timedelta(int(self.qb.report_period_days))
             else:

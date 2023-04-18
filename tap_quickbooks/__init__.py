@@ -25,7 +25,8 @@ CONFIG = {
     'refresh_token': None,
     'client_id': None,
     'client_secret': None,
-    'start_date': None
+    'start_date': None,
+    'include_deleted': None
 }
 
 REPLICATION_KEY="MetaData.LastUpdatedTime"
@@ -263,6 +264,7 @@ def main_impl():
             is_sandbox=CONFIG.get('is_sandbox'),
             select_fields_by_default=CONFIG.get('select_fields_by_default'),
             default_start_date=CONFIG.get('start_date'),
+            include_deleted = CONFIG.get('include_deleted'),
             api_type='REST',
             realm_id = CONFIG.get('realmId'),
             report_period_days = CONFIG.get('report_period_days'))

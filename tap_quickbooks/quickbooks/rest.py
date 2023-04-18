@@ -103,6 +103,13 @@ class Rest():
         max = 100
         while True:
             headers.update(self.qb._get_standard_headers())
+            records_deleted = []
+            if self.qb.include_deleted:
+                # Get the deleted records first
+                params['query'] = f"{query} where Active = false  STARTPOSITION {offset} MAXRESULTS {max}" 
+                resp = self.qb._make_request('GET', url, headers=headers, params=params)
+                resp_json_deleted = resp.json()
+                records_deleted = resp_json_deleted['QueryResponse'][stream];
             params['query'] = f"{query}  STARTPOSITION {offset} MAXRESULTS {max}"
             resp = self.qb._make_request('GET', url, headers=headers, params=params)
             resp_json = resp.json()
@@ -115,6 +122,7 @@ class Rest():
                 break;
 
             records = resp_json['QueryResponse'][stream];
+            records = records + records_deleted
 
             for i, rec in enumerate(records):
                 yield rec
