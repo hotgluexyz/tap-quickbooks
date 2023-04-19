@@ -188,6 +188,7 @@
     {"name": "PaymentMethodRef", "type": "string"},
     {"name": "OpenBalanceDate", "type": "datetime"},
     {"name": "CustomerTypeRef", "type": "string"},
+    {"name": "SalesTermRef", "type": "string"},
     {"name": "Taxable", "type": "boolean"},
     {"name": "DefaultTaxCodeRef", "type": "string"},
     {"name": "Balance", "type": "number"},
@@ -246,6 +247,8 @@
     {"name":"TxnDate", "type": "datetime"},
     {"name":"CurrencyRef", "type": "string"},
     {"name":"CustomerRef", "type": "string"},
+    {"name": "CustomerMemo", "type": "string"},
+    
     {"name":"ClassRef", "type": "string"},
     {"name":"Line", "type": "array", "child_type": "invoice_line"},
     {"name": "PrivateNote", "type": "string"},
