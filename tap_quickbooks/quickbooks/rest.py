@@ -109,7 +109,8 @@ class Rest():
                 params['query'] = f"{query} where Active = false  STARTPOSITION {offset} MAXRESULTS {max}" 
                 resp = self.qb._make_request('GET', url, headers=headers, params=params)
                 resp_json_deleted = resp.json()
-                records_deleted = resp_json_deleted['QueryResponse'][stream];
+                if resp_json_deleted['QueryResponse'].get(stream):
+                    records_deleted = resp_json_deleted['QueryResponse'][stream];
             params['query'] = f"{query}  STARTPOSITION {offset} MAXRESULTS {max}"
             resp = self.qb._make_request('GET', url, headers=headers, params=params)
             resp_json = resp.json()
