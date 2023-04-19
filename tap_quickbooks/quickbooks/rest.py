@@ -104,7 +104,9 @@ class Rest():
         while True:
             headers.update(self.qb._get_standard_headers())
             records_deleted = []
-            if self.qb.include_deleted:
+            excluded_entities = ["Bill", "Payment", "Transfer", "CompanyInfo", "CreditMemo", "Invoice",
+                                 "JournalEntry", "Preferences", "Purchase", "SalesReceipt", "TimeActivity"]
+            if self.qb.include_deleted and stream not in excluded_entities:
                 # Get the deleted records first
                 params['query'] = f"{query} where Active = false  STARTPOSITION {offset} MAXRESULTS {max}" 
                 resp = self.qb._make_request('GET', url, headers=headers, params=params)
