@@ -221,6 +221,7 @@ class Quickbooks():
                  quota_percent_per_run=None,
                  quota_percent_total=None,
                  is_sandbox=None,
+                 include_deleted = None,
                  select_fields_by_default=None,
                  default_start_date=None,
                  api_type=None,
@@ -228,6 +229,7 @@ class Quickbooks():
                  realm_id=None):
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
+        self.include_deleted = include_deleted
         self.realm_id = realm_id
         self.refresh_token = refresh_token
         self.token = token
