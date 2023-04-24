@@ -57,13 +57,10 @@ class MonthlyCashFlowReport(QuickbooksStream):
     def sync(self, catalog_entry):
         full_sync = not self.state_passed
 
-        if full_sync or self.qb.report_period_days:
+        if full_sync:
             LOGGER.info(f"Starting full sync of MonthlyCashFlow")
             end_date = datetime.date.today() 
-            if self.qb.report_period_days:
-                start_date = datetime.date.today() - datetime.timedelta(int(self.qb.report_period_days))
-            else:
-                start_date = self.start_date
+            start_date = self.start_date
             params = {
                 "start_date": start_date.strftime("%Y-%m-%d"),
                 "end_date": end_date.strftime("%Y-%m-%d"),
