@@ -108,7 +108,11 @@ class Rest():
                                  "JournalEntry", "Preferences", "Purchase", "SalesReceipt", "TimeActivity"]
             if self.qb.include_deleted and stream not in excluded_entities:
                 # Get the deleted records first
-                params['query'] = f"{query} where Active = false  STARTPOSITION {offset} MAXRESULTS {max}" 
+                if "WHERE" in query:
+                    query = query.replace("WHERE", "where Active = false and")
+                    params['query'] = f"{query}  STARTPOSITION {offset} MAXRESULTS {max}"
+                else:
+                    params['query'] = f"{query} where Active = false  STARTPOSITION {offset} MAXRESULTS {max}" 
                 resp = self.qb._make_request('GET', url, headers=headers, params=params)
                 resp_json_deleted = resp.json()
                 if resp_json_deleted['QueryResponse'].get(stream):
