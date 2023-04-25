@@ -109,8 +109,8 @@ class Rest():
             if self.qb.include_deleted and stream not in excluded_entities:
                 # Get the deleted records first
                 if "WHERE" in query:
-                    query = query.replace("WHERE", "where Active = false and")
-                    params['query'] = f"{query}  STARTPOSITION {offset} MAXRESULTS {max}"
+                    query_deleted = query.replace("WHERE", "where Active = false and")
+                    params['query'] = f"{query_deleted}  STARTPOSITION {offset} MAXRESULTS {max}"
                 else:
                     params['query'] = f"{query} where Active = false  STARTPOSITION {offset} MAXRESULTS {max}" 
                 resp = self.qb._make_request('GET', url, headers=headers, params=params)
