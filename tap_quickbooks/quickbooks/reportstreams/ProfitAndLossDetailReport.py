@@ -158,7 +158,10 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     if cleansed_row.get('Date'):
-                        cleansed_row["Date"] = parse(cleansed_row['Date'])
+                        try:
+                            cleansed_row["Date"] = parse(cleansed_row['Date'])
+                        except:
+                            continue
 
                     yield cleansed_row
         else:
