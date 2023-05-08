@@ -449,7 +449,7 @@ class Quickbooks():
         start_date = singer_utils.strptime_with_tz(self.get_start_date(state, catalog_entry))
         if catalog_entry["stream"] == "BalanceSheetReport":
             reader = BalanceSheetReport(self, start_date, state_passed)
-        if catalog_entry["stream"] == "MonthlyBalanceSheetReport":
+        elif catalog_entry["stream"] == "MonthlyBalanceSheetReport":
             reader = MonthlyBalanceSheetReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "GeneralLedgerAccrualReport":
             reader = GeneralLedgerAccrualReport(self, start_date, state_passed)
