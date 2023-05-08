@@ -227,9 +227,11 @@ class Quickbooks():
                  default_start_date=None,
                  api_type=None,
                  report_period_days = None,
+                 report_period_gl = None,
                  realm_id=None):
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
+        self.report_period_gl = report_period_gl
         self.include_deleted = include_deleted
         self.realm_id = realm_id
         self.refresh_token = refresh_token

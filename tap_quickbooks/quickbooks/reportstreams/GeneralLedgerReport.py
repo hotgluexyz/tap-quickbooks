@@ -132,8 +132,12 @@ class GeneralLedgerReport(QuickbooksStream):
 
         if full_sync:
             LOGGER.info(f"Starting full sync of GeneralLedgerReport")
+            if self.qb.report_period_gl:
+                start_date = datetime.date.today() - datetime.timedelta(int(self.qb.report_period_gl))
+            else:
+                start_date = self.start_date
             params["end_date"] = datetime.date.today().strftime("%Y-%m-%d")
-            params["start_date"] = self.start_date.strftime("%Y-%m-%d")
+            params["start_date"] = start_date.strftime("%Y-%m-%d")
 
             LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
             resp = self._get(report_entity='GeneralLedger', params=params)
