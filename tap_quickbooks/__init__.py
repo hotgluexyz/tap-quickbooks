@@ -267,7 +267,8 @@ def main_impl():
             include_deleted = CONFIG.get('include_deleted'),
             api_type='REST',
             realm_id = CONFIG.get('realmId'),
-            report_period_days = CONFIG.get('report_period_days'))
+            report_period_days = CONFIG.get('report_period_days'),
+            report_period_gl = CONFIG.get('report_period_gl'))
         qb.login()
 
         if args.discover:
