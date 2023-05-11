@@ -130,6 +130,7 @@ class GeneralLedgerReport(QuickbooksStream):
             "columns": ",".join(cols)
         }
 
+
         if full_sync or self.qb.gl_full_sync:
             LOGGER.info(f"Starting full sync of GeneralLedgerReport")
             start_date = self.start_date
