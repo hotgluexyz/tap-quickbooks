@@ -132,6 +132,20 @@
     {"name": "MetaData", "type": "string"}
   ],
 
+  "TaxCode": [
+    {"name": "Id", "type": "string"},
+    {"name": "Name", "type": "string"},
+    {"name": "PurchaseTaxRateList", "type": "string"},
+    {"name": "SalesTaxRateList", "type": "string"},
+    {"name": "TaxGroup", "type": "string"},
+    {"name": "Taxable", "type": "string"},
+    {"name": "Active", "type": "string"},
+    {"name": "Description", "type": "string"},
+    {"name": "Hidden", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "TaxCodeConfigType", "type": "string"}
+  ],
+
   "Term": [
     {"name": "Id", "type": "string"},
     {"name": "Name", "type": "string"},
