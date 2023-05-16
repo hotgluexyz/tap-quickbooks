@@ -142,7 +142,8 @@ def do_discover(qb):
                 {
                     'replication-method': 'FULL_TABLE',
                     'reason': 'No replication keys found from the Quickbooks API'})
-
+        if sobject_name in ["GeneralLedgerCashReport","GeneralLedgerAccrualReport"]:
+            key_properties = []
         mdata = metadata.write(mdata, (), 'table-key-properties', key_properties)
 
         schema = {
