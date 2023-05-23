@@ -397,6 +397,27 @@
     {"name": "Active", "type": "boolean"},
     {"name": "Balance", "type": "number"}
   ],
+
+  "BillPayment": [
+    {"name": "Id", "type": "string"},
+    {"name": "VendorRef", "type": "string"},
+    {"name": "Line", "type": "string"},
+    {"name": "TotalAmt", "type": "number"},
+    {"name": "PayType", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "CurrencyRef", "type": "string"},
+    {"name": "DocNumber", "type": "string"},
+    {"name": "PrivateNote", "type": "string"},
+    {"name": "TxnDate", "type": "string"},
+    {"name": "ExchangeRate", "type": "number"},
+    {"name": "APAccountRef", "type": "string"},
+    {"name": "DepartmentRef", "type": "string"},
+    {"name": "ProcessBillPayment", "type": "boolean"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "CheckPayment", "type": "string"},
+    {"name": "CreditCardPayment", "type": "string"}
+  ],
+
   "BalanceSheetReport": [
     {"name": "Total", "type": "number"},
     {"name": "Account", "type": "string"},
