@@ -111,7 +111,7 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
     }
 
     array_type = {
-        "type": "array"
+        "type": ["null", "array"]
     }
 
     qb_types = {
