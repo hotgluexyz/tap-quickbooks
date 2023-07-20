@@ -91,9 +91,14 @@ class DailyCashFlowReport(QuickbooksStream):
         if full_sync or self.qb.report_period_days:
             LOGGER.info(f"Starting full sync of CashFlow")
             current_date = datetime.datetime.now() - timedelta(days=1)
-            end_date = datetime.date.today() + datetime.timedelta(60)
+            #getting today's date as a datetime to avoid type errors
+            min_time = datetime.datetime.min.time()
+            today = datetime.date.today()
+            today_datetime = datetime.datetime.combine(today, min_time)
+            #-
+            end_date = today_datetime + datetime.timedelta(60)
             if self.qb.report_period_days:
-                start_date = datetime.date.today() - datetime.timedelta(int(self.qb.report_period_days))
+                start_date = today_datetime - datetime.timedelta(int(self.qb.report_period_days))
             else:
                 start_date = self.start_date
 
