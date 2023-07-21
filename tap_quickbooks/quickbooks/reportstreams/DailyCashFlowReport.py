@@ -6,6 +6,7 @@ import singer
 
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
+from dateutil.relativedelta import relativedelta
 
 
 LOGGER = singer.get_logger()
@@ -68,13 +69,9 @@ class DailyCashFlowReport(QuickbooksStream):
         return months_difference > 33
     
     def add_months(self, date_obj):
-        months=33
+        months_qty=33
         # Calculate the new year and month after adding months
-        new_year = date_obj.year + (date_obj.month + months - 1) // 12
-        new_month = (date_obj.month + months - 1) % 12 + 1
-
-        # Create the new date object with the calculated year and month
-        new_date_obj = datetime.datetime(new_year, new_month, date_obj.day)
+        new_date_obj = date_obj + relativedelta(months=+months_qty)
         return new_date_obj
     
     def correct_end_date(self, end_date, start_date, current_date):
