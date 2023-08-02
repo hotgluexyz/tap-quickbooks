@@ -78,7 +78,6 @@ class DailyCashFlowReport(QuickbooksStream):
         if end_date > current_date:
             # If end_date is greater than today then fetch report for yesterday.
             end_date = current_date - timedelta(days=1)
-        start_date = start_date.replace(tzinfo=None)
         if end_date <= start_date:
             end_date = start_date
         return end_date
@@ -98,6 +97,7 @@ class DailyCashFlowReport(QuickbooksStream):
                 start_date = today_datetime - datetime.timedelta(int(self.qb.report_period_days))
             else:
                 start_date = self.start_date
+            start_date = start_date.replace(tzinfo=None)
 
             if self.check_date_greater_than_months(start_date):
                 end_date = self.add_months(start_date)
