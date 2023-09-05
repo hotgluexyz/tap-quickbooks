@@ -159,8 +159,9 @@ class GeneralLedgerReport(QuickbooksStream):
                 row_group = resp.get("Rows")
                 row_array = row_group.get("Row")
 
+                start_date = end_date
                 if row_array is None:
-                    return
+                    continue
 
                 output = []
                 categories = []
@@ -168,7 +169,6 @@ class GeneralLedgerReport(QuickbooksStream):
                     self._recursive_row_search(row, output, categories)
 
                 yield from self.clean_row(output, columns)
-                start_date = end_date
         else:
             LOGGER.info(f"Syncing GeneralLedgerReport of last {NUMBER_OF_PERIODS} periods")
             end_date = datetime.date.today()
