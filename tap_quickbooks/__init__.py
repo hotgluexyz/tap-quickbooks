@@ -269,7 +269,8 @@ def main_impl():
             api_type='REST',
             realm_id = CONFIG.get('realmId'),
             report_period_days = CONFIG.get('report_period_days'),
-            gl_full_sync = CONFIG.get('gl_full_sync'))
+            gl_full_sync = CONFIG.get('gl_full_sync'),
+            gl_weekly = CONFIG.get('gl_weekly'))
         qb.login()
 
         if args.discover:

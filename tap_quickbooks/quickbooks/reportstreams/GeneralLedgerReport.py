@@ -5,6 +5,7 @@ import singer
 
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
+from dateutil.relativedelta import relativedelta
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
@@ -134,28 +135,51 @@ class GeneralLedgerReport(QuickbooksStream):
         if full_sync or self.qb.gl_full_sync:
             LOGGER.info(f"Starting full sync of GeneralLedgerReport")
             start_date = self.start_date
-            params["end_date"] = datetime.date.today().strftime("%Y-%m-%d")
-            params["start_date"] = start_date.strftime("%Y-%m-%d")
+            start_date = start_date.replace(tzinfo=None)
+            min_time = datetime.datetime.min.time()
+            today = datetime.date.today()
+            today = datetime.datetime.combine(today, min_time)
 
-            LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
-            resp = self._get(report_entity='GeneralLedger', params=params)
 
-            # Get column metadata.
-            columns = self._get_column_metadata(resp)
+            while start_date < today:   
+                if self.qb.gl_weekly:
+                    if (today - start_date).days <= 7:
+                        end_date = today
+                        params["end_date"] = today.strftime("%Y-%m-%d")
+                    else:
+                        end_date = start_date + relativedelta(days=+7)
+                        params["end_date"] = (end_date - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
-            # Recursively get row data.
-            row_group = resp.get("Rows")
-            row_array = row_group.get("Row")
+                else:                 
+                    if start_date.month == today.month and start_date.year == today.year:
+                        end_date = today
+                        params["end_date"] = today.strftime("%Y-%m-%d")
+                    else:
+                        end_date = start_date + relativedelta(months=+1)
+                        params["end_date"] = (end_date - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
-            if row_array is None:
-                return
+                params["start_date"] = start_date.strftime("%Y-%m-%d")
 
-            output = []
-            categories = []
-            for row in row_array:
-                self._recursive_row_search(row, output, categories)
+                LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
+                resp = self._get(report_entity='GeneralLedger', params=params)
 
-            yield from self.clean_row(output, columns)
+                # Get column metadata.
+                columns = self._get_column_metadata(resp)
+
+                # Recursively get row data.
+                row_group = resp.get("Rows")
+                row_array = row_group.get("Row")
+
+                start_date = end_date
+                if row_array is None:
+                    continue
+
+                output = []
+                categories = []
+                for row in row_array:
+                    self._recursive_row_search(row, output, categories)
+
+                yield from self.clean_row(output, columns)
         else:
             LOGGER.info(f"Syncing GeneralLedgerReport of last {NUMBER_OF_PERIODS} periods")
             end_date = datetime.date.today()
