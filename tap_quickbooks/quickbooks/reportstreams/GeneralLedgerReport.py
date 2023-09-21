@@ -140,6 +140,7 @@ class GeneralLedgerReport(QuickbooksStream):
             today = datetime.date.today()
             today = datetime.datetime.combine(today, min_time)
 
+
             while start_date < today:   
                 if self.qb.gl_weekly:
                     if (today - start_date).days <= 7:
@@ -156,6 +157,7 @@ class GeneralLedgerReport(QuickbooksStream):
                     else:
                         end_date = start_date + relativedelta(months=+1)
                         params["end_date"] = (end_date - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+
                 params["start_date"] = start_date.strftime("%Y-%m-%d")
 
                 LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
