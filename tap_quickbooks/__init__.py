@@ -270,7 +270,8 @@ def main_impl():
             realm_id = CONFIG.get('realmId'),
             report_period_days = CONFIG.get('report_period_days'),
             gl_full_sync = CONFIG.get('gl_full_sync'),
-            gl_weekly = CONFIG.get('gl_weekly'))
+            gl_weekly = CONFIG.get('gl_weekly', False),
+            gl_daily = CONFIG.get('gl_daily', False))
         qb.login()
 
         if args.discover:
