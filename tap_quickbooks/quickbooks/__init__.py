@@ -230,12 +230,14 @@ class Quickbooks():
                  gl_full_sync = None,
                  gl_weekly = None,
                  gl_daily = None,
+                 gl_basic_fields = None,
                  realm_id=None):
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
         self.gl_weekly = gl_weekly
         self.gl_daily = gl_daily
+        self.gl_basic_fields = gl_basic_fields
         self.include_deleted = include_deleted
         self.realm_id = realm_id
         self.refresh_token = refresh_token
