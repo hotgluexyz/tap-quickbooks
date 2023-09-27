@@ -14,6 +14,8 @@ NUMBER_OF_PERIODS = 3
 class GeneralLedgerReport(QuickbooksStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
+    gl_weekly = False
+    gl_daily = False
 
     def __init__(self, qb, start_date, state_passed):
         self.qb = qb
@@ -156,7 +158,7 @@ class GeneralLedgerReport(QuickbooksStream):
 
 
             while start_date < today:   
-                if self.qb.gl_daily:
+                if self.qb.gl_daily or self.gl_daily:
                     if (today - start_date).days <= 1:
                         end_date = today
                         params["end_date"] = today.strftime("%Y-%m-%d")
@@ -164,7 +166,7 @@ class GeneralLedgerReport(QuickbooksStream):
                         end_date = start_date + relativedelta(days=+1)
                         params["end_date"] = (end_date - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
-                elif self.qb.gl_weekly:
+                elif self.qb.gl_weekly or self.gl_weekly:
                     if (today - start_date).days <= 7:
                         end_date = today
                         params["end_date"] = today.strftime("%Y-%m-%d")
@@ -185,22 +187,21 @@ class GeneralLedgerReport(QuickbooksStream):
                 LOGGER.info(f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}")
                 resp = self._get(report_entity='GeneralLedger', params=params)
 
-                rows = resp.get("Rows", {}).get("Row")
-                rows = rows[-1].get("Rows", {}).get("Row")[-1].get("ColData", []) if rows else None
-                if rows:
-                    resp_msg = rows[0].get("value")
-                    if resp_msg == "Unable to display more data. Please reduce the date range.":
-                        if not self.qb.gl_weekly and not self.qb.gl_daily:
-                            self.qb.gl_weekly = True
+                if not self.qb.gl_weekly and not self.qb.gl_daily:
+                    str_resp = str(resp)
+                    if "Unable to display more data. Please reduce the date range." in str_resp:
+                        if not self.gl_weekly and not self.gl_daily:
+                            self.gl_weekly = True
                             continue
-                        elif self.qb.gl_weekly and not self.qb.gl_daily:
-                            self.qb.gl_weekly = False
-                            self.qb.gl_daily = True
+                        elif self.gl_weekly and not self.gl_daily:
+                            self.gl_weekly = False
+                            self.gl_daily = True
                             continue
-                        elif self.qb.gl_daily:
+                        elif self.gl_daily:
                             logging.warning(f"Data limit exceeded for day {end_date}")
-                self.qb.gl_weekly = False
-                self.qb.gl_daily = False
+                    del str_resp
+                    self.gl_weekly = False
+                    self.gl_daily = False
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
