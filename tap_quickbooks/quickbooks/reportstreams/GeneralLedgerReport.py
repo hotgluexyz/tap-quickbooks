@@ -6,6 +6,7 @@ import singer
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
 from dateutil.relativedelta import relativedelta
+import logging
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
@@ -81,50 +82,63 @@ class GeneralLedgerReport(QuickbooksStream):
     def sync(self, catalog_entry):
         full_sync = not self.state_passed
 
-        cols = [
-            "account_name",
-            "chk_print_state",
-            "create_by",
-            "create_date",
-            "cust_name",
-            "doc_num",
-            "emp_name",
-            "inv_date",
-            "is_adj",
-            "is_ap_paid",
-            "is_ar_paid",
-            "is_cleared",
-            "item_name",
-            "last_mod_by",
-            "last_mod_date",
-            "memo",
-            "name",
-            "quantity",
-            "rate",
-            "split_acc",
-            "tx_date",
-            "txn_type",
-            "vend_name",
-            "net_amount",
-            "tax_amount",
-            "tax_code",
-            "account_num",
-            "klass_name",
-            "dept_name",
-            "debt_amt",
-            "credit_amt",
-            "nat_open_bal",
-            "subt_nat_amount",
-            "subt_nat_amount_nt",
-            "debt_home_amt",
-            "credit_home_amt",
-            "currency",
-            "exch_rate",
-            "nat_home_open_bal",
-            "nat_foreign_open_bal",
-            "subt_nat_home_amount",
-            "subt_nat_amount_home_nt",
-        ]
+        if self.qb.gl_basic_fields:
+            cols = [
+                "tx_date",
+                "subt_nat_amount",
+                "credit_amt",
+                "debt_amt",
+                "account_num",
+                "klass_name",
+                "dept_name",
+                "item_name",
+                "vend_name"
+            ]
+        else:
+            cols = [
+                "account_name",
+                "chk_print_state",
+                "create_by",
+                "create_date",
+                "cust_name",
+                "doc_num",
+                "emp_name",
+                "inv_date",
+                "is_adj",
+                "is_ap_paid",
+                "is_ar_paid",
+                "is_cleared",
+                "item_name",
+                "last_mod_by",
+                "last_mod_date",
+                "memo",
+                "name",
+                "quantity",
+                "rate",
+                "split_acc",
+                "tx_date",
+                "txn_type",
+                "vend_name",
+                "net_amount",
+                "tax_amount",
+                "tax_code",
+                "account_num",
+                "klass_name",
+                "dept_name",
+                "debt_amt",
+                "credit_amt",
+                "nat_open_bal",
+                "subt_nat_amount",
+                "subt_nat_amount_nt",
+                "debt_home_amt",
+                "credit_home_amt",
+                "currency",
+                "exch_rate",
+                "nat_home_open_bal",
+                "nat_foreign_open_bal",
+                "subt_nat_home_amount",
+                "subt_nat_amount_home_nt",
+            ]
         
         params = {
             "accounting_method": self.accounting_method,
@@ -183,6 +197,8 @@ class GeneralLedgerReport(QuickbooksStream):
                             self.qb.gl_weekly = False
                             self.qb.gl_daily = True
                             continue
+                        elif self.qb.gl_daily:
+                            logging.warning(f"Data limit exceeded for day {end_date}")
                 self.qb.gl_weekly = False
                 self.qb.gl_daily = False
 

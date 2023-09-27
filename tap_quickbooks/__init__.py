@@ -271,7 +271,8 @@ def main_impl():
             report_period_days = CONFIG.get('report_period_days'),
             gl_full_sync = CONFIG.get('gl_full_sync'),
             gl_weekly = CONFIG.get('gl_weekly', False),
-            gl_daily = CONFIG.get('gl_daily', False))
+            gl_daily = CONFIG.get('gl_daily', False),
+            gl_basic_fields = CONFIG.get('gl_basic_fields', False))
         qb.login()
 
         if args.discover:
