@@ -182,14 +182,14 @@ class GeneralLedgerReport(QuickbooksStream):
                 # get the number of days and max number of requests
                 if self.qb.gl_daily or self.gl_daily:
                     period_days = 1
-                    max_requests = 7
+                    max_requests = 10
 
                 elif self.qb.gl_weekly or self.gl_weekly:
                     period_days = 7
-                    max_requests = 4
+                    max_requests = 10
                 else:
                     day1, period_days = monthrange(start_date.year, start_date.month)
-                    max_requests = 1
+                    max_requests = 10
 
                 # calculate end date
                 if (today - start_date).days <= period_days:
@@ -239,7 +239,7 @@ class GeneralLedgerReport(QuickbooksStream):
                         elif self.gl_weekly and not self.gl_daily:
                             self.gl_weekly = False
                             self.gl_daily = True
-                        continue
+                        break
                     else:
                         self.gl_weekly = False
                         self.gl_daily = False
