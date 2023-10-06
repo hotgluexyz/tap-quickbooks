@@ -371,7 +371,7 @@ class Quickbooks():
             # Check if the refresh token is update, if so update the config file with new refresh token.
             if new_refresh_token != self.refresh_token:
                 LOGGER.info(f"Old refresh token [{self.refresh_token}] expired.")
-                LOGGER.info("Refresh token response: {}".format(auth))
+                LOGGER.info("New Refresh token: {}".format(new_refresh_token))
                 parser = argparse.ArgumentParser()
                 parser.add_argument('-c', '--config', help='Config file', required=True)
                 _args, unknown = parser.parse_known_args()
