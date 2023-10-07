@@ -208,9 +208,9 @@ class GeneralLedgerReport(QuickbooksStream):
                 start_date = end_date
 
                 # get the data
-                if len(requests_params) < max_requests:
+                if len(requests_params) < max_requests and end_date < today:
                     continue
-                else:
+                elif len(requests_params) == max_requests or end_date == today:
                     [
                         LOGGER.info(
                             f"Fetch GeneralLedgerReport for period {x['start_date']} to {x['end_date']}"
