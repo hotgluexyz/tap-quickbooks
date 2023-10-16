@@ -168,7 +168,10 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                 }
             },
             "SubTotalLineDetail": {
-                "type": object_type["type"]
+                "type": object_type["type"],
+                "properties": {
+                    "ItemRef": qb_types["ref_type"]
+                }
             },
             "DiscountLineDetail": {
                 "type": object_type["type"],
