@@ -114,6 +114,14 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         "type": ["null", "array"]
     }
 
+    ref_type = {
+        "type": object_type["type"],
+        "properties": {
+            "value": string_type,
+            "name": string_type,
+        }
+    }
+
     qb_types = {
         "number": number_type,
         "string": string_type,
@@ -124,13 +132,14 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         "object_reference": string_type,
         "email": string_type,
         "address": string_type,
-        "metadata": string_type
+        "metadata": string_type,
+        "ref_type": ref_type
     }
 
     qb_types["custom_field"] = {
         "type": object_type["type"],
         "properties": {
-            "DefinitionId": string_type,
+            "value": string_type,
             "Name": string_type,
             "Type": string_type,
             "StringValue": string_type
@@ -148,10 +157,10 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
             "SalesItemLineDetail": {
                 "type": object_type["type"],
                 "properties": {
-                    "ItemRef": qb_types["object_reference"],
-                    "ClassRef": qb_types["object_reference"],
-                    "ItemAccountRef": qb_types["object_reference"],
-                    "TaxCodeRef": qb_types["object_reference"],
+                    "ItemRef": qb_types["ref_type"],
+                    "ClassRef": qb_types["ref_type"],
+                    "ItemAccountRef": qb_types["ref_type"],
+                    "TaxCodeRef": qb_types["ref_type"],
                     "Qty": number_type,
                     "UnitPrice": number_type,
                     "ServiceDate": qb_types["datetime"],
