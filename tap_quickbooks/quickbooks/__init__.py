@@ -139,6 +139,7 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
     qb_types["custom_field"] = {
         "type": object_type["type"],
         "properties": {
+            "DefinitionId": string_type,
             "value": string_type,
             "Name": string_type,
             "Type": string_type,
