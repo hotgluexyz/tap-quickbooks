@@ -88,7 +88,11 @@ class GeneralLedgerReport(QuickbooksStream):
             yield cleansed_row
 
     def concurrent_get(self, report_entity, params):
+        log_msg = f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}"
+        LOGGER.info(log_msg)
         response = self._get(report_entity, params)
+        LOGGER.info(f"COMPLETE: {log_msg}")
+        
         if "Unable to display more data. Please reduce the date range." in str(
             response
         ):
@@ -211,12 +215,6 @@ class GeneralLedgerReport(QuickbooksStream):
                 if len(requests_params) < max_requests and end_date < today:
                     continue
                 elif len(requests_params) == max_requests or end_date == today:
-                    [
-                        LOGGER.info(
-                            f"Fetch GeneralLedgerReport for period {x['start_date']} to {x['end_date']}"
-                        )
-                        for x in requests_params
-                    ]
                     with concurrent.futures.ThreadPoolExecutor(
                         max_workers=max_requests
                     ) as executor:
