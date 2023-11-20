@@ -17,10 +17,11 @@ class ProfitAndLossDetailReport(QuickbooksStream):
     replication_method: ClassVar[str] = 'FULL_TABLE'
     current_account = {}
 
-    def __init__(self, qb, start_date, state_passed):
+    def __init__(self, qb, start_date, state_passed,pnl_adjusted_gain_loss=None):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
+        self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -117,6 +118,8 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     "accounting_method": "Accrual",
                     "columns": ",".join(cols)
                 }
+                if self.pnl_adjusted_gain_loss:
+                    params.update({"adjusted_gain_loss":self.pnl_adjusted_gain_loss})
 
                 LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
                 resp = self._get(report_entity='ProfitAndLossDetail', params=params)

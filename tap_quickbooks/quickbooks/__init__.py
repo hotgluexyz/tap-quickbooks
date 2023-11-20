@@ -243,7 +243,9 @@ class Quickbooks():
                  gl_weekly = None,
                  gl_daily = None,
                  gl_basic_fields = None,
-                 realm_id=None):
+                 realm_id=None,
+                 pnl_adjusted_gain_loss = None
+                 ):
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
@@ -258,6 +260,7 @@ class Quickbooks():
         self.qb_client_secret = qb_client_secret
         self.session = requests.Session()
         self.access_token = None
+        self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'
 
@@ -485,5 +488,5 @@ class Quickbooks():
         elif catalog_entry["stream"] == "TransactionListReport":
             reader = TransactionListReport(self, start_date, state_passed)
         else:
-            reader = ProfitAndLossDetailReport(self, start_date, state_passed)
+            reader = ProfitAndLossDetailReport(self, start_date, state_passed,pnl_adjusted_gain_loss=self.pnl_adjusted_gain_loss)
         return reader.sync(catalog_entry)

@@ -272,7 +272,9 @@ def main_impl():
             gl_full_sync = CONFIG.get('gl_full_sync'),
             gl_weekly = CONFIG.get('gl_weekly', False),
             gl_daily = CONFIG.get('gl_daily', False),
-            gl_basic_fields = CONFIG.get('gl_basic_fields', False))
+            gl_basic_fields = CONFIG.get('gl_basic_fields', False),
+            pnl_adjusted_gain_loss =  CONFIG.get('pnl_adjusted_gain_loss', False)
+            )
         qb.login()
 
         if args.discover:
