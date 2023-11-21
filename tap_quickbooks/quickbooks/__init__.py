@@ -240,6 +240,8 @@ class Quickbooks():
                  api_type=None,
                  report_period_days = None,
                  gl_full_sync = None,
+                 pl_detail_full_sync = None,
+                 monthly_balance_sheet_full_sync = None,
                  gl_weekly = None,
                  gl_daily = None,
                  gl_basic_fields = None,
@@ -247,6 +249,8 @@ class Quickbooks():
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
+        self.pl_detail_full_sync = pl_detail_full_sync
+        self.monthly_balance_sheet_full_sync = monthly_balance_sheet_full_sync
         self.gl_weekly = gl_weekly
         self.gl_daily = gl_daily
         self.gl_basic_fields = gl_basic_fields
@@ -370,7 +374,7 @@ class Quickbooks():
             self.access_token = auth['access_token']
 
             new_refresh_token = auth['refresh_token']
-            
+
             # persist access_token
             parser = argparse.ArgumentParser()
             parser.add_argument('-c', '--config', help='Config file', required=True)

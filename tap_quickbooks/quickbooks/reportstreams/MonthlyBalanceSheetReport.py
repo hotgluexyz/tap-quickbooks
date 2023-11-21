@@ -57,7 +57,7 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
     def sync(self, catalog_entry):
         full_sync = not self.state_passed
 
-        if full_sync:
+        if full_sync or self.qb.monthly_balance_sheet_full_sync:
             LOGGER.info(f"Starting full sync of MonthylBalanceSheet")
             end_date = datetime.date.today()
             start_date = self.start_date
@@ -100,7 +100,7 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
                     else:
                         cleansed_row.update({k: v})
 
-                
+
                 cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                 monthly_total = []
                 for key,value in cleansed_row.items():
@@ -151,7 +151,7 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
                             continue
                         else:
                             cleansed_row.update({k: v})
-   
+
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     monthly_total = []
                     for key,value in cleansed_row.items():

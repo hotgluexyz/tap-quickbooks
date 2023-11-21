@@ -270,6 +270,8 @@ def main_impl():
             realm_id = CONFIG.get('realmId'),
             report_period_days = CONFIG.get('report_period_days'),
             gl_full_sync = CONFIG.get('gl_full_sync'),
+            pl_detail_full_sync = CONFIG.get('pl_detail_full_sync'),
+            monthly_balance_sheet_full_sync = CONFIG.get('monthly_balance_sheet_full_sync'),
             gl_weekly = CONFIG.get('gl_weekly', False),
             gl_daily = CONFIG.get('gl_daily', False),
             gl_basic_fields = CONFIG.get('gl_basic_fields', False))
