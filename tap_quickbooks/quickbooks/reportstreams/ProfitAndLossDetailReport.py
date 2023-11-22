@@ -44,8 +44,6 @@ class ProfitAndLossDetailReport(QuickbooksStream):
             # Write the row
             data = row.get("ColData")
             values = [column for column in data]
-            if len([v for v in values if "Unrealized" in v.get("value")]) > 0:
-                values
             categories_copy = categories.copy()
             values.append(categories_copy)
             values_copy = values.copy()
