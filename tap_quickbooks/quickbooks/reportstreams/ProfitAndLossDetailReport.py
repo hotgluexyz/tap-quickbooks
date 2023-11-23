@@ -119,10 +119,10 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     "accounting_method": "Accrual",
                     "columns": ",".join(cols),
                 }
-                if self.pnl_adjusted_gain_loss:
-                    params.update({"adjusted_gain_loss": "true"})
-                    #Don't send columns with this param
-                    del params["columns"]
+                # if self.pnl_adjusted_gain_loss:
+                #     params.update({"adjusted_gain_loss": "true"})
+                #     #Don't send columns with this param
+                #     del params["columns"]
 
                 LOGGER.info(
                     f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}"
