@@ -259,8 +259,16 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(
                         singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ"
                     )
+                    
                     if cleansed_row.get("Date"):
-                        cleansed_row["Date"] = parse(cleansed_row["Date"])
+                        try:
+                            cleansed_row["Date"] = parse(cleansed_row["Date"])
+                        except:
+                            if "Unrealized" in cleansed_row["Date"]:
+                                cleansed_row["TransactionType"] = cleansed_row["Date"]
+                                cleansed_row["Date"] = None
+                            else:
+                                continue
 
                     yield cleansed_row
 
