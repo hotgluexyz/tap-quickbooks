@@ -266,7 +266,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                         except:
                             if "Unrealized" in cleansed_row["Date"]:
                                 cleansed_row["TransactionType"] = cleansed_row["Date"]
-                                cleansed_row["Date"] = None
+                                cleansed_row["Date"] = end_date
                             else:
                                 continue
 
