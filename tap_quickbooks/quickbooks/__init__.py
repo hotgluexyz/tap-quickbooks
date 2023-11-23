@@ -94,12 +94,10 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
     }
 
     datetime_type = {
-        "anyOf": [
-            {
-                "type": "string",
-                "format": "date-time"
-            },
-            string_type
+        "format": "date-time",
+        "type": [
+              "null",
+              "string"
         ]
     }
 
