@@ -35,6 +35,7 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
         return columns
 
     def _recursive_row_search(self, row, output, categories):
+        header = None
         row_group = row.get("Rows")
         if "ColData" in list(row.keys()):
             # Write the row
@@ -47,19 +48,23 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
         elif row_group is None or row_group == {}:
             pass
         else:
-            row_array = row_group.get("Row")
+            # row_array = row_group.get("Row")
             header = row.get("Header")
-            summary = row.get("Summary")
             if header is not None:
                 categories.append(header.get("ColData")[0].get("value"))
-            if summary is not None:
-                categories.append(summary.get("ColData")[0].get("value"))
-            for row in row_array:
-                self._recursive_row_search(row, output, categories)
-                if header is not None:
-                    self._recursive_row_search(header, output, categories)
-                if summary is not None:    
-                    self._recursive_row_search(summary, output, categories)
+            for key, row_item in row.items():
+                if isinstance(row_item, str):
+                    continue
+                if "ColData" in list(row_item.keys()):
+                    self._recursive_row_search(row_item, output, categories)
+                elif "Row" in list(row_item.keys()):
+                    for sub_row in row_item["Row"]:
+                        self._recursive_row_search(sub_row, output, categories)
+                elif isinstance(row_item.get(key), dict):
+                    if key in row_item:
+                        self._recursive_row_search(
+                            row_item[key], output, categories
+                        )
             if header is not None:
                 categories.pop()
 
