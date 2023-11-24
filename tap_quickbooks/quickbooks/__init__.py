@@ -232,6 +232,7 @@ class Quickbooks:
         gl_basic_fields=None,
         realm_id=None,
         pnl_adjusted_gain_loss=None,
+        pnl_monthly=None,
     ):
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
@@ -248,6 +249,7 @@ class Quickbooks:
         self.session = requests.Session()
         self.access_token = None
         self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
+        self.pnl_monthly = pnl_monthly
 
         self.base_url = (
             "https://sandbox-quickbooks.api.intuit.com/v3/company/"
@@ -536,5 +538,6 @@ class Quickbooks:
                 start_date,
                 state_passed,
                 pnl_adjusted_gain_loss=self.pnl_adjusted_gain_loss,
+                pnl_monthly=self.pnl_monthly,
             )
         return reader.sync(catalog_entry)

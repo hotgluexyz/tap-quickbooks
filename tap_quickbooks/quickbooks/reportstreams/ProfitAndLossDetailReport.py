@@ -6,6 +6,7 @@ import singer
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
 from dateutil.parser import parse
+import calendar
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
@@ -18,11 +19,19 @@ class ProfitAndLossDetailReport(QuickbooksStream):
     replication_method: ClassVar[str] = "FULL_TABLE"
     current_account = {}
 
-    def __init__(self, qb, start_date, state_passed, pnl_adjusted_gain_loss=None):
+    def __init__(
+        self,
+        qb,
+        start_date,
+        state_passed,
+        pnl_adjusted_gain_loss=None,
+        pnl_monthly=None,
+    ):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
         self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
+        self.pnl_monthly = pnl_monthly
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -61,6 +70,10 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 self._recursive_row_search(row, output, categories)
             if header is not None:
                 categories.pop()
+
+    def get_days_in_month(self, start_date):
+        _, days_in_month = calendar.monthrange(start_date.year, start_date.month)
+        return days_in_month - 1
 
     def sync(self, catalog_entry):
         full_sync = not self.state_passed
@@ -107,6 +120,9 @@ class ProfitAndLossDetailReport(QuickbooksStream):
             start_date = self.start_date.date()
             delta = 364
 
+            if self.pnl_monthly:
+                delta = self.get_days_in_month(start_date)
+
             while start_date < datetime.date.today():
                 LOGGER.info(f"Starting full sync of P&L")
                 end_date = start_date + datetime.timedelta(delta)
@@ -121,17 +137,17 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 }
                 if self.pnl_adjusted_gain_loss:
                     params.update({"adjusted_gain_loss": "true"})
-                    #Don't send columns with this param
+                    # Don't send columns with this param
                     del params["columns"]
 
                 LOGGER.info(
                     f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}"
                 )
-                LOGGER.info(
-                    f"Fetch Report with params {params}"
-                )
+                LOGGER.info(f"Fetch Report with params {params}")
                 resp = self._get(report_entity="ProfitAndLossDetail", params=params)
                 start_date = end_date + datetime.timedelta(1)
+                if self.pnl_monthly:
+                    delta = self.get_days_in_month(start_date)
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
@@ -209,7 +225,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 }
                 if self.pnl_adjusted_gain_loss:
                     params.update({"adjusted_gain_loss": "true"})
-                    #Don't send columns with this param
+                    # Don't send columns with this param
                     del params["columns"]
 
                 LOGGER.info(
@@ -264,7 +280,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(
                         singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ"
                     )
-                    
+
                     if cleansed_row.get("Date"):
                         try:
                             cleansed_row["Date"] = parse(cleansed_row["Date"])
