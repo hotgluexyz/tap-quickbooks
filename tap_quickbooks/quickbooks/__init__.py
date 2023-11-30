@@ -212,31 +212,34 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
 
 class Quickbooks:
     # pylint: disable=too-many-instance-attributes,too-many-arguments
-    def __init__(
-        self,
-        refresh_token=None,
-        token=None,
-        qb_client_id=None,
-        qb_client_secret=None,
-        quota_percent_per_run=None,
-        quota_percent_total=None,
-        is_sandbox=None,
-        include_deleted=None,
-        select_fields_by_default=None,
-        default_start_date=None,
-        api_type=None,
-        report_period_days=None,
-        gl_full_sync=None,
-        gl_weekly=None,
-        gl_daily=None,
-        gl_basic_fields=None,
-        realm_id=None,
-        pnl_adjusted_gain_loss=None,
-        pnl_monthly=None,
-    ):
+
+    def __init__(self,
+                 refresh_token=None,
+                 token=None,
+                 qb_client_id=None,
+                 qb_client_secret=None,
+                 quota_percent_per_run=None,
+                 quota_percent_total=None,
+                 is_sandbox=None,
+                 include_deleted = None,
+                 select_fields_by_default=None,
+                 default_start_date=None,
+                 api_type=None,
+                 report_period_days = None,
+                 gl_full_sync = None,
+                 pl_detail_full_sync = None,
+                 monthly_balance_sheet_full_sync = None,
+                 gl_weekly = None,
+                 gl_daily = None,
+                 gl_basic_fields = None,
+                 realm_id=None,
+                 pnl_adjusted_gain_loss=None,
+                 pnl_monthly=None):
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
+        self.pl_detail_full_sync = pl_detail_full_sync
+        self.monthly_balance_sheet_full_sync = monthly_balance_sheet_full_sync
         self.gl_weekly = gl_weekly
         self.gl_daily = gl_daily
         self.gl_basic_fields = gl_basic_fields

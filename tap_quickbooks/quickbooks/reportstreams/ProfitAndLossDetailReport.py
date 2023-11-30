@@ -116,7 +116,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
             "home_net_amount",
         ]
 
-        if full_sync:
+        if full_sync or self.qb.pl_detail_full_sync:
             start_date = self.start_date.date()
             delta = 364
 
