@@ -103,7 +103,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
 
         if full_sync:
             start_date = self.start_date.date()
-            delta = 364
+            delta = 30
 
             while start_date<datetime.date.today():
                 LOGGER.info(f"Starting full sync of P&L")
