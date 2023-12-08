@@ -99,8 +99,9 @@ class Rest():
         headers["Content-Type"] = "application/json"
 
         query = params['query']
-        offset = 0;
+        offset = 0
         max = 100
+        page = 0
         while True:
             headers.update(self.qb._get_standard_headers())
             records_deleted = []
@@ -128,6 +129,7 @@ class Rest():
             if count == 0:
                 break;
 
+            page += 1
             records = resp_json['QueryResponse'][stream];
             records = records + records_deleted
 
@@ -138,4 +140,5 @@ class Rest():
             if count < max:
                 break;
 
-            offset += max
+            offset = (max * page) + 1
+            LOGGER.info(f"offset {offset}")
