@@ -141,4 +141,3 @@ class Rest():
                 break;
 
             offset = (max * page) + 1
-            LOGGER.info(f"offset {offset}")
