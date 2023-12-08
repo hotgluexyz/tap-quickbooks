@@ -5,6 +5,7 @@ import attr
 import backoff
 import requests
 import singer
+import time
 
 LOGGER = singer.get_logger()
 
@@ -43,6 +44,10 @@ class QuickbooksStream:
             params.update({"minorversion": self.api_minor_version})
 
         response = requests.get(url, headers=headers, params=params)
+        if response.status_code == 429:
+            # quickbooks: HTTP Status Code 429 happens when throttling occurs. 
+            # Wait 60 seconds before retrying the request.
+            time.sleep(60)
         response.raise_for_status()
         return response.json()
 
