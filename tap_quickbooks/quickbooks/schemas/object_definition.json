@@ -603,5 +603,28 @@
     {"name": "Location", "type": "string"},
     {"name": "Amount", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"}
+  ],
+  "Estimate": [
+    {"name": "DocNumber", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "domain", "type": "string"},
+    {"name": "TxnStatus", "type": "string"},
+    {"name": "BillEmail", "type": "object", "child_type": "string"},
+    {"name": "TxnDate", "type": "string"},
+    {"name": "TotalAmt", "type": "string"},
+    {"name": "CustomerRef", "type": "object", "child_type": "string"},
+    {"name": "ShipAddr", "type": "object", "child_type": "string"},
+    {"name": "ProjectRef", "type": "object", "child_type": "string"},
+    {"name": "PrintStatus", "type": "string"},
+    {"name": "BillAddr", "type": "object", "child_type": "string"},
+    {"name": "sparse", "type": "boolean"},
+    {"name": "EmailStatus", "type": "string"},
+    {"name": "Line", "type": "array", "child_type": "string"},
+    {"name": "ApplyTaxAfterDiscount", "type": "boolean"},
+    {"name": "CustomField", "type": "array", "child_type": "string"},
+    {"name": "Id", "type": "string"},
+    {"name": "TxnTaxDetail", "type": "object", "child_type": "string"},
+    {"name": "MetaData", "type": "object", "child_type": "string"},
+    {"name": "time", "type": "string"}
   ]
 }
