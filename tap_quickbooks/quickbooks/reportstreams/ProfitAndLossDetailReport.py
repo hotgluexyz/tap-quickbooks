@@ -118,7 +118,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
 
         if full_sync or self.qb.pl_detail_full_sync:
             start_date = self.start_date.date()
-            delta = 364
+            delta = 30
 
             if self.pnl_monthly:
                 delta = self.get_days_in_month(start_date)
