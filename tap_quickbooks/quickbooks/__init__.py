@@ -226,6 +226,7 @@ class Quickbooks:
                  default_start_date=None,
                  api_type=None,
                  report_period_days = None,
+                 reports_full_sync = None,
                  gl_full_sync = None,
                  pl_detail_full_sync = None,
                  monthly_balance_sheet_full_sync = None,
@@ -240,6 +241,7 @@ class Quickbooks:
         self.gl_full_sync = gl_full_sync
         self.pl_detail_full_sync = pl_detail_full_sync
         self.monthly_balance_sheet_full_sync = monthly_balance_sheet_full_sync
+        self.reports_full_sync = reports_full_sync
         self.gl_weekly = gl_weekly
         self.gl_daily = gl_daily
         self.gl_basic_fields = gl_basic_fields
@@ -395,7 +397,6 @@ class Quickbooks:
             auth = resp.json()
 
             self.access_token = auth["access_token"]
-
             new_refresh_token = auth["refresh_token"]
 
             # persist access_token
@@ -506,9 +507,10 @@ class Quickbooks:
             )
 
     def query_report(self, catalog_entry, state, state_passed):
-        start_date = singer_utils.strptime_with_tz(
-            self.get_start_date(state, catalog_entry)
-        )
+        start_date = singer_utils.strptime_with_tz(self.get_start_date(state, catalog_entry))
+        if self.reports_full_sync:
+            state_passed = None
+
         if catalog_entry["stream"] == "BalanceSheetReport":
             reader = BalanceSheetReport(
                 self,

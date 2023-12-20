@@ -298,6 +298,7 @@ def main_impl():
             api_type='REST',
             realm_id = CONFIG.get('realmId'),
             report_period_days = CONFIG.get('report_period_days'),
+            reports_full_sync = CONFIG.get('reports_full_sync', False),
             gl_full_sync = CONFIG.get('gl_full_sync'),
             pl_detail_full_sync = CONFIG.get('pl_detail_full_sync'),
             monthly_balance_sheet_full_sync = CONFIG.get('monthly_balance_sheet_full_sync'),
