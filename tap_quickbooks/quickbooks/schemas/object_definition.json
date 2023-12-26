@@ -582,7 +582,8 @@
     {"name": "TaxableAmount", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "AccountId", "type": "string"},
-    {"name": "Account", "type": "string"}
+    {"name": "Account", "type": "string"},
+    {"name": "Store", "type": "string"}
   ],
   "TransactionListReport": [
     {"name": "Date", "type": "string"},
