@@ -173,7 +173,7 @@
     {"name": "FullyQualifiedName", "type": "string"},
     {"name": "SubDepartment", "type": "boolean"}
   ],
-  
+
   "CreditMemo": [
     {"name": "RemainingCredit", "type": "number"},
     {"name": "Id", "type": "string"},
@@ -229,7 +229,7 @@
     {"name": "AlternatePhone", "type": "string"},
     {"name": "Fax", "type": "string"}
   ],
-  
+
   "Employee": [
     {"name": "Id", "type": "string"},
     {"name": "DisplayName", "type": "string"},
@@ -309,7 +309,7 @@
     {"name": "Description", "type": "string"},
     {"name": "PurchaseDesc", "type": "string"},
     {"name": "ExpenseAccountRef", "type": "string"}
-    
+
   ],
   "JournalEntry": [
     {"name": "Adjustment", "type": "boolean"},
@@ -553,6 +553,15 @@
     {"name": "ClassId", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"}
   ],
+  "ARAgingSummaryReport": [
+    {"name": "Customer", "type": "string"},
+    {"name": "Current", "type": "number"},
+    {"name": "1-30", "type": "number"},
+    {"name": "31-60", "type": "number"},
+    {"name": "61-90", "type": "number"},
+    {"name": "91andover", "type": "number"},
+    {"name": "Total", "type": "number"}
+  ],
   "ProfitAndLossDetailReport": [
     {"name": "Date", "type": "string"},
     {"name": "TransactionType", "type": "string"},
@@ -582,7 +591,8 @@
     {"name": "TaxableAmount", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "AccountId", "type": "string"},
-    {"name": "Account", "type": "string"}
+    {"name": "Account", "type": "string"},
+    {"name": "Store", "type": "string"}
   ],
   "TransactionListReport": [
     {"name": "Date", "type": "string"},
