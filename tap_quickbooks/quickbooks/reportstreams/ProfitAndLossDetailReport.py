@@ -6,21 +6,32 @@ import singer
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
 from dateutil.parser import parse
+import calendar
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
 
+
 class ProfitAndLossDetailReport(QuickbooksStream):
-    tap_stream_id: ClassVar[str] = 'ProfitAndLossDetailReport'
-    stream: ClassVar[str] = 'ProfitAndLossDetailReport'
+    tap_stream_id: ClassVar[str] = "ProfitAndLossDetailReport"
+    stream: ClassVar[str] = "ProfitAndLossDetailReport"
     key_properties: ClassVar[List[str]] = []
-    replication_method: ClassVar[str] = 'FULL_TABLE'
+    replication_method: ClassVar[str] = "FULL_TABLE"
     current_account = {}
 
-    def __init__(self, qb, start_date, state_passed):
+    def __init__(
+        self,
+        qb,
+        start_date,
+        state_passed,
+        pnl_adjusted_gain_loss=None,
+        pnl_monthly=None,
+    ):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
+        self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
+        self.pnl_monthly = pnl_monthly
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -34,11 +45,11 @@ class ProfitAndLossDetailReport(QuickbooksStream):
 
     def _recursive_row_search(self, row, output, categories):
         row_group = row.get("Rows")
-        if row.get("type")=="Section":
+        if row.get("type") == "Section":
             if row.get("Header", {}).get("ColData", [{}]):
                 if row.get("Header", {}).get("ColData", [{}])[0].get("id"):
                     self.current_account = row.get("Header", {}).get("ColData", [{}])[0]
-        if 'ColData' in list(row.keys()):
+        if "ColData" in list(row.keys()):
             # Write the row
             data = row.get("ColData")
             values = [column for column in data]
@@ -59,6 +70,10 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 self._recursive_row_search(row, output, categories)
             if header is not None:
                 categories.pop()
+
+    def get_days_in_month(self, start_date):
+        _, days_in_month = calendar.monthrange(start_date.year, start_date.month)
+        return days_in_month - 1
 
     def sync(self, catalog_entry):
         full_sync = not self.state_passed
@@ -101,26 +116,38 @@ class ProfitAndLossDetailReport(QuickbooksStream):
             "home_net_amount",
         ]
 
-        if full_sync:
+        if full_sync or self.qb.pl_detail_full_sync:
             start_date = self.start_date.date()
             delta = 30
 
-            while start_date<datetime.date.today():
+            if self.pnl_monthly:
+                delta = self.get_days_in_month(start_date)
+
+            while start_date < datetime.date.today():
                 LOGGER.info(f"Starting full sync of P&L")
-                end_date = (start_date + datetime.timedelta(delta))
-                if end_date>datetime.date.today():
+                end_date = start_date + datetime.timedelta(delta)
+                if end_date > datetime.date.today():
                     end_date = datetime.date.today()
 
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),
                     "end_date": end_date.strftime("%Y-%m-%d"),
                     "accounting_method": "Accrual",
-                    "columns": ",".join(cols)
+                    "columns": ",".join(cols),
                 }
+                if self.pnl_adjusted_gain_loss:
+                    params.update({"adjusted_gain_loss": "true"})
+                    # Don't send columns with this param
+                    del params["columns"]
 
-                LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
-                resp = self._get(report_entity='ProfitAndLossDetail', params=params)
+                LOGGER.info(
+                    f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}"
+                )
+                LOGGER.info(f"Fetch Report with params {params}")
+                resp = self._get(report_entity="ProfitAndLossDetail", params=params)
                 start_date = end_date + datetime.timedelta(1)
+                if self.pnl_monthly:
+                    delta = self.get_days_in_month(start_date)
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
@@ -153,17 +180,37 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                                 cleansed_row[f"{k}Id"] = v.get("id")
                         else:
                             cleansed_row[k] = v
-
-                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
-                    cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
-                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-                    if cleansed_row.get('Date'):
+                    try:
+                        cleansed_row["Amount"] = (
+                            float(cleansed_row.get("Amount"))
+                            if cleansed_row.get("Amount")
+                            else None
+                        )
+                    except:
+                        cleansed_row["Amount"] = None
+                    try:
+                        cleansed_row["Balance"] = (
+                            float(cleansed_row.get("Balance"))
+                            if cleansed_row.get("Amount")
+                            else None
+                        )
+                    except:
+                        cleansed_row["Balance"] = None
+                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(
+                        singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ"
+                    )
+                    if cleansed_row.get("Date"):
                         try:
-                            cleansed_row["Date"] = parse(cleansed_row['Date'])
+                            cleansed_row["Date"] = parse(cleansed_row["Date"])
                         except:
-                            continue
+                            if "Unrealized" in cleansed_row["Date"]:
+                                cleansed_row["TransactionType"] = cleansed_row["Date"]
+                                cleansed_row["Date"] = end_date
+                            else:
+                                continue
 
                     yield cleansed_row
+
         else:
             LOGGER.info(f"Syncing P&L of last {NUMBER_OF_PERIODS} periods")
             end_date = datetime.date.today()
@@ -174,14 +221,21 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     "start_date": start_date.strftime("%Y-%m-%d"),
                     "end_date": end_date.strftime("%Y-%m-%d"),
                     "accounting_method": "Accrual",
-                    "columns": ",".join(cols)
+                    "columns": ",".join(cols),
                 }
+                if self.pnl_adjusted_gain_loss:
+                    params.update({"adjusted_gain_loss": "true"})
+                    # Don't send columns with this param
+                    del params["columns"]
 
-                LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
-                resp = self._get(report_entity='ProfitAndLossDetail', params=params)
+                LOGGER.info(
+                    f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}"
+                )
+                resp = self._get(report_entity="ProfitAndLossDetail", params=params)
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
+                columns += ["Account"]
 
                 # Recursively get row data.
                 row_group = resp.get("Rows")
@@ -213,11 +267,29 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                         else:
                             cleansed_row[k] = v
 
-                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
-                    cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
-                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-                    if cleansed_row.get('Date'):
-                        cleansed_row["Date"] = parse(cleansed_row['Date'])
+                    cleansed_row["Amount"] = (
+                        float(cleansed_row.get("Amount"))
+                        if cleansed_row.get("Amount")
+                        else None
+                    )
+                    cleansed_row["Balance"] = (
+                        float(cleansed_row.get("Balance"))
+                        if cleansed_row.get("Amount")
+                        else None
+                    )
+                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(
+                        singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ"
+                    )
+
+                    if cleansed_row.get("Date"):
+                        try:
+                            cleansed_row["Date"] = parse(cleansed_row["Date"])
+                        except:
+                            if "Unrealized" in cleansed_row["Date"]:
+                                cleansed_row["TransactionType"] = cleansed_row["Date"]
+                                cleansed_row["Date"] = end_date
+                            else:
+                                continue
 
                     yield cleansed_row
 

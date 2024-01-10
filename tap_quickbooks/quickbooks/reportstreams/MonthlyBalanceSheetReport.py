@@ -9,16 +9,18 @@ from tap_quickbooks.sync import transform_data_hook
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
 
-class MonthlyBalanceSheetReport(QuickbooksStream):
-    tap_stream_id: ClassVar[str] = 'MonthlyBalanceSheetReport'
-    stream: ClassVar[str] = 'MonthlyBalanceSheetReport'
-    key_properties: ClassVar[List[str]] = []
-    replication_method: ClassVar[str] = 'FULL_TABLE'
 
-    def __init__(self, qb, start_date, state_passed):
+class MonthlyBalanceSheetReport(QuickbooksStream):
+    tap_stream_id: ClassVar[str] = "MonthlyBalanceSheetReport"
+    stream: ClassVar[str] = "MonthlyBalanceSheetReport"
+    key_properties: ClassVar[List[str]] = []
+    replication_method: ClassVar[str] = "FULL_TABLE"
+
+    def __init__(self, qb, start_date, state_passed, pnl_adjusted_gain_loss=None):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
+        self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -33,8 +35,9 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
         return columns
 
     def _recursive_row_search(self, row, output, categories):
+        header = None
         row_group = row.get("Rows")
-        if 'ColData' in list(row.keys()):
+        if "ColData" in list(row.keys()):
             # Write the row
             data = row.get("ColData")
             values = [column.get("value") for column in data]
@@ -45,19 +48,30 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
         elif row_group is None or row_group == {}:
             pass
         else:
-            row_array = row_group.get("Row")
+            # row_array = row_group.get("Row")
             header = row.get("Header")
             if header is not None:
                 categories.append(header.get("ColData")[0].get("value"))
-            for row in row_array:
-                self._recursive_row_search(row, output, categories)
+            for key, row_item in row.items():
+                if isinstance(row_item, str):
+                    continue
+                if "ColData" in list(row_item.keys()):
+                    self._recursive_row_search(row_item, output, categories)
+                elif "Row" in list(row_item.keys()):
+                    for sub_row in row_item["Row"]:
+                        self._recursive_row_search(sub_row, output, categories)
+                elif isinstance(row_item.get(key), dict):
+                    if key in row_item:
+                        self._recursive_row_search(
+                            row_item[key], output, categories
+                        )
             if header is not None:
                 categories.pop()
 
     def sync(self, catalog_entry):
         full_sync = not self.state_passed
 
-        if full_sync:
+        if full_sync or self.qb.monthly_balance_sheet_full_sync:
             LOGGER.info(f"Starting full sync of MonthylBalanceSheet")
             end_date = datetime.date.today()
             start_date = self.start_date
@@ -65,11 +79,16 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
                 "start_date": start_date.strftime("%Y-%m-%d"),
                 "end_date": end_date.strftime("%Y-%m-%d"),
                 "accounting_method": "Accrual",
-                "summarize_column_by": "Month"
+                "summarize_column_by": "Month",
             }
 
-            LOGGER.info(f"Fetch MonthlyBalanceSheet Report for period {params['start_date']} to {params['end_date']}")
-            resp = self._get(report_entity='BalanceSheet', params=params)
+            if self.pnl_adjusted_gain_loss:
+                params.update({"adjusted_gain_loss": "true"})
+
+            LOGGER.info(
+                f"Fetch MonthlyBalanceSheet Report for period {params['start_date']} to {params['end_date']}"
+            )
+            resp = self._get(report_entity="BalanceSheet", params=params)
 
             # Get column metadata.
             columns = self._get_column_metadata(resp)
@@ -100,17 +119,18 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
                     else:
                         cleansed_row.update({k: v})
 
-                
                 cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                 monthly_total = []
-                for key,value in cleansed_row.items():
-                    if key not in ['Account', 'Categories', 'SyncTimestampUtc']:
-                        monthly_total.append({key:value})
-                cleansed_row['MonthlyTotal'] = monthly_total
+                for key, value in cleansed_row.items():
+                    if key not in ["Account", "Categories", "SyncTimestampUtc"]:
+                        monthly_total.append({key: value})
+                cleansed_row["MonthlyTotal"] = monthly_total
 
                 yield cleansed_row
         else:
-            LOGGER.info(f"Syncing MonthlyBalanceSheet of last {NUMBER_OF_PERIODS} periods")
+            LOGGER.info(
+                f"Syncing MonthlyBalanceSheet of last {NUMBER_OF_PERIODS} periods"
+            )
             end_date = datetime.date.today()
 
             for i in range(NUMBER_OF_PERIODS):
@@ -119,11 +139,13 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
                     "start_date": start_date.strftime("%Y-%m-%d"),
                     "end_date": end_date.strftime("%Y-%m-%d"),
                     "accounting_method": "Accrual",
-                    "summarize_column_by": "Month"
+                    "summarize_column_by": "Month",
                 }
 
-                LOGGER.info(f"Fetch MonthlyBalanceSheet for period {params['start_date']} to {params['end_date']}")
-                resp = self._get(report_entity='BalanceSheet', params=params)
+                LOGGER.info(
+                    f"Fetch MonthlyBalanceSheet for period {params['start_date']} to {params['end_date']}"
+                )
+                resp = self._get(report_entity="BalanceSheet", params=params)
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
@@ -151,13 +173,13 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
                             continue
                         else:
                             cleansed_row.update({k: v})
-   
+
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     monthly_total = []
-                    for key,value in cleansed_row.items():
-                        if key not in ['Account', 'Categories', 'SyncTimestampUtc']:
-                            monthly_total.append({key:value})
-                    cleansed_row['MonthlyTotal'] = monthly_total
+                    for key, value in cleansed_row.items():
+                        if key not in ["Account", "Categories", "SyncTimestampUtc"]:
+                            monthly_total.append({key: value})
+                    cleansed_row["MonthlyTotal"] = monthly_total
 
                     yield cleansed_row
 
