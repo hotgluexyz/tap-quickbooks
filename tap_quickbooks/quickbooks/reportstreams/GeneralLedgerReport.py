@@ -111,8 +111,9 @@ class GeneralLedgerReport(QuickbooksStream):
             cols = [
                 "tx_date",
                 "subt_nat_home_amount",
-                "credit_amt",
-                "debt_amt",
+                "credit_home_amt",
+                "debt_home_amt",
+                "account_name",
                 "account_num",
                 "klass_name",
                 "dept_name",
