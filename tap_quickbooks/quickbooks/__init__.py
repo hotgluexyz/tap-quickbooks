@@ -493,7 +493,7 @@ class Quickbooks():
             reader = ARAgingSummaryReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "TransactionListReport":
             reader = TransactionListReport(self, start_date, state_passed)
-        if catalog_entry["stream"] == "ProfitAndLossReport":
+        elif catalog_entry["stream"] == "ProfitAndLossReport":
             reader = ProfitAndLossReport(self, start_date, state_passed)
         else:
             reader = ProfitAndLossDetailReport(self, start_date, state_passed)
