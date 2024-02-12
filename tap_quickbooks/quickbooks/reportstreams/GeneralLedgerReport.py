@@ -92,7 +92,7 @@ class GeneralLedgerReport(QuickbooksStream):
         LOGGER.info(log_msg)
         response = self._get(report_entity, params)
         LOGGER.info(f"COMPLETE: {log_msg}")
-        
+
         if "Unable to display more data. Please reduce the date range." in str(
             response
         ):
