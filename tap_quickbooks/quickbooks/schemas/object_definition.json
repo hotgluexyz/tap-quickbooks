@@ -596,12 +596,9 @@
     {"name": "Store", "type": "string"}
   ],
   "ProfitAndLossReport": [
-    {"name": "Date", "type": "string"},
-    {"name": "Income", "type": "string"},
-    {"name": "GrossProfit", "type": "string"},
-    {"name": "Expenses", "type": "string"},
-    {"name": "NetOperatingIncome", "type": "string"},
-    {"name": "NetIncome", "type": "string"}
+    {"name": "Total", "type": "number"},
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "Account", "type": "string"}
   ],
   "TransactionListReport": [
     {"name": "Date", "type": "string"},
