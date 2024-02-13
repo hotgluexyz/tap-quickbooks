@@ -595,6 +595,11 @@
     {"name": "Account", "type": "string"},
     {"name": "Store", "type": "string"}
   ],
+  "ProfitAndLossReport": [
+    {"name": "Total", "type": "number"},
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "Account", "type": "string"}
+  ],
   "TransactionListReport": [
     {"name": "Date", "type": "string"},
     {"name": "TransactionTypeId", "type": "string"},
