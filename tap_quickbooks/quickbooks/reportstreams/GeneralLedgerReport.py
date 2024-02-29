@@ -252,7 +252,7 @@ class GeneralLedgerReport(QuickbooksStream):
 
                         start_date = end_date
                         headers = r.get("Header")
-                        rows_len = sum([len(r.get("Rows", {}).get("Row", [])) for r in row_array])
+                        rows_len = sum([len(r.get("Rows", {}).get("Row", [])) for r in (row_array or [])])
                         LOGGER.info(f"{rows_len} rows found for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
                         if row_array is None:
                             continue
