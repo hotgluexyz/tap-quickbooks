@@ -251,6 +251,9 @@ class GeneralLedgerReport(QuickbooksStream):
                         row_array = row_group.get("Row")
 
                         start_date = end_date
+                        headers = r.get("Header")
+                        rows_len = sum([len(r.get("Rows", {}).get("Row", [])) for r in row_array])
+                        LOGGER.info(f"{rows_len} rows found for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
                         if row_array is None:
                             continue
 
@@ -259,6 +262,7 @@ class GeneralLedgerReport(QuickbooksStream):
                         for row in row_array:
                             self._recursive_row_search(row, output, categories)
 
+                        LOGGER.info(f"Writing {len(output)} records for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
                         yield from self.clean_row(output, columns)
         else:
             LOGGER.info(
