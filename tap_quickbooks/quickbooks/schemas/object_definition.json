@@ -505,7 +505,10 @@
     {"name": "KlassId", "type": "string"},
     {"name": "Class", "type": "string"},
     {"name": "ClassId", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"}
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "Department", "type": "string"},
+    {"name": "DepartmentId", "type": "string"}
+
   ],
   "GeneralLedgerCashReport": [
     {"name": "Date", "type": "string"},
