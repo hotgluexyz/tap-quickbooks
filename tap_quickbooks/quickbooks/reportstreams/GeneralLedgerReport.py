@@ -262,8 +262,10 @@ class GeneralLedgerReport(QuickbooksStream):
                         for row in row_array:
                             self._recursive_row_search(row, output, categories)
 
-                        LOGGER.info(f"Writing {len(output)} records for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
-                        yield from self.clean_row(output, columns)
+                        LOGGER.info(f"Got {len(output)} records for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
+                        final_result = list(self.clean_row(output, columns))
+                        LOGGER.info(f"After cleaning got {len(final_result)} records for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
+                        yield from final_result
         else:
             LOGGER.info(
                 f"Syncing GeneralLedgerReport of last {NUMBER_OF_PERIODS} periods"
