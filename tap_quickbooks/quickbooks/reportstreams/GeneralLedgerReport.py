@@ -251,9 +251,6 @@ class GeneralLedgerReport(QuickbooksStream):
                         row_array = row_group.get("Row")
 
                         start_date = end_date
-                        headers = r.get("Header")
-                        rows_len = sum([len(r.get("Rows", {}).get("Row", [])) for r in (row_array or [])])
-                        LOGGER.info(f"{rows_len} rows found for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
                         if row_array is None:
                             continue
 
@@ -262,10 +259,53 @@ class GeneralLedgerReport(QuickbooksStream):
                         for row in row_array:
                             self._recursive_row_search(row, output, categories)
 
-                        LOGGER.info(f"Got {len(output)} records for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
-                        final_result = list(self.clean_row(output, columns))
-                        LOGGER.info(f"After cleaning got {len(final_result)} records for GL period {headers.get('StartPeriod')} to {headers.get('EndPeriod')}")
-                        yield from final_result
+                        # Mapping from French keys to English keys
+                        key_mapping = {
+                            "Date": "Date",
+                            "Typed’opération": "TransactionType",
+                            "Typed’opérationId": "TransactionTypeId",
+                            "Nº": "Num",
+                            "Rajusté": "Adj",
+                            "Datedecréation": "CreateDate",
+                            "Créépar": "CreatedBy",
+                            "Datedeladernièremodification": "LastModified",
+                            "Dernièremodificationapportéepar": "LastModifiedBy",
+                            "Nom": "Name",
+                            "NomId": "NameId",
+                            "Client": "Customer",
+                            "ClientId": "CustomerId",
+                            "Fournisseur": "Vendor",
+                            "FournisseurId": "VendorId",
+                            "Employé": "Employee",
+                            "EmployéId": "EmployeeId",
+                            "Lieu": "Location",
+                            "LieuId": "LocationId",
+                            "Produit/service": "Product/Service",
+                            "Produit/serviceId": "Product/ServiceId",
+                            "Mémo/description": "Memo",
+                            "Qté": "Qty",
+                            "Taux": "Rate",
+                            "Nºdecompte": "Account#",
+                            "Compte": "Account",
+                            "CompteId": "AccountId",
+                            "Répartition": "Split",
+                            "Datedefacturation": "InvoiceDate",
+                            "CCPayé": "A/RPaid",
+                            "CFPayé": "A/PPaid",
+                            "Comp.": "Clr",
+                            "Chèqueimprimé": "CheckPrinted",
+                            "Débit": "Debit",
+                            "Crédit": "Credit",
+                            "Soldecourant": "OpenBalance",
+                            "Montant": "Amount",
+                            "Tauxdechange": "ExchangeRate",
+                            "Devise": "Currency",
+                            "Codedetaxe": "TaxCode",
+                            "Soldecourantétranger": "ForeignOpenBalance",
+                            "Débitétranger": "ForeignDebit",
+                            "Créditétranger": "ForeignCredit"
+                        }
+                        yield from self.clean_row(output, [key_mapping.get(c) or c for c in columns])
         else:
             LOGGER.info(
                 f"Syncing GeneralLedgerReport of last {NUMBER_OF_PERIODS} periods"
