@@ -63,17 +63,18 @@ class Rest():
                     yield record
 
         except HTTPError as ex:
-            response = ex.response.json()
-            if isinstance(response, list) and response[0].get("errorCode") == "QUERY_TIMEOUT":
-                start_date = singer_utils.strptime_with_tz(start_date_str)
-                day_range = (end_date - start_date).days
-                LOGGER.info(
-                    "Quickbooks returned QUERY_TIMEOUT querying %d days of %s",
-                    day_range,
-                    catalog_entry['stream'])
-                retryable = True
-            else:
-                raise ex
+            try:
+                response = ex.response.json()
+                if isinstance(response, list) and response[0].get("errorCode") == "QUERY_TIMEOUT":
+                    start_date = singer_utils.strptime_with_tz(start_date_str)
+                    day_range = (end_date - start_date).days
+                    LOGGER.info(
+                        "Quickbooks returned QUERY_TIMEOUT querying %d days of %s",
+                        day_range,
+                        catalog_entry['stream'])
+                    retryable = True
+            except:
+                 raise ex
 
         if retryable:
             start_date = singer_utils.strptime_with_tz(start_date_str)
