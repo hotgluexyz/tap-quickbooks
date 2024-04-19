@@ -184,7 +184,7 @@ def do_sync(qb, catalog, state, state_passed):
     else:
         LOGGER.info("Starting sync")
 
-    for catalog_entry in catalog["streams"]: 
+    for catalog_entry in catalog["streams"]:
         stream_version = get_stream_version(catalog_entry, state)
         stream = catalog_entry['stream']
         stream_alias = catalog_entry.get('stream_alias')
