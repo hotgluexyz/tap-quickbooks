@@ -6,6 +6,7 @@ from requests.exceptions import RequestException
 from jsonpath_ng import jsonpath, parse
 import math
 import json
+import requests
 
 LOGGER = singer.get_logger()
 
@@ -93,7 +94,9 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
         query_func = qb.query_report
 
     for rec in query_func(catalog_entry, state, state_passed):
-
+        #Check if it is Attachable stream with a downloadable file
+        if stream == 'Attachable' and "TempDownloadUri" in rec:
+            download_file(rec['TempDownloadUri'],rec['FileName'])
         counter.increment()
         with Transformer(pre_hook=transform_data_hook) as transformer:
             rec = transformer.transform(rec, schema)
@@ -136,3 +139,19 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
         singer.write_message(activate_version_message)
         state = singer.write_bookmark(
             state, catalog_entry['tap_stream_id'], 'version', None)
+
+def download_file(url, local_filename):
+    # Send an HTTP GET request to the URL
+    response = requests.get(url, stream=True)
+    LOGGER.info(f"Downloading file: {local_filename}")
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        # Open a local file with write-binary mode to save the downloaded content
+        with open(local_filename, 'wb') as f:
+            # Iterate over the content of the response in chunks and write to the file
+            for chunk in response.iter_content(chunk_size=1024):
+                f.write(chunk)
+        LOGGER.info(f"File downloaded successfully: {local_filename}")
+    else:
+        LOGGER.info(f"Failed to download file. HTTP status code: {response.status_code}")
+        
