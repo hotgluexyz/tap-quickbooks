@@ -1,3 +1,4 @@
+import os
 import time
 import singer
 import singer.utils as singer_utils
@@ -96,7 +97,7 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
     for rec in query_func(catalog_entry, state, state_passed):
         #Check if it is Attachable stream with a downloadable file
         if stream == 'Attachable' and "TempDownloadUri" in rec:
-            download_file(rec['TempDownloadUri'],rec['FileName'])
+            download_file(rec['TempDownloadUri'], os.path.join(qb.hg_sync_output, rec['FileName']))
         counter.increment()
         with Transformer(pre_hook=transform_data_hook) as transformer:
             rec = transformer.transform(rec, schema)
