@@ -487,9 +487,10 @@ class Quickbooks:
             # order_by = " ORDERBY {} ASC".format(replication_key)
             # if order_by_clause:
             #   return query + where_clause + end_date_clause + order_by
-
+            LOGGER.info(f"Executing query {query + where_clause + end_date_clause}")
             return query + where_clause + end_date_clause
         else:
+            LOGGER.info(f"Executing query {query}")
             return query
 
     def query(self, catalog_entry, state, state_passed):
