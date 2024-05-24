@@ -97,7 +97,17 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
     for rec in query_func(catalog_entry, state, state_passed):
         #Check if it is Attachable stream with a downloadable file
         if stream == 'Attachable' and "TempDownloadUri" in rec:
-            download_file(rec['TempDownloadUri'], os.path.join(qb.hg_sync_output or "", rec['FileName']))
+            file_name = rec["FileName"]
+            attachable_ref = rec.get("AttachableRef",[])
+            if len(attachable_ref)>0 and "EntityRef" in attachable_ref[0]:
+                attachable_ref = attachable_ref[0]['EntityRef']
+                if attachable_ref:
+                    file_name = f"{attachable_ref['type']}-{attachable_ref['value']}-{file_name}"
+            #Save the newly formatted file name        
+            rec['FileName'] = file_name      
+            download_file(
+                rec["TempDownloadUri"], os.path.join(qb.hg_sync_output or "", file_name)
+            )
         counter.increment()
         with Transformer(pre_hook=transform_data_hook) as transformer:
             rec = transformer.transform(rec, schema)
