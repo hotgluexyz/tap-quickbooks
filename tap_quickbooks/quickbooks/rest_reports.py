@@ -58,7 +58,7 @@ class QuickbooksStream:
         try:
             res_json = response.json()
         except:
-            raise RetriableException(f"Response failed at being converted to json: {response.text} ")
+            raise RetriableException(f"Invalid json response: {response.text} ")
         
         if res_json == None:
             raise RetriableException(f"Empty response returned {response.text} ")
