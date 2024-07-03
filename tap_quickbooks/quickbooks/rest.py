@@ -74,7 +74,7 @@ class Rest():
                         catalog_entry['stream'])
                     retryable = True
             except:
-                raise ex
+                 raise ex
 
         if retryable:
             start_date = singer_utils.strptime_with_tz(start_date_str)
@@ -125,6 +125,9 @@ class Rest():
 
             # Establish number of records returned.
             count = resp_json['QueryResponse'].get('maxResults', 0)
+            LOGGER.info(
+                f"Synced {count} records for URL: {resp.request.url}"
+            )
 
             # Make sure there is alteast one record.
             if count == 0:
