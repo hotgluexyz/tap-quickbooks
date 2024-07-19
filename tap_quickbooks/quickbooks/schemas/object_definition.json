@@ -76,7 +76,7 @@
     {"name": "DepositToAccountRef", "type": "string"},
     {"name": "ExchangeRate", "type": "number"},
     {"name": "SyncToken", "type": "string"},
-    {"name": "Line", "type": "string"},
+    {"name": "Line", "type": "array", "child_type": "payment_line"},
     {"name": "TxnSource", "type": "string"},
     {"name": "ARAccountRef", "type": "string"},
     {"name": "TxnDate", "type": "string"},
