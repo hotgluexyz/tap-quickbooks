@@ -138,11 +138,12 @@ class ProfitAndLossReport(QuickbooksStream):
                     "accounting_method": "Accrual"
                 }
 
-                LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
-                resp = self._get(report_entity='ProfitAndLossDetail', params=params)
+                LOGGER.info(f"Fetch PnL Report for period {params['start_date']} to {params['end_date']}")
+                resp = self._get(report_entity='ProfitAndLoss', params=params)
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
+                columns += ["Account"]
 
                 # Recursively get row data.
                 row_group = resp.get("Rows")
@@ -161,7 +162,7 @@ class ProfitAndLossReport(QuickbooksStream):
                 # Zip columns and row data.
                 for raw_row in output:
                     row = dict(zip(columns, raw_row))
-                    if not row.get("Amount"):
+                    if not row.get("Total"):
                         # If a row is missing the amount, skip it
                         continue
 
