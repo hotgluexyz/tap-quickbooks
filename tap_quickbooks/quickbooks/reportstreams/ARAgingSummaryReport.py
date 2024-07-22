@@ -39,12 +39,12 @@ class ARAgingSummaryReport(QuickbooksStream):
             "accounting_method": "Accrual"
         }
 
-        if self.qb.report_date:
-            report_date = self.qb.report_date.split("T")[0]
+        if self.qb.ar_aging_report_date:
+            report_date = self.qb.ar_aging_report_date.split("T")[0]
             params["aging_method"] = "Report_Date"
             params["report_date"] = report_date
 
-        if self.qb.report_date:
+        if self.qb.ar_aging_report_date:
             LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']} with aging_method 'Report_Date' and report_date {report_date}")
         else:
             LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']}")

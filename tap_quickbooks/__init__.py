@@ -286,7 +286,7 @@ def main_impl():
             gl_weekly = CONFIG.get('gl_weekly', False),
             gl_daily = CONFIG.get('gl_daily', False),
             gl_basic_fields = CONFIG.get('gl_basic_fields', False),
-            report_date = CONFIG.get('report_date'),
+            ar_aging_report_date = CONFIG.get('ar_aging_report_date'),
         )
         qb.login()
 
