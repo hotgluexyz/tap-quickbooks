@@ -285,7 +285,9 @@ def main_impl():
             gl_full_sync = CONFIG.get('gl_full_sync'),
             gl_weekly = CONFIG.get('gl_weekly', False),
             gl_daily = CONFIG.get('gl_daily', False),
-            gl_basic_fields = CONFIG.get('gl_basic_fields', False))
+            gl_basic_fields = CONFIG.get('gl_basic_fields', False),
+            report_date = CONFIG.get('report_date'),
+        )
         qb.login()
 
         if args.discover:

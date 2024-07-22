@@ -290,7 +290,9 @@ class Quickbooks():
                  gl_weekly = None,
                  gl_daily = None,
                  gl_basic_fields = None,
-                 realm_id=None):
+                 realm_id=None,
+                 report_date=None
+                 ):
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
@@ -306,6 +308,7 @@ class Quickbooks():
         self.qb_client_secret = qb_client_secret
         self.session = requests.Session()
         self.access_token = None
+        self.report_date = report_date
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'
 
