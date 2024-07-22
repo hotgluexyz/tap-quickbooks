@@ -230,7 +230,9 @@ class Quickbooks:
                  gl_basic_fields = None,
                  realm_id=None,
                  pnl_adjusted_gain_loss=None,
-                 pnl_monthly=None):
+                 pnl_monthly=None,
+                 ar_aging_report_date=None,
+                 ):
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
@@ -250,6 +252,7 @@ class Quickbooks:
         self.access_token = None
         self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
         self.pnl_monthly = pnl_monthly
+        self.ar_aging_report_date = ar_aging_report_date
 
         self.base_url = (
             "https://sandbox-quickbooks.api.intuit.com/v3/company/"

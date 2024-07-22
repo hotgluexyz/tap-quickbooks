@@ -307,6 +307,7 @@ def main_impl():
             gl_basic_fields = CONFIG.get('gl_basic_fields', False),
             pnl_adjusted_gain_loss=CONFIG.get("pnl_adjusted_gain_loss", False),
             pnl_monthly=CONFIG.get("pnl_monthly", False),
+            ar_aging_report_date=CONFIG.get("ar_aging_report_date", False),
         )
 
         qb.login()

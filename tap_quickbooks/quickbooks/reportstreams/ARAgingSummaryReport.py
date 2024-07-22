@@ -39,7 +39,16 @@ class ARAgingSummaryReport(QuickbooksStream):
             "accounting_method": "Accrual"
         }
 
-        LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']}")
+        if self.qb.ar_aging_report_date:
+            report_date = self.qb.ar_aging_report_date.split("T")[0]
+            params["aging_method"] = "Report_Date"
+            params["report_date"] = report_date
+
+        if self.qb.ar_aging_report_date:
+            LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']} with aging_method 'Report_Date' and report_date {report_date}")
+        else:
+            LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']}")
+
         resp = self._get(report_entity='AgedReceivables', params=params)
 
         # Get column metadata.
