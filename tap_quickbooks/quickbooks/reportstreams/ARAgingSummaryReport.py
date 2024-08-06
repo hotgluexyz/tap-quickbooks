@@ -39,56 +39,65 @@ class ARAgingSummaryReport(QuickbooksStream):
             "accounting_method": "Accrual"
         }
 
-        if self.qb.ar_aging_report_date:
-            report_date = self.qb.ar_aging_report_date.split("T")[0]
-            params["aging_method"] = "Report_Date"
-            params["report_date"] = report_date
-
-        if self.qb.ar_aging_report_date:
-            LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']} with aging_method 'Report_Date' and report_date {report_date}")
+        report_dates = []
+        if self.qb.ar_aging_report_dates:
+            for report_date in self.qb.ar_aging_report_dates:
+                report_dates.append(report_date.split("T")[0])
+        elif self.qb.ar_aging_report_date:
+            report_dates.append(self.qb.ar_aging_report_date.split("T")[0])
         else:
-            LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']}")
+            report_dates.append(None) # This is to Run the sync once without specific report_date
 
-        resp = self._get(report_entity='AgedReceivables', params=params)
-
-        # Get column metadata.
-        columns = self._get_column_metadata(resp)
-
-        # Recursively get row data.
-        row_group = resp.get("Rows")
-        row_array = row_group.get("Row")
-
-        if row_array is None:
-            return
-
-        output = []
-        for row in row_array:
-            if "Header" in row:
-                output.append([i.get('value') for i in row.get("Header", {}).get("ColData", [])])
-
-                for subrow in row.get("Rows", {}).get("Row", []):
-                    output.append([i.get('value') for i in subrow.get("ColData", [])])
-
-                output.append([i.get('value') for i in row.get("Summary", {}).get("ColData", [])])
-            elif "Summary" in row:
-                output.append([i.get('value') for i in row.get("Summary", {}).get("ColData", [])])
+        all_rows = [] 
+        for report_date in report_dates:
+            if report_date:
+                params["aging_method"] = "Report_Date"
+                params["report_date"] = report_date
+                LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']} with aging_method 'Report_Date' and report_date {report_date}")
             else:
-                output.append([i.get('value') for i in row.get("ColData", [])])
+                LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']}")
 
-        # Zip columns and row data.
-        for raw_row in output:
-            row = dict(zip(columns, raw_row))
-            if not row.get("Total"):
-                # If a row is missing the amount, skip it
-                continue
+            resp = self._get(report_entity='AgedReceivables', params=params)
 
-            cleansed_row = {}
-            for k, v in row.items():
-                if v == "":
-                    continue
+            # Get column metadata.
+            columns = self._get_column_metadata(resp)
+
+            # Recursively get row data.
+            row_group = resp.get("Rows")
+            row_array = row_group.get("Row")
+
+            if row_array is None:
+                return
+
+            output = []
+            for row in row_array:
+                if "Header" in row:
+                    output.append([i.get('value') for i in row.get("Header", {}).get("ColData", [])])
+
+                    for subrow in row.get("Rows", {}).get("Row", []):
+                        output.append([i.get('value') for i in subrow.get("ColData", [])])
+
+                    output.append([i.get('value') for i in row.get("Summary", {}).get("ColData", [])])
+                elif "Summary" in row:
+                    output.append([i.get('value') for i in row.get("Summary", {}).get("ColData", [])])
                 else:
-                    cleansed_row.update({k: v})
+                    output.append([i.get('value') for i in row.get("ColData", [])])
 
-            cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-
-            yield cleansed_row
+            # Zip columns and row data.
+            for raw_row in output:
+                row = dict(zip(columns, raw_row))
+                if report_date:
+                    row["report_date"] = report_date
+                if not row.get("Total"):
+                    # If a row is missing the amount, skip it
+                    continue
+                
+                cleansed_row = {}
+                for k, v in row.items():
+                    if v == "":
+                        continue
+                    else:
+                        cleansed_row.update({k: v})
+                cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                all_rows.append(cleansed_row)
+        return all_rows        
