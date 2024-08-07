@@ -1,8 +1,6 @@
 import datetime
 from typing import ClassVar, Dict, List, Optional
-
 import singer
-
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
 
@@ -48,7 +46,6 @@ class ARAgingSummaryReport(QuickbooksStream):
         else:
             report_dates.append(None) # This is to Run the sync once without specific report_date
 
-        all_rows = [] 
         for report_date in report_dates:
             if report_date:
                 params["aging_method"] = "Report_Date"
@@ -56,7 +53,6 @@ class ARAgingSummaryReport(QuickbooksStream):
                 LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']} with aging_method 'Report_Date' and report_date {report_date}")
             else:
                 LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']}")
-
             resp = self._get(report_entity='AgedReceivables', params=params)
 
             # Get column metadata.
@@ -86,8 +82,7 @@ class ARAgingSummaryReport(QuickbooksStream):
             # Zip columns and row data.
             for raw_row in output:
                 row = dict(zip(columns, raw_row))
-                if report_date:
-                    row["report_date"] = report_date
+                row["report_date"] = report_date if report_date else end_date.strftime("%Y-%m-%d")
                 if not row.get("Total"):
                     # If a row is missing the amount, skip it
                     continue
@@ -99,5 +94,4 @@ class ARAgingSummaryReport(QuickbooksStream):
                     else:
                         cleansed_row.update({k: v})
                 cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-                all_rows.append(cleansed_row)
-        return all_rows        
+                yield cleansed_row     
