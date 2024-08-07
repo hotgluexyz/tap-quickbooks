@@ -563,7 +563,8 @@
     {"name": "31-60", "type": "number"},
     {"name": "61-90", "type": "number"},
     {"name": "91andover", "type": "number"},
-    {"name": "Total", "type": "number"}
+    {"name": "Total", "type": "number"},
+    {"name": "report_date", "type": "string"}
   ],
   "ProfitAndLossDetailReport": [
     {"name": "Date", "type": "string"},
