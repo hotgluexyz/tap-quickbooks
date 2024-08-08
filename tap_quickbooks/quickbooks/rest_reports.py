@@ -14,7 +14,7 @@ def is_fatal_code(e: requests.exceptions.RequestException) -> bool:
     '''Helper function to determine if a Requests reponse status code
     is a "fatal" status code. If it is, the backoff decorator will giveup
     instead of attemtping to backoff.'''
-    return 400 <= e.response.status_code < 500 and e.response.status_code != 429
+    return 400 <= e.response.status_code < 500 and e.response.status_code not in [429,400]
 
 
 @attr.s
