@@ -238,6 +238,10 @@ class GeneralLedgerReport(QuickbooksStream):
                         elif self.gl_weekly and not self.gl_daily:
                             self.gl_weekly = False
                             self.gl_daily = True
+                        elif self.gl_daily:
+                            # If we already are at gl_daily we have to give up
+                            raise Exception(r)
+
                         break
                     else:
                         self.gl_weekly = False
