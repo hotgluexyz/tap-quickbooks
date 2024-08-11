@@ -37,7 +37,7 @@ class ARAgingDetailReport(QuickbooksStream):
             "accounting_method": "Accrual"
         }
 
-        report_dates = ['2024-05-31', '2024-06-30']
+        report_dates = []
         if self.qb.ar_aging_report_dates:
             for report_date in self.qb.ar_aging_report_dates:
                 report_dates.append(report_date.split("T")[0])
