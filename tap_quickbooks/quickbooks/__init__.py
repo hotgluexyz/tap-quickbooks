@@ -385,12 +385,9 @@ class Quickbooks():
             resp = self.session.post(url, headers=headers, data=body)
         else:
             raise TapQuickbooksException("Unsupported HTTP method")
-
-        if (
-            resp.status_code == 500
-            and resp.text
-            == "Authorization FailureAuthorizationFailure: Unknown Error during Authentication, statusCode: 500"
-        ) or resp.status_code in [400]:
+        if resp.status_code in [400, 500]:
+            if "Authorization Failure" in resp.text:
+                self.login()
             raise RetriableApiError(resp.text)
         try:
             resp.raise_for_status()
@@ -426,6 +423,7 @@ class Quickbooks():
             self.access_token = auth['access_token']
 
             new_refresh_token = auth['refresh_token']
+            LOGGER.info(F"REFRESH TOKEN: {new_refresh_token}")
 
             # persist access_token
             parser = argparse.ArgumentParser()
