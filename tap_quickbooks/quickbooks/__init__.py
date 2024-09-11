@@ -342,11 +342,9 @@ class Quickbooks():
         else:
             raise TapQuickbooksException("Unsupported HTTP method")
 
-        if (
-            resp.status_code == 500
-            and resp.text
-            == "Authorization FailureAuthorizationFailure: Unknown Error during Authentication, statusCode: 500"
-        ) or resp.status_code in [400]:
+        if resp.status_code in [400, 500]:
+            if "Authorization Failure" in resp.text:
+                self.login()
             raise RetriableApiError(resp.text)
         
         try:
