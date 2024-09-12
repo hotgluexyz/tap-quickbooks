@@ -172,7 +172,15 @@ class TransactionListReport(QuickbooksStream):
 
                 # Zip columns and row data.
                 for raw_row in output:
-                    row = dict(zip(columns, raw_row))
+                    row = {}
+                    for c, v in zip(columns, raw_row):
+                        if isinstance(v, dict):
+                            row[c] = v.get("value")
+                            if "id" in v:
+                                row[f"{c}Id"] = v.get("id")
+                        else:
+                            row[c] = v
+
                     if not row.get("Amount"):
                         # If a row is missing the amount, skip it
                         continue
