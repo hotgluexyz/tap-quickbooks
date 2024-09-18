@@ -566,11 +566,11 @@
     {"name": "Total", "type": "number"},
     {"name": "report_date", "type": "string"}
   ],
-
   "ARAgingDetailReport": [
     {"name": "Date", "type": "string"},
     {"name": "TransactionType", "type": "string"},
     {"name": "Num", "type": "string"},
+    {"name": "No.", "type": "string"},
     {"name": "Customer", "type": "string"},
     {"name": "DueDate", "type": "string"},
     {"name": "Amount", "type": "number"},
