@@ -40,6 +40,10 @@ def log_backoff_attempt(details):
     LOGGER.info("ConnectionError detected, triggering backoff: %d try", details.get("tries"))
 
 
+def log_wide_backoff_attempt(details):
+    LOGGER.info(f"Exception detected, triggering backoff:. details={details} try")
+
+
 def _get_abs_path(path: str) -> str:
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
 
@@ -369,11 +373,19 @@ class Quickbooks():
             raise TapQuickbooksQuotaExceededException(partial_message)
 
     # pylint: disable=too-many-arguments
-    @backoff.on_exception(backoff.expo,
-                          requests.exceptions.ConnectionError,
-                          max_tries=10,
-                          factor=2,
-                          on_backoff=log_backoff_attempt)
+    @backoff.on_exception(
+        backoff.expo,
+        Exception,
+        max_tries=3,
+        factor=15,  # wait 15, 30, 60 seconds
+        on_backoff=log_wide_backoff_attempt,
+        giveup=lambda e: not isinstance(e, requests.exceptions.ConnectionError),)
+    @backoff.on_exception(
+        backoff.expo,
+        requests.exceptions.ConnectionError,
+        max_tries=10,
+        factor=2,
+        on_backoff=log_backoff_attempt)
     def _make_request(self, http_method, url, headers=None, body=None, stream=False, params=None):
         if http_method == "GET":
             LOGGER.info("Making %s request to %s with params: %s", http_method, url, params)
@@ -387,6 +399,7 @@ class Quickbooks():
         try:
             resp.raise_for_status()
         except RequestException as ex:
+            LOGGER.info(f"Error when validating response status. response={ex.response.text}")
             raise ex
 
         if resp.headers.get('Sforce-Limit-Info') is not None:
