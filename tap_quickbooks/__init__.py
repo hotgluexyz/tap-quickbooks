@@ -9,6 +9,7 @@ from tap_quickbooks.sync import (sync_stream, get_stream_version)
 from tap_quickbooks.quickbooks import Quickbooks
 from tap_quickbooks.quickbooks.exceptions import (
     TapQuickbooksException, TapQuickbooksQuotaExceededException)
+import threading
 
 LOGGER = singer.get_logger()
 
@@ -303,7 +304,14 @@ def main_impl():
                     qb.rest_requests_attempted)
             if qb.login_timer:
                 qb.login_timer.cancel()
+                LOGGER.info(f"Main login timer canceled.")
 
+        # cancel all timer threads
+        for thread in threading.enumerate():
+            if isinstance(thread, threading.Timer):
+                if thread.is_alive(): 
+                    thread.cancel()
+                    LOGGER.info(f"additional login timer canceled")
 
 def main():
     try:
