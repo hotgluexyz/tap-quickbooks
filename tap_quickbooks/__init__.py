@@ -9,6 +9,7 @@ from tap_quickbooks.sync import (sync_stream, get_stream_version)
 from tap_quickbooks.quickbooks import Quickbooks
 from tap_quickbooks.quickbooks.exceptions import (
     TapQuickbooksException, TapQuickbooksQuotaExceededException)
+import os
 
 LOGGER = singer.get_logger()
 
@@ -303,6 +304,7 @@ def main_impl():
                     qb.rest_requests_attempted)
             if qb.login_timer:
                 qb.login_timer.cancel()
+        os.kill(os.getpid(), 9)
 
 
 def main():
