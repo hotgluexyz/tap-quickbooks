@@ -113,6 +113,9 @@ class GeneralLedgerReport(QuickbooksStream):
                 "subt_nat_amount",
                 "credit_amt",
                 "debt_amt",
+                "subt_nat_home_amount",
+                "credit_home_amt",
+                "debt_home_amt",
                 "account_name",
                 "account_num",
                 "klass_name",
@@ -120,6 +123,7 @@ class GeneralLedgerReport(QuickbooksStream):
                 "item_name",
                 "vend_name",
                 "txn_type",
+                "currency"
             ]
         else:
             cols = [
