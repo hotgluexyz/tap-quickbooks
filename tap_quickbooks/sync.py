@@ -56,20 +56,24 @@ def get_stream_version(catalog_entry, state):
 
 def sync_stream(qb, catalog_entry, state, state_passed):
     stream = catalog_entry['stream']
-
+    LOGGER.info(f"Syncing stream {stream}")
     with metrics.record_counter(stream) as counter:
         try:
-            sync_records(qb, catalog_entry, state, counter, state_passed)
-            singer.write_state(state)
-        except RequestException as ex:
-            response_message = ex.response.text if (ex.response is not None and hasattr(ex.response, "text")) else ""
-            status_code = ex.response.status_code if ex.response is not None else ""
-            raise Exception("Error syncing {}: {} Response: {} Status code: {}".format(
-                stream, ex, response_message, status_code))
+            try:
+                sync_records(qb, catalog_entry, state, counter, state_passed)
+                singer.write_state(state)
+            except RequestException as ex:
+                response_message = ex.response.text if (ex.response is not None and hasattr(ex.response, "text")) else ""
+                status_code = ex.response.status_code if ex.response is not None else ""
+                raise Exception("Error syncing {}: {} Response: {} Status code: {}".format(
+                    stream, ex, response_message, status_code))
+            except Exception as ex:
+                raise Exception("Error syncing {}: {}".format(
+                    stream, ex)) from ex
         except Exception as ex:
-            raise Exception("Error syncing {}: {}".format(
-                stream, ex)) from ex
-
+            LOGGER.error(f"Error syncing {stream}. Ignoring it and continuing: {ex}")
+            if hasattr(ex, 'args') and len(ex.args) > 0:
+                state = singer.write_bookmark(state, catalog_entry['tap_stream_id'], 'error', ex.args[0])
         return counter
 
 
