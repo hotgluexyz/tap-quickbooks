@@ -4,7 +4,8 @@ import json
 import singer.utils as singer_utils
 
 from requests.exceptions import HTTPError
-from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException
+from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException, raise_for_invalid_credentials
+from requests.models import Response
 
 LOGGER = singer.get_logger()
 
@@ -73,7 +74,11 @@ class Rest():
                         day_range,
                         catalog_entry['stream'])
                     retryable = True
-            except:
+                else:
+                    raise_for_invalid_credentials(ex.response)
+            except HTTPError as http_ex:
+                raise http_ex
+            except Exception:
                 raise ex
 
         if retryable:
