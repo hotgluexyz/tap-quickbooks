@@ -76,7 +76,7 @@
     {"name": "DepositToAccountRef", "type": "string"},
     {"name": "ExchangeRate", "type": "number"},
     {"name": "SyncToken", "type": "string"},
-    {"name": "Line", "type": "string"},
+    {"name": "Line", "type": "array", "child_type": "payment_line"},
     {"name": "TxnSource", "type": "string"},
     {"name": "ARAccountRef", "type": "string"},
     {"name": "TxnDate", "type": "string"},
@@ -507,7 +507,10 @@
     {"name": "ClassId", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "SupplierId", "type": "string"},
-    {"name": "Supplier", "type": "string"}
+    {"name": "Supplier", "type": "string"},
+    {"name": "Department", "type": "string"},
+    {"name": "DepartmentId", "type": "string"}
+
   ],
   "GeneralLedgerCashReport": [
     {"name": "Date", "type": "string"},
@@ -554,7 +557,9 @@
     {"name": "KlassId", "type": "string"},
     {"name": "Class", "type": "string"},
     {"name": "ClassId", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"}
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "Department", "type": "string"},
+    {"name": "DepartmentId", "type": "string"}
   ],
   "ARAgingSummaryReport": [
     {"name": "Customer", "type": "string"},
@@ -608,6 +613,11 @@
     {"name": "AccountId", "type": "string"},
     {"name": "Account", "type": "string"},
     {"name": "Store", "type": "string"}
+  ],
+  "ProfitAndLossReport": [
+    {"name": "Total", "type": "number"},
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "Account", "type": "string"}
   ],
   "TransactionListReport": [
     {"name": "Date", "type": "string"},

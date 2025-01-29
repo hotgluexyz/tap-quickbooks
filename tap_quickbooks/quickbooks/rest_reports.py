@@ -14,8 +14,10 @@ def is_fatal_code(e: requests.exceptions.RequestException) -> bool:
     '''Helper function to determine if a Requests reponse status code
     is a "fatal" status code. If it is, the backoff decorator will giveup
     instead of attemtping to backoff.'''
-    return 400 <= e.response.status_code < 500 and e.response.status_code != 429
+    return 400 <= e.response.status_code < 500 and e.response.status_code not in [429, 400]
 
+class RetriableException(Exception):
+    pass
 
 @attr.s
 class QuickbooksStream:
@@ -31,7 +33,9 @@ class QuickbooksStream:
                           giveup=is_fatal_code)
     @backoff.on_exception(backoff.fibo,
                           (requests.exceptions.ConnectionError,
-                           requests.exceptions.Timeout),
+                           requests.exceptions.Timeout,
+                           RetriableException
+                           ),
                           max_tries=5)
     def _get(self, report_entity: str, params: Optional[Dict] = None) -> Dict:
         '''Constructs a standard way of making
@@ -49,7 +53,17 @@ class QuickbooksStream:
             # Wait 60 seconds before retrying the request.
             time.sleep(60)
         response.raise_for_status()
-        return response.json()
+
+        # handle random empty responses or not valid json responses
+        try:
+            res_json = response.json()
+        except:
+            raise RetriableException(f"Invalid json response: {response.text} ")
+        
+        if res_json == None:
+            raise RetriableException(f"Empty response returned {response.text} ")
+        
+        return res_json
 
     def _convert_string_value_to_float(self, value: str) -> float:
         '''Safely converts string values to floats.'''

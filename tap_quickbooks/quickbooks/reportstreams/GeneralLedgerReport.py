@@ -92,7 +92,7 @@ class GeneralLedgerReport(QuickbooksStream):
         LOGGER.info(log_msg)
         response = self._get(report_entity, params)
         LOGGER.info(f"COMPLETE: {log_msg}")
-        
+
         if "Unable to display more data. Please reduce the date range." in str(
             response
         ):
@@ -113,12 +113,17 @@ class GeneralLedgerReport(QuickbooksStream):
                 "subt_nat_amount",
                 "credit_amt",
                 "debt_amt",
+                "subt_nat_home_amount",
+                "credit_home_amt",
+                "debt_home_amt",
+                "account_name",
                 "account_num",
                 "klass_name",
                 "dept_name",
                 "item_name",
                 "vend_name",
                 "txn_type",
+                "currency"
             ]
         else:
             cols = [
@@ -237,6 +242,10 @@ class GeneralLedgerReport(QuickbooksStream):
                         elif self.gl_weekly and not self.gl_daily:
                             self.gl_weekly = False
                             self.gl_daily = True
+                        elif self.gl_daily:
+                            # If we already are at gl_daily we have to give up
+                            raise Exception(r)
+
                         break
                     else:
                         self.gl_weekly = False

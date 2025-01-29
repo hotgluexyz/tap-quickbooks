@@ -11,6 +11,7 @@ from tap_quickbooks.quickbooks.exceptions import (
     TapQuickbooksException,
     TapQuickbooksQuotaExceededException,
 )
+import threading
 
 LOGGER = singer.get_logger()
 
@@ -152,7 +153,20 @@ def do_discover(qb):
                     "reason": "No replication keys found from the Quickbooks API",
                 },
             )
-        if sobject_name in ["GeneralLedgerCashReport", "GeneralLedgerAccrualReport"]:
+
+        if sobject_name in [
+            "BalanceSheetReport",
+            "MonthlyBalanceSheetReport",
+            "CashFlowReport",
+            "DailyCashFlowReport",
+            "MonthlyCashFlowReport",
+            "GeneralLedgerAccrualReport",
+            "GeneralLedgerCashReport",
+            "ARAgingSummaryReport",
+            "ProfitAndLossDetailReport",
+            "ProfitAndLossReport",
+            "TransactionListReport",
+        ]:
             key_properties = []
         mdata = metadata.write(mdata, (), "table-key-properties", key_properties)
 
@@ -329,7 +343,14 @@ def main_impl():
                 )
             if qb.login_timer:
                 qb.login_timer.cancel()
-
+                LOGGER.info(f"Main login timer canceled.")
+        
+        # cancel all timer threads
+        for thread in threading.enumerate():
+            if isinstance(thread, threading.Timer):
+                if thread.is_alive(): 
+                    thread.cancel()
+                    LOGGER.info(f"additional login timer canceled")
 
 def main():
     try:

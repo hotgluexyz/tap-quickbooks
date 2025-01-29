@@ -74,7 +74,7 @@ class Rest():
                         catalog_entry['stream'])
                     retryable = True
             except:
-                 raise ex
+                raise ex
 
         if retryable:
             start_date = singer_utils.strptime_with_tz(start_date_str)

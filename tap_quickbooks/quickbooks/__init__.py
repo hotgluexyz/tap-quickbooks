@@ -11,21 +11,12 @@ import singer.utils as singer_utils
 import os
 from typing import Dict
 from singer import metadata, metrics
-from tap_quickbooks.quickbooks.reportstreams.MonthlyBalanceSheetReport import (
-    MonthlyBalanceSheetReport,
-)
-from tap_quickbooks.quickbooks.reportstreams.ProfitAndLossDetailReport import (
-    ProfitAndLossDetailReport,
-)
-from tap_quickbooks.quickbooks.reportstreams.BalanceSheetReport import (
-    BalanceSheetReport,
-)
-from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerAccrualReport import (
-    GeneralLedgerAccrualReport,
-)
-from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerCashReport import (
-    GeneralLedgerCashReport,
-)
+from tap_quickbooks.quickbooks.reportstreams.MonthlyBalanceSheetReport import MonthlyBalanceSheetReport
+from tap_quickbooks.quickbooks.reportstreams.ProfitAndLossDetailReport import ProfitAndLossDetailReport
+from tap_quickbooks.quickbooks.reportstreams.ProfitAndLossReport import ProfitAndLossReport
+from tap_quickbooks.quickbooks.reportstreams.BalanceSheetReport import BalanceSheetReport
+from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerAccrualReport import GeneralLedgerAccrualReport
+from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerCashReport import GeneralLedgerCashReport
 from tap_quickbooks.quickbooks.reportstreams.CashFlowReport import CashFlowReport
 from tap_quickbooks.quickbooks.reportstreams.DailyCashFlowReport import DailyCashFlowReport
 from tap_quickbooks.quickbooks.reportstreams.MonthlyCashFlowReport import MonthlyCashFlowReport
@@ -198,13 +189,59 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         },
     }
 
-    qb_type = field["type"]
+    qb_types["LinkedTxn"] = {
+        "type": object_type["type"],
+        "properties": {
+            "TxnId": string_type,
+            "TxnType": string_type,
+        }
+    }
+
+    qb_types["any"] = {
+        "type": object_type["type"],
+        "properties": {
+            "name": string_type,
+            "declaredType": string_type,
+            "scope": string_type,
+            "value": {
+                "type": object_type["type"],
+                "properties": {
+                    "Name": string_type,
+                    "Value": string_type,
+                }
+            },
+            "nil": boolean_type,
+            "globalScope": boolean_type,
+            "typeSubstituted": boolean_type,
+        }
+    }
+
+    qb_types["payment_line"] = {
+        "type": object_type["type"],
+        "properties": {
+            "Amount": number_type,
+            "LinkedTxn": {"type": "array", "items": qb_types["LinkedTxn"]},
+            "LineEx": {
+                "type": object_type["type"],
+                "properties": {
+                    "any": {
+                        "type": "array", 
+                        "items": qb_types["any"]
+                    }
+                }
+            }
+        }
+    }
+
+    qb_type = field['type']
     property_schema = qb_types[qb_type]
     if qb_type == "array":
         property_schema["items"] = qb_types[field["child_type"]]
 
     return property_schema, mdata
 
+class RetriableApiError(Exception):
+    pass
 
 class Quickbooks:
     # pylint: disable=too-many-instance-attributes,too-many-arguments
@@ -336,16 +373,12 @@ class Quickbooks:
             raise TapQuickbooksQuotaExceededException(partial_message)
 
     # pylint: disable=too-many-arguments
-    @backoff.on_exception(
-        backoff.expo,
-        requests.exceptions.ConnectionError,
-        max_tries=10,
-        factor=2,
-        on_backoff=log_backoff_attempt,
-    )
-    def _make_request(
-        self, http_method, url, headers=None, body=None, stream=False, params=None
-    ):
+    @backoff.on_exception(backoff.expo,
+                          (requests.exceptions.ConnectionError,RetriableApiError),
+                          max_tries=10,
+                          factor=2,
+                          on_backoff=log_backoff_attempt)
+    def _make_request(self, http_method, url, headers=None, body=None, stream=False, params=None):
         if http_method == "GET":
             LOGGER.info(
                 "Making %s request to %s with params: %s", http_method, url, params
@@ -356,7 +389,10 @@ class Quickbooks:
             resp = self.session.post(url, headers=headers, data=body)
         else:
             raise TapQuickbooksException("Unsupported HTTP method")
-
+        if resp.status_code in [400, 500]:
+            if "Authorization Failure" in resp.text:
+                self.login()
+            raise RetriableApiError(resp.text)
         try:
             resp.raise_for_status()
         except RequestException as ex:
@@ -396,8 +432,10 @@ class Quickbooks:
 
             auth = resp.json()
 
-            self.access_token = auth["access_token"]
-            new_refresh_token = auth["refresh_token"]
+            self.access_token = auth['access_token']
+
+            new_refresh_token = auth['refresh_token']
+            LOGGER.info(F"REFRESH TOKEN: {new_refresh_token}")
 
             # persist access_token
             parser = argparse.ArgumentParser()
@@ -542,6 +580,8 @@ class Quickbooks:
             reader = ARAgingDetailReport(self, start_date, state_passed)    
         elif catalog_entry["stream"] == "TransactionListReport":
             reader = TransactionListReport(self, start_date, state_passed)
+        elif catalog_entry["stream"] == "ProfitAndLossReport":
+            reader = ProfitAndLossReport(self, start_date, state_passed)
         else:
             reader = ProfitAndLossDetailReport(
                 self,

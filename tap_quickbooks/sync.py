@@ -62,8 +62,10 @@ def sync_stream(qb, catalog_entry, state, state_passed):
             sync_records(qb, catalog_entry, state, counter, state_passed)
             singer.write_state(state)
         except RequestException as ex:
-            raise Exception("Error syncing {}: {} Response: {}".format(
-                stream, ex, ex.response.text))
+            response_message = ex.response.text if (ex.response is not None and hasattr(ex.response, "text")) else ""
+            status_code = ex.response.status_code if ex.response is not None else ""
+            raise Exception("Error syncing {}: {} Response: {} Status code: {}".format(
+                stream, ex, response_message, status_code))
         except Exception as ex:
             raise Exception("Error syncing {}: {}".format(
                 stream, ex)) from ex
