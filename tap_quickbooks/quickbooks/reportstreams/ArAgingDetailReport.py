@@ -7,9 +7,9 @@ from tap_quickbooks.sync import transform_data_hook
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
 
-class ARAgingSummaryReport(QuickbooksStream):
-    tap_stream_id: ClassVar[str] = 'ARAgingSummaryReport'
-    stream: ClassVar[str] = 'ARAgingSummaryReport'
+class ARAgingDetailReport(QuickbooksStream):
+    tap_stream_id: ClassVar[str] = 'ARAgingDetailReport'
+    stream: ClassVar[str] = 'ARAgingDetailReport'
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
 
@@ -28,7 +28,7 @@ class ARAgingSummaryReport(QuickbooksStream):
         return columns
 
     def sync(self, catalog_entry):
-        LOGGER.info(f"Starting full sync of ARAgingSummary")
+        LOGGER.info(f"Starting full sync of ARAgingDetail")
         end_date = datetime.date.today()
         start_date = self.start_date
         params = {
@@ -50,10 +50,10 @@ class ARAgingSummaryReport(QuickbooksStream):
             if report_date:
                 params["aging_method"] = "Report_Date"
                 params["report_date"] = report_date
-                LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']} with aging_method 'Report_Date' and report_date {report_date}")
+                LOGGER.info(f"Fetch ARAgingDetail Report for period {params['start_date']} to {params['end_date']} with aging_method 'Report_Date' and report_date {report_date}")
             else:
-                LOGGER.info(f"Fetch ARAgingSummary Report for period {params['start_date']} to {params['end_date']}")
-            resp = self._get(report_entity='AgedReceivables', params=params)
+                LOGGER.info(f"Fetch ARAgingDetail Report for period {params['start_date']} to {params['end_date']}")
+            resp = self._get(report_entity='AgedReceivableDetail', params=params)
 
             # Get column metadata.
             columns = self._get_column_metadata(resp)
@@ -61,7 +61,6 @@ class ARAgingSummaryReport(QuickbooksStream):
             # Recursively get row data.
             row_group = resp.get("Rows")
             row_array = row_group.get("Row")
-
             if row_array is None:
                 return
 
@@ -83,10 +82,7 @@ class ARAgingSummaryReport(QuickbooksStream):
             for raw_row in output:
                 row = dict(zip(columns, raw_row))
                 row["report_date"] = report_date if report_date else end_date.strftime("%Y-%m-%d")
-                if not row.get("Total"):
-                    # If a row is missing the amount, skip it
-                    continue
-                
+       
                 cleansed_row = {}
                 for k, v in row.items():
                     if v == "":

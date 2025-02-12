@@ -506,9 +506,20 @@
     {"name": "Class", "type": "string"},
     {"name": "ClassId", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "SupplierId", "type": "string"},
+    {"name": "Supplier", "type": "string"},
     {"name": "Department", "type": "string"},
-    {"name": "DepartmentId", "type": "string"}
-
+    {"name": "DepartmentId", "type": "string"},
+    {"name": "Business", "type": "string"},
+    {"name": "BusinessId", "type": "string"},
+    {"name": "Division", "type": "string"},
+    {"name": "DivisionId", "type": "string"},
+    {"name": "Property", "type": "string"},
+    {"name": "PropertyId", "type": "string"},
+    {"name": "Store", "type": "string"},
+    {"name": "StoreId", "type": "string"},
+    {"name": "Territory", "type": "string"},
+    {"name": "TerritoryId", "type": "string"}
   ],
   "GeneralLedgerCashReport": [
     {"name": "Date", "type": "string"},
@@ -557,7 +568,17 @@
     {"name": "ClassId", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "Department", "type": "string"},
-    {"name": "DepartmentId", "type": "string"}
+    {"name": "DepartmentId", "type": "string"},
+    {"name": "Business", "type": "string"},
+    {"name": "BusinessId", "type": "string"},
+    {"name": "Division", "type": "string"},
+    {"name": "DivisionId", "type": "string"},
+    {"name": "Property", "type": "string"},
+    {"name": "PropertyId", "type": "string"},
+    {"name": "Store", "type": "string"},
+    {"name": "StoreId", "type": "string"},
+    {"name": "Territory", "type": "string"},
+    {"name": "TerritoryId", "type": "string"}
   ],
   "ARAgingSummaryReport": [
     {"name": "Customer", "type": "string"},
@@ -566,7 +587,19 @@
     {"name": "31-60", "type": "number"},
     {"name": "61-90", "type": "number"},
     {"name": "91andover", "type": "number"},
-    {"name": "Total", "type": "number"}
+    {"name": "Total", "type": "number"},
+    {"name": "report_date", "type": "string"}
+  ],
+  "ARAgingDetailReport": [
+    {"name": "Date", "type": "string"},
+    {"name": "TransactionType", "type": "string"},
+    {"name": "Num", "type": "string"},
+    {"name": "No.", "type": "string"},
+    {"name": "Customer", "type": "string"},
+    {"name": "DueDate", "type": "string"},
+    {"name": "Amount", "type": "number"},
+    {"name": "OpenBalance", "type": "number"},
+    {"name": "report_date", "type": "string"}
   ],
   "ProfitAndLossDetailReport": [
     {"name": "Date", "type": "string"},

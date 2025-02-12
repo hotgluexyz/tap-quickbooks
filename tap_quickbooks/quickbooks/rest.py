@@ -125,6 +125,9 @@ class Rest():
 
             # Establish number of records returned.
             count = resp_json['QueryResponse'].get('maxResults', 0)
+            LOGGER.info(
+                f"Synced {count} records for URL: {resp.request.url}"
+            )
 
             # Make sure there is alteast one record.
             if count == 0:
