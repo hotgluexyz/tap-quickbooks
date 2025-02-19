@@ -305,7 +305,8 @@ def main_impl():
             if qb.login_timer:
                 qb.login_timer.cancel()
                 LOGGER.info(f"Main login timer canceled.")
-        
+            qb.sync_finished = True
+
         # cancel all timer threads
         for thread in threading.enumerate():
             if isinstance(thread, threading.Timer):
