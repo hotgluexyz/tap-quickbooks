@@ -396,9 +396,11 @@
     {"name": "MetaData", "type": "string"},
     {"name": "sparse", "type": "boolean"},
     {"name": "Active", "type": "boolean"},
-    {"name": "Balance", "type": "number"}
+    {"name": "Balance", "type": "number"},
+    {"name": "PrimaryEmailAddr", "type": "string"},
+    {"name": "PrimaryPhone", "type": "string"},
+    {"name": "BillAddr", "type": "string"}
   ],
-
   "BillPayment": [
     {"name": "Id", "type": "string"},
     {"name": "VendorRef", "type": "string"},
