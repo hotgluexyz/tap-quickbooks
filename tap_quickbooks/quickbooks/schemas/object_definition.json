@@ -1,675 +1,2443 @@
 {
   "Account": [
-    {"name":  "Name", "type": "string"},
-    {"name":  "SubAccount", "type": "boolean"},
-    {"name":  "Description", "type": "string"},
-    {"name":  "FullyQualifiedName", "type": "string"},
-    {"name":  "Active", "type": "boolean"},
-    {"name":  "Classification", "type": "string"},
-    {"name":  "AccountType", "type": "string"},
-    {"name":  "AccountSubType", "type": "string"},
-    {"name":  "AcctNum", "type": "string"},
-    {"name":  "CurrentBalance", "type": "number"},
-    {"name":  "CurrentBalanceWithSubAccounts", "type": "number"},
-    {"name":  "CurrencyRef", "type": "string"},
-    {"name": "ParentRef", "type": "string"},
-    {"name":  "Id", "type": "string"},
-    {"name":  "MetaData", "type": "string"}
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "SubAccount",
+      "type": "boolean"
+    },
+    {
+      "name": "Description",
+      "type": "string"
+    },
+    {
+      "name": "FullyQualifiedName",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "Classification",
+      "type": "string"
+    },
+    {
+      "name": "AccountType",
+      "type": "string"
+    },
+    {
+      "name": "AccountSubType",
+      "type": "string"
+    },
+    {
+      "name": "AcctNum",
+      "type": "string"
+    },
+    {
+      "name": "CurrentBalance",
+      "type": "number"
+    },
+    {
+      "name": "CurrentBalanceWithSubAccounts",
+      "type": "number"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "ParentRef",
+      "type": "string"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    }
   ],
   "Bill": [
-    {"name":"Id", "type": "string"},
-    {"name":"VendorRef", "type": "string"},
-    {"name": "Line", "type": "string"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name":"TxnDate", "type": "datetime"},
-    {"name": "APAccountRef", "type": "string"},
-    {"name": "SalesTermRef", "type": "string"},
-    {"name": "LinkedTxn", "type": "string"},
-    {"name": "TotalAmt", "type": "string"},
-    {"name": "DueDate", "type": "datetime"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "DocNumber", "type": "string"},
-    {"name": "PrivateNote", "type": "string"},
-    {"name": "ExchangeRate", "type": "number"},
-    {"name": "DepartmentRef", "type": "string"},
-    {"name": "HomeBalance", "type": "number"},
-    {"name": "RecurDataRef", "type": "datetime"},
-    {"name": "Balance", "type": "number"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "VendorRef",
+      "type": "string"
+    },
+    {
+      "name": "Line",
+      "type": "string"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "datetime"
+    },
+    {
+      "name": "APAccountRef",
+      "type": "string"
+    },
+    {
+      "name": "SalesTermRef",
+      "type": "string"
+    },
+    {
+      "name": "LinkedTxn",
+      "type": "string"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "string"
+    },
+    {
+      "name": "DueDate",
+      "type": "datetime"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "DocNumber",
+      "type": "string"
+    },
+    {
+      "name": "PrivateNote",
+      "type": "string"
+    },
+    {
+      "name": "ExchangeRate",
+      "type": "number"
+    },
+    {
+      "name": "DepartmentRef",
+      "type": "string"
+    },
+    {
+      "name": "HomeBalance",
+      "type": "number"
+    },
+    {
+      "name": "RecurDataRef",
+      "type": "datetime"
+    },
+    {
+      "name": "Balance",
+      "type": "number"
+    }
   ],
   "Class": [
-    {"name": "FullyQualifiedName", "type": "string"},
-    {"name": "domain", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "SubClass", "type": "boolean"},
-    {"name": "ParentRef", "type": "string"},
-    {"name": "sparse", "type": "boolean"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"}
+    {
+      "name": "FullyQualifiedName",
+      "type": "string"
+    },
+    {
+      "name": "domain",
+      "type": "string"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "SubClass",
+      "type": "boolean"
+    },
+    {
+      "name": "ParentRef",
+      "type": "string"
+    },
+    {
+      "name": "sparse",
+      "type": "boolean"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    }
   ],
   "CustomerType": [
-    {"name": "Name", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"}
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    }
   ],
   "PaymentMethod": [
-    {"name": "Name", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "Type", "type": "string"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"}
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    }
   ],
-
   "Payment": [
-    {"name": "Id", "type": "string"},
-    {"name": "TotalAmt", "type": "number"},
-    {"name": "CustomerRef", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name": "PrivateNote", "type": "string"},
-    {"name": "PaymentMethodRef", "type": "string"},
-    {"name": "UnappliedAmt", "type": "number"},
-    {"name": "DepositToAccountRef", "type": "string"},
-    {"name": "ExchangeRate", "type": "number"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "Line", "type": "array", "child_type": "payment_line"},
-    {"name": "TxnSource", "type": "string"},
-    {"name": "ARAccountRef", "type": "string"},
-    {"name": "TxnDate", "type": "string"},
-    {"name": "CreditCardPayment", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "TaxExemptionRef", "type": "string"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "number"
+    },
+    {
+      "name": "CustomerRef",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "PrivateNote",
+      "type": "string"
+    },
+    {
+      "name": "PaymentMethodRef",
+      "type": "string"
+    },
+    {
+      "name": "UnappliedAmt",
+      "type": "number"
+    },
+    {
+      "name": "DepositToAccountRef",
+      "type": "string"
+    },
+    {
+      "name": "ExchangeRate",
+      "type": "number"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "Line",
+      "type": "array",
+      "child_type": "payment_line"
+    },
+    {
+      "name": "TxnSource",
+      "type": "string"
+    },
+    {
+      "name": "ARAccountRef",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "string"
+    },
+    {
+      "name": "CreditCardPayment",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "TaxExemptionRef",
+      "type": "string"
+    }
   ],
-
   "Transfer": [
-    {"name": "Id", "type": "string"},
-    {"name": "ToAccountRef", "type": "string"},
-    {"name": "Amount", "type": "number"},
-    {"name": "FromAccountRef", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "PrivateNote", "type": "string"},
-    {"name": "TxnDate", "type": "string"},
-    {"name": "TransactionLocationType", "type": "string"},
-    {"name": "MetaData", "type": "string"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "ToAccountRef",
+      "type": "string"
+    },
+    {
+      "name": "Amount",
+      "type": "number"
+    },
+    {
+      "name": "FromAccountRef",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "PrivateNote",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "string"
+    },
+    {
+      "name": "TransactionLocationType",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    }
   ],
-
   "CompanyInfo": [
-    {"name": "Id", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "CompanyName", "type": "string"},
-    {"name": "CompanyAddr", "type": "string"},
-    {"name": "LegalAddr", "type": "string"},
-    {"name": "SupportedLanguages", "type": "string"},
-    {"name": "Country", "type": "string"},
-    {"name": "Email", "type": "string"},
-    {"name": "WebAddr", "type": "string"},
-    {"name": "NameValue", "type": "string"},
-    {"name": "FiscalYearStartMonth", "type": "string"},
-    {"name": "CustomerCommunicationAddr", "type": "string"},
-    {"name": "PrimaryPhone", "type": "string"},
-    {"name": "LegalName", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "CompanyStartDate", "type": "string"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "CompanyName",
+      "type": "string"
+    },
+    {
+      "name": "CompanyAddr",
+      "type": "string"
+    },
+    {
+      "name": "LegalAddr",
+      "type": "string"
+    },
+    {
+      "name": "SupportedLanguages",
+      "type": "string"
+    },
+    {
+      "name": "Country",
+      "type": "string"
+    },
+    {
+      "name": "Email",
+      "type": "string"
+    },
+    {
+      "name": "WebAddr",
+      "type": "string"
+    },
+    {
+      "name": "NameValue",
+      "type": "string"
+    },
+    {
+      "name": "FiscalYearStartMonth",
+      "type": "string"
+    },
+    {
+      "name": "CustomerCommunicationAddr",
+      "type": "string"
+    },
+    {
+      "name": "PrimaryPhone",
+      "type": "string"
+    },
+    {
+      "name": "LegalName",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "CompanyStartDate",
+      "type": "string"
+    }
   ],
-
   "TaxRate": [
-    {"name": "Name", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "RateValue", "type": "string"},
-    {"name": "AgencyRef", "type": "string"},
-    {"name": "SpecialTaxType", "type": "string"},
-    {"name": "EffectiveTaxRate", "type": "string"},
-    {"name": "DisplayType", "type": "string"},
-    {"name": "TaxReturnLineRef", "type": "string"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "OriginalTaxRate", "type": "string"},
-    {"name": "Description", "type": "string"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"}
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "RateValue",
+      "type": "string"
+    },
+    {
+      "name": "AgencyRef",
+      "type": "string"
+    },
+    {
+      "name": "SpecialTaxType",
+      "type": "string"
+    },
+    {
+      "name": "EffectiveTaxRate",
+      "type": "string"
+    },
+    {
+      "name": "DisplayType",
+      "type": "string"
+    },
+    {
+      "name": "TaxReturnLineRef",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "OriginalTaxRate",
+      "type": "string"
+    },
+    {
+      "name": "Description",
+      "type": "string"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    }
   ],
-
   "TaxCode": [
-    {"name": "Id", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "PurchaseTaxRateList", "type": "string"},
-    {"name": "SalesTaxRateList", "type": "string"},
-    {"name": "TaxGroup", "type": "string"},
-    {"name": "Taxable", "type": "string"},
-    {"name": "Active", "type": "string"},
-    {"name": "Description", "type": "string"},
-    {"name": "Hidden", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "TaxCodeConfigType", "type": "string"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "PurchaseTaxRateList",
+      "type": "string"
+    },
+    {
+      "name": "SalesTaxRateList",
+      "type": "string"
+    },
+    {
+      "name": "TaxGroup",
+      "type": "string"
+    },
+    {
+      "name": "Taxable",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "string"
+    },
+    {
+      "name": "Description",
+      "type": "string"
+    },
+    {
+      "name": "Hidden",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "TaxCodeConfigType",
+      "type": "string"
+    }
   ],
-
   "Term": [
-    {"name": "Id", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name":  "DiscountPercent", "type": "number"},
-    {"name":  "DiscountDays", "type": "number"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "Type", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name":  "DayOfMonthDue", "type": "number"},
-    {"name":  "DiscountDayOfMonth", "type": "number"},
-    {"name":  "DueNextMonthDays", "type": "number"},
-    {"name":  "DueDays", "type": "number"}
-
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "DiscountPercent",
+      "type": "number"
+    },
+    {
+      "name": "DiscountDays",
+      "type": "number"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "DayOfMonthDue",
+      "type": "number"
+    },
+    {
+      "name": "DiscountDayOfMonth",
+      "type": "number"
+    },
+    {
+      "name": "DueNextMonthDays",
+      "type": "number"
+    },
+    {
+      "name": "DueDays",
+      "type": "number"
+    }
   ],
-
   "Department": [
-    {"name": "Name", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "Type", "type": "string"},
-    {"name": "ParentRef", "type": "string"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "FullyQualifiedName", "type": "string"},
-    {"name": "SubDepartment", "type": "boolean"}
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    },
+    {
+      "name": "ParentRef",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "FullyQualifiedName",
+      "type": "string"
+    },
+    {
+      "name": "SubDepartment",
+      "type": "boolean"
+    }
   ],
-
   "CreditMemo": [
-    {"name": "RemainingCredit", "type": "number"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "CustomField","type": "array", "child_type": "custom_field"},
-    {"name": "DocNumber", "type": "string"},
-    {"name": "TxnDate", "type": "datetime"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name": "CustomerRef", "type": "string"},
-    {"name": "ClassRef", "type": "string"},
-    {"name": "Line", "type": "array", "child_type": "invoice_line"},
-    {"name": "CustomerMemo", "type": "string"},
-    {"name": "TotalAmt", "type": "number"},
-    {"name": "Balance", "type": "number"}
+    {
+      "name": "RemainingCredit",
+      "type": "number"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "CustomField",
+      "type": "array",
+      "child_type": "custom_field"
+    },
+    {
+      "name": "DocNumber",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "datetime"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "CustomerRef",
+      "type": "string"
+    },
+    {
+      "name": "ClassRef",
+      "type": "string"
+    },
+    {
+      "name": "Line",
+      "type": "array",
+      "child_type": "invoice_line"
+    },
+    {
+      "name": "CustomerMemo",
+      "type": "string"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "number"
+    },
+    {
+      "name": "Balance",
+      "type": "number"
+    }
   ],
   "Customer": [
-    {"name": "Taxable", "type": "boolean"},
-    {"name": "BillAddr", "type": "address"},
-    {"name": "ShipAddr", "type": "address"},
-    {"name": "Job", "type": "boolean"},
-    {"name": "BillWithParent", "type": "boolean"},
-    {"name": "GivenName", "type": "string"},
-    {"name": "MiddleName", "type": "string"},
-    {"name": "FamilyName", "type": "string"},
-    {"name": "Suffix", "type": "string"},
-    {"name": "Title", "type": "string"},
-    {"name": "WebAddr", "type": "string"},
-    {"name": "ParentRef", "type": "string"},
-    {"name": "Mobile", "type": "string"},
-    {"name": "BillAddr", "type": "string"},
-    {"name": "Notes", "type": "string"},
-    {"name": "ParentRef", "type": "string"},
-    {"name": "PaymentMethodRef", "type": "string"},
-    {"name": "OpenBalanceDate", "type": "datetime"},
-    {"name": "CustomerTypeRef", "type": "string"},
-    {"name": "SalesTermRef", "type": "string"},
-    {"name": "Taxable", "type": "boolean"},
-    {"name": "DefaultTaxCodeRef", "type": "string"},
-    {"name": "Balance", "type": "number"},
-    {"name": "BalanceWithJobs", "type": "number"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name": "PreferredDeliveryMethod", "type": "string"},
-    {"name": "IsProject", "type": "boolean"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "FullyQualifiedName", "type": "string"},
-    {"name": "CompanyName", "type": "string"},
-    {"name": "DisplayName", "type": "string"},
-    {"name": "PrintOnCheckName", "type": "string"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "PrimaryEmailAddr", "type": "string"},
-    {"name": "PrimaryPhone", "type": "string"},
-    {"name": "AlternatePhone", "type": "string"},
-    {"name": "Fax", "type": "string"}
+    {
+      "name": "Taxable",
+      "type": "boolean"
+    },
+    {
+      "name": "BillAddr",
+      "type": "address"
+    },
+    {
+      "name": "ShipAddr",
+      "type": "address"
+    },
+    {
+      "name": "Job",
+      "type": "boolean"
+    },
+    {
+      "name": "BillWithParent",
+      "type": "boolean"
+    },
+    {
+      "name": "GivenName",
+      "type": "string"
+    },
+    {
+      "name": "MiddleName",
+      "type": "string"
+    },
+    {
+      "name": "FamilyName",
+      "type": "string"
+    },
+    {
+      "name": "Suffix",
+      "type": "string"
+    },
+    {
+      "name": "Title",
+      "type": "string"
+    },
+    {
+      "name": "WebAddr",
+      "type": "string"
+    },
+    {
+      "name": "ParentRef",
+      "type": "string"
+    },
+    {
+      "name": "Mobile",
+      "type": "string"
+    },
+    {
+      "name": "BillAddr",
+      "type": "string"
+    },
+    {
+      "name": "Notes",
+      "type": "string"
+    },
+    {
+      "name": "ParentRef",
+      "type": "string"
+    },
+    {
+      "name": "PaymentMethodRef",
+      "type": "string"
+    },
+    {
+      "name": "OpenBalanceDate",
+      "type": "datetime"
+    },
+    {
+      "name": "CustomerTypeRef",
+      "type": "string"
+    },
+    {
+      "name": "SalesTermRef",
+      "type": "string"
+    },
+    {
+      "name": "Taxable",
+      "type": "boolean"
+    },
+    {
+      "name": "DefaultTaxCodeRef",
+      "type": "string"
+    },
+    {
+      "name": "Balance",
+      "type": "number"
+    },
+    {
+      "name": "BalanceWithJobs",
+      "type": "number"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "PreferredDeliveryMethod",
+      "type": "string"
+    },
+    {
+      "name": "IsProject",
+      "type": "boolean"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "FullyQualifiedName",
+      "type": "string"
+    },
+    {
+      "name": "CompanyName",
+      "type": "string"
+    },
+    {
+      "name": "DisplayName",
+      "type": "string"
+    },
+    {
+      "name": "PrintOnCheckName",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "PrimaryEmailAddr",
+      "type": "string"
+    },
+    {
+      "name": "PrimaryPhone",
+      "type": "string"
+    },
+    {
+      "name": "AlternatePhone",
+      "type": "string"
+    },
+    {
+      "name": "Fax",
+      "type": "string"
+    }
   ],
-
   "Employee": [
-    {"name": "Id", "type": "string"},
-    {"name": "DisplayName", "type": "string"},
-    {"name": "PrintOnCheckName", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "BillableTime", "type": "boolean"},
-    {"name": "HiredDate", "type": "string"},
-    {"name": "domain", "type": "string"},
-    {"name": "sparse", "type": "boolean"},
-    {"name": "PrimaryAddr", "type": "string"},
-    {"name": "GivenName", "type": "string"},
-    {"name": "FamilyName", "type": "string"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "V4IDPseudonym", "type": "string"},
-    {"name": "PrimaryPhone", "type": "string"},
-    {"name": "SyncToken", "type": "string"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "DisplayName",
+      "type": "string"
+    },
+    {
+      "name": "PrintOnCheckName",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "BillableTime",
+      "type": "boolean"
+    },
+    {
+      "name": "HiredDate",
+      "type": "string"
+    },
+    {
+      "name": "domain",
+      "type": "string"
+    },
+    {
+      "name": "sparse",
+      "type": "boolean"
+    },
+    {
+      "name": "PrimaryAddr",
+      "type": "string"
+    },
+    {
+      "name": "GivenName",
+      "type": "string"
+    },
+    {
+      "name": "FamilyName",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "V4IDPseudonym",
+      "type": "string"
+    },
+    {
+      "name": "PrimaryPhone",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    }
   ],
   "Invoice": [
-    {"name": "AllowIPNPayment", "type": "boolean"},
-    {"name": "AllowOnlinePayment", "type": "boolean"},
-    {"name": "AllowOnlineCreditCardPayment", "type": "boolean"},
-    {"name": "AllowOnlineACHPayment", "type": "boolean"},
-    {"name": "Id", "type": "string"},
-    {"name": "BillEmail", "type": "string"},
-    {"name": "BillEmailCc", "type": "string"},
-    {"name": "BillEmailBcc", "type": "string"},
-    {"name": "SalesTermRef", "type": "string"},
-    {"name": "ShipMethodRef", "type": "string"},
-    {"name": "ShipDate", "type": "datetime"},
-    {"name": "TrackingNum", "type": "string"},
-    {"name": "Deposit", "type": "number"},
-    {"name": "PrintStatus", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "CustomField","type": "array", "child_type": "custom_field"},
-    {"name": "DocNumber", "type": "string"},
-    {"name": "TxnDate", "type": "datetime"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name": "CustomerRef", "type": "string"},
-    {"name": "CustomerMemo", "type": "string"},
-    {"name": "ClassRef", "type": "string"},
-    {"name": "Line", "type": "array", "child_type": "invoice_line"},
-    {"name": "PrivateNote", "type": "string"},
-    {"name": "BillAddr", "type": "string"},
-    {"name": "ShipAddr", "type": "string"},
-    {"name": "TxnTaxDetail", "type": "string"},
-    {"name": "FreeFormAddress", "type": "boolean"},
-    {"name": "ShipFromAddr", "type": "string"},
-    {"name": "TotalAmt", "type": "number"},
-    {"name": "DueDate", "type": "datetime"},
-    {"name": "ApplyTaxAfterDiscount", "type": "boolean"},
-    {"name": "PrintStatus", "type": "string"},
-    {"name": "Balance", "type": "number"},
-    {"name": "ExchangeRate", "type": "number"},
-    {"name": "HomeBalance", "type": "number"},
-    {"name": "HomeTotalAmt", "type": "number"}
+    {
+      "name": "AllowIPNPayment",
+      "type": "boolean"
+    },
+    {
+      "name": "AllowOnlinePayment",
+      "type": "boolean"
+    },
+    {
+      "name": "AllowOnlineCreditCardPayment",
+      "type": "boolean"
+    },
+    {
+      "name": "AllowOnlineACHPayment",
+      "type": "boolean"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "BillEmail",
+      "type": "string"
+    },
+    {
+      "name": "BillEmailCc",
+      "type": "string"
+    },
+    {
+      "name": "BillEmailBcc",
+      "type": "string"
+    },
+    {
+      "name": "SalesTermRef",
+      "type": "string"
+    },
+    {
+      "name": "ShipMethodRef",
+      "type": "string"
+    },
+    {
+      "name": "ShipDate",
+      "type": "datetime"
+    },
+    {
+      "name": "TrackingNum",
+      "type": "string"
+    },
+    {
+      "name": "Deposit",
+      "type": "number"
+    },
+    {
+      "name": "PrintStatus",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "CustomField",
+      "type": "array",
+      "child_type": "custom_field"
+    },
+    {
+      "name": "DocNumber",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "datetime"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "CustomerRef",
+      "type": "string"
+    },
+    {
+      "name": "CustomerMemo",
+      "type": "string"
+    },
+    {
+      "name": "ClassRef",
+      "type": "string"
+    },
+    {
+      "name": "Line",
+      "type": "array",
+      "child_type": "invoice_line"
+    },
+    {
+      "name": "PrivateNote",
+      "type": "string"
+    },
+    {
+      "name": "BillAddr",
+      "type": "string"
+    },
+    {
+      "name": "ShipAddr",
+      "type": "string"
+    },
+    {
+      "name": "TxnTaxDetail",
+      "type": "string"
+    },
+    {
+      "name": "FreeFormAddress",
+      "type": "boolean"
+    },
+    {
+      "name": "ShipFromAddr",
+      "type": "string"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "number"
+    },
+    {
+      "name": "DueDate",
+      "type": "datetime"
+    },
+    {
+      "name": "ApplyTaxAfterDiscount",
+      "type": "boolean"
+    },
+    {
+      "name": "PrintStatus",
+      "type": "string"
+    },
+    {
+      "name": "Balance",
+      "type": "number"
+    },
+    {
+      "name": "ExchangeRate",
+      "type": "number"
+    },
+    {
+      "name": "HomeBalance",
+      "type": "number"
+    },
+    {
+      "name": "HomeTotalAmt",
+      "type": "number"
+    }
   ],
   "Item": [
-    {"name": "Name", "type": "string"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "FullyQualifiedName", "type": "string"},
-    {"name": "ReorderPoint", "type": "number"},
-    {"name": "SubItem", "type": "boolean"},
-    {"name": "ParentRef", "type": "string"},
-    {"name": "QtyOnHand", "type": "number"},
-    {"name": "Taxable", "type": "boolean"},
-    {"name": "UnitPrice", "type": "number"},
-    {"name": "Type", "type": "string"},
-    {"name": "IncomeAccountRef", "type": "string"},
-    {"name": "PurchaseCost", "type": "number"},
-    {"name": "PurchaseTaxCodeRef", "type": "string"},
-    {"name": "InvStartDate", "type": "datetime"},
-    {"name": "TrackQtyOnHand", "type": "boolean"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "PrefVendorRef", "type": "string"},
-    {"name": "Sku", "type": "string"},
-    {"name": "Barcode", "type": "string"},
-    {"name": "Description", "type": "string"},
-    {"name": "PurchaseDesc", "type": "string"},
-    {"name": "ExpenseAccountRef", "type": "string"}
-
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "FullyQualifiedName",
+      "type": "string"
+    },
+    {
+      "name": "ReorderPoint",
+      "type": "number"
+    },
+    {
+      "name": "SubItem",
+      "type": "boolean"
+    },
+    {
+      "name": "ParentRef",
+      "type": "string"
+    },
+    {
+      "name": "QtyOnHand",
+      "type": "number"
+    },
+    {
+      "name": "Taxable",
+      "type": "boolean"
+    },
+    {
+      "name": "UnitPrice",
+      "type": "number"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    },
+    {
+      "name": "IncomeAccountRef",
+      "type": "string"
+    },
+    {
+      "name": "PurchaseCost",
+      "type": "number"
+    },
+    {
+      "name": "PurchaseTaxCodeRef",
+      "type": "string"
+    },
+    {
+      "name": "InvStartDate",
+      "type": "datetime"
+    },
+    {
+      "name": "TrackQtyOnHand",
+      "type": "boolean"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "PrefVendorRef",
+      "type": "string"
+    },
+    {
+      "name": "Sku",
+      "type": "string"
+    },
+    {
+      "name": "Barcode",
+      "type": "string"
+    },
+    {
+      "name": "Description",
+      "type": "string"
+    },
+    {
+      "name": "PurchaseDesc",
+      "type": "string"
+    },
+    {
+      "name": "ExpenseAccountRef",
+      "type": "string"
+    }
   ],
   "JournalEntry": [
-    {"name": "Adjustment", "type": "boolean"},
-    {"name": "TotalAmt", "type": "number"},
-    {"name": "HomeTotalAmt", "type": "number"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "DocNumber", "type": "string"},
-    {"name": "TxnDate", "type": "datetime"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name": "ExchangeRate", "type": "number"},
-    {"name": "Line", "type": "array", "child_type": "journal_entry_line"}
+    {
+      "name": "Adjustment",
+      "type": "boolean"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "number"
+    },
+    {
+      "name": "HomeTotalAmt",
+      "type": "number"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "DocNumber",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "datetime"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "ExchangeRate",
+      "type": "number"
+    },
+    {
+      "name": "Line",
+      "type": "array",
+      "child_type": "journal_entry_line"
+    }
   ],
   "Preferences": [
-    {"name": "EmailMessagesPrefs", "type": "string"},
-    {"name": "ProductAndServicesPrefs", "type": "string"},
-    {"name": "AccountingInfoPrefs", "type": "string"},
-    {"name": "SalesFormsPrefs", "type": "string"},
-    {"name": "VendorAndPurchasesPrefs", "type": "string"},
-    {"name": "TaxPrefs", "type": "string"},
-    {"name": "OtherPrefs", "type": "string"},
-    {"name": "sparse", "type": "boolean"},
-    {"name": "CurrencyPrefs", "type": "string"},
-    {"name": "Id", "type": "string"},
-    {"name": "MetaData", "type": "string"}
+    {
+      "name": "EmailMessagesPrefs",
+      "type": "string"
+    },
+    {
+      "name": "ProductAndServicesPrefs",
+      "type": "string"
+    },
+    {
+      "name": "AccountingInfoPrefs",
+      "type": "string"
+    },
+    {
+      "name": "SalesFormsPrefs",
+      "type": "string"
+    },
+    {
+      "name": "VendorAndPurchasesPrefs",
+      "type": "string"
+    },
+    {
+      "name": "TaxPrefs",
+      "type": "string"
+    },
+    {
+      "name": "OtherPrefs",
+      "type": "string"
+    },
+    {
+      "name": "sparse",
+      "type": "boolean"
+    },
+    {
+      "name": "CurrencyPrefs",
+      "type": "string"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    }
   ],
   "Purchase": [
-    {"name": "PrivateNote", "type": "string"},
-    {"name": "PaymentType", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "RemitToAddr", "type": "string"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name": "ExchangeRate", "type": "number"},
-    {"name": "TotalAmt", "type": "number"},
-    {"name": "PrintStatus", "type": "string"},
-    {"name": "AccountRef", "type": "string"},
-    {"name": "Id", "type": "string"},
-    {"name": "EntityRef", "type": "string"},
-    {"name": "TxnDate", "type": "datetime"},
-    {"name": "domain", "type": "string"},
-    {"name": "Credit", "type": "boolean"},
-    {"name": "DocNumber", "type": "string"},
-    {"name": "Line", "type": "string"},
-    {"name": "PurchaseEx", "type": "string"}
+    {
+      "name": "PrivateNote",
+      "type": "string"
+    },
+    {
+      "name": "PaymentType",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "RemitToAddr",
+      "type": "string"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "ExchangeRate",
+      "type": "number"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "number"
+    },
+    {
+      "name": "PrintStatus",
+      "type": "string"
+    },
+    {
+      "name": "AccountRef",
+      "type": "string"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "EntityRef",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "datetime"
+    },
+    {
+      "name": "domain",
+      "type": "string"
+    },
+    {
+      "name": "Credit",
+      "type": "boolean"
+    },
+    {
+      "name": "DocNumber",
+      "type": "string"
+    },
+    {
+      "name": "Line",
+      "type": "string"
+    },
+    {
+      "name": "PurchaseEx",
+      "type": "string"
+    }
   ],
   "SalesReceipt": [
-    {"name":"Id", "type": "string"},
-    {"name":"MetaData", "type": "string"},
-    {"name":"CustomField","type": "array", "child_type": "custom_field"},
-    {"name":"DocNumber", "type": "string"},
-    {"name":"TxnDate", "type": "datetime"},
-    {"name":"CurrencyRef", "type": "string"},
-    {"name":"CustomerRef", "type": "string"},
-    {"name":"Line", "type": "array", "child_type": "invoice_line"},
-    {"name":"FreeFormAddress", "type": "boolean"},
-    {"name":"ShipFromAddr", "type": "string"},
-    {"name":"TotalAmt", "type": "number"},
-    {"name":"ApplyTaxAfterDiscount", "type": "boolean"},
-    {"name":"PrintStatus", "type": "string"},
-    {"name":"Balance", "type": "number"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "CustomField",
+      "type": "array",
+      "child_type": "custom_field"
+    },
+    {
+      "name": "DocNumber",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "datetime"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "CustomerRef",
+      "type": "string"
+    },
+    {
+      "name": "Line",
+      "type": "array",
+      "child_type": "invoice_line"
+    },
+    {
+      "name": "FreeFormAddress",
+      "type": "boolean"
+    },
+    {
+      "name": "ShipFromAddr",
+      "type": "string"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "number"
+    },
+    {
+      "name": "ApplyTaxAfterDiscount",
+      "type": "boolean"
+    },
+    {
+      "name": "PrintStatus",
+      "type": "string"
+    },
+    {
+      "name": "Balance",
+      "type": "number"
+    }
   ],
   "TimeActivity": [
-    {"name": "HourlyRate", "type": "number"},
-    {"name":"CustomerRef", "type": "string"},
-    {"name": "Taxable", "type": "boolean"},
-    {"name":"Description", "type": "string"},
-    {"name":"Minutes", "type": "number"},
-    {"name":"MetaData", "type": "string"},
-    {"name":"ItemRef", "type": "string"},
-    {"name":"Id", "type": "string"},
-    {"name":"domain", "type": "string"},
-    {"name": "TxnDate", "type": "datetime"},
-    {"name":"EmployeeRef", "type": "string"},
-    {"name":"BillableStatus", "type": "string"},
-    {"name":"NameOf", "type": "string"},
-    {"name":"ClassRef", "type": "string"},
-    {"name":"Hours", "type": "number"}
+    {
+      "name": "HourlyRate",
+      "type": "number"
+    },
+    {
+      "name": "CustomerRef",
+      "type": "string"
+    },
+    {
+      "name": "Taxable",
+      "type": "boolean"
+    },
+    {
+      "name": "Description",
+      "type": "string"
+    },
+    {
+      "name": "Minutes",
+      "type": "number"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "ItemRef",
+      "type": "string"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "domain",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "datetime"
+    },
+    {
+      "name": "EmployeeRef",
+      "type": "string"
+    },
+    {
+      "name": "BillableStatus",
+      "type": "string"
+    },
+    {
+      "name": "NameOf",
+      "type": "string"
+    },
+    {
+      "name": "ClassRef",
+      "type": "string"
+    },
+    {
+      "name": "Hours",
+      "type": "number"
+    }
   ],
   "Vendor": [
-    {"name": "Id", "type": "string"},
-    {"name": "DisplayName", "type": "string"},
-    {"name": "PrintOnCheckName", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "sparse", "type": "boolean"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "Balance", "type": "number"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "DisplayName",
+      "type": "string"
+    },
+    {
+      "name": "PrintOnCheckName",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "sparse",
+      "type": "boolean"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "Balance",
+      "type": "number"
+    },
+    {
+      "name": "PrimaryEmailAddr",
+      "type": "string"
+    },
+    {
+      "name": "PrimaryPhone",
+      "type": "string"
+    },
+    {
+      "name": "BillAddr",
+      "type": "string"
+    }
   ],
-
   "BillPayment": [
-    {"name": "Id", "type": "string"},
-    {"name": "VendorRef", "type": "string"},
-    {"name": "Line", "type": "string"},
-    {"name": "TotalAmt", "type": "number"},
-    {"name": "PayType", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name": "DocNumber", "type": "string"},
-    {"name": "PrivateNote", "type": "string"},
-    {"name": "TxnDate", "type": "string"},
-    {"name": "ExchangeRate", "type": "number"},
-    {"name": "APAccountRef", "type": "string"},
-    {"name": "DepartmentRef", "type": "string"},
-    {"name": "ProcessBillPayment", "type": "boolean"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "CheckPayment", "type": "string"},
-    {"name": "CreditCardPayment", "type": "string"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "VendorRef",
+      "type": "string"
+    },
+    {
+      "name": "Line",
+      "type": "string"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "number"
+    },
+    {
+      "name": "PayType",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "DocNumber",
+      "type": "string"
+    },
+    {
+      "name": "PrivateNote",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "string"
+    },
+    {
+      "name": "ExchangeRate",
+      "type": "number"
+    },
+    {
+      "name": "APAccountRef",
+      "type": "string"
+    },
+    {
+      "name": "DepartmentRef",
+      "type": "string"
+    },
+    {
+      "name": "ProcessBillPayment",
+      "type": "boolean"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "CheckPayment",
+      "type": "string"
+    },
+    {
+      "name": "CreditCardPayment",
+      "type": "string"
+    }
   ],
-
   "BalanceSheetReport": [
-    {"name": "Total", "type": "number"},
-    {"name": "Account", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"}
+    {
+      "name": "Total",
+      "type": "number"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    }
   ],
   "MonthlyBalanceSheetReport": [
-    {"name": "Account", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "MonthlyTotal", "type": "array", "child_type": "string"}
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    },
+    {
+      "name": "MonthlyTotal",
+      "type": "array",
+      "child_type": "string"
+    }
   ],
   "CashFlowReport": [
-    {"name": "Total", "type": "number"},
-    {"name": "Account", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"}
+    {
+      "name": "Total",
+      "type": "number"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    }
   ],
   "DailyCashFlowReport": [
-    {"name": "Total", "type": "number"},
-    {"name": "Account", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "DailyTotal", "type": "array", "child_type": "string"}
-
+    {
+      "name": "Total",
+      "type": "number"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    },
+    {
+      "name": "DailyTotal",
+      "type": "array",
+      "child_type": "string"
+    }
   ],
   "MonthlyCashFlowReport": [
-    {"name": "Total", "type": "number"},
-    {"name": "Account", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "MonthlyTotal", "type": "array", "child_type": "string"}
-
+    {
+      "name": "Total",
+      "type": "number"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    },
+    {
+      "name": "MonthlyTotal",
+      "type": "array",
+      "child_type": "string"
+    }
   ],
   "Budget": [
-    {"name": "Id", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "BudgetType", "type": "string"},
-    {"name": "BudgetEntryType", "type": "string"},
-    {"name": "StartDate", "type": "string"},
-    {"name": "EndDate", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "MetaData", "type": "string"},
-    {"name": "Active", "type": "boolean"},
-    {"name": "BudgetDetail", "type": "array", "child_type" : "string"}
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "BudgetType",
+      "type": "string"
+    },
+    {
+      "name": "BudgetEntryType",
+      "type": "string"
+    },
+    {
+      "name": "StartDate",
+      "type": "string"
+    },
+    {
+      "name": "EndDate",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "name": "BudgetDetail",
+      "type": "array",
+      "child_type": "string"
+    }
   ],
   "GeneralLedgerAccrualReport": [
-    {"name": "Date", "type": "string"},
-    {"name": "TransactionType", "type": "string"},
-    {"name": "TransactionTypeId", "type": "string"},
-    {"name": "Num", "type": "string"},
-    {"name": "Adj", "type": "string"},
-    {"name": "CreateDate", "type": "string"},
-    {"name": "CreatedBy", "type": "string"},
-    {"name": "LastModified", "type": "string"},
-    {"name": "LastModifiedBy", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "NameId", "type": "string"},
-    {"name": "Customer", "type": "string"},
-    {"name": "CustomerId", "type": "string"},
-    {"name": "Vendor", "type": "string"},
-    {"name": "VendorId", "type": "string"},
-    {"name": "Employee", "type": "string"},
-    {"name": "EmployeeId", "type": "string"},
-    {"name": "Location", "type": "string"},
-    {"name": "LocationId", "type": "string"},
-    {"name": "Product/Service", "type": "string"},
-    {"name": "Product/ServiceId", "type": "string"},
-    {"name": "Memo", "type": "string"},
-    {"name": "Qty", "type": "string"},
-    {"name": "Rate", "type": "string"},
-    {"name": "Account#", "type": "string"},
-    {"name": "Account", "type": "string"},
-    {"name": "AccountId", "type": "string"},
-    {"name": "Split", "type": "string"},
-    {"name": "InvoiceDate", "type": "string"},
-    {"name": "A/RPaid", "type": "string"},
-    {"name": "A/PPaid", "type": "string"},
-    {"name": "Clr", "type": "string"},
-    {"name": "CheckPrinted", "type": "string"},
-    {"name": "Debit", "type": "string"},
-    {"name": "Credit", "type": "string"},
-    {"name": "OpenBalance", "type": "string"},
-    {"name": "Amount", "type": "string"},
-    {"name": "TaxName", "type": "string"},
-    {"name": "TaxAmount", "type": "string"},
-    {"name": "TaxableAmount", "type": "string"},
-    {"name": "Klass", "type": "string"},
-    {"name": "KlassId", "type": "string"},
-    {"name": "Class", "type": "string"},
-    {"name": "ClassId", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "Department", "type": "string"},
-    {"name": "DepartmentId", "type": "string"}
-
+    {
+      "name": "Date",
+      "type": "string"
+    },
+    {
+      "name": "TransactionType",
+      "type": "string"
+    },
+    {
+      "name": "TransactionTypeId",
+      "type": "string"
+    },
+    {
+      "name": "Num",
+      "type": "string"
+    },
+    {
+      "name": "Adj",
+      "type": "string"
+    },
+    {
+      "name": "CreateDate",
+      "type": "string"
+    },
+    {
+      "name": "CreatedBy",
+      "type": "string"
+    },
+    {
+      "name": "LastModified",
+      "type": "string"
+    },
+    {
+      "name": "LastModifiedBy",
+      "type": "string"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "NameId",
+      "type": "string"
+    },
+    {
+      "name": "Customer",
+      "type": "string"
+    },
+    {
+      "name": "CustomerId",
+      "type": "string"
+    },
+    {
+      "name": "Vendor",
+      "type": "string"
+    },
+    {
+      "name": "VendorId",
+      "type": "string"
+    },
+    {
+      "name": "Employee",
+      "type": "string"
+    },
+    {
+      "name": "EmployeeId",
+      "type": "string"
+    },
+    {
+      "name": "Location",
+      "type": "string"
+    },
+    {
+      "name": "LocationId",
+      "type": "string"
+    },
+    {
+      "name": "Product/Service",
+      "type": "string"
+    },
+    {
+      "name": "Product/ServiceId",
+      "type": "string"
+    },
+    {
+      "name": "Memo",
+      "type": "string"
+    },
+    {
+      "name": "Qty",
+      "type": "string"
+    },
+    {
+      "name": "Rate",
+      "type": "string"
+    },
+    {
+      "name": "Account#",
+      "type": "string"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "AccountId",
+      "type": "string"
+    },
+    {
+      "name": "Split",
+      "type": "string"
+    },
+    {
+      "name": "InvoiceDate",
+      "type": "string"
+    },
+    {
+      "name": "A/RPaid",
+      "type": "string"
+    },
+    {
+      "name": "A/PPaid",
+      "type": "string"
+    },
+    {
+      "name": "Clr",
+      "type": "string"
+    },
+    {
+      "name": "CheckPrinted",
+      "type": "string"
+    },
+    {
+      "name": "Debit",
+      "type": "string"
+    },
+    {
+      "name": "Credit",
+      "type": "string"
+    },
+    {
+      "name": "OpenBalance",
+      "type": "string"
+    },
+    {
+      "name": "Amount",
+      "type": "string"
+    },
+    {
+      "name": "TaxName",
+      "type": "string"
+    },
+    {
+      "name": "TaxAmount",
+      "type": "string"
+    },
+    {
+      "name": "TaxableAmount",
+      "type": "string"
+    },
+    {
+      "name": "Klass",
+      "type": "string"
+    },
+    {
+      "name": "KlassId",
+      "type": "string"
+    },
+    {
+      "name": "Class",
+      "type": "string"
+    },
+    {
+      "name": "ClassId",
+      "type": "string"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    },
+    {
+      "name": "Department",
+      "type": "string"
+    },
+    {
+      "name": "DepartmentId",
+      "type": "string"
+    }
   ],
   "GeneralLedgerCashReport": [
-    {"name": "Date", "type": "string"},
-    {"name": "TransactionType", "type": "string"},
-    {"name": "TransactionTypeId", "type": "string"},
-    {"name": "Num", "type": "string"},
-    {"name": "Adj", "type": "string"},
-    {"name": "CreateDate", "type": "string"},
-    {"name": "CreatedBy", "type": "string"},
-    {"name": "LastModified", "type": "string"},
-    {"name": "LastModifiedBy", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "NameId", "type": "string"},
-    {"name": "Customer", "type": "string"},
-    {"name": "CustomerId", "type": "string"},
-    {"name": "Vendor", "type": "string"},
-    {"name": "VendorId", "type": "string"},
-    {"name": "Employee", "type": "string"},
-    {"name": "EmployeeId", "type": "string"},
-    {"name": "Location", "type": "string"},
-    {"name": "LocationId", "type": "string"},
-    {"name": "Product/Service", "type": "string"},
-    {"name": "Product/ServiceId", "type": "string"},
-    {"name": "Memo", "type": "string"},
-    {"name": "Qty", "type": "string"},
-    {"name": "Rate", "type": "string"},
-    {"name": "Account#", "type": "string"},
-    {"name": "Account", "type": "string"},
-    {"name": "AccountId", "type": "string"},
-    {"name": "Split", "type": "string"},
-    {"name": "InvoiceDate", "type": "string"},
-    {"name": "A/RPaid", "type": "string"},
-    {"name": "A/PPaid", "type": "string"},
-    {"name": "Clr", "type": "string"},
-    {"name": "CheckPrinted", "type": "string"},
-    {"name": "Debit", "type": "string"},
-    {"name": "Credit", "type": "string"},
-    {"name": "OpenBalance", "type": "string"},
-    {"name": "Amount", "type": "string"},
-    {"name": "TaxName", "type": "string"},
-    {"name": "TaxAmount", "type": "string"},
-    {"name": "TaxableAmount", "type": "string"},
-    {"name": "Klass", "type": "string"},
-    {"name": "KlassId", "type": "string"},
-    {"name": "Class", "type": "string"},
-    {"name": "ClassId", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "Department", "type": "string"},
-    {"name": "DepartmentId", "type": "string"}
+    {
+      "name": "Date",
+      "type": "string"
+    },
+    {
+      "name": "TransactionType",
+      "type": "string"
+    },
+    {
+      "name": "TransactionTypeId",
+      "type": "string"
+    },
+    {
+      "name": "Num",
+      "type": "string"
+    },
+    {
+      "name": "Adj",
+      "type": "string"
+    },
+    {
+      "name": "CreateDate",
+      "type": "string"
+    },
+    {
+      "name": "CreatedBy",
+      "type": "string"
+    },
+    {
+      "name": "LastModified",
+      "type": "string"
+    },
+    {
+      "name": "LastModifiedBy",
+      "type": "string"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "NameId",
+      "type": "string"
+    },
+    {
+      "name": "Customer",
+      "type": "string"
+    },
+    {
+      "name": "CustomerId",
+      "type": "string"
+    },
+    {
+      "name": "Vendor",
+      "type": "string"
+    },
+    {
+      "name": "VendorId",
+      "type": "string"
+    },
+    {
+      "name": "Employee",
+      "type": "string"
+    },
+    {
+      "name": "EmployeeId",
+      "type": "string"
+    },
+    {
+      "name": "Location",
+      "type": "string"
+    },
+    {
+      "name": "LocationId",
+      "type": "string"
+    },
+    {
+      "name": "Product/Service",
+      "type": "string"
+    },
+    {
+      "name": "Product/ServiceId",
+      "type": "string"
+    },
+    {
+      "name": "Memo",
+      "type": "string"
+    },
+    {
+      "name": "Qty",
+      "type": "string"
+    },
+    {
+      "name": "Rate",
+      "type": "string"
+    },
+    {
+      "name": "Account#",
+      "type": "string"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "AccountId",
+      "type": "string"
+    },
+    {
+      "name": "Split",
+      "type": "string"
+    },
+    {
+      "name": "InvoiceDate",
+      "type": "string"
+    },
+    {
+      "name": "A/RPaid",
+      "type": "string"
+    },
+    {
+      "name": "A/PPaid",
+      "type": "string"
+    },
+    {
+      "name": "Clr",
+      "type": "string"
+    },
+    {
+      "name": "CheckPrinted",
+      "type": "string"
+    },
+    {
+      "name": "Debit",
+      "type": "string"
+    },
+    {
+      "name": "Credit",
+      "type": "string"
+    },
+    {
+      "name": "OpenBalance",
+      "type": "string"
+    },
+    {
+      "name": "Amount",
+      "type": "string"
+    },
+    {
+      "name": "TaxName",
+      "type": "string"
+    },
+    {
+      "name": "TaxAmount",
+      "type": "string"
+    },
+    {
+      "name": "TaxableAmount",
+      "type": "string"
+    },
+    {
+      "name": "Klass",
+      "type": "string"
+    },
+    {
+      "name": "KlassId",
+      "type": "string"
+    },
+    {
+      "name": "Class",
+      "type": "string"
+    },
+    {
+      "name": "ClassId",
+      "type": "string"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    },
+    {
+      "name": "Department",
+      "type": "string"
+    },
+    {
+      "name": "DepartmentId",
+      "type": "string"
+    }
   ],
   "ARAgingSummaryReport": [
-    {"name": "Customer", "type": "string"},
-    {"name": "Current", "type": "number"},
-    {"name": "1-30", "type": "number"},
-    {"name": "31-60", "type": "number"},
-    {"name": "61-90", "type": "number"},
-    {"name": "91andover", "type": "number"},
-    {"name": "Total", "type": "number"}
+    {
+      "name": "Customer",
+      "type": "string"
+    },
+    {
+      "name": "Current",
+      "type": "number"
+    },
+    {
+      "name": "1-30",
+      "type": "number"
+    },
+    {
+      "name": "31-60",
+      "type": "number"
+    },
+    {
+      "name": "61-90",
+      "type": "number"
+    },
+    {
+      "name": "91andover",
+      "type": "number"
+    },
+    {
+      "name": "Total",
+      "type": "number"
+    }
   ],
   "ProfitAndLossDetailReport": [
-    {"name": "Date", "type": "string"},
-    {"name": "TransactionType", "type": "string"},
-    {"name": "TransactionTypeId", "type": "string"},
-    {"name": "Num", "type": "string"},
-    {"name": "CreateDate", "type": "string"},
-    {"name": "CreatedBy", "type": "string"},
-    {"name": "LastModified", "type": "string"},
-    {"name": "LastModifiedBy", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "NameId", "type": "string"},
-    {"name": "Location", "type": "string"},
-    {"name": "LocationId", "type": "string"},
-    {"name": "Class", "type": "string"},
-    {"name": "ClassId", "type": "string"},
-    {"name": "Memo", "type": "string"},
-    {"name": "Split", "type": "string"},
-    {"name": "SplitId", "type": "string"},
-    {"name": "Debit", "type": "string"},
-    {"name": "Credit", "type": "string"},
-    {"name": "PaymentMethod", "type": "string"},
-    {"name": "PaymentMethodId", "type": "string"},
-    {"name": "Amount", "type": "number"},
-    {"name": "Balance", "type": "number"},
-    {"name": "TaxName", "type": "string"},
-    {"name": "TaxAmount", "type": "string"},
-    {"name": "TaxableAmount", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "AccountId", "type": "string"},
-    {"name": "Account", "type": "string"},
-    {"name": "Store", "type": "string"}
+    {
+      "name": "Date",
+      "type": "string"
+    },
+    {
+      "name": "TransactionType",
+      "type": "string"
+    },
+    {
+      "name": "TransactionTypeId",
+      "type": "string"
+    },
+    {
+      "name": "Num",
+      "type": "string"
+    },
+    {
+      "name": "CreateDate",
+      "type": "string"
+    },
+    {
+      "name": "CreatedBy",
+      "type": "string"
+    },
+    {
+      "name": "LastModified",
+      "type": "string"
+    },
+    {
+      "name": "LastModifiedBy",
+      "type": "string"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "NameId",
+      "type": "string"
+    },
+    {
+      "name": "Location",
+      "type": "string"
+    },
+    {
+      "name": "LocationId",
+      "type": "string"
+    },
+    {
+      "name": "Class",
+      "type": "string"
+    },
+    {
+      "name": "ClassId",
+      "type": "string"
+    },
+    {
+      "name": "Memo",
+      "type": "string"
+    },
+    {
+      "name": "Split",
+      "type": "string"
+    },
+    {
+      "name": "SplitId",
+      "type": "string"
+    },
+    {
+      "name": "Debit",
+      "type": "string"
+    },
+    {
+      "name": "Credit",
+      "type": "string"
+    },
+    {
+      "name": "PaymentMethod",
+      "type": "string"
+    },
+    {
+      "name": "PaymentMethodId",
+      "type": "string"
+    },
+    {
+      "name": "Amount",
+      "type": "number"
+    },
+    {
+      "name": "Balance",
+      "type": "number"
+    },
+    {
+      "name": "TaxName",
+      "type": "string"
+    },
+    {
+      "name": "TaxAmount",
+      "type": "string"
+    },
+    {
+      "name": "TaxableAmount",
+      "type": "string"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    },
+    {
+      "name": "AccountId",
+      "type": "string"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "Store",
+      "type": "string"
+    }
   ],
   "ProfitAndLossReport": [
-    {"name": "Total", "type": "number"},
-    {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "Account", "type": "string"}
+    {
+      "name": "Total",
+      "type": "number"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    }
   ],
   "TransactionListReport": [
-    {"name": "Date", "type": "string"},
-    {"name": "TransactionTypeId", "type": "string"},
-    {"name": "TransactionType", "type": "string"},
-    {"name": "Num", "type": "string"},
-    {"name": "Posting", "type": "string"},
-    {"name": "NameId", "type": "string"},
-    {"name": "Name", "type": "string"},
-    {"name": "Memo", "type": "string"},
-    {"name": "AccountId", "type": "string"},
-    {"name": "Account", "type": "string"},
-    {"name": "SplitId", "type": "string"},
-    {"name": "Split", "type": "string"},
-    {"name": "Class", "type": "string"},
-    {"name": "ClassId", "type": "string"},
-    {"name": "LocationId", "type": "string"},
-    {"name": "Location", "type": "string"},
-    {"name": "Amount", "type": "number"},
-    {"name": "Categories", "type": "array", "child_type": "string"}
+    {
+      "name": "Date",
+      "type": "string"
+    },
+    {
+      "name": "TransactionTypeId",
+      "type": "string"
+    },
+    {
+      "name": "TransactionType",
+      "type": "string"
+    },
+    {
+      "name": "Num",
+      "type": "string"
+    },
+    {
+      "name": "Posting",
+      "type": "string"
+    },
+    {
+      "name": "NameId",
+      "type": "string"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "Memo",
+      "type": "string"
+    },
+    {
+      "name": "AccountId",
+      "type": "string"
+    },
+    {
+      "name": "Account",
+      "type": "string"
+    },
+    {
+      "name": "SplitId",
+      "type": "string"
+    },
+    {
+      "name": "Split",
+      "type": "string"
+    },
+    {
+      "name": "Class",
+      "type": "string"
+    },
+    {
+      "name": "ClassId",
+      "type": "string"
+    },
+    {
+      "name": "LocationId",
+      "type": "string"
+    },
+    {
+      "name": "Location",
+      "type": "string"
+    },
+    {
+      "name": "Amount",
+      "type": "number"
+    },
+    {
+      "name": "Categories",
+      "type": "array",
+      "child_type": "string"
+    }
   ],
   "Estimate": [
-    {"name": "DocNumber", "type": "string"},
-    {"name": "SyncToken", "type": "string"},
-    {"name": "domain", "type": "string"},
-    {"name": "TxnStatus", "type": "string"},
-    {"name": "BillEmail", "type": "string"},
-    {"name": "TxnDate", "type": "string"},
-    {"name": "TotalAmt", "type": "string"},
-    {"name": "CustomerRef", "type": "string"},
-    {"name": "ShipAddr", "type": "string"},
-    {"name": "ProjectRef", "type": "string"},
-    {"name": "PrintStatus", "type": "string"},
-    {"name": "BillAddr", "type": "string"},
-    {"name": "sparse", "type": "boolean"},
-    {"name": "EmailStatus", "type": "string"},
-    {"name": "Line", "type": "string"},
-    {"name": "ApplyTaxAfterDiscount", "type": "boolean"},
-    {"name": "CustomField", "type": "array", "child_type": "string"},
-    {"name": "Id", "type": "string"},
-    {"name": "TxnTaxDetail", "type": "string"},
-    {"name":"MetaData", "type": "string"},
-    {"name": "time", "type": "string"},
-    {"name": "LinkedTxn", "type": "string"},
-    {"name": "ShipFromAddr", "type": "string"},
-    {"name": "CurrencyRef", "type": "string"},
-    {"name": "ShipDate", "type": "string"},
-    {"name": "ClassRef", "type": "string"},
-    {"name": "SalesTermRef", "type": "string"},
-    {"name": "TxnId", "type": "string"},
-    {"name": "TxnType", "type": "string"},
-    {"name": "TxnLineId", "type": "string"},
-    {"name": "GlobalTaxCalculation", "type": "string"},
-    {"name": "AcceptedDate", "type": "string"},
-    {"name": "ExpirationDate", "type": "string"},
-    {"name": "TransactionLocationType", "type": "string"},
-    {"name": "DueDate", "type": "string"},
-    {"name": "PrivateNote", "type": "string"},
-    {"name": "CustomerMemo", "type": "string"},
-    {"name": "AcceptedBy", "type": "string"},
-    {"name": "ExchangeRate", "type": "string"},
-    {"name": "DepartmentRef", "type": "string"},
-    {"name": "ShipMethodRef", "type": "string"},
-    {"name": "RecurDataRef", "type": "string"},
-    {"name": "TaxExemptionRef", "type": "string"},
-    {"name": "HomeTotalAmt", "type": "string"},
-    {"name": "FreeFormAddress", "type": "boolean"}
+    {
+      "name": "DocNumber",
+      "type": "string"
+    },
+    {
+      "name": "SyncToken",
+      "type": "string"
+    },
+    {
+      "name": "domain",
+      "type": "string"
+    },
+    {
+      "name": "TxnStatus",
+      "type": "string"
+    },
+    {
+      "name": "BillEmail",
+      "type": "string"
+    },
+    {
+      "name": "TxnDate",
+      "type": "string"
+    },
+    {
+      "name": "TotalAmt",
+      "type": "string"
+    },
+    {
+      "name": "CustomerRef",
+      "type": "string"
+    },
+    {
+      "name": "ShipAddr",
+      "type": "string"
+    },
+    {
+      "name": "ProjectRef",
+      "type": "string"
+    },
+    {
+      "name": "PrintStatus",
+      "type": "string"
+    },
+    {
+      "name": "BillAddr",
+      "type": "string"
+    },
+    {
+      "name": "sparse",
+      "type": "boolean"
+    },
+    {
+      "name": "EmailStatus",
+      "type": "string"
+    },
+    {
+      "name": "Line",
+      "type": "string"
+    },
+    {
+      "name": "ApplyTaxAfterDiscount",
+      "type": "boolean"
+    },
+    {
+      "name": "CustomField",
+      "type": "array",
+      "child_type": "string"
+    },
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "TxnTaxDetail",
+      "type": "string"
+    },
+    {
+      "name": "MetaData",
+      "type": "string"
+    },
+    {
+      "name": "time",
+      "type": "string"
+    },
+    {
+      "name": "LinkedTxn",
+      "type": "string"
+    },
+    {
+      "name": "ShipFromAddr",
+      "type": "string"
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "string"
+    },
+    {
+      "name": "ShipDate",
+      "type": "string"
+    },
+    {
+      "name": "ClassRef",
+      "type": "string"
+    },
+    {
+      "name": "SalesTermRef",
+      "type": "string"
+    },
+    {
+      "name": "TxnId",
+      "type": "string"
+    },
+    {
+      "name": "TxnType",
+      "type": "string"
+    },
+    {
+      "name": "TxnLineId",
+      "type": "string"
+    },
+    {
+      "name": "GlobalTaxCalculation",
+      "type": "string"
+    },
+    {
+      "name": "AcceptedDate",
+      "type": "string"
+    },
+    {
+      "name": "ExpirationDate",
+      "type": "string"
+    },
+    {
+      "name": "TransactionLocationType",
+      "type": "string"
+    },
+    {
+      "name": "DueDate",
+      "type": "string"
+    },
+    {
+      "name": "PrivateNote",
+      "type": "string"
+    },
+    {
+      "name": "CustomerMemo",
+      "type": "string"
+    },
+    {
+      "name": "AcceptedBy",
+      "type": "string"
+    },
+    {
+      "name": "ExchangeRate",
+      "type": "string"
+    },
+    {
+      "name": "DepartmentRef",
+      "type": "string"
+    },
+    {
+      "name": "ShipMethodRef",
+      "type": "string"
+    },
+    {
+      "name": "RecurDataRef",
+      "type": "string"
+    },
+    {
+      "name": "TaxExemptionRef",
+      "type": "string"
+    },
+    {
+      "name": "HomeTotalAmt",
+      "type": "string"
+    },
+    {
+      "name": "FreeFormAddress",
+      "type": "boolean"
+    }
   ]
 }
