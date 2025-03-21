@@ -293,6 +293,10 @@ class Quickbooks():
                  gl_daily = None,
                  gl_basic_fields = None,
                  realm_id=None):
+        
+        if not realm_id:
+            raise TapQuickbooksException("The 'realm_id' is missing from the configuration file. It is a required field and cannot be empty.")
+            
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
@@ -308,6 +312,7 @@ class Quickbooks():
         self.qb_client_secret = qb_client_secret
         self.session = requests.Session()
         self.access_token = None
+        self.sync_finished = False
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'
 
@@ -457,9 +462,13 @@ class Quickbooks():
                 error_message = error_message + ", Response from Quickbooks: {}".format(resp.text)
             raise Exception(error_message) from e
         finally:
-            LOGGER.info("Starting new login timer")
-            self.login_timer = threading.Timer(REFRESH_TOKEN_EXPIRATION_PERIOD, self.login)
-            self.login_timer.start()
+            if not self.sync_finished:
+                LOGGER.info("Starting new login timer")
+                self.login_timer = threading.Timer(REFRESH_TOKEN_EXPIRATION_PERIOD, self.login)
+                self.login_timer.start()
+            else:
+                LOGGER.info("Cancelling new timer, sync has already finished.")
+
 
     def describe(self, sobject=None):
         """Describes all objects or a specific object"""
