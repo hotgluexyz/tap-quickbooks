@@ -4,7 +4,7 @@ import json
 import singer.utils as singer_utils
 
 from requests.exceptions import HTTPError
-from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException
+from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException, raise_for_invalid_credentials
 
 LOGGER = singer.get_logger()
 
@@ -73,6 +73,10 @@ class Rest():
                         day_range,
                         catalog_entry['stream'])
                     retryable = True
+                else:
+                    raise_for_invalid_credentials(ex.response)
+            except TapQuickbooksException as qbe:
+                raise qbe
             except:
                 raise ex
 
