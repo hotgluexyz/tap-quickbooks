@@ -1,5 +1,9 @@
 # pylint: disable=super-init-not-called
-import requests
+class TapQuickbooksException(Exception):
+    pass
+
+class TapQuickbooksQuotaExceededException(TapQuickbooksException):
+    pass
 
 def raise_for_invalid_credentials(resp):
     def message_to_dict(input_string):
@@ -15,14 +19,9 @@ def raise_for_invalid_credentials(resp):
         response_dict_message = resp.json()["fault"]["error"][0]["message"]
         response_dict = message_to_dict(response_dict_message)
         if response_dict["statusCode"] == "403":
-            raise requests.HTTPError(f"[{response_dict['statusCode']}] Your credentials are invalid. Please check if you are using sandbox credentials to access production data and try again.",request=resp.request,response=resp)
-    except requests.exceptions.HTTPError as ex:
+            raise TapQuickbooksException(f"[{response_dict['statusCode']}] Your credentials are invalid. Please check if you are using sandbox credentials to access production data and try again.")
+    except TapQuickbooksException as ex:
         raise ex
-    except Exception:
+    except:
+        # Silently fail if our parsing is bad
         pass
-
-class TapQuickbooksException(Exception):
-    pass
-
-class TapQuickbooksQuotaExceededException(TapQuickbooksException):
-    pass

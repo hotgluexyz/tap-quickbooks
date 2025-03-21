@@ -6,6 +6,7 @@ from requests.exceptions import RequestException
 from jsonpath_ng import jsonpath, parse
 import math
 import json
+from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException
 
 LOGGER = singer.get_logger()
 
@@ -66,6 +67,8 @@ def sync_stream(qb, catalog_entry, state, state_passed):
             status_code = ex.response.status_code if ex.response is not None else ""
             raise Exception("Error syncing {}: {} Response: {} Status code: {}".format(
                 stream, ex, response_message, status_code))
+        except TapQuickbooksException as qbe:
+            raise qbe
         except Exception as ex:
             raise Exception("Error syncing {}: {}".format(
                 stream, ex)) from ex

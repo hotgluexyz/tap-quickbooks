@@ -5,7 +5,6 @@ import singer.utils as singer_utils
 
 from requests.exceptions import HTTPError
 from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException, raise_for_invalid_credentials
-from requests.models import Response
 
 LOGGER = singer.get_logger()
 
@@ -76,9 +75,9 @@ class Rest():
                     retryable = True
                 else:
                     raise_for_invalid_credentials(ex.response)
-            except HTTPError as http_ex:
-                raise http_ex
-            except Exception:
+            except TapQuickbooksException as qbe:
+                raise qbe
+            except:
                 raise ex
 
         if retryable:
