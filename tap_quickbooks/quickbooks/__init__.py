@@ -295,7 +295,7 @@ class Quickbooks():
                  realm_id=None):
         
         if not realm_id:
-            raise TapQuickbooksException("The 'realm_id' is missing from the configuration file. It is a required field and cannot be empty.")
+            raise TapQuickbooksException("The 'realmId' is missing from the configuration file. It is a required field and cannot be empty.")
             
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
