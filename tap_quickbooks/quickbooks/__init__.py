@@ -272,6 +272,10 @@ class Quickbooks:
                  ar_aging_report_date=None,
                  ar_aging_report_dates=None,
                  ):
+        
+        if not realm_id:
+            raise TapQuickbooksException("The 'realm_id' is missing from the configuration file. It is a required field and cannot be empty.")
+            
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
