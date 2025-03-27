@@ -23,6 +23,7 @@ from tap_quickbooks.quickbooks.reportstreams.MonthlyCashFlowReport import Monthl
 from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import TransactionListReport
 from tap_quickbooks.quickbooks.reportstreams.ARAgingSummaryReport import ARAgingSummaryReport
 from tap_quickbooks.quickbooks.reportstreams.ArAgingDetailReport import ARAgingDetailReport
+from tap_quickbooks.quickbooks.reportstreams.ApAgingSummaryReport import ApAgingSummaryReport
 
 from tap_quickbooks.quickbooks.rest import Rest
 from tap_quickbooks.quickbooks.exceptions import (
@@ -586,6 +587,8 @@ class Quickbooks:
             reader = TransactionListReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "ProfitAndLossReport":
             reader = ProfitAndLossReport(self, start_date, state_passed)
+        elif catalog_entry["stream"] == "APAgingSummaryReport":
+            reader = ApAgingSummaryReport(self, start_date, state_passed)
         else:
             reader = ProfitAndLossDetailReport(
                 self,
