@@ -136,7 +136,7 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                     "accounting_method": "Accrual",
                     "columns": ",".join(cols),
                 }
-                if True:
+                if self.pnl_adjusted_gain_loss:
                     params.update({"adjusted_gain_loss": "true"})
                     # Don't send columns with this param
                     del params["columns"]
