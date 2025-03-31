@@ -187,8 +187,7 @@
     {"name": "Line", "type": "array", "child_type": "invoice_line"},
     {"name": "CustomerMemo", "type": "string"},
     {"name": "TotalAmt", "type": "number"},
-    {"name": "Balance", "type": "number"},
-    {"name": "LinkedTxn", "type": "string"}
+    {"name": "Balance", "type": "number"}
   ],
   "Customer": [
     {"name": "Taxable", "type": "boolean"},
