@@ -110,6 +110,9 @@ class GeneralLedgerReport(QuickbooksStream):
         if self.qb.gl_basic_fields:
             cols = [
                 "tx_date",
+                "subt_nat_amount",
+                "credit_amt",
+                "debt_amt",
                 "subt_nat_home_amount",
                 "credit_home_amt",
                 "debt_home_amt",
@@ -120,6 +123,7 @@ class GeneralLedgerReport(QuickbooksStream):
                 "item_name",
                 "vend_name",
                 "txn_type",
+                "currency"
             ]
         else:
             cols = [
