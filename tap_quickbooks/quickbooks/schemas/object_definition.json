@@ -187,7 +187,8 @@
     {"name": "Line", "type": "array", "child_type": "invoice_line"},
     {"name": "CustomerMemo", "type": "string"},
     {"name": "TotalAmt", "type": "number"},
-    {"name": "Balance", "type": "number"}
+    {"name": "Balance", "type": "number"},
+    {"name": "LinkedTxn", "type": "string"}
   ],
   "Customer": [
     {"name": "Taxable", "type": "boolean"},
@@ -284,7 +285,8 @@
     {"name": "Balance", "type": "number"},
     {"name": "ExchangeRate", "type": "number"},
     {"name": "HomeBalance", "type": "number"},
-    {"name": "HomeTotalAmt", "type": "number"}
+    {"name": "HomeTotalAmt", "type": "number"},
+    {"name": "LinkedTxn", "type": "string"}
   ],
   "Item": [
     {"name": "Name", "type": "string"},
