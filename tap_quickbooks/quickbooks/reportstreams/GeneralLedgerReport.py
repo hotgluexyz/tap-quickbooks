@@ -188,10 +188,12 @@ class GeneralLedgerReport(QuickbooksStream):
                 if self.qb.gl_daily or self.gl_daily:
                     period_days = 1
                     max_requests = 10
+                    self.gl_daily = True
 
                 elif self.qb.gl_weekly or self.gl_weekly:
                     period_days = 7
                     max_requests = 10
+                    self.gl_weekly = True
                 else:
                     day1, period_days = monthrange(start_date.year, start_date.month)
                     max_requests = 10
@@ -238,7 +240,8 @@ class GeneralLedgerReport(QuickbooksStream):
                         elif self.gl_weekly and not self.gl_daily:
                             self.gl_weekly = False
                             self.gl_daily = True
-                        break
+                        elif self.gl_daily:
+                            raise Exception(r)
                     else:
                         self.gl_weekly = False
                         self.gl_daily = False
