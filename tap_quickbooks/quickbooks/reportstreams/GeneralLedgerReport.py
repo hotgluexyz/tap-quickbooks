@@ -246,6 +246,7 @@ class GeneralLedgerReport(QuickbooksStream):
                             self.gl_daily = True
                         elif self.gl_daily:
                             raise Exception(r)
+                        break
                     else:
                         self.gl_weekly = False
                         self.gl_daily = False
