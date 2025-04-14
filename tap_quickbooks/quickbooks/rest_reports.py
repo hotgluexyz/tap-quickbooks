@@ -36,7 +36,7 @@ class QuickbooksStream:
                            requests.exceptions.Timeout,
                            RetriableException
                            ),
-                          max_tries=5)
+                          max_tries=10)
     def _get(self, report_entity: str, params: Optional[Dict] = None) -> Dict:
         '''Constructs a standard way of making
         a GET request to the Quickbooks REST API.
