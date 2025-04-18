@@ -27,16 +27,18 @@ class QuickbooksStream:
     def _get_abs_path(self, path: str) -> str:
         return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
 
-    @backoff.on_exception(backoff.fibo,
+    @backoff.on_exception(backoff.expo,
                           requests.exceptions.HTTPError,
-                          max_tries=5,
+                          max_tries=10,
+                          factor=3,
                           giveup=is_fatal_code)
-    @backoff.on_exception(backoff.fibo,
+    @backoff.on_exception(backoff.expo,
                           (requests.exceptions.ConnectionError,
                            requests.exceptions.Timeout,
                            RetriableException
                            ),
-                          max_tries=5)
+                          max_tries=10,
+                          factor=3)
     def _get(self, report_entity: str, params: Optional[Dict] = None) -> Dict:
         '''Constructs a standard way of making
         a GET request to the Quickbooks REST API.
