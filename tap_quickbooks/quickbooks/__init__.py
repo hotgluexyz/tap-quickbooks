@@ -262,6 +262,24 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         }
     }
 
+    qb_types["contact_info"] = {
+        "type": object_type["type"],
+        "properties": {
+            "Type": string_type,
+            "Telephone": string_type,
+        }
+    }
+
+    qb_types["vendor_payment_bank_detail"] = {
+        "type": object_type["type"],
+        "properties": {
+            "BankAccountName": string_type,
+            "BankBranchIdentifier": string_type,
+            "BankAccountNumber": string_type,
+            "StatementText": string_type,
+        }
+    }
+
     qb_type = field['type']
     property_schema = qb_types[qb_type]
     if qb_type == 'array':
