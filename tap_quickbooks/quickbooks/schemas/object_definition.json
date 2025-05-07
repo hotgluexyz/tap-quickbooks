@@ -416,6 +416,7 @@
     {"name": "Active", "type": "boolean"},
     {"name": "AlternatePhone", "type": "string"},
     {"name": "MetaData", "type": "string"},
+    {"name": "sparse", "type": "boolean"}, 
     {"name": "Vendor1099", "type": "boolean"},
     {"name": "CostRate", "type": "string"},
     {"name": "BillRate", "type": "string"},
