@@ -391,12 +391,16 @@ class Quickbooks():
         else:
             raise TapQuickbooksException("Unsupported HTTP method")
         if resp.status_code in [400, 500]:
+            intuit_tid = resp.headers.get('intuit_tid', 'N/A')
+            LOGGER.error("Request failed with status %s, intuit_tid: %s, response: %s", resp.status_code, intuit_tid, resp.text)
             if "Authorization Failure" in resp.text:
                 self.login()
             raise RetriableApiError(resp.text)
         try:
             resp.raise_for_status()
         except RequestException as ex:
+            intuit_tid = resp.headers.get('intuit_tid', 'N/A')
+            LOGGER.error("Request exception occurred, intuit_tid: %s, error: %s", intuit_tid, str(ex))
             raise ex
 
         if resp.headers.get('Sforce-Limit-Info') is not None:
