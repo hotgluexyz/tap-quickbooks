@@ -334,6 +334,7 @@ class Quickbooks:
         self.login_timer = None
         self.data_url = "{}/services/data/v41.0/{}"
         self.pk_chunking = False
+        self.sync_finished = False
 
         # validate start_date
         singer_utils.strptime(default_start_date)
@@ -478,11 +479,12 @@ class Quickbooks:
                 )
             raise Exception(error_message) from e
         finally:
-            LOGGER.info("Starting new login timer")
-            self.login_timer = threading.Timer(
-                REFRESH_TOKEN_EXPIRATION_PERIOD, self.login
-            )
-            self.login_timer.start()
+            if not self.sync_finished:
+                LOGGER.info("Starting new login timer")
+                self.login_timer = threading.Timer(REFRESH_TOKEN_EXPIRATION_PERIOD, self.login)
+                self.login_timer.start()
+            else:
+                LOGGER.info("Cancelling new timer, sync has already finished.")
 
     def describe(self, sobject=None):
         """Describes all objects or a specific object"""
