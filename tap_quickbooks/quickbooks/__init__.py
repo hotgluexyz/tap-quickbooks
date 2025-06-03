@@ -310,6 +310,7 @@ class Quickbooks():
                  gl_weekly = None,
                  gl_daily = None,
                  gl_basic_fields = None,
+                 hg_sync_output = None,
                  realm_id=None):
         
         if not realm_id:
@@ -330,6 +331,7 @@ class Quickbooks():
         self.qb_client_secret = qb_client_secret
         self.session = requests.Session()
         self.access_token = None
+        self.hg_sync_output = hg_sync_output
         self.sync_finished = False
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'

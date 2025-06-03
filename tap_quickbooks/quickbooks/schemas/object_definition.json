@@ -703,5 +703,19 @@
     {"name": "TaxExemptionRef", "type": "string"},
     {"name": "HomeTotalAmt", "type": "string"},
     {"name": "FreeFormAddress", "type": "boolean"}
+  ],
+  
+  "Attachable": [
+    {"name": "FileName", "type": "string"},
+    {"name": "FileAccessUri", "type": "string"},
+    {"name": "TempDownloadUri", "type": "string"},
+    {"name": "Size", "type": "number"},
+    {"name": "ContentType", "type": "string"},
+    {"name": "domain", "type": "string"},
+    {"name": "sparse", "type":  "boolean"},
+    {"name": "Id", "type": "string"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "AttachableRef", "type": "array","child_type": "string"}
   ]
 }
