@@ -262,6 +262,24 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         }
     }
 
+    qb_types["contact_info"] = {
+        "type": object_type["type"],
+        "properties": {
+            "Type": string_type,
+            "Telephone": string_type,
+        }
+    }
+
+    qb_types["vendor_payment_bank_detail"] = {
+        "type": object_type["type"],
+        "properties": {
+            "BankAccountName": string_type,
+            "BankBranchIdentifier": string_type,
+            "BankAccountNumber": string_type,
+            "StatementText": string_type,
+        }
+    }
+
     qb_type = field['type']
     property_schema = qb_types[qb_type]
     if qb_type == 'array':
@@ -269,6 +287,8 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
 
     return property_schema, mdata
 
+class RetriableApiError(Exception):
+    pass
 
 class Quickbooks():
     # pylint: disable=too-many-instance-attributes,too-many-arguments
@@ -292,6 +312,10 @@ class Quickbooks():
                  gl_basic_fields = None,
                  hg_sync_output = None,
                  realm_id=None):
+        
+        if not realm_id:
+            raise TapQuickbooksException("The 'realmId' is missing from the configuration file. It is a required field and cannot be empty.")
+            
         self.api_type = api_type.upper() if api_type else None
         self.report_period_days = report_period_days
         self.gl_full_sync = gl_full_sync
@@ -308,6 +332,7 @@ class Quickbooks():
         self.session = requests.Session()
         self.access_token = None
         self.hg_sync_output = hg_sync_output
+        self.sync_finished = False
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'
 
@@ -372,7 +397,7 @@ class Quickbooks():
 
     # pylint: disable=too-many-arguments
     @backoff.on_exception(backoff.expo,
-                          requests.exceptions.ConnectionError,
+                          (requests.exceptions.ConnectionError,RetriableApiError),
                           max_tries=10,
                           factor=2,
                           on_backoff=log_backoff_attempt)
@@ -385,10 +410,17 @@ class Quickbooks():
             resp = self.session.post(url, headers=headers, data=body)
         else:
             raise TapQuickbooksException("Unsupported HTTP method")
-
+        if resp.status_code in [400, 500]:
+            intuit_tid = resp.headers.get('intuit_tid', 'N/A')
+            LOGGER.error("Request failed with status %s, intuit_tid: %s, response: %s", resp.status_code, intuit_tid, resp.text)
+            if "Authorization Failure" in resp.text:
+                self.login()
+            raise RetriableApiError(resp.text)
         try:
             resp.raise_for_status()
         except RequestException as ex:
+            intuit_tid = resp.headers.get('intuit_tid', 'N/A')
+            LOGGER.error("Request exception occurred, intuit_tid: %s, error: %s", intuit_tid, str(ex))
             raise ex
 
         if resp.headers.get('Sforce-Limit-Info') is not None:
@@ -420,6 +452,7 @@ class Quickbooks():
             self.access_token = auth['access_token']
 
             new_refresh_token = auth['refresh_token']
+            LOGGER.info(F"REFRESH TOKEN: {new_refresh_token}")
 
             # persist access_token
             parser = argparse.ArgumentParser()
@@ -453,9 +486,13 @@ class Quickbooks():
                 error_message = error_message + ", Response from Quickbooks: {}".format(resp.text)
             raise Exception(error_message) from e
         finally:
-            LOGGER.info("Starting new login timer")
-            self.login_timer = threading.Timer(REFRESH_TOKEN_EXPIRATION_PERIOD, self.login)
-            self.login_timer.start()
+            if not self.sync_finished:
+                LOGGER.info("Starting new login timer")
+                self.login_timer = threading.Timer(REFRESH_TOKEN_EXPIRATION_PERIOD, self.login)
+                self.login_timer.start()
+            else:
+                LOGGER.info("Cancelling new timer, sync has already finished.")
+
 
     def describe(self, sobject=None):
         """Describes all objects or a specific object"""
