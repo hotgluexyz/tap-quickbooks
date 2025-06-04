@@ -1,4 +1,4 @@
-def save_api_usage(method, url, params, body, headers, response):
+def save_api_usage(method, url, params, body, response):
     import json
     import datetime
 
@@ -7,7 +7,6 @@ def save_api_usage(method, url, params, body, headers, response):
         "url": url,
         "params": params,
         "body": body,
-        "headers": headers,
     }
 
     for key, value in request_dict.copy().items():

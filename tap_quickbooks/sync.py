@@ -162,7 +162,7 @@ def download_file(url, local_filename):
     response = requests.get(url, stream=True)
 
     try:
-        save_api_usage("GET", url, None, None, None, response)
+        save_api_usage("GET", url, None, None, response)
     except Exception as e:
         LOGGER.error("Error saving API usage: %s", str(e))
 
