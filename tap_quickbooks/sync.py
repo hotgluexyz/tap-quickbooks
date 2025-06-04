@@ -9,6 +9,7 @@ import math
 import json
 import requests
 from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException
+from tap_quickbooks.util import save_api_usage
 
 LOGGER = singer.get_logger()
 
@@ -159,6 +160,12 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
 def download_file(url, local_filename):
     # Send an HTTP GET request to the URL
     response = requests.get(url, stream=True)
+
+    try:
+        save_api_usage("GET", url, None, None, None, response)
+    except Exception as e:
+        LOGGER.error("Error saving API usage: %s", str(e))
+
     LOGGER.info(f"Downloading file: {local_filename}")
     # Check if the request was successful (status code 200)
     if response.status_code == 200:

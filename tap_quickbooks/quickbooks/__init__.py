@@ -22,6 +22,7 @@ from tap_quickbooks.quickbooks.reportstreams.DailyCashFlowReport import DailyCas
 from tap_quickbooks.quickbooks.reportstreams.MonthlyCashFlowReport import MonthlyCashFlowReport
 from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import TransactionListReport
 from tap_quickbooks.quickbooks.reportstreams.ARAgingSummaryReport import ARAgingSummaryReport
+from tap_quickbooks.util import save_api_usage
 
 from tap_quickbooks.quickbooks.rest import Rest
 from tap_quickbooks.quickbooks.exceptions import (
@@ -410,6 +411,19 @@ class Quickbooks():
             resp = self.session.post(url, headers=headers, data=body)
         else:
             raise TapQuickbooksException("Unsupported HTTP method")
+
+        try:
+            save_api_usage(
+                http_method,
+                url,
+                params,
+                body,
+                headers,
+                resp
+            )
+        except Exception as e:
+            LOGGER.error("Error saving API usage: %s", str(e))
+
         if resp.status_code in [400, 500]:
             intuit_tid = resp.headers.get('intuit_tid', 'N/A')
             LOGGER.error("Request failed with status %s, intuit_tid: %s, response: %s", resp.status_code, intuit_tid, resp.text)
