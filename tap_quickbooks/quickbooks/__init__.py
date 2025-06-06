@@ -413,14 +413,13 @@ class Quickbooks():
             raise TapQuickbooksException("Unsupported HTTP method")
 
         try:
-            if http_method in ["GET"]:
-                save_api_usage(
-                    http_method,
-                    url,
-                    params,
-                    body,
-                    resp
-                )
+            save_api_usage(
+                http_method,
+                url,
+                params,
+                body,
+                resp
+            )
         except Exception as e:
             LOGGER.error("Error saving API usage: %s", str(e))
 
