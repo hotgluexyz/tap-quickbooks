@@ -1,4 +1,4 @@
-def save_api_usage(method, url, params, body, response):
+def save_api_usage(method, url, params, body, response, stream=None):
     import json
     import datetime
 
@@ -18,6 +18,9 @@ def save_api_usage(method, url, params, body, response):
         "request": request_dict,
         "response_status": response.status_code if response else None,
     }
+
+    if stream:
+        usage_data["stream"] = stream
 
     with open("api_usage.jsonl", "a") as f:
         f.write(json.dumps(usage_data, default=str) + "\n")
