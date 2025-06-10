@@ -270,6 +270,7 @@ class Quickbooks:
                  realm_id=None,
                  pnl_adjusted_gain_loss=None,
                  pnl_monthly=None,
+                 pnl_future_transactions=None,
                  ar_aging_report_date=None,
                  ar_aging_report_dates=None,
                  ):
@@ -296,6 +297,7 @@ class Quickbooks:
         self.access_token = None
         self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
         self.pnl_monthly = pnl_monthly
+        self.pnl_future_transactions = pnl_future_transactions
         self.ar_aging_report_date = ar_aging_report_date
         self.ar_aging_report_dates = ar_aging_report_dates
         self.base_url = (
@@ -598,5 +600,6 @@ class Quickbooks:
                 state_passed,
                 pnl_adjusted_gain_loss=self.pnl_adjusted_gain_loss,
                 pnl_monthly=self.pnl_monthly,
+                pnl_future_transactions=self.pnl_future_transactions,
             )
         return reader.sync(catalog_entry)

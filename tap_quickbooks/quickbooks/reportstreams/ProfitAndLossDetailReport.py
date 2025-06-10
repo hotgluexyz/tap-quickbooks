@@ -26,12 +26,14 @@ class ProfitAndLossDetailReport(QuickbooksStream):
         state_passed,
         pnl_adjusted_gain_loss=None,
         pnl_monthly=None,
+        pnl_future_transactions=None,
     ):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
         self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
         self.pnl_monthly = pnl_monthly
+        self.pnl_future_transactions = pnl_future_transactions
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -127,7 +129,11 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 LOGGER.info(f"Starting full sync of P&L")
                 end_date = start_date + datetime.timedelta(delta)
                 if end_date > datetime.date.today():
-                    end_date = datetime.date.today()
+                    if not self.pnl_future_transactions:
+                        end_date = datetime.date.today()
+                    else:
+                        # if no end date is provided, the API will use today as default
+                        end_date = datetime.date(2099, 12, 31)
 
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),
