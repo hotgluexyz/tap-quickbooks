@@ -270,7 +270,7 @@ class Quickbooks:
                  realm_id=None,
                  pnl_adjusted_gain_loss=None,
                  pnl_monthly=None,
-                 pnl_future_transactions=None,
+                 fetch_future_transactions=None,
                  ar_aging_report_date=None,
                  ar_aging_report_dates=None,
                  ):
@@ -297,7 +297,7 @@ class Quickbooks:
         self.access_token = None
         self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
         self.pnl_monthly = pnl_monthly
-        self.pnl_future_transactions = pnl_future_transactions
+        self.fetch_future_transactions = fetch_future_transactions
         self.ar_aging_report_date = ar_aging_report_date
         self.ar_aging_report_dates = ar_aging_report_dates
         self.base_url = (
@@ -565,6 +565,7 @@ class Quickbooks:
                 start_date,
                 state_passed,
                 pnl_adjusted_gain_loss=self.pnl_adjusted_gain_loss,
+                fetch_future_transactions=self.fetch_future_transactions,
             )
         elif catalog_entry["stream"] == "MonthlyBalanceSheetReport":
             reader = MonthlyBalanceSheetReport(
@@ -572,25 +573,26 @@ class Quickbooks:
                 start_date,
                 state_passed,
                 pnl_adjusted_gain_loss=self.pnl_adjusted_gain_loss,
+                fetch_future_transactions=self.fetch_future_transactions,
             )
         elif catalog_entry["stream"] == "GeneralLedgerAccrualReport":
-            reader = GeneralLedgerAccrualReport(self, start_date, state_passed)
+            reader = GeneralLedgerAccrualReport(self, start_date, state_passed, fetch_future_transactions=self.fetch_future_transactions)
         elif catalog_entry["stream"] == "GeneralLedgerCashReport":
-            reader = GeneralLedgerCashReport(self, start_date, state_passed)
+            reader = GeneralLedgerCashReport(self, start_date, state_passed, fetch_future_transactions=self.fetch_future_transactions)
         elif catalog_entry["stream"] == "CashFlowReport":
-            reader = CashFlowReport(self, start_date, state_passed)
+            reader = CashFlowReport(self, start_date, state_passed, fetch_future_transactions=self.fetch_future_transactions)
         elif catalog_entry["stream"] == "DailyCashFlowReport":
             reader = DailyCashFlowReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "MonthlyCashFlowReport":
-            reader = MonthlyCashFlowReport(self, start_date, state_passed)
+            reader = MonthlyCashFlowReport(self, start_date, state_passed, fetch_future_transactions=self.fetch_future_transactions)
         elif catalog_entry["stream"] == "ARAgingSummaryReport":
             reader = ARAgingSummaryReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "ARAgingDetailReport":
             reader = ARAgingDetailReport(self, start_date, state_passed)    
         elif catalog_entry["stream"] == "TransactionListReport":
-            reader = TransactionListReport(self, start_date, state_passed)
+            reader = TransactionListReport(self, start_date, state_passed, fetch_future_transactions=self.fetch_future_transactions)
         elif catalog_entry["stream"] == "ProfitAndLossReport":
-            reader = ProfitAndLossReport(self, start_date, state_passed)
+            reader = ProfitAndLossReport(self, start_date, state_passed, fetch_future_transactions=self.fetch_future_transactions)
         elif catalog_entry["stream"] == "APAgingSummaryReport":
             reader = ApAgingSummaryReport(self, start_date, state_passed)
         else:
@@ -600,6 +602,6 @@ class Quickbooks:
                 state_passed,
                 pnl_adjusted_gain_loss=self.pnl_adjusted_gain_loss,
                 pnl_monthly=self.pnl_monthly,
-                pnl_future_transactions=self.pnl_future_transactions,
+                fetch_future_transactions=self.fetch_future_transactions,
             )
         return reader.sync(catalog_entry)
