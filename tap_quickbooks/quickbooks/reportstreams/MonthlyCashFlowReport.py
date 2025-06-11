@@ -15,10 +15,11 @@ class MonthlyCashFlowReport(QuickbooksStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
 
-    def __init__(self, qb, start_date, state_passed):
+    def __init__(self, qb, start_date, state_passed, fetch_future_transactions=False):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
+        self.fetch_future_transactions = fetch_future_transactions
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -59,7 +60,7 @@ class MonthlyCashFlowReport(QuickbooksStream):
 
         if full_sync:
             LOGGER.info(f"Starting full sync of MonthlyCashFlow")
-            end_date = datetime.date.today() 
+            end_date = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2099, 12, 31)
             start_date = self.start_date
             params = {
                 "start_date": start_date.strftime("%Y-%m-%d"),

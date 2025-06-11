@@ -21,10 +21,11 @@ class GeneralLedgerReport(QuickbooksStream):
     gl_weekly = False
     gl_daily = False
 
-    def __init__(self, qb, start_date, state_passed):
+    def __init__(self, qb, start_date, state_passed, fetch_future_transactions=False):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
+        self.fetch_future_transactions = fetch_future_transactions
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -183,6 +184,7 @@ class GeneralLedgerReport(QuickbooksStream):
             min_time = datetime.datetime.min.time()
             today = datetime.date.today()
             today = datetime.datetime.combine(today, min_time)
+            last_iteration = False
 
             # params for requests if self.concurrent_requests is true
             requests_params = []
@@ -202,8 +204,13 @@ class GeneralLedgerReport(QuickbooksStream):
 
                 # calculate end date
                 if (today - start_date).days <= period_days:
-                    end_date = today
-                    params["end_date"] = today.strftime("%Y-%m-%d")
+                    if self.fetch_future_transactions:
+                        end_date = datetime.date(2099, 12, 31)
+                        end_date = datetime.datetime.combine(end_date, min_time)
+                        last_iteration = True
+                    else:
+                        end_date = today
+                    params["end_date"] = end_date.strftime("%Y-%m-%d")
                 else:
                     end_date = start_date + relativedelta(days=+period_days)
                     params["end_date"] = (
@@ -219,7 +226,7 @@ class GeneralLedgerReport(QuickbooksStream):
                 # get the data
                 if len(requests_params) < max_requests and end_date < today:
                     continue
-                elif len(requests_params) == max_requests or end_date == today:
+                elif len(requests_params) == max_requests or end_date == today or last_iteration:
                     with concurrent.futures.ThreadPoolExecutor(
                         max_workers=max_requests
                     ) as executor:

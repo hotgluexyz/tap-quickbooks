@@ -16,11 +16,12 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = "FULL_TABLE"
 
-    def __init__(self, qb, start_date, state_passed, pnl_adjusted_gain_loss=None):
+    def __init__(self, qb, start_date, state_passed, pnl_adjusted_gain_loss=None, fetch_future_transactions=False):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
         self.pnl_adjusted_gain_loss = pnl_adjusted_gain_loss
+        self.fetch_future_transactions = fetch_future_transactions
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -73,7 +74,7 @@ class MonthlyBalanceSheetReport(QuickbooksStream):
 
         if full_sync or self.qb.monthly_balance_sheet_full_sync:
             LOGGER.info(f"Starting full sync of MonthylBalanceSheet")
-            end_date = datetime.date.today()
+            end_date = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2099, 12, 31)
             start_date = self.start_date
             params = {
                 "start_date": start_date.strftime("%Y-%m-%d"),

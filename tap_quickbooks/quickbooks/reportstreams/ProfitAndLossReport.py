@@ -17,10 +17,11 @@ class ProfitAndLossReport(QuickbooksStream):
     replication_method: ClassVar[str] = 'FULL_TABLE'
     current_account = {}
 
-    def __init__(self, qb, start_date, state_passed):
+    def __init__(self, qb, start_date, state_passed, fetch_future_transactions=False):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed
+        self.fetch_future_transactions = fetch_future_transactions
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -71,7 +72,7 @@ class ProfitAndLossReport(QuickbooksStream):
                 LOGGER.info(f"Starting full sync of P&L")
                 end_date = (start_date + datetime.timedelta(delta))
                 if end_date>datetime.date.today():
-                    end_date = datetime.date.today()
+                    end_date = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2099, 12, 31)
 
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),
