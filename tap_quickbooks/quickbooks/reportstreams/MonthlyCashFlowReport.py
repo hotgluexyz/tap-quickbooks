@@ -60,7 +60,7 @@ class MonthlyCashFlowReport(QuickbooksStream):
 
         if full_sync:
             LOGGER.info(f"Starting full sync of MonthlyCashFlow")
-            end_date = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2099, 12, 31)
+            end_date = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2050, 12, 31)
             start_date = self.start_date
             params = {
                 "start_date": start_date.strftime("%Y-%m-%d"),
