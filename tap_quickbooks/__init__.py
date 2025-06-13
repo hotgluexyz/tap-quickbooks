@@ -10,6 +10,8 @@ from tap_quickbooks.quickbooks import Quickbooks
 from tap_quickbooks.quickbooks.exceptions import (
     TapQuickbooksException, TapQuickbooksQuotaExceededException)
 import threading
+from tap_quickbooks.util import cleanup
+import atexit
 
 LOGGER = singer.get_logger()
 
@@ -330,4 +332,5 @@ def main():
         raise e
 
 if __name__ == "__main__":
+    atexit.register(cleanup)
     main()
