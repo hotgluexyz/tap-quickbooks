@@ -82,7 +82,8 @@
     {"name": "TxnDate", "type": "string"},
     {"name": "CreditCardPayment", "type": "string"},
     {"name": "MetaData", "type": "string"},
-    {"name": "TaxExemptionRef", "type": "string"}
+    {"name": "TaxExemptionRef", "type": "string"},
+    {"name": "PaymentRefNum", "type": "string"}
   ],
 
   "Transfer": [
