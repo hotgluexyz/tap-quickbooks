@@ -20,13 +20,13 @@ jobs:
         with:
           python-version: '3.10'
 
+
       - name: Checkout test-framework repository
         uses: actions/checkout@v4
         with:
           repository: hotgluexyz/test-framework
           path: test-framework
           token: ${{ secrets.TEST_GITHUB_ACCESS_TOKEN }}
-          fetch-depth: 0
 
 
       - name: Set REPO_ROOT environment variable
@@ -47,13 +47,9 @@ jobs:
           cd test-framework
           # Try to switch to the same branch as the current PR
           BRANCH_NAME=${{ github.head_ref }}
-          echo "BRANCH_NAME: $BRANCH_NAME"
-          echo "Available branches in test-framework:"
-          git branch -a
-          if git show-ref --verify refs/remotes/origin/$BRANCH_NAME; then
+          if git show-ref --verify --quiet refs/heads/$BRANCH_NAME; then
             git checkout $BRANCH_NAME
           else
-            echo "Branch $BRANCH_NAME not found in test-framework repository"
             git checkout main
           fi
           
