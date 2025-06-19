@@ -24,6 +24,7 @@ from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import Transa
 from tap_quickbooks.quickbooks.reportstreams.ARAgingSummaryReport import ARAgingSummaryReport
 from tap_quickbooks.quickbooks.reportstreams.ArAgingDetailReport import ARAgingDetailReport
 from tap_quickbooks.quickbooks.reportstreams.ApAgingSummaryReport import ApAgingSummaryReport
+from tap_quickbooks.util import save_api_usage
 
 from tap_quickbooks.quickbooks.rest import Rest
 from tap_quickbooks.quickbooks.exceptions import (
@@ -386,7 +387,7 @@ class Quickbooks:
                           max_tries=10,
                           factor=2,
                           on_backoff=log_backoff_attempt)
-    def _make_request(self, http_method, url, headers=None, body=None, stream=False, params=None):
+    def _make_request(self, http_method, url, headers=None, body=None, stream=False, params=None, sink_name=None):
         if http_method == "GET":
             LOGGER.info(
                 "Making %s request to %s with params: %s", http_method, url, params
@@ -397,6 +398,19 @@ class Quickbooks:
             resp = self.session.post(url, headers=headers, data=body)
         else:
             raise TapQuickbooksException("Unsupported HTTP method")
+
+        try:
+            save_api_usage(
+                http_method,
+                url,
+                params,
+                body,
+                resp,
+                stream=sink_name,
+            )
+        except Exception as e:
+            LOGGER.error("Error saving API usage: %s", str(e))
+
         if resp.status_code in [400, 500]:
             if "Authorization Failure" in resp.text:
                 self.login()
