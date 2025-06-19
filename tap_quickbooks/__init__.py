@@ -3,12 +3,14 @@ import json
 import sys
 import singer
 import singer.utils as singer_utils
+import atexit
 from singer import metadata, metrics
 import tap_quickbooks.quickbooks as quickbooks
 from tap_quickbooks.sync import (sync_stream, get_stream_version)
 from tap_quickbooks.quickbooks import Quickbooks
 from tap_quickbooks.quickbooks.exceptions import (
     TapQuickbooksException, TapQuickbooksQuotaExceededException)
+from tap_quickbooks.util import cleanup
 
 LOGGER = singer.get_logger()
 
@@ -307,4 +309,5 @@ def main():
         raise e
 
 if __name__ == "__main__":
+    atexit.register(cleanup)
     main()
