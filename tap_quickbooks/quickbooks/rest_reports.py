@@ -47,7 +47,7 @@ class QuickbooksStream:
         response = requests.get(url, headers=headers, params=params)
 
         try:
-            save_api_usage("GET", url, params, None, response)
+            save_api_usage("GET", url, params, None, response, self.stream)
         except Exception as e:
             LOGGER.error("Error saving API usage: %s", str(e))
 
