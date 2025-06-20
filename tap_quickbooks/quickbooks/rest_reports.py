@@ -7,6 +7,8 @@ import requests
 import singer
 import time
 
+from tap_quickbooks.util import save_api_usage
+
 LOGGER = singer.get_logger()
 
 
@@ -49,6 +51,12 @@ class QuickbooksStream:
             params.update({"minorversion": self.api_minor_version})
 
         response = requests.get(url, headers=headers, params=params)
+
+        try:
+            save_api_usage("GET", url, params, None, response, self.stream)
+        except Exception as e:
+            LOGGER.error("Error saving API usage: %s", str(e))
+
         if response.status_code == 429:
             # quickbooks: HTTP Status Code 429 happens when throttling occurs. 
             # Wait 60 seconds before retrying the request.
