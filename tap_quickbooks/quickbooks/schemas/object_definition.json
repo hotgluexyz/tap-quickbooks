@@ -752,5 +752,23 @@
     {"name": "APAccountRef", "type": "string"},
     {"name": "TotalAmt", "type": "string"},
     {"name": "Memo", "type": "string"}
+  ],
+  "VendorCredit": [
+    {"name": "Id", "type": "string"},
+    {"name": "Balance", "type": "string"},
+    {"name": "domain", "type": "string"},
+    {"name": "sparse", "type": "boolean"},
+    {"name": "SyncToken", "type": "string"},
+    {"name": "MetaData", "type": "string"},
+    {"name": "DocNumber", "type": "string"},
+    {"name": "TxnDate", "type": "string"},
+    {"name": "DepartmentRef", "type": "string"},
+    {"name": "CurrencyRef", "type": "string"},
+    {"name": "ExchangeRate", "type": "string"},
+    {"name": "PrivateNote", "type": "string"},
+    {"name": "Line", "type": "array", "child_type": "string"},
+    {"name": "VendorRef", "type": "string"},
+    {"name": "APAccountRef", "type": "string"},
+    {"name": "TotalAmt", "type": "string"}
   ]
 }
