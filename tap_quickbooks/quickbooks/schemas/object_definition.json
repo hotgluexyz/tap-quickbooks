@@ -284,7 +284,8 @@
     {"name": "Balance", "type": "number"},
     {"name": "ExchangeRate", "type": "number"},
     {"name": "HomeBalance", "type": "number"},
-    {"name": "HomeTotalAmt", "type": "number"}
+    {"name": "HomeTotalAmt", "type": "number"},
+    {"name": "LinkedTxn", "type": "string"}
   ],
   "Item": [
     {"name": "Name", "type": "string"},
