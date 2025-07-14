@@ -289,7 +289,8 @@ def main_impl():
             gl_weekly = CONFIG.get('gl_weekly', False),
             gl_daily = CONFIG.get('gl_daily', False),
             gl_basic_fields = CONFIG.get('gl_basic_fields', False),
-            hg_sync_output = CONFIG.get('hg_sync_output')
+            hg_sync_output = CONFIG.get('hg_sync_output'),
+            report_periods = CONFIG.get('report_periods', 3),
         )
         qb.login()
 

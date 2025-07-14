@@ -3,22 +3,17 @@ from typing import ClassVar, Dict, List, Optional
 
 import singer
 
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
+from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
 from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
-NUMBER_OF_PERIODS = 3
 
-class CashFlowReport(QuickbooksStream):
+
+class CashFlowReport(BaseReportStream):
     tap_stream_id: ClassVar[str] = 'CashFlowReport'
     stream: ClassVar[str] = 'CashFlowReport'
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
-
-    def __init__(self, qb, start_date, state_passed):
-        self.qb = qb
-        self.start_date = start_date
-        self.state_passed = state_passed
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -104,10 +99,10 @@ class CashFlowReport(QuickbooksStream):
 
                 yield cleansed_row
         else:
-            LOGGER.info(f"Syncing CashFlow of last {NUMBER_OF_PERIODS} periods")
+            LOGGER.info(f"Syncing CashFlow of last {self.number_of_periods} periods")
             end_date = datetime.date.today()
 
-            for i in range(NUMBER_OF_PERIODS):
+            for i in range(self.number_of_periods):
                 start_date = end_date.replace(day=1)
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),

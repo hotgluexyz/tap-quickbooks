@@ -3,7 +3,7 @@ from typing import ClassVar, Dict, List, Optional
 
 import singer
 
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
+from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
 from tap_quickbooks.sync import transform_data_hook
 from dateutil.relativedelta import relativedelta
 import logging
@@ -12,19 +12,14 @@ from calendar import monthrange
 
 
 LOGGER = singer.get_logger()
-NUMBER_OF_PERIODS = 3
 
 
-class GeneralLedgerReport(QuickbooksStream):
+
+class GeneralLedgerReport(BaseReportStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = "FULL_TABLE"
     gl_weekly = False
     gl_daily = False
-
-    def __init__(self, qb, start_date, state_passed):
-        self.qb = qb
-        self.start_date = start_date
-        self.state_passed = state_passed
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -270,11 +265,11 @@ class GeneralLedgerReport(QuickbooksStream):
                         yield from self.clean_row(output, columns)
         else:
             LOGGER.info(
-                f"Syncing GeneralLedgerReport of last {NUMBER_OF_PERIODS} periods"
+                f"Syncing GeneralLedgerReport of last {self.number_of_periods} periods"
             )
             end_date = datetime.date.today()
 
-            for i in range(NUMBER_OF_PERIODS):
+            for i in range(self.number_of_periods):
                 start_date = end_date.replace(day=1)
 
                 params["start_date"] = (end_date.replace(day=1).strftime("%Y-%m-%d"),)
