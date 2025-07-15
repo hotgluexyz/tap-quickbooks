@@ -2,23 +2,17 @@ import datetime
 from typing import ClassVar, Dict, List, Optional
 
 import singer
-
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
+from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
 from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
-NUMBER_OF_PERIODS = 3
 
-class BalanceSheetReport(QuickbooksStream):
+
+class BalanceSheetReport(BaseReportStream):
     tap_stream_id: ClassVar[str] = 'BalanceSheetReport'
     stream: ClassVar[str] = 'BalanceSheetReport'
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
-
-    def __init__(self, qb, start_date, state_passed):
-        self.qb = qb
-        self.start_date = start_date
-        self.state_passed = state_passed
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -55,7 +49,7 @@ class BalanceSheetReport(QuickbooksStream):
                 categories.pop()
 
     def sync(self, catalog_entry):
-        full_sync = not self.state_passed
+        full_sync = not self.state_passed and not self.has_number_of_periods
 
         if full_sync:
             LOGGER.info(f"Starting full sync of BalanceSheet")
@@ -101,13 +95,15 @@ class BalanceSheetReport(QuickbooksStream):
 
                 cleansed_row["Total"] = float(row.get("Total"))
                 cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
 
                 yield cleansed_row
         else:
-            LOGGER.info(f"Syncing BalanceSheet of last {NUMBER_OF_PERIODS} periods")
+            LOGGER.info(f"Syncing BalanceSheet of last {self.number_of_periods} periods")
             end_date = datetime.date.today()
 
-            for i in range(NUMBER_OF_PERIODS):
+            for i in range(self.number_of_periods):
                 start_date = end_date.replace(day=1)
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),
@@ -151,6 +147,8 @@ class BalanceSheetReport(QuickbooksStream):
 
                     cleansed_row["Total"] = float(row.get("Total"))
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
 
                     yield cleansed_row
 
