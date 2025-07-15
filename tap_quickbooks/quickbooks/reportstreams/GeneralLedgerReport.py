@@ -102,7 +102,7 @@ class GeneralLedgerReport(BaseReportStream):
             return response
 
     def sync(self, catalog_entry):
-        full_sync = not self.state_passed and self.number_of_periods is None
+        full_sync = not self.state_passed and not self.has_number_of_periods
 
         if self.qb.gl_basic_fields:
             cols = [

@@ -77,7 +77,7 @@ class DailyCashFlowReport(BaseReportStream):
             end_date = start_date
         return end_date
     def sync(self, catalog_entry):
-        full_sync = not self.state_passed and self.number_of_periods is None
+        full_sync = not self.state_passed and not self.has_number_of_periods
 
         if full_sync or self.qb.report_period_days:
             LOGGER.info(f"Starting full sync of CashFlow")
