@@ -75,5 +75,7 @@ class ARAgingSummaryReport(BaseReportStream):
                     cleansed_row.update({k: v})
 
             cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+            cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+            cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
 
             yield cleansed_row

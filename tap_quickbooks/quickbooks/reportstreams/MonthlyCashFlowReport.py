@@ -102,7 +102,8 @@ class MonthlyCashFlowReport(BaseReportStream):
                     if key not in ['Account', 'Categories', 'SyncTimestampUtc', 'Total']:
                         monthly_total.append({key:value})
                 cleansed_row['MonthlyTotal'] = monthly_total
-             
+                cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                 yield cleansed_row
         else:
             LOGGER.info(f"Syncing MonthlyCashFlow of last {self.number_of_periods} periods")
@@ -152,7 +153,8 @@ class MonthlyCashFlowReport(BaseReportStream):
 
                     cleansed_row["Total"] = float(row.get("Total"))
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                     yield cleansed_row
 
                 end_date = start_date - datetime.timedelta(days=1)

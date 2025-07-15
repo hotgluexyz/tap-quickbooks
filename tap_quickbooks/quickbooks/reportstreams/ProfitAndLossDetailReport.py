@@ -157,7 +157,8 @@ class ProfitAndLossDetailReport(BaseReportStream):
                             cleansed_row["Date"] = parse(cleansed_row['Date'])
                         except:
                             continue
-
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                     yield cleansed_row
         else:
             LOGGER.info(f"Syncing P&L of last {self.number_of_periods} periods")
@@ -213,7 +214,8 @@ class ProfitAndLossDetailReport(BaseReportStream):
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     if cleansed_row.get('Date'):
                         cleansed_row["Date"] = parse(cleansed_row['Date'])
-
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                     yield cleansed_row
 
                 end_date = start_date - datetime.timedelta(days=1)

@@ -102,7 +102,8 @@ class MonthlyBalanceSheetReport(BaseReportStream):
                     if key not in ['Account', 'Categories', 'SyncTimestampUtc']:
                         monthly_total.append({key:value})
                 cleansed_row['MonthlyTotal'] = monthly_total
-
+                cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                 yield cleansed_row
         else:
             LOGGER.info(f"Syncing MonthlyBalanceSheet of last {self.number_of_periods} periods")
@@ -153,7 +154,8 @@ class MonthlyBalanceSheetReport(BaseReportStream):
                         if key not in ['Account', 'Categories', 'SyncTimestampUtc']:
                             monthly_total.append({key:value})
                     cleansed_row['MonthlyTotal'] = monthly_total
-
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                     yield cleansed_row
 
                 end_date = start_date - datetime.timedelta(days=1)

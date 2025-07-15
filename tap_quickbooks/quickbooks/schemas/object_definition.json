@@ -454,30 +454,40 @@
   "BalanceSheetReport": [
     {"name": "Total", "type": "number"},
     {"name": "Account", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"}
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
   ],
   "MonthlyBalanceSheetReport": [
     {"name": "Account", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "MonthlyTotal", "type": "array", "child_type": "string"}
+    {"name": "MonthlyTotal", "type": "array", "child_type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
   ],
   "CashFlowReport": [
     {"name": "Total", "type": "number"},
     {"name": "Account", "type": "string"},
-    {"name": "Categories", "type": "array", "child_type": "string"}
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
   ],
   "DailyCashFlowReport": [
     {"name": "Total", "type": "number"},
     {"name": "Account", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "DailyTotal", "type": "array", "child_type": "string"}
+    {"name": "DailyTotal", "type": "array", "child_type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
 
   ],
   "MonthlyCashFlowReport": [
     {"name": "Total", "type": "number"},
     {"name": "Account", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "MonthlyTotal", "type": "array", "child_type": "string"}
+    {"name": "MonthlyTotal", "type": "array", "child_type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
 
   ],
   "Budget": [
@@ -539,7 +549,9 @@
     {"name": "ClassId", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "Department", "type": "string"},
-    {"name": "DepartmentId", "type": "string"}
+    {"name": "DepartmentId", "type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
 
   ],
   "GeneralLedgerCashReport": [
@@ -589,7 +601,9 @@
     {"name": "ClassId", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "Department", "type": "string"},
-    {"name": "DepartmentId", "type": "string"}
+    {"name": "DepartmentId", "type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
   ],
   "ARAgingSummaryReport": [
     {"name": "Customer", "type": "string"},
@@ -598,7 +612,9 @@
     {"name": "31-60", "type": "number"},
     {"name": "61-90", "type": "number"},
     {"name": "91andover", "type": "number"},
-    {"name": "Total", "type": "number"}
+    {"name": "Total", "type": "number"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
   ],
   "ProfitAndLossDetailReport": [
     {"name": "Date", "type": "string"},
@@ -630,12 +646,16 @@
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "AccountId", "type": "string"},
     {"name": "Account", "type": "string"},
-    {"name": "Store", "type": "string"}
+    {"name": "Store", "type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
   ],
   "ProfitAndLossReport": [
     {"name": "Total", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "Account", "type": "string"}
+    {"name": "Account", "type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
   ],
   "TransactionListReport": [
     {"name": "Date", "type": "string"},
@@ -655,7 +675,9 @@
     {"name": "LocationId", "type": "string"},
     {"name": "Location", "type": "string"},
     {"name": "Amount", "type": "number"},
-    {"name": "Categories", "type": "array", "child_type": "string"}
+    {"name": "Categories", "type": "array", "child_type": "string"},
+    {"name": "StartDate", "type": "string"},
+    {"name": "EndDate", "type": "string"}
   ],
   "Estimate": [
     {"name": "DocNumber", "type": "string"},

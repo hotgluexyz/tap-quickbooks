@@ -95,6 +95,8 @@ class BalanceSheetReport(BaseReportStream):
 
                 cleansed_row["Total"] = float(row.get("Total"))
                 cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
 
                 yield cleansed_row
         else:
@@ -145,6 +147,8 @@ class BalanceSheetReport(BaseReportStream):
 
                     cleansed_row["Total"] = float(row.get("Total"))
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
 
                     yield cleansed_row
 

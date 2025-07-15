@@ -53,7 +53,7 @@ class GeneralLedgerReport(BaseReportStream):
             if header is not None:
                 categories.pop()
 
-    def clean_row(self, output, columns):
+    def clean_row(self, output, columns, start_date, end_date):
         # Zip columns and row data.
         for raw_row in output:
             row = {}
@@ -79,6 +79,8 @@ class GeneralLedgerReport(BaseReportStream):
             cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(
                 singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ"
             )
+            cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+            cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
 
             yield cleansed_row
 
@@ -262,7 +264,7 @@ class GeneralLedgerReport(BaseReportStream):
                         for row in row_array:
                             self._recursive_row_search(row, output, categories)
 
-                        yield from self.clean_row(output, columns)
+                        yield from self.clean_row(output, columns, start_date, end_date)
         else:
             LOGGER.info(
                 f"Syncing GeneralLedgerReport of last {self.number_of_periods} periods"
@@ -297,6 +299,6 @@ class GeneralLedgerReport(BaseReportStream):
                 for row in row_array:
                     self._recursive_row_search(row, output, categories)
 
-                yield from self.clean_row(output, columns)
+                yield from self.clean_row(output, columns, start_date, end_date)
 
                 end_date = start_date - datetime.timedelta(days=1)

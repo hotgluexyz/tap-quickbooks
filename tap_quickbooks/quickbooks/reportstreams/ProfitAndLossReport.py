@@ -114,6 +114,8 @@ class ProfitAndLossReport(BaseReportStream):
                         cleansed_row['Account'] = cleansed_row.pop("")
 
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                     if cleansed_row.get('Date'):
                         try:
                             cleansed_row["Date"] = parse(cleansed_row['Date'])
@@ -178,7 +180,8 @@ class ProfitAndLossReport(BaseReportStream):
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     if cleansed_row.get('Date'):
                         cleansed_row["Date"] = parse(cleansed_row['Date'])
-
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                     yield cleansed_row
 
                 end_date = start_date - datetime.timedelta(days=1)

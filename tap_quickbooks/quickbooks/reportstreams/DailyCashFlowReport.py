@@ -139,9 +139,11 @@ class DailyCashFlowReport(BaseReportStream):
 
                     cleansed_row["Total"] = float(row.get("Total"))
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                     daily_total = []
                     for key,value in cleansed_row.items():
-                        if key not in ['Account', 'Categories', 'SyncTimestampUtc', 'Total']:
+                        if key not in ['Account', 'Categories', 'SyncTimestampUtc', 'Total', 'StartDate', 'EndDate']:
                             daily_total.append({key:value})
                     cleansed_row['DailyTotal'] = daily_total
                     start_date = end_date + timedelta(days=1)
@@ -196,7 +198,8 @@ class DailyCashFlowReport(BaseReportStream):
 
                     cleansed_row["Total"] = float(row.get("Total"))
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-
+                    cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+                    cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
                     yield cleansed_row
 
                 end_date = start_date - datetime.timedelta(days=1)
