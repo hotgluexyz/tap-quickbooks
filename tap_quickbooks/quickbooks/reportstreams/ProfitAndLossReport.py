@@ -56,7 +56,7 @@ class ProfitAndLossReport(BaseReportStream):
                 categories.pop()
 
     def sync(self, catalog_entry):
-        full_sync = not self.state_passed and self.number_of_periods is None
+        full_sync = not self.state_passed and not self.has_number_of_periods
 
         if full_sync:
             start_date = self.start_date.date()
