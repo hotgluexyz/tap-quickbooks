@@ -50,7 +50,7 @@ class MonthlyBalanceSheetReport(BaseReportStream):
                 categories.pop()
 
     def sync(self, catalog_entry):
-        full_sync = not self.state_passed
+        full_sync = not self.state_passed and self.number_of_periods is None
 
         if full_sync:
             LOGGER.info(f"Starting full sync of MonthylBalanceSheet")
