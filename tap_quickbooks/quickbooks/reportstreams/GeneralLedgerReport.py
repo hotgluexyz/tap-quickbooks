@@ -245,9 +245,8 @@ class GeneralLedgerReport(QuickbooksStream):
                             self.gl_daily = True
                         elif self.gl_daily:
                             batch_size = 10
-                            stitched_rows = []
-                            row_categories = []
-                            column_batches = [["tx_date"] + cols[i:i+batch_size] for i in range(0, len(cols), batch_size)]
+                            stitched_rows = None
+                            column_batches = [cols[i:i+batch_size] for i in range(0, len(cols), batch_size)]
                             batch_params_list = []
                             for batch in column_batches:
                                 batch_params = params.copy()
@@ -262,36 +261,30 @@ class GeneralLedgerReport(QuickbooksStream):
                                         batch_params_list
                                     )
                                 )
-                            columns_from_metadata = []
-                            for i, resp_batch in enumerate(resp_batches):
-                                columns_from_metadata += self._get_column_metadata(resp_batch)[1:-1]
+                            for resp_batch in resp_batches:
+                                columns = self._get_column_metadata(resp_batch)
 
+                                # Recursively get row data.
                                 row_group = resp_batch.get("Rows")
                                 row_array = row_group.get("Row")
 
                                 start_date = end_date
                                 if row_array is None:
-                                    continue
+                                    return
 
                                 output = []
                                 categories = []
                                 for row in row_array:
                                     self._recursive_row_search(row, output, categories)
 
-                                for i, raw_row in enumerate(output):
-                                    if len(stitched_rows) <= i:
-                                        stitched_rows.append(raw_row[1:-1])
-                                        row_categories.append({*raw_row[-1]})
-                                    else:
-                                        stitched_rows[i] += raw_row[1:-1]
-                                        row_categories[i].update(raw_row[-1])
-
+                                if stitched_rows is None:
+                                    stitched_rows = output
+                                else:
+                                    for i, raw_row in enumerate(output):
+                                        for j, v in enumerate(raw_row):
+                                            stitched_rows[i][j] = v
                             if stitched_rows:
-                                for i, row in enumerate(stitched_rows):
-                                    row += [list(row_categories[i])]
-
-                                columns_from_metadata.append("Categories")
-                                yield from self.clean_row(stitched_rows, columns_from_metadata)
+                                yield from self.clean_row(stitched_rows, columns)
                             break
                         else:
                             # If we already are at gl_daily we have to give up
