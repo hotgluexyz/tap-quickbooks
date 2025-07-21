@@ -174,6 +174,7 @@ class GeneralLedgerReport(QuickbooksStream):
         params = {
             "accounting_method": self.accounting_method,
             "columns": ",".join(cols),
+            "sort_by": "tx_date"
         }
 
         if full_sync or self.qb.gl_full_sync:
@@ -230,7 +231,7 @@ class GeneralLedgerReport(QuickbooksStream):
                             requests_params,
                         )
                     requests_params = []
-
+    
                 # parse data and set the new start_date
                 for r in resp:
                     if r.get("error") == "Too much data for current period":
@@ -244,8 +245,9 @@ class GeneralLedgerReport(QuickbooksStream):
                             self.gl_daily = True
                         elif self.gl_daily:
                             batch_size = 10
-                            stitched_rows = None
-                            column_batches = [cols[i:i+batch_size] for i in range(0, len(cols), batch_size)]
+                            stitched_rows = []
+                            row_categories = []
+                            column_batches = [["tx_date"] + cols[i:i+batch_size] for i in range(0, len(cols), batch_size)]
                             batch_params_list = []
                             for batch in column_batches:
                                 batch_params = params.copy()
@@ -260,8 +262,9 @@ class GeneralLedgerReport(QuickbooksStream):
                                         batch_params_list
                                     )
                                 )
-                            for resp_batch in resp_batches:
-                                columns = self._get_column_metadata(resp_batch)
+                            columns_from_metadata = []
+                            for i, resp_batch in enumerate(resp_batches):
+                                columns_from_metadata += self._get_column_metadata(resp_batch)[1:-1]
 
                                 # Recursively get row data.
                                 row_group = resp_batch.get("Rows")
@@ -276,14 +279,20 @@ class GeneralLedgerReport(QuickbooksStream):
                                 for row in row_array:
                                     self._recursive_row_search(row, output, categories)
 
-                                if stitched_rows is None:
-                                    stitched_rows = output
-                                else:
-                                    for i, raw_row in enumerate(output):
-                                        for j, v in enumerate(raw_row):
-                                            stitched_rows[i][j] = v
+                                for i, raw_row in enumerate(output):
+                                    if len(stitched_rows) <= i:
+                                        stitched_rows.append(raw_row[1:-1])
+                                        row_categories.append({*raw_row[-1]})
+                                    else:
+                                        stitched_rows[i] += raw_row[1:-1]
+                                        row_categories[i].update(raw_row[-1])
+
                             if stitched_rows:
-                                yield from self.clean_row(stitched_rows, columns)
+                                for i, row in enumerate(stitched_rows):
+                                    row += [list(row_categories[i])]
+
+                                columns_from_metadata.append("Categories")
+                                yield from self.clean_row(stitched_rows, columns_from_metadata)
                             break
                         else:
                             # If we already are at gl_daily we have to give up
