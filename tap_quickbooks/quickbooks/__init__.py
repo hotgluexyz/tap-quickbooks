@@ -411,6 +411,12 @@ class Quickbooks:
         except Exception as e:
             LOGGER.error("Error saving API usage: %s", str(e))
 
+        # Handle 401 errors with LOCKED_BY_SERVER - these should be retried
+        if resp.status_code == 401 and "LOCKED_BY_SERVER" in resp.text:
+            intuit_tid = resp.headers.get('intuit_tid', 'N/A')
+            LOGGER.warning("Company locked out for maintenance (status %s, intuit_tid: %s), will retry: %s", resp.status_code, intuit_tid, resp.text)
+            raise RetriableApiError(resp.text)
+
         if resp.status_code in [400, 500]:
             if "Authorization Failure" in resp.text:
                 self.login()
