@@ -231,7 +231,7 @@ class GeneralLedgerReport(QuickbooksStream):
                             requests_params,
                         )
                     requests_params = []
-    
+
                 # parse data and set the new start_date
                 for r in resp:
                     if r.get("error") == "Too much data for current period":
@@ -247,6 +247,7 @@ class GeneralLedgerReport(QuickbooksStream):
                             batch_size = 10
                             stitched_rows = []
                             row_categories = []
+                            # Add tx_date to each batch to keep rows sorted
                             column_batches = [["tx_date"] + cols[i:i+batch_size] for i in range(0, len(cols), batch_size)]
                             batch_params_list = []
                             for batch in column_batches:
@@ -264,15 +265,17 @@ class GeneralLedgerReport(QuickbooksStream):
                                 )
                             columns_from_metadata = []
                             for i, resp_batch in enumerate(resp_batches):
+                                # remove tx_date and categories while appending to columns_from_metadata
+                                # tx_date will be added automatically as it's already a column that will be fetched in a batch
+                                # categories will be added in the end after all the columns are stitched together
                                 columns_from_metadata += self._get_column_metadata(resp_batch)[1:-1]
 
-                                # Recursively get row data.
                                 row_group = resp_batch.get("Rows")
                                 row_array = row_group.get("Row")
 
                                 start_date = end_date
                                 if row_array is None:
-                                    return
+                                    continue
 
                                 output = []
                                 categories = []
@@ -280,18 +283,25 @@ class GeneralLedgerReport(QuickbooksStream):
                                     self._recursive_row_search(row, output, categories)
 
                                 for i, raw_row in enumerate(output):
+                                    # if the row was never inserted in stitched_rows, append it
                                     if len(stitched_rows) <= i:
                                         stitched_rows.append(raw_row[1:-1])
+                                        # row_categories maintains a set of categories to avoid duplication
                                         row_categories.append({*raw_row[-1]})
+                                    # if the row was already inserted, join new columns to the right
                                     else:
                                         stitched_rows[i] += raw_row[1:-1]
                                         row_categories[i].update(raw_row[-1])
 
                             if stitched_rows:
+                                # join categories to the right of the rows
                                 for i, row in enumerate(stitched_rows):
                                     row += [list(row_categories[i])]
 
+                                # add the categories column at the end
                                 columns_from_metadata.append("Categories")
+
+                                # we are ready to yield the full rows now
                                 yield from self.clean_row(stitched_rows, columns_from_metadata)
                             break
                         else:
