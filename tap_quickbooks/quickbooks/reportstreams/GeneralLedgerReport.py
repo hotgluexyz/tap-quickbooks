@@ -3,7 +3,7 @@ from typing import ClassVar, Dict, List, Optional
 
 import singer
 
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
+from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
 from tap_quickbooks.sync import transform_data_hook
 from dateutil.relativedelta import relativedelta
 import logging
@@ -12,19 +12,14 @@ from calendar import monthrange
 
 
 LOGGER = singer.get_logger()
-NUMBER_OF_PERIODS = 3
 
 
-class GeneralLedgerReport(QuickbooksStream):
+
+class GeneralLedgerReport(BaseReportStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = "FULL_TABLE"
     gl_weekly = False
     gl_daily = False
-
-    def __init__(self, qb, start_date, state_passed):
-        self.qb = qb
-        self.start_date = start_date
-        self.state_passed = state_passed
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -58,7 +53,7 @@ class GeneralLedgerReport(QuickbooksStream):
             if header is not None:
                 categories.pop()
 
-    def clean_row(self, output, columns):
+    def clean_row(self, output, columns, start_date, end_date):
         # Zip columns and row data.
         for raw_row in output:
             row = {}
@@ -84,6 +79,8 @@ class GeneralLedgerReport(QuickbooksStream):
             cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(
                 singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ"
             )
+            cleansed_row["StartDate"] = start_date.strftime("%Y-%m-%d")
+            cleansed_row["EndDate"] = end_date.strftime("%Y-%m-%d")
 
             yield cleansed_row
 
@@ -105,7 +102,7 @@ class GeneralLedgerReport(QuickbooksStream):
             return response
 
     def sync(self, catalog_entry):
-        full_sync = not self.state_passed
+        full_sync = not self.state_passed and not self.has_number_of_periods
 
         if self.qb.gl_basic_fields:
             cols = [
@@ -267,14 +264,14 @@ class GeneralLedgerReport(QuickbooksStream):
                         for row in row_array:
                             self._recursive_row_search(row, output, categories)
 
-                        yield from self.clean_row(output, columns)
+                        yield from self.clean_row(output, columns, start_date, end_date)
         else:
             LOGGER.info(
-                f"Syncing GeneralLedgerReport of last {NUMBER_OF_PERIODS} periods"
+                f"Syncing GeneralLedgerReport of last {self.number_of_periods} periods"
             )
             end_date = datetime.date.today()
 
-            for i in range(NUMBER_OF_PERIODS):
+            for i in range(self.number_of_periods):
                 start_date = end_date.replace(day=1)
 
                 params["start_date"] = (end_date.replace(day=1).strftime("%Y-%m-%d"),)
@@ -302,6 +299,6 @@ class GeneralLedgerReport(QuickbooksStream):
                 for row in row_array:
                     self._recursive_row_search(row, output, categories)
 
-                yield from self.clean_row(output, columns)
+                yield from self.clean_row(output, columns, start_date, end_date)
 
                 end_date = start_date - datetime.timedelta(days=1)

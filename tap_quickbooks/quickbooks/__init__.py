@@ -312,7 +312,8 @@ class Quickbooks():
                  gl_daily = None,
                  gl_basic_fields = None,
                  hg_sync_output = None,
-                 realm_id=None):
+                 realm_id = None,
+                 report_periods = None):
         
         if not realm_id:
             raise TapQuickbooksException("The 'realmId' is missing from the configuration file. It is a required field and cannot be empty.")
@@ -334,6 +335,7 @@ class Quickbooks():
         self.access_token = None
         self.hg_sync_output = hg_sync_output
         self.sync_finished = False
+        self.report_periods = report_periods
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'
 
@@ -573,25 +575,25 @@ class Quickbooks():
             state_passed = None
 
         if catalog_entry["stream"] == "BalanceSheetReport":
-            reader = BalanceSheetReport(self, start_date, state_passed)
+            reader = BalanceSheetReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "MonthlyBalanceSheetReport":
-            reader = MonthlyBalanceSheetReport(self, start_date, state_passed)
+            reader = MonthlyBalanceSheetReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "GeneralLedgerAccrualReport":
-            reader = GeneralLedgerAccrualReport(self, start_date, state_passed)
+            reader = GeneralLedgerAccrualReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "GeneralLedgerCashReport":
-            reader = GeneralLedgerCashReport(self, start_date, state_passed)
+            reader = GeneralLedgerCashReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "CashFlowReport":
-            reader = CashFlowReport(self, start_date, state_passed)
+            reader = CashFlowReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "DailyCashFlowReport":
-            reader = DailyCashFlowReport(self, start_date, state_passed)
+            reader = DailyCashFlowReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "MonthlyCashFlowReport":
-            reader = MonthlyCashFlowReport(self, start_date, state_passed)
+            reader = MonthlyCashFlowReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "ARAgingSummaryReport":
-            reader = ARAgingSummaryReport(self, start_date, state_passed)
+            reader = ARAgingSummaryReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "TransactionListReport":
-            reader = TransactionListReport(self, start_date, state_passed)
+            reader = TransactionListReport(self, start_date, self.report_periods, state_passed)
         elif catalog_entry["stream"] == "ProfitAndLossReport":
-            reader = ProfitAndLossReport(self, start_date, state_passed)
+            reader = ProfitAndLossReport(self, start_date, self.report_periods, state_passed)
         else:
-            reader = ProfitAndLossDetailReport(self, start_date, state_passed)
+            reader = ProfitAndLossDetailReport(self, start_date, self.report_periods, state_passed)
         return reader.sync(catalog_entry)
