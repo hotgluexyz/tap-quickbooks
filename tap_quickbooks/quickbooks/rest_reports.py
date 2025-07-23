@@ -55,6 +55,11 @@ class QuickbooksStream:
         except Exception as e:
             LOGGER.error("Error saving API usage: %s", str(e))
 
+        # Handle 401 errors with LOCKED_BY_SERVER - these should be retried
+        if response.status_code == 401 and "LOCKED_BY_SERVER" in response.text:
+            LOGGER.warning("Company locked out for maintenance (status %s), will retry: %s", response.status_code, response.text)
+            raise RetriableException(f"Company locked for maintenance: {response.text}")
+
         if response.status_code == 429:
             # quickbooks: HTTP Status Code 429 happens when throttling occurs. 
             # Wait 60 seconds before retrying the request.
