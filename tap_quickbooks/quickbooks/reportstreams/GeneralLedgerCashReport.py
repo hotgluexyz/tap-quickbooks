@@ -7,7 +7,7 @@ from tap_quickbooks.quickbooks.reportstreams.GeneralLedgerReport import GeneralL
 from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
-NUMBER_OF_PERIODS = 3
+
 
 class GeneralLedgerCashReport(GeneralLedgerReport):
     tap_stream_id: ClassVar[str] = 'GeneralLedgerCashReport'
