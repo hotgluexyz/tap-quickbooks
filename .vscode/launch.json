@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "tap-quickbooks get",
+            "type": "python",
+            "request": "launch",
+            "program": "../tap_quickbooks/__init__.py",
+            "cwd": "/Users/hassansyyid/Workspace/taps/tap-quickbooks/.secrets",
+            "args": [
+                "--config",
+                "config.json",
+                "--catalog",
+                "catalog-selected.json",
+                "--properties",
+                "catalog-selected.json",
+                "--state",
+                "state.json",
+                ">",
+                "data.txt"
+            ],
+            "justMyCode": false,
+            "python": "/Users/hassansyyid/env/tap-quickbooks/bin/python",
+            "console": "integratedTerminal"
+        }
+    ]
+}

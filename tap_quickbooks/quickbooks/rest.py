@@ -31,7 +31,7 @@ class Rest():
             retries=MAX_RETRIES):
         params = {
             "query": query,
-            "minorversion": "45"
+            "minorversion": "75"
         }
         url = f"{self.qb.instance_url}/query"
         headers = self.qb._get_standard_headers()
