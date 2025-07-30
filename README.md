@@ -1,6 +1,6 @@
 # tap-quickbooks
-
-[Singer](https://www.singer.io/) tap that extracts data from a [Quickbooks](https://www.quickbooks.com/) database and produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
+**tap-quickbooks** is a Singer Tap for syncing data from Quickbooks Online. 
+**tap-quickbooks** can be run on [hotglue](https://hotglue.com), an embedded integration platform for running Singer Taps and Targets.
 
 ```bash
 $ mkvirtualenv -p python3 tap-quickbooks
