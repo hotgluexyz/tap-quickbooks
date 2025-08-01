@@ -704,7 +704,6 @@
     {"name": "HomeTotalAmt", "type": "string"},
     {"name": "FreeFormAddress", "type": "boolean"}
   ],
-  
   "Attachable": [
     {"name": "FileName", "type": "string"},
     {"name": "FileAccessUri", "type": "string"},
@@ -717,5 +716,14 @@
     {"name": "SyncToken", "type": "string"},
     {"name": "MetaData", "type": "string"},
     {"name": "AttachableRef", "type": "array","child_type": "string"}
-  ]
+  ],
+  "ExchangeRate": [
+    {"name": "SyncToken", "type": "string"},
+    {"name": "AsOfDate", "type": "datetime"},
+    {"name": "SourceCurrencyCode", "type": "string"},
+    {"name": "Rate", "type": "number"},
+    {"name": "CustomField", "type": "array", "child_type": "custom_field"},
+    {"name": "TargetCurrencyCode", "type": "string"},
+    {"name": "MetaData", "type": "string"}
+ ]
 }
