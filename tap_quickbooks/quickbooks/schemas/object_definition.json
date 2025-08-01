@@ -769,6 +769,6 @@
     {"name": "Line", "type": "array", "child_type": "string"},
     {"name": "VendorRef", "type": "string"},
     {"name": "APAccountRef", "type": "string"},
-    {"name": "TotalAmt", "type": "string"} 
+    {"name": "TotalAmt", "type": "string"}
   ]
 }
