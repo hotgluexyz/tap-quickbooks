@@ -100,7 +100,7 @@ class Rest():
         headers["Content-Type"] = "application/json"
 
         excluded_entities = ["Bill", "Payment", "Transfer", "CompanyInfo", "CreditMemo", "Invoice",
-                            "JournalEntry", "Preferences", "Purchase", "SalesReceipt", "TimeActivity", "BillPayment","Estimate"]
+                            "JournalEntry", "Preferences", "Purchase", "SalesReceipt", "TimeActivity", "BillPayment","Estimate","ExchangeRate"]
         
         query = params['query']
 
@@ -120,16 +120,16 @@ class Rest():
 
                 # Make sure there is alteast one record.
                 if count == 0:
-                    break;
+                    break
 
                 page += 1
-                records = resp_json['QueryResponse'][stream];
+                records = resp_json['QueryResponse'][stream]
 
                 for _, rec in enumerate(records):
                     yield rec
                 
                 if count < max:
-                    break;
+                    break
 
                 offset = (max * page) + 1
         
