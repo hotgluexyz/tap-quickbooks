@@ -254,66 +254,6 @@ class ProfitAndLossDetailReport(BaseReportStream):
 
                         yield from self.clean_row(output, columns)
 
-            while start_date<datetime.date.today():
-                LOGGER.info(f"Starting full sync of P&L")
-                end_date = (start_date + datetime.timedelta(delta))
-                if end_date>datetime.date.today():
-                    end_date = datetime.date.today()
-
-                params = {
-                    "start_date": start_date.strftime("%Y-%m-%d"),
-                    "end_date": end_date.strftime("%Y-%m-%d"),
-                    "accounting_method": "Accrual",
-                    "columns": ",".join(fetch_cols)
-                }
-
-                LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
-                resp = self._get(report_entity='ProfitAndLossDetail', params=params)
-                start_date = end_date + datetime.timedelta(1)
-
-                # Get column metadata.
-                columns = self._get_column_metadata(resp)
-                columns += ["Account"]
-
-                # Recursively get row data.
-                row_group = resp.get("Rows")
-                row_array = row_group.get("Row")
-
-                if row_array is None:
-                    continue
-
-                output = []
-                categories = []
-                for row in row_array:
-                    self._recursive_row_search(row, output, categories)
-
-                # Zip columns and row data.
-                for raw_row in output:
-                    row = dict(zip(columns, raw_row))
-
-                    cleansed_row = {}
-                    for k, v in row.items():
-                        if isinstance(v, dict):
-                            cleansed_row[k] = v.get("value")
-                            if "id" in v:
-                                cleansed_row[f"{k}Id"] = v.get("id")
-                        else:
-                            cleansed_row[k] = v
-
-                    if not cleansed_row.get("Amount"):
-                        # If a row is missing the amount, skip it
-                        continue
-
-                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
-                    cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Balance") else None
-                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-                    if cleansed_row.get('Date'):
-                        try:
-                            cleansed_row["Date"] = parse(cleansed_row['Date'])
-                        except:
-                            continue
-
-                    yield cleansed_row
         else:
             LOGGER.info(f"Syncing P&L of last {NUMBER_OF_PERIODS} periods")
             end_date = datetime.date.today()
