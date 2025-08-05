@@ -14,22 +14,12 @@ from calendar import monthrange
 LOGGER = singer.get_logger()
 
 
-
 class GeneralLedgerReport(BaseReportStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = "FULL_TABLE"
     gl_weekly = False
     gl_daily = False
 
-    def _get_column_metadata(self, resp):
-        columns = []
-        for column in resp.get("Columns").get("Column"):
-            if column.get("ColTitle") == "Memo/Description":
-                columns.append("Memo")
-            else:
-                columns.append(column.get("ColTitle").replace(" ", ""))
-        columns.append("Categories")
-        return columns
 
     def _recursive_row_search(self, row, output, categories):
         row_group = row.get("Rows")
@@ -81,23 +71,6 @@ class GeneralLedgerReport(BaseReportStream):
             )
 
             yield cleansed_row
-
-    def concurrent_get(self, report_entity, params):
-        log_msg = f"Fetch GeneralLedgerReport for period {params['start_date']} to {params['end_date']}"
-        LOGGER.info(log_msg)
-        response = self._get(report_entity, params)
-        LOGGER.info(f"COMPLETE: {log_msg}")
-
-        if "Unable to display more data. Please reduce the date range." in str(
-            response
-        ):
-            return {
-                "error": "Too much data for current period",
-                "start_date": params["start_date"],
-                "end_date": params["end_date"],
-            }
-        else:
-            return response
 
     def sync(self, catalog_entry):
         full_sync = not self.state_passed and not self.has_number_of_periods
