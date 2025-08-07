@@ -6,6 +6,7 @@ import singer
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
 from dateutil.parser import parse
+from dateutil.relativedelta import relativedelta
 import calendar
 
 LOGGER = singer.get_logger()
@@ -120,14 +121,14 @@ class ProfitAndLossDetailReport(QuickbooksStream):
 
         if full_sync or self.qb.pl_detail_full_sync:
             start_date = self.start_date.date()
-            delta = 30
 
             if self.pnl_monthly:
                 delta = self.get_days_in_month(start_date)
 
             while start_date < datetime.date.today():
-                LOGGER.info(f"Starting full sync of P&L")
-                end_date = start_date + datetime.timedelta(delta)
+                LOGGER.info("Starting full sync of P&L")
+                
+                end_date = start_date + relativedelta(months=1) - datetime.timedelta(1)
                 if end_date > datetime.date.today():
                     # if no end date is provided, the API will use today as default
                     end_date = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2099, 12, 31)
