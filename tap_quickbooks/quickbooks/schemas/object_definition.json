@@ -173,7 +173,7 @@
     {"name": "FullyQualifiedName", "type": "string"},
     {"name": "SubDepartment", "type": "boolean"}
   ],
-
+  
   "CreditMemo": [
     {"name": "RemainingCredit", "type": "number"},
     {"name": "Id", "type": "string"},
@@ -671,5 +671,14 @@
     {"name": "TaxExemptionRef", "type": "string"},
     {"name": "HomeTotalAmt", "type": "string"},
     {"name": "FreeFormAddress", "type": "boolean"}
-  ]
+  ],
+    "ExchangeRate": [
+    {"name": "SyncToken", "type": "string"},
+    {"name": "AsOfDate", "type": "datetime"},
+    {"name": "SourceCurrencyCode", "type": "string"},
+    {"name": "Rate", "type": "number"},
+    {"name": "CustomField", "type": "array", "child_type": "custom_field"},
+    {"name": "TargetCurrencyCode", "type": "string"},
+    {"name": "MetaData", "type": "string"}
+ ]
 }
