@@ -124,7 +124,8 @@ class GeneralLedgerReport(QuickbooksStream):
                 "item_name",
                 "vend_name",
                 "txn_type",
-                "currency"
+                "currency",
+                "memo"
             ]
         else:
             cols = [
