@@ -56,6 +56,7 @@ def get_stream_version(catalog_entry, state):
 
 def sync_stream(qb, catalog_entry, state, state_passed):
     stream = catalog_entry['stream']
+    counter_value = 0
 
     with metrics.record_counter(stream) as counter:
         try:
@@ -71,9 +72,9 @@ def sync_stream(qb, catalog_entry, state, state_passed):
                 stream, ex)) from ex
 
         # Capture the count value before the context manager exits
-        count_value = counter.value
+        counter_value = counter.value
 
-    return count_value
+    return counter_value
 
 
 def sync_records(qb, catalog_entry, state, counter, state_passed):
