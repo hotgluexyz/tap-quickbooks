@@ -104,7 +104,7 @@ class Rest():
         
         query = params['query']
 
-        def sync_records(query):            
+        def sync_records(query, is_deleted=False):            
             offset = 0
             max = 100
             page = 0
@@ -120,7 +120,10 @@ class Rest():
 
                 # Make sure there is alteast one record.
                 if count == 0:
-                    LOGGER.info(f"Response {resp_json}")
+                    if is_deleted:
+                        LOGGER.info(f"Response (deleted) with no data {resp_json}")
+                    else:
+                        LOGGER.info(f"Response with no data {resp_json}")
                     break;
 
                 page += 1
@@ -144,4 +147,4 @@ class Rest():
                 query_deleted = query.replace("WHERE", "where Active = false and")
             else:
                 query_deleted = f"{query} where Active = false" 
-            yield from sync_records(query_deleted)
+            yield from sync_records(query_deleted, is_deleted=True)

@@ -285,8 +285,8 @@ def do_sync(qb, catalog, state, state_passed):
                 state = singer.write_bookmark(
                     state, catalog_entry["tap_stream_id"], "version", stream_version
                 )
-            counter = sync_stream(qb, catalog_entry, state, state_passed)
-            LOGGER.info("%s: Completed sync (%s rows)", stream_name, counter.value)
+            count_value = sync_stream(qb, catalog_entry, state, state_passed)
+            LOGGER.info("%s: Completed sync (%s rows)", stream_name, count_value)
 
     state["current_stream"] = None
     singer.write_state(state)

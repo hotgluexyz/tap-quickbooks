@@ -70,7 +70,10 @@ def sync_stream(qb, catalog_entry, state, state_passed):
             raise Exception("Error syncing {}: {}".format(
                 stream, ex)) from ex
 
-        return counter
+        # Capture the count value before the context manager exits
+        count_value = counter.value
+
+    return count_value
 
 
 def sync_records(qb, catalog_entry, state, counter, state_passed):
