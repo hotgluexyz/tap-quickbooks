@@ -99,49 +99,49 @@ class Rest():
         headers["Accept"] = "application/json"
         headers["Content-Type"] = "application/json"
 
-        query = params['query']
-        offset = 0
-        max = 100
-        page = 0
-        while True:
-            headers.update(self.qb._get_standard_headers())
-            records_deleted = []
-            excluded_entities = ["Bill", "Payment", "Transfer", "CompanyInfo", "CreditMemo", "Invoice",
+        excluded_entities = ["Bill", "Payment", "Transfer", "CompanyInfo", "CreditMemo", "Invoice",
                                  "JournalEntry", "Preferences", "Purchase", "SalesReceipt", "TimeActivity", "BillPayment","Estimate"]
-            if self.qb.include_deleted and stream not in excluded_entities:
-                # Get the deleted records first
-                if "WHERE" in query:
-                    query_deleted = query.replace("WHERE", "where Active = false and")
-                    params['query'] = f"{query_deleted}  STARTPOSITION {offset} MAXRESULTS {max}"
-                else:
-                    params['query'] = f"{query} where Active = false  STARTPOSITION {offset} MAXRESULTS {max}" 
-                resp = self.qb._make_request('GET', url, headers=headers, params=params, sink_name=stream)
-                resp_json_deleted = resp.json()
-                if resp_json_deleted['QueryResponse'].get(stream):
-                    records_deleted = resp_json_deleted['QueryResponse'][stream];
-            params['query'] = f"{query}  STARTPOSITION {offset} MAXRESULTS {max}"
-            resp = self.qb._make_request('GET', url, headers=headers, params=params, sink_name=stream)
-            resp_json = resp.json()
+        
+        query = params['query']
 
-            # Establish number of records returned.
-            count = resp_json['QueryResponse'].get('maxResults', 0)
-            LOGGER.info(
-                f"Synced {count} records for URL: {resp.request.url}"
-            )
+        def sync_records(query):            
+            offset = 0
+            max = 100
+            page = 0
 
-            # Make sure there is alteast one record.
-            if count == 0:
-                break;
+            while True:
+                headers.update(self.qb._get_standard_headers())
+                params['query'] = f"{query}  STARTPOSITION {offset} MAXRESULTS {max}"
+                resp = self.qb._make_request('GET', url, headers=headers, params=params)
+                resp_json = resp.json()
 
-            page += 1
-            records = resp_json['QueryResponse'][stream];
-            records = records + records_deleted
+                # Establish number of records returned.
+                count = resp_json['QueryResponse'].get('maxResults', 0)
 
-            for i, rec in enumerate(records):
-                yield rec
+                # Make sure there is alteast one record.
+                if count == 0:
+                    LOGGER.info(f"Response {resp_json}")
+                    break;
 
-            # This is was chunk
-            if count < max:
-                break;
+                page += 1
+                records = resp_json['QueryResponse'][stream];
 
-            offset = (max * page) + 1
+                for _, rec in enumerate(records):
+                    yield rec
+                
+                if count < max:
+                    break;
+
+                offset = (max * page) + 1
+        
+
+        # first fetch all active records
+        yield from sync_records(query)
+
+        # then fetch all deleted records
+        if self.qb.include_deleted and stream not in excluded_entities:
+            if "WHERE" in query:
+                query_deleted = query.replace("WHERE", "where Active = false and")
+            else:
+                query_deleted = f"{query} where Active = false" 
+            yield from sync_records(query_deleted)
