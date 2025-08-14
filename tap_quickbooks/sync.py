@@ -60,6 +60,7 @@ def get_stream_version(catalog_entry, state):
 
 def sync_stream(qb, catalog_entry, state, state_passed):
     stream = catalog_entry['stream']
+    counter_value = 0
 
     with metrics.record_counter(stream) as counter:
         try:
@@ -76,7 +77,9 @@ def sync_stream(qb, catalog_entry, state, state_passed):
             raise Exception("Error syncing {}: {}".format(
                 stream, ex)) from ex
 
-        return counter
+        counter_value = counter.value
+
+    return counter_value
 
 
 def sync_records(qb, catalog_entry, state, counter, state_passed):
