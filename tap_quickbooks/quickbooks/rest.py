@@ -118,7 +118,7 @@ class Rest():
                 # Establish number of records returned.
                 count = resp_json['QueryResponse'].get('maxResults', 0)
 
-                # Make sure there is alteast one record.
+                # Make sure there is at least one record.
                 if count == 0:
                     if is_deleted:
                         LOGGER.info(f"Response (deleted) with no data {resp_json}")
