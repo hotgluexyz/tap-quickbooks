@@ -121,6 +121,7 @@ class DailyCashFlowReport(QuickbooksStream):
                 row_array = row_group.get("Row")
 
                 if row_array is None:
+                    LOGGER.info(f"No DailyCashFlow Report found for period {params['start_date']} to {params['end_date']}")
                     return
 
                 output = []
@@ -176,6 +177,7 @@ class DailyCashFlowReport(QuickbooksStream):
                 row_array = row_group.get("Row")
 
                 if row_array is None:
+                    LOGGER.info(f"No DailyCashFlow Report found for period {params['start_date']} to {params['end_date']}")
                     # Update end date
                     end_date = start_date - datetime.timedelta(days=1)
                     continue

@@ -268,6 +268,7 @@ class GeneralLedgerReport(QuickbooksStream):
 
                         start_date = end_date
                         if row_array is None:
+                            LOGGER.info(f"No data found for period {params['start_date']} to {params['end_date']}")
                             continue
 
                         output = []
