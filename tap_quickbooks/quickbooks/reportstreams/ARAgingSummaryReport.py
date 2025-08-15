@@ -63,6 +63,7 @@ class ARAgingSummaryReport(QuickbooksStream):
             row_array = row_group.get("Row")
 
             if row_array is None:
+                LOGGER.info(f"No ARAgingSummary Report found for period {params['start_date']} to {params['end_date']} with aging_method 'Report_Date' and report_date {report_date}")
                 return
 
             output = []

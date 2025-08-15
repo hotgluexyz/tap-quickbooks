@@ -80,6 +80,7 @@ class MonthlyCashFlowReport(QuickbooksStream):
             row_array = row_group.get("Row")
 
             if row_array is None:
+                LOGGER.info(f"No MonthlyCashFlow Report found for period {params['start_date']} to {params['end_date']}")
                 return
 
             output = []
@@ -135,6 +136,7 @@ class MonthlyCashFlowReport(QuickbooksStream):
                 if row_array is None:
                     # Update end date
                     end_date = start_date - datetime.timedelta(days=1)
+                    LOGGER.info(f"No MonthlyCashFlow Report found for period {params['start_date']} to {params['end_date']}")
                     continue
 
                 output = []
