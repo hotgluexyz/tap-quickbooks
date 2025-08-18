@@ -1,36 +1,25 @@
 import datetime
-from typing import ClassVar, Dict, List, Optional
+from typing import ClassVar, List
 
 import singer
 
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
-from tap_quickbooks.sync import transform_data_hook
+from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
 from dateutil.parser import parse
+from calendar import monthrange
+from dateutil.relativedelta import relativedelta
+import concurrent.futures
 
 LOGGER = singer.get_logger()
-NUMBER_OF_PERIODS = 3
 
-class ProfitAndLossDetailReport(QuickbooksStream):
+class ProfitAndLossDetailReport(BaseReportStream):
     tap_stream_id: ClassVar[str] = 'ProfitAndLossDetailReport'
     stream: ClassVar[str] = 'ProfitAndLossDetailReport'
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
     current_account = {}
-
-    def __init__(self, qb, start_date, state_passed):
-        self.qb = qb
-        self.start_date = start_date
-        self.state_passed = state_passed
-
-    def _get_column_metadata(self, resp):
-        columns = []
-        for column in resp.get("Columns").get("Column"):
-            if column.get("ColTitle") == "Memo/Description":
-                columns.append("Memo")
-            else:
-                columns.append(column.get("ColTitle").replace(" ", ""))
-        columns.append("Categories")
-        return columns
+    daily = False
+    weekly = False
+    use_basic_cols = False
 
     def _recursive_row_search(self, row, output, categories):
         row_group = row.get("Rows")
@@ -59,9 +48,55 @@ class ProfitAndLossDetailReport(QuickbooksStream):
                 self._recursive_row_search(row, output, categories)
             if header is not None:
                 categories.pop()
+    
+    def clean_row(self, output, columns):
+        # Zip columns and row data.
+        for raw_row in output:
+            row = dict(zip(columns, raw_row))
+
+            cleansed_row = {}
+            for k, v in row.items():
+                if isinstance(v, dict):
+                    cleansed_row[k] = v.get("value")
+                    if "id" in v:
+                        cleansed_row[f"{k}Id"] = v.get("id")
+                else:
+                    cleansed_row[k] = v
+
+            if not cleansed_row.get("Amount"):
+                # If a row is missing the amount, skip it
+                continue
+
+            cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
+            cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Balance") else None
+            cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+            if cleansed_row.get('Date'):
+                try:
+                    cleansed_row["Date"] = parse(cleansed_row['Date'])
+                except:
+                    continue
+
+            yield cleansed_row
 
     def sync(self, catalog_entry):
-        full_sync = not self.state_passed
+        full_sync = not self.state_passed and not self.has_number_of_periods
+
+        basic_cols = [
+            "tx_date",
+            "doc_num",
+            "subt_nat_amount",
+            "credit_amt",
+            "debt_amt",
+            "subt_nat_home_amount",
+            "credit_home_amt",
+            "debt_home_amt",
+            "account_name",
+            "account_num",
+            "klass_name",
+            "dept_name",
+            "txn_type",
+            "currency"
+        ]
 
         cols = [
             "create_by",
@@ -102,73 +137,112 @@ class ProfitAndLossDetailReport(QuickbooksStream):
         ]
 
         if full_sync:
-            start_date = self.start_date.date()
             delta = 30
+            start_date = self.start_date
+            start_date = start_date.replace(tzinfo=None)
+            min_time = datetime.datetime.min.time()
+            today = datetime.date.today()
+            today = datetime.datetime.combine(today, min_time)
+            max_requests = 1
+            fetch_cols = cols.copy()
 
-            while start_date<datetime.date.today():
-                LOGGER.info(f"Starting full sync of P&L")
-                end_date = (start_date + datetime.timedelta(delta))
-                if end_date>datetime.date.today():
-                    end_date = datetime.date.today()
+            # params for concurrent requests
+            requests_params = []
 
+            while start_date < today:
+                # get the number of days and max number of requests
+                if self.daily:
+                    period_days = 1
+                    self.daily = True
+
+                elif self.weekly:
+                    period_days = 7
+                    self.weekly = True
+                else:
+                    _ , period_days = monthrange(start_date.year, start_date.month)
+
+                
+                # initialize params
                 params = {
-                    "start_date": start_date.strftime("%Y-%m-%d"),
-                    "end_date": end_date.strftime("%Y-%m-%d"),
                     "accounting_method": "Accrual",
-                    "columns": ",".join(cols)
+                    "columns": ",".join(fetch_cols),
                 }
 
-                LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
-                resp = self._get(report_entity='ProfitAndLossDetail', params=params)
-                start_date = end_date + datetime.timedelta(1)
+                # calculate end date
+                if (today - start_date).days <= period_days:
+                    end_date = today
+                    params["end_date"] = today.strftime("%Y-%m-%d")
+                else:
+                    end_date = start_date + relativedelta(days=+period_days)
+                    params["end_date"] = (
+                        end_date - datetime.timedelta(days=1)
+                    ).strftime("%Y-%m-%d")
 
-                # Get column metadata.
-                columns = self._get_column_metadata(resp)
-                columns += ["Account"]
+                params["start_date"] = (start_date).strftime("%Y-%m-%d")
+                requests_params.append(params.copy())
 
-                # Recursively get row data.
-                row_group = resp.get("Rows")
-                row_array = row_group.get("Row")
+                # assign next start_date
+                start_date = end_date
 
-                if row_array is None:
+                # get the data
+                if len(requests_params) < max_requests and end_date < today:
                     continue
+                elif len(requests_params) == max_requests or end_date == today:
+                    with concurrent.futures.ThreadPoolExecutor(
+                        max_workers=max_requests
+                    ) as executor:
+                        resp = executor.map(
+                            lambda x: self.concurrent_get(
+                                report_entity="ProfitAndLossDetail", params=x
+                            ),
+                            requests_params,
+                        )
+                    requests_params = []
 
-                output = []
-                categories = []
-                for row in row_array:
-                    self._recursive_row_search(row, output, categories)
+                # parse data and set the new start_date
+                for r in resp:
+                    if r.get("error") == "Too much data for current period":
+                        start_date = datetime.datetime.strptime(
+                            r.get("start_date"), "%Y-%m-%d"
+                        )
+                        if not self.weekly and not self.daily:
+                            self.weekly = True
+                        elif self.weekly and not self.daily:
+                            self.weekly = False
+                            self.daily = True
+                        elif self.daily:
+                            self.use_basic_cols = True
+                            fetch_cols = basic_cols.copy()
+                        elif self.use_basic_cols:
+                            raise Exception(r)
+                        break
+                    else:
+                        self.weekly = False
+                        self.daily = False
 
-                # Zip columns and row data.
-                for raw_row in output:
-                    row = dict(zip(columns, raw_row))
-                    if not row.get("Amount"):
-                        # If a row is missing the amount, skip it
-                        continue
+                        # Get column metadata.
+                        columns = self._get_column_metadata(r)
+                        columns += ["Account"]
 
-                    cleansed_row = {}
-                    for k, v in row.items():
-                        if isinstance(v, dict):
-                            cleansed_row[k] = v.get("value")
-                            if "id" in v:
-                                cleansed_row[f"{k}Id"] = v.get("id")
-                        else:
-                            cleansed_row[k] = v
+                        # Recursively get row data.
+                        row_group = r.get("Rows")
+                        row_array = row_group.get("Row")
 
-                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
-                    cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Balance") else None
-                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-                    if cleansed_row.get('Date'):
-                        try:
-                            cleansed_row["Date"] = parse(cleansed_row['Date'])
-                        except:
+                        if row_array is None:
                             continue
 
-                    yield cleansed_row
+                        output = []
+                        categories = []
+                        for row in row_array:
+                            self._recursive_row_search(row, output, categories)
+
+                        yield from self.clean_row(output, columns)
+
         else:
-            LOGGER.info(f"Syncing P&L of last {NUMBER_OF_PERIODS} periods")
+            LOGGER.info(f"Syncing P&L of last {self.number_of_periods} periods")
             end_date = datetime.date.today()
 
-            for i in range(NUMBER_OF_PERIODS):
+            for i in range(self.number_of_periods):
                 start_date = end_date.replace(day=1)
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),

@@ -256,8 +256,8 @@ def do_sync(qb, catalog, state, state_passed):
                                               catalog_entry['tap_stream_id'],
                                               'version',
                                               stream_version)
-            counter = sync_stream(qb, catalog_entry, state, state_passed)
-            LOGGER.info("%s: Completed sync (%s rows)", stream_name, counter.value)
+            counter_value = sync_stream(qb, catalog_entry, state, state_passed)
+            LOGGER.info("%s: Completed sync (%s rows)", stream_name, counter_value)
 
     state["current_stream"] = None
     singer.write_state(state)
@@ -289,7 +289,8 @@ def main_impl():
             gl_weekly = CONFIG.get('gl_weekly', False),
             gl_daily = CONFIG.get('gl_daily', False),
             gl_basic_fields = CONFIG.get('gl_basic_fields', False),
-            hg_sync_output = CONFIG.get('hg_sync_output')
+            hg_sync_output = CONFIG.get('hg_sync_output'),
+            report_periods = CONFIG.get('report_periods'),
         )
         qb.login()
 
