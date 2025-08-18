@@ -263,7 +263,7 @@ class GeneralLedgerReport(QuickbooksStream):
                                         batch_params_list
                                     )
                                 )
-                            columns_from_metadata = []
+                            columns_from_metadata = ['Date']
                             for i, resp_batch in enumerate(resp_batches):
                                 # remove tx_date and categories while appending to columns_from_metadata
                                 # tx_date will be added automatically as it's already a column that will be fetched in a batch
@@ -285,7 +285,7 @@ class GeneralLedgerReport(QuickbooksStream):
                                 for i, raw_row in enumerate(output):
                                     # if the row was never inserted in stitched_rows, append it
                                     if len(stitched_rows) <= i:
-                                        stitched_rows.append(raw_row[1:-1])
+                                        stitched_rows.append(raw_row[:-1])
                                         # row_categories maintains a set of categories to avoid duplication
                                         row_categories.append({*raw_row[-1]})
                                     # if the row was already inserted, join new columns to the right
