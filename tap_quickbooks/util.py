@@ -14,6 +14,8 @@ _log_queue: Optional[queue.Queue] = None
 _log_thread: Optional[threading.Thread] = None
 _stop_event = threading.Event()
 
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
 def _log_writer():
     """Background thread that writes logs to file."""
     LOG_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -69,3 +71,13 @@ def cleanup():
         _log_queue.join()
     if _log_thread:
         _log_thread.join(timeout=2)
+
+def read_json_file(filename):
+    # read file
+    with open(os.path.join(__location__, f"{filename}"), "r") as filetoread:
+        data = filetoread.read()
+
+    # parse file
+    content = json.loads(data)
+
+    return content

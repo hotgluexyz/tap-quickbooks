@@ -9,6 +9,7 @@ from dateutil.relativedelta import relativedelta
 import logging
 import concurrent.futures
 from calendar import monthrange
+from tap_quickbooks.util import read_json_file
 
 
 LOGGER = singer.get_logger()
@@ -19,6 +20,7 @@ class GeneralLedgerReport(BaseReportStream):
     replication_method: ClassVar[str] = "FULL_TABLE"
     gl_weekly = False
     gl_daily = False
+    schema_file = "quickbooks/reportstreams/english_schemas/GeneralLedgerReportFields.json"
 
 
     def _recursive_row_search(self, row, output, categories):
@@ -144,6 +146,9 @@ class GeneralLedgerReport(BaseReportStream):
             "columns": ",".join(cols),
         }
 
+        # read col types from GeneralLedgerReportFields.json
+        eng_schema = read_json_file(self.schema_file)
+
         if full_sync or self.qb.gl_full_sync:
             LOGGER.info(f"Starting full sync of GeneralLedgerReport")
             start_date = self.start_date
@@ -220,7 +225,7 @@ class GeneralLedgerReport(BaseReportStream):
                         self.gl_daily = False
 
                         # Get column metadata.
-                        columns = self._get_column_metadata(r)
+                        columns = self._get_column_metadata(r, eng_schema)
 
                         # Recursively get row data.
                         row_group = r.get("Rows")
