@@ -572,7 +572,6 @@ class Quickbooks():
     def query_report(self, catalog_entry, state, state_passed):
         start_date = singer_utils.strptime_with_tz(self.get_start_date(state, catalog_entry))
 
-        state_passed = True if state.get('bookmarks', {}).get(catalog_entry['stream']) is not None else False
         if self.reports_full_sync:
             state_passed = None
 
