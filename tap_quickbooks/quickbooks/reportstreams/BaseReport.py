@@ -5,7 +5,7 @@ LOGGER = singer.get_logger()
 
 class BaseReportStream(QuickbooksStream):
     
-    def __init__(self, qb, start_date, state_passed):
+    def __init__(self, qb, start_date, state_passed=None):
         self.qb = qb
         self.start_date = start_date
         self.state_passed = state_passed

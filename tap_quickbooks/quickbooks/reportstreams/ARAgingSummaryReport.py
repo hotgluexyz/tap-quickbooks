@@ -3,22 +3,17 @@ from typing import ClassVar, Dict, List, Optional
 
 import singer
 
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
+from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
 from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
 
-class ARAgingSummaryReport(QuickbooksStream):
+class ARAgingSummaryReport(BaseReportStream):
     tap_stream_id: ClassVar[str] = 'ARAgingSummaryReport'
     stream: ClassVar[str] = 'ARAgingSummaryReport'
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
-
-    def __init__(self, qb, start_date, state_passed):
-        self.qb = qb
-        self.start_date = start_date
-        self.state_passed = state_passed
 
     def _get_column_metadata(self, resp):
         columns = []

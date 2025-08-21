@@ -497,27 +497,28 @@ class Quickbooks():
 
     def query_report(self, catalog_entry, state, state_passed):
         start_date = singer_utils.strptime_with_tz(self.get_start_date(state, catalog_entry))
+
         if self.reports_full_sync:
             state_passed = None
 
         if catalog_entry["stream"] == "BalanceSheetReport":
-            reader = BalanceSheetReport(self, start_date, state_passed)
+            reader = BalanceSheetReport(self, start_date)
         elif catalog_entry["stream"] == "MonthlyBalanceSheetReport":
-            reader = MonthlyBalanceSheetReport(self, start_date, state_passed)
+            reader = MonthlyBalanceSheetReport(self, start_date)
         elif catalog_entry["stream"] == "GeneralLedgerAccrualReport":
             reader = GeneralLedgerAccrualReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "GeneralLedgerCashReport":
             reader = GeneralLedgerCashReport(self, start_date, state_passed)
         elif catalog_entry["stream"] == "CashFlowReport":
-            reader = CashFlowReport(self, start_date, state_passed)
+            reader = CashFlowReport(self, start_date)
         elif catalog_entry["stream"] == "DailyCashFlowReport":
-            reader = DailyCashFlowReport(self, start_date, state_passed)
+            reader = DailyCashFlowReport(self, start_date)
         elif catalog_entry["stream"] == "MonthlyCashFlowReport":
-            reader = MonthlyCashFlowReport(self, start_date, state_passed)
+            reader = MonthlyCashFlowReport(self, start_date)
         elif catalog_entry["stream"] == "ARAgingSummaryReport":
-            reader = ARAgingSummaryReport(self, start_date, state_passed)
+            reader = ARAgingSummaryReport(self, start_date)
         elif catalog_entry["stream"] == "TransactionListReport":
-            reader = TransactionListReport(self, start_date, state_passed)
+            reader = TransactionListReport(self, start_date)
         elif catalog_entry["stream"] == "ProfitAndLossReport":
             reader = ProfitAndLossReport(self, start_date, state_passed)
         else:
