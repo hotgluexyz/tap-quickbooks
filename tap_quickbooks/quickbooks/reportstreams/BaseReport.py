@@ -37,7 +37,7 @@ class BaseReportStream(QuickbooksStream):
             if schema is not None:
                 col_type = column["MetaData"][0].get("Value") if column.get("MetaData") else None
                 if not col_type:
-                    LOGGER.info(f"Metadata for col {column.get("ColTitle")} not found, skipping.")
+                    LOGGER.info(f"Metadata for col {column.get('ColTitle')} not found, skipping.")
                     continue
                 # append col to columns
                 columns.append(schema.get(col_type))
