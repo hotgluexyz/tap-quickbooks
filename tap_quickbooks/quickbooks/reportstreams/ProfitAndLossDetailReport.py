@@ -270,29 +270,7 @@ class ProfitAndLossDetailReport(BaseReportStream):
                 categories = []
                 for row in row_array:
                     self._recursive_row_search(row, output, categories)
-
-                # Zip columns and row data.
-                for raw_row in output:
-                    row = dict(zip(columns, raw_row))
-                    if not row.get("Amount"):
-                        # If a row is missing the amount, skip it
-                        continue
-
-                    cleansed_row = {}
-                    for k, v in row.items():
-                        if isinstance(v, dict):
-                            cleansed_row[k] = v.get("value")
-                            if "id" in v:
-                                cleansed_row[f"{k}Id"] = v.get("id")
-                        else:
-                            cleansed_row[k] = v
-
-                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
-                    cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Balance") else None
-                    cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-                    if cleansed_row.get('Date'):
-                        cleansed_row["Date"] = parse(cleansed_row['Date'])
-
-                    yield cleansed_row
+                
+                yield from self.clean_row(output, columns)
 
                 end_date = start_date - datetime.timedelta(days=1)
