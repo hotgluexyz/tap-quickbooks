@@ -71,13 +71,3 @@ def cleanup():
         _log_queue.join()
     if _log_thread:
         _log_thread.join(timeout=2)
-
-def read_json_file(filename):
-    # read file
-    with open(os.path.join(__location__, f"{filename}"), "r") as filetoread:
-        data = filetoread.read()
-
-    # parse file
-    content = json.loads(data)
-
-    return content

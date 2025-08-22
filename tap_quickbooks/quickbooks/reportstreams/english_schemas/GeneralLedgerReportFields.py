@@ -1,4 +1,4 @@
-{
+glr_english_schema = {
     "tx_date": "Date",
     "txn_type": "TransactionType",
     "doc_num": "Num",
