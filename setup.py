@@ -3,22 +3,19 @@
 from setuptools import find_packages, setup
 
 def get_version():
-    version = {}
-    with open('tap_quickbooks_report/version.py') as fp:
-        exec(fp.read(), version)
-    return version['__version__']
+    return '1.4.54'
 
 
 with open('README.md', 'r') as f:
     readme = f.read()
 
 setup(name='tap-quickbooks',
-      version='1.4.54',
+      version=get_version(),
       description='Singer.io tap for extracting data from the Quickbooks API',
       author='hotglue',
       url='http://hotglue.xyz/',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
-      py_modules=['tap_quickbooks'],
+
       install_requires=[
           'requests>=2.20.0',
           'singer-python==5.3.1',
@@ -33,7 +30,9 @@ setup(name='tap-quickbooks',
       ''',
       packages=find_packages(exclude=['tests']),
       package_data={
-          'tap_quickbooks.quickbooks': ['schemas/*.json', 'reportstreams/*', 'reportstreams.english_schemas/*']
+          'tap_quickbooks.quickbooks': ['schemas/*.json'],
+          'tap_quickbooks.quickbooks.reportstreams': ['*.py'],
+          'tap_quickbooks.quickbooks.reportstreams.english_schemas': ['*.py']
       },
       include_package_data=True,
 )
