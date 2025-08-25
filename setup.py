@@ -3,14 +3,17 @@
 from setuptools import find_packages, setup
 
 def get_version():
-    return '1.4.54'
+    version = {}
+    with open('tap_quickbooks_report/version.py') as fp:
+        exec(fp.read(), version)
+    return version['__version__']
 
 
 with open('README.md', 'r') as f:
     readme = f.read()
 
 setup(name='tap-quickbooks',
-      version=get_version(),
+      version='1.4.54',
       description='Singer.io tap for extracting data from the Quickbooks API',
       author='hotglue',
       url='http://hotglue.xyz/',
