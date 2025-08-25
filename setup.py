@@ -33,7 +33,7 @@ setup(name='tap-quickbooks',
       ''',
       packages=find_packages(exclude=['tests']),
       package_data={
-          'tap_quickbooks.quickbooks': ['schemas/*.json', 'reportstreams/*']
+          'tap_quickbooks.quickbooks': ['schemas/*.json', 'reportstreams/*', 'reportstreams.english_schemas/*']
       },
       include_package_data=True,
 )
