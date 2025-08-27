@@ -111,10 +111,7 @@ def do_discover(qb):
         fields = qb.describe(sobject_name)
 
         replication_key = REPLICATION_KEY
-        if sobject_name.endswith('Report'):
-            replication_key = None
-            
-        if sobject_name in FULL_SYNC_STREAMS:
+        if sobject_name.endswith('Report') or sobject_name in FULL_SYNC_STREAMS:
             replication_key = None
 
         properties = {}
