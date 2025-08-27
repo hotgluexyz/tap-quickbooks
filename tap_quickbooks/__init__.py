@@ -89,6 +89,10 @@ def create_property_schema(field, mdata):
 
     return (property_schema, mdata)
 
+FULL_SYNC_STREAMS = [
+    "TaxRate",
+    "TaxCode",
+]
 
 # pylint: disable=too-many-branches,too-many-statements
 def do_discover(qb):
@@ -109,7 +113,9 @@ def do_discover(qb):
         replication_key = REPLICATION_KEY
         if sobject_name.endswith('Report'):
             replication_key = None
-
+            
+        if sobject_name in FULL_SYNC_STREAMS:
+            replication_key = None
 
         properties = {}
         mdata = metadata.new()
