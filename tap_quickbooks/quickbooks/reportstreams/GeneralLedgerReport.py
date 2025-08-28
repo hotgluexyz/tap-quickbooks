@@ -9,6 +9,7 @@ from dateutil.relativedelta import relativedelta
 import logging
 import concurrent.futures
 from calendar import monthrange
+from tap_quickbooks.quickbooks.reportstreams.english_schemas.GeneralLedgerReportFields import glr_english_schema as eng_schema
 
 
 LOGGER = singer.get_logger()
@@ -225,7 +226,7 @@ class GeneralLedgerReport(BaseReportStream):
                         self.gl_daily = False
 
                         # Get column metadata.
-                        columns = self._get_column_metadata(r)
+                        columns = self._get_column_metadata(r, eng_schema)
 
                         # Recursively get row data.
                         row_group = r.get("Rows")
@@ -259,7 +260,7 @@ class GeneralLedgerReport(BaseReportStream):
                 resp = self._get(report_entity="GeneralLedger", params=params)
 
                 # Get column metadata.
-                columns = self._get_column_metadata(resp)
+                columns = self._get_column_metadata(resp, eng_schema)
 
                 # Recursively get row data.
                 row_group = resp.get("Rows")
