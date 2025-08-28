@@ -14,6 +14,8 @@ _log_queue: Optional[queue.Queue] = None
 _log_thread: Optional[threading.Thread] = None
 _stop_event = threading.Event()
 
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
 def _log_writer():
     """Background thread that writes logs to file."""
     LOG_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)

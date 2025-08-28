@@ -18,7 +18,7 @@ setup(name='tap-quickbooks',
       author='hotglue',
       url='http://hotglue.xyz/',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
-      py_modules=['tap_quickbooks'],
+
       install_requires=[
           'requests>=2.20.0',
           'singer-python==5.3.1',
@@ -33,7 +33,9 @@ setup(name='tap-quickbooks',
       ''',
       packages=find_packages(exclude=['tests']),
       package_data={
-          'tap_quickbooks.quickbooks': ['schemas/*.json', 'reportstreams/*']
+          'tap_quickbooks.quickbooks': ['schemas/*.json'],
+          'tap_quickbooks.quickbooks.reportstreams': ['*.py'],
+          'tap_quickbooks.quickbooks.reportstreams.english_schemas': ['*.py']
       },
       include_package_data=True,
 )

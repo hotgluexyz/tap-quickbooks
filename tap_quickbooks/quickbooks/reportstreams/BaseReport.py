@@ -30,12 +30,21 @@ class BaseReportStream(QuickbooksStream):
         else:
             return response
     
-    def _get_column_metadata(self, resp):
+    def _get_column_metadata(self, resp, schema=None):
         columns = []
         for column in resp.get("Columns").get("Column"):
-            if column.get("ColTitle") == "Memo/Description":
-                columns.append("Memo")
+            # To handle multiple languages if schema is passed, always convert Col Titles to english
+            if schema is not None:
+                col_type = column["MetaData"][0].get("Value") if column.get("MetaData") else None
+                if not col_type:
+                    LOGGER.info(f"Metadata for col {column.get('ColTitle')} not found, skipping.")
+                    continue
+                # append col to columns
+                columns.append(schema.get(col_type))
             else:
-                columns.append(column.get("ColTitle").replace(" ", ""))
+                if column.get("ColTitle") == "Memo/Description":
+                    columns.append("Memo")
+                else:
+                    columns.append(column.get("ColTitle").replace(" ", ""))
         columns.append("Categories")
         return columns
