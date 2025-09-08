@@ -25,6 +25,7 @@ glr_english_schema = {
     "credit_home_amt": "Credit",
     "nat_home_open_bal": "OpenBalance",
     "subt_nat_home_amount": "Amount",
+    "subt_nat_amount_home_nt": "Amount",
     "rbal_nat_home_amount": "Balance",
     "exch_rate": "ExchangeRate",
     "currency": "Currency",
