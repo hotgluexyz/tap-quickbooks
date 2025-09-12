@@ -42,7 +42,7 @@ class BaseReportStream(QuickbooksStream):
                 # append col to columns
                 col_title = column.get("ColTitle")
                 if col_title in schema.values():
-                    columns.append(col_title)
+                    columns.append(col_title.replace(" ", ""))
                 else:
                     columns.append(schema.get(col_type))
             else:
