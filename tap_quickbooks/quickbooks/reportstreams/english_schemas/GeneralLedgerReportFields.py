@@ -16,7 +16,7 @@ glr_english_schema = {
     "rate": "Rate",
     "account_name": "Account",
     "split_acc": "Split",
-    "inv_date": "Invoice Date",
+    "inv_date": "InvoiceDate",
     "is_ar_paid": "A/RPaid",
     "is_ap_paid": "A/PPaid",
     "is_cleared": "Clr",
