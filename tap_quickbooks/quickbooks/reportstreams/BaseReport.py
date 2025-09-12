@@ -40,7 +40,11 @@ class BaseReportStream(QuickbooksStream):
                     LOGGER.info(f"Metadata for col {column.get('ColTitle')} not found, skipping.")
                     continue
                 # append col to columns
-                columns.append(schema.get(col_type))
+                col_title = column.get("ColTitle")
+                if col_title in schema.values():
+                    columns.append(col_title.replace(" ", ""))
+                else:
+                    columns.append(schema.get(col_type))
             else:
                 if column.get("ColTitle") == "Memo/Description":
                     columns.append("Memo")
