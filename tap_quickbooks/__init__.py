@@ -325,12 +325,6 @@ def main_impl():
 def main():
     try:
         main_impl()
-    except TapQuickbooksQuotaExceededException as e:
-        LOGGER.critical(e)
-        sys.exit(2)
-    except TapQuickbooksException as e:
-        LOGGER.critical(e)
-        sys.exit(1)
     except Exception as e:
         LOGGER.critical(e)
         raise e
