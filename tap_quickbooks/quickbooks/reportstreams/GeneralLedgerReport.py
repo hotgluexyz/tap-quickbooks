@@ -18,6 +18,7 @@ NUMBER_OF_PERIODS = 3
 class GeneralLedgerReport(QuickbooksStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = "FULL_TABLE"
+    tap_stream_id: ClassVar[str] = ""
     gl_daily = False
     gl_weekly = False
     gl_monthly = False
@@ -100,6 +101,7 @@ class GeneralLedgerReport(QuickbooksStream):
         if "Unable to display more data. Please reduce the date range." in str(
             response
         ):
+            LOGGER.info(f"DOWNGRADING: Too much data for current period {params['start_date']} to {params['end_date']} for stream {self.tap_stream_id}")
             return {
                 "error": "Too much data for current period",
                 "start_date": params["start_date"],
