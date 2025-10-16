@@ -18,8 +18,11 @@ NUMBER_OF_PERIODS = 3
 class GeneralLedgerReport(QuickbooksStream):
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = "FULL_TABLE"
-    gl_weekly = False
     gl_daily = False
+    gl_weekly = False
+    gl_monthly = False
+    gl_six_monthly = False
+    gl_yearly = False
 
     def __init__(self, qb, start_date, state_passed, fetch_future_transactions=False):
         self.qb = qb
@@ -192,16 +195,25 @@ class GeneralLedgerReport(QuickbooksStream):
 
             while start_date < today:
                 # get the number of days and max number of requests
+                max_requests = 10
+                
                 if self.qb.gl_daily or self.gl_daily:
                     period_days = 1
-                    max_requests = 10
 
                 elif self.qb.gl_weekly or self.gl_weekly:
                     period_days = 7
-                    max_requests = 10
+                
+                elif self.qb.gl_monthly or self.gl_monthly:
+                    period_end = (start_date + relativedelta(months=1)).replace(day=1) - datetime.timedelta(days=1)
+                    period_days = (period_end - start_date).days + 1
+                
+                elif self.qb.gl_six_monthly or self.gl_six_monthly:
+                    period_end = (start_date + relativedelta(months=6)).replace(day=1) - datetime.timedelta(days=1)
+                    period_days = (period_end - start_date).days + 1
+                
                 else:
-                    day1, period_days = monthrange(start_date.year, start_date.month)
-                    max_requests = 10
+                    period_end = datetime.datetime(start_date.year, 12, 31)
+                    period_days = (period_end - start_date).days + 1
 
                 # calculate end date
                 if (today - start_date).days <= period_days:
@@ -245,19 +257,27 @@ class GeneralLedgerReport(QuickbooksStream):
                         start_date = datetime.datetime.strptime(
                             r.get("start_date"), "%Y-%m-%d"
                         )
-                        if not self.gl_weekly and not self.gl_daily:
+                        if not any([self.gl_six_monthly, self.gl_monthly, self.gl_weekly, self.gl_daily]):
+                            self.gl_six_monthly = True
+                        elif self.gl_six_monthly and not any([self.gl_monthly, self.gl_weekly, self.gl_daily]):
+                            self.gl_six_monthly = False
+                            self.gl_monthly = True
+                        elif self.gl_monthly and not any([self.gl_weekly, self.gl_daily]):
+                            self.gl_monthly = False
                             self.gl_weekly = True
                         elif self.gl_weekly and not self.gl_daily:
                             self.gl_weekly = False
                             self.gl_daily = True
                         elif self.gl_daily:
-                            # If we already are at gl_daily we have to give up
                             raise Exception(r)
 
                         break
                     else:
                         self.gl_weekly = False
                         self.gl_daily = False
+                        self.gl_monthly = False
+                        self.gl_six_monthly = False
+                        self.gl_yearly = False
 
                         # Get column metadata.
                         columns = self._get_column_metadata(r)
