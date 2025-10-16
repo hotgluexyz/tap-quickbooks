@@ -106,7 +106,7 @@ class Rest():
 
         def sync_records(query, is_deleted=False):            
             offset = 0
-            max = 100
+            max = 1000
             page = 0
 
             while True:
