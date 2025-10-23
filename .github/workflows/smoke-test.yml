@@ -6,7 +6,11 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
-    description: 'Run smoke tests manually'
+    inputs:
+      branch:
+        description: 'Branch to test'
+        required: true
+        default: 'main'
 
 jobs:
   smoke-test:
