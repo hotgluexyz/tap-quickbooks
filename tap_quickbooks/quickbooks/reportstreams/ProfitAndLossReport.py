@@ -118,6 +118,9 @@ class ProfitAndLossReport(QuickbooksStream):
                     if "" in cleansed_row:
                         cleansed_row['Account'] = cleansed_row.pop("")
 
+                    cleansed_row["StartDate"] = params["start_date"]
+                    cleansed_row["EndDate"] = params["end_date"]
+
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     if cleansed_row.get('Date'):
                         try:
@@ -182,6 +185,9 @@ class ProfitAndLossReport(QuickbooksStream):
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     if cleansed_row.get('Date'):
                         cleansed_row["Date"] = parse(cleansed_row['Date'])
+
+                    cleansed_row["StartDate"] = params["start_date"]
+                    cleansed_row["EndDate"] = params["end_date"]
 
                     yield cleansed_row
 
