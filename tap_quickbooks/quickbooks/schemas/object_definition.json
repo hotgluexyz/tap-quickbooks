@@ -596,8 +596,6 @@
     {"name": "Store", "type": "string"}
   ],
   "ProfitAndLossReport": [
-    {"name": "StartDate", "type": "string"},
-    {"name": "EndDate", "type": "string"},
     {"name": "Total", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "Account", "type": "string"}
