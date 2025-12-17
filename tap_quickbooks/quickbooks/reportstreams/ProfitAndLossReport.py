@@ -180,7 +180,7 @@ class ProfitAndLossReport(QuickbooksStream):
                     if "" in cleansed_row:
                         cleansed_row['Account'] = cleansed_row.pop("")
 
-                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
+                    cleansed_row["Total"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
                     cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     if cleansed_row.get('Date'):
