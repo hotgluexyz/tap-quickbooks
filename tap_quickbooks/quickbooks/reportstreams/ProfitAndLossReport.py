@@ -118,6 +118,9 @@ class ProfitAndLossReport(QuickbooksStream):
                     if "" in cleansed_row:
                         cleansed_row['Account'] = cleansed_row.pop("")
 
+                    cleansed_row["StartDate"] = params["start_date"]
+                    cleansed_row["EndDate"] = params["end_date"]
+
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     if cleansed_row.get('Date'):
                         try:
@@ -139,7 +142,7 @@ class ProfitAndLossReport(QuickbooksStream):
                 }
 
                 LOGGER.info(f"Fetch Journal Report for period {params['start_date']} to {params['end_date']}")
-                resp = self._get(report_entity='ProfitAndLossDetail', params=params)
+                resp = self._get(report_entity='ProfitAndLoss', params=params)
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
@@ -161,7 +164,7 @@ class ProfitAndLossReport(QuickbooksStream):
                 # Zip columns and row data.
                 for raw_row in output:
                     row = dict(zip(columns, raw_row))
-                    if not row.get("Amount"):
+                    if not row.get("Total"):
                         # If a row is missing the amount, skip it
                         continue
 
@@ -177,11 +180,15 @@ class ProfitAndLossReport(QuickbooksStream):
                     if "" in cleansed_row:
                         cleansed_row['Account'] = cleansed_row.pop("")
 
-                    cleansed_row["Amount"] = float(cleansed_row.get("Amount")) if cleansed_row.get("Amount") else None
-                    cleansed_row["Balance"] = float(cleansed_row.get("Balance")) if cleansed_row.get("Amount") else None
+                    cleansed_row["StartDate"] = params["start_date"]
+                    cleansed_row["EndDate"] = params["end_date"]
+
                     cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
                     if cleansed_row.get('Date'):
-                        cleansed_row["Date"] = parse(cleansed_row['Date'])
+                        try:
+                            cleansed_row["Date"] = parse(cleansed_row['Date'])
+                        except:
+                            continue
 
                     yield cleansed_row
 
