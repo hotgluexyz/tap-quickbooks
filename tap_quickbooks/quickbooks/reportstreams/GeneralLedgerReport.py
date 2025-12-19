@@ -222,11 +222,11 @@ class GeneralLedgerReport(BaseReportStream):
                             # Define identity columns that will be included in every batch
                             # These are used to match rows across batches
                             identity_cols = ["tx_date", "txn_type"]
-                            # Add doc_num and account_num if they exist in cols
+                            # Add doc_num and account_name if they exist in cols
                             if "doc_num" in cols:
                                 identity_cols.append("doc_num")
-                            if "account_num" in cols:
-                                identity_cols.append("account_num")
+                            if "account_name" in cols:
+                                identity_cols.append("account_name")
                             # Add amount field for better uniqueness
                             if "subt_nat_amount" in cols:
                                 identity_cols.append("subt_nat_amount")
