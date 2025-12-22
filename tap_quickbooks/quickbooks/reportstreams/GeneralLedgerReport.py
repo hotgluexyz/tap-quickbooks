@@ -79,6 +79,8 @@ class GeneralLedgerReport(BaseReportStream):
             cols = [
                 "tx_date",
                 "subt_nat_amount",
+                "subt_nat_amount_nt",
+                "subt_nat_amount_home_nt",
                 "credit_amt",
                 "debt_amt",
                 "subt_nat_home_amount",
