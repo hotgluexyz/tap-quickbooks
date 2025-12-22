@@ -272,6 +272,7 @@ class ProfitAndLossDetailReport(BaseReportStream):
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
+                columns += ["Account"]
 
                 # Recursively get row data.
                 row_group = resp.get("Rows")
