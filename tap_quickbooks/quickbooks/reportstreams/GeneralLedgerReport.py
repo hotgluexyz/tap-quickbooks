@@ -150,6 +150,7 @@ class GeneralLedgerReport(BaseReportStream):
             start_date = self.start_date
             start_date = start_date.replace(tzinfo=None)
             min_time = datetime.datetime.min.time()
+
             today = datetime.date.today()
             today = datetime.datetime.combine(today, min_time)
 
@@ -217,21 +218,18 @@ class GeneralLedgerReport(BaseReportStream):
                             self.gl_daily = True
                             start_date = error_start_date
                         elif self.gl_daily:
+                            # Set start_date to track which period we're processing
+                            start_date = error_start_date
                             batch_size = 10
                             
                             # Define identity columns that will be included in every batch
                             # These are used to match rows across batches
-                            identity_cols = ["tx_date", "txn_type"]
+                            identity_cols = ["tx_date", "txn_type", "subt_nat_amount", "subt_nat_home_amount", "subt_nat_amount_nt", "subt_nat_amount_home_nt", "credit_amt", "debt_amt", "credit_home_amt", "debt_home_amt"]
                             # Add doc_num and account_name if they exist in cols
                             if "doc_num" in cols:
                                 identity_cols.append("doc_num")
                             if "account_name" in cols:
                                 identity_cols.append("account_name")
-                            # Add amount field for better uniqueness
-                            if "subt_nat_amount" in cols:
-                                identity_cols.append("subt_nat_amount")
-                            elif "net_amount" in cols:
-                                identity_cols.append("net_amount")
                             
                             # Remove identity columns from cols to avoid duplication
                             # Keep original order for non-identity columns
@@ -271,7 +269,7 @@ class GeneralLedgerReport(BaseReportStream):
                             
                             for id_col in identity_cols:
                                 identity_col_mappings[id_col] = eng_schema.get(id_col, id_col)
-                            
+
                             for batch_idx, resp_batch in enumerate(resp_batches):
                                 row_group = resp_batch.get("Rows")
                                 row_array = row_group.get("Row")
@@ -383,10 +381,11 @@ class GeneralLedgerReport(BaseReportStream):
                                 
                                 # We are ready to yield the full rows now
                                 yield from self.clean_row(stitched_rows, columns_from_metadata)
-                            
+
                             # After successful batching, continue to process other responses
                             # The while loop will naturally continue after all responses are processed
-                            continue
+                            start_date = error_end_date + datetime.timedelta(days=1)
+                            break
                         else:
                             # If we already are at gl_daily we have to give up
                             raise Exception(r)
