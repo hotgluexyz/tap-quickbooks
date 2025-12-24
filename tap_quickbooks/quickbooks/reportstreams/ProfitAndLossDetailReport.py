@@ -242,7 +242,7 @@ class ProfitAndLossDetailReport(BaseReportStream):
             LOGGER.info(f"Syncing P&L of last {self.number_of_periods} periods")
             end_date = datetime.date.today()
 
-            for i in range(self.number_of_periods):
+            for _ in range(self.number_of_periods):
                 start_date = end_date.replace(day=1)
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),
@@ -256,6 +256,7 @@ class ProfitAndLossDetailReport(BaseReportStream):
 
                 # Get column metadata.
                 columns = self._get_column_metadata(resp)
+                columns += ["Account"]
 
                 # Recursively get row data.
                 row_group = resp.get("Rows")
