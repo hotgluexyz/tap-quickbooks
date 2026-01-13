@@ -79,6 +79,8 @@ class GeneralLedgerReport(BaseReportStream):
             cols = [
                 "tx_date",
                 "subt_nat_amount",
+                "subt_nat_amount_nt",
+                "subt_nat_amount_home_nt",
                 "credit_amt",
                 "debt_amt",
                 "subt_nat_home_amount",
@@ -142,6 +144,7 @@ class GeneralLedgerReport(BaseReportStream):
         params = {
             "accounting_method": self.accounting_method,
             "columns": ",".join(cols),
+            "sort_by": "tx_date"
         }
 
         if full_sync or self.qb.gl_full_sync:
@@ -149,6 +152,7 @@ class GeneralLedgerReport(BaseReportStream):
             start_date = self.start_date
             start_date = start_date.replace(tzinfo=None)
             min_time = datetime.datetime.min.time()
+
             today = datetime.date.today()
             today = datetime.datetime.combine(today, min_time)
 
@@ -202,18 +206,194 @@ class GeneralLedgerReport(BaseReportStream):
                 # parse data and set the new start_date
                 for r in resp:
                     if r.get("error") == "Too much data for current period":
-                        start_date = datetime.datetime.strptime(
+                        error_start_date = datetime.datetime.strptime(
                             r.get("start_date"), "%Y-%m-%d"
+                        )
+                        error_end_date = datetime.datetime.strptime(
+                            r.get("end_date"), "%Y-%m-%d"
                         )
                         if not self.gl_weekly and not self.gl_daily:
                             self.gl_weekly = True
+                            start_date = error_start_date
                         elif self.gl_weekly and not self.gl_daily:
                             self.gl_weekly = False
                             self.gl_daily = True
+                            start_date = error_start_date
                         elif self.gl_daily:
+                            # Set start_date to track which period we're processing
+                            start_date = error_start_date
+                            batch_size = 10
+                            
+                            # Define identity columns that will be included in every batch
+                            # These are used to match rows across batches
+                            identity_cols = ["tx_date", "txn_type", "subt_nat_amount", "subt_nat_home_amount", "subt_nat_amount_nt", "subt_nat_amount_home_nt", "credit_amt", "debt_amt", "credit_home_amt", "debt_home_amt"]
+                            # Add doc_num and account_name if they exist in cols
+                            if "doc_num" in cols:
+                                identity_cols.append("doc_num")
+                            if "account_name" in cols:
+                                identity_cols.append("account_name")
+                            
+                            # Remove identity columns from cols to avoid duplication
+                            # Keep original order for non-identity columns
+                            other_cols = [c for c in cols if c not in identity_cols]
+                            
+                            # Create batches: each batch includes identity_cols + a slice of other_cols
+                            column_batches = []
+                            for i in range(0, len(other_cols), batch_size):
+                                batch = identity_cols + other_cols[i:i+batch_size]
+                                column_batches.append(batch)
+                            
+                            batch_params_list = []
+                            for batch in column_batches:
+                                batch_params = params.copy()
+                                batch_params["columns"] = ",".join(batch)
+                                batch_params["start_date"] = error_start_date.strftime("%Y-%m-%d")
+                                batch_params["end_date"] = error_end_date.strftime("%Y-%m-%d")
+                                batch_params_list.append(batch_params)
+                            
+                            with concurrent.futures.ThreadPoolExecutor(max_workers=len(batch_params_list)) as executor:
+                                resp_batches = list(
+                                    executor.map(
+                                        lambda x: self.concurrent_get(report_entity="GeneralLedger", params=x),
+                                        batch_params_list
+                                    )
+                                )
+                            
+                            # Dictionary to store rows by their identity key
+                            # Key: tuple of identity column values, Value: list of row entries
+                            # Using list to handle duplicate keys (pop in order)
+                            rows_by_key = {}
+                            key_order = []  # Maintain order of keys as they appear in first batch
+                            
+                            # Build complete column metadata list as we process batches
+                            all_columns = []
+                            identity_col_mappings = {}  # Map identity col name to its English schema name
+                            
+                            for id_col in identity_cols:
+                                identity_col_mappings[id_col] = eng_schema.get(id_col, id_col)
+
+                            for batch_idx, resp_batch in enumerate(resp_batches):
+                                row_group = resp_batch.get("Rows")
+                                row_array = row_group.get("Row")
+                                
+                                if row_array is None:
+                                    continue
+                                
+                                # Get column metadata for this batch
+                                batch_metadata = self._get_column_metadata(resp_batch, eng_schema)[:-1]  # Exclude Categories
+                                
+                                # Build complete column list as we process batches
+                                if batch_idx == 0:
+                                    all_columns = batch_metadata.copy()
+                                else:
+                                    # Add new columns from this batch to all_columns
+                                    for col in batch_metadata:
+                                        if col not in all_columns:
+                                            all_columns.append(col)
+                                
+                                output = []
+                                categories = []
+                                for row in row_array:
+                                    self._recursive_row_search(row, output, categories)
+                                
+                                # Find identity column indices in this batch's metadata
+                                identity_indices = []
+                                for id_col in identity_cols:
+                                    id_col_mapped = identity_col_mappings[id_col]
+                                    if id_col_mapped in batch_metadata:
+                                        identity_indices.append(batch_metadata.index(id_col_mapped))
+                                    else:
+                                        identity_indices.append(None)
+                                
+                                # Process each row in this batch
+                                for raw_row in output:
+                                    # Extract identity key from raw_row
+                                    identity_values = []
+                                    for idx in identity_indices:
+                                        if idx is not None and idx < len(raw_row) - 1:  # -1 for categories
+                                            cell = raw_row[idx]
+                                            # Extract value from dict or use directly
+                                            if isinstance(cell, dict):
+                                                identity_values.append(cell.get("value", ""))
+                                            else:
+                                                identity_values.append(cell if cell is not None else "")
+                                        else:
+                                            identity_values.append("")
+                                    row_key = tuple(identity_values)
+                                    
+                                    # Extract all column data for this row, maintaining batch_metadata order
+                                    row_data_by_col = {}
+                                    for col_idx, col_name in enumerate(batch_metadata):
+                                        if col_idx < len(raw_row) - 1:  # -1 for categories
+                                            row_data_by_col[col_name] = raw_row[col_idx]
+                                    
+                                    categories_data = set(raw_row[-1]) if raw_row[-1] else set()
+                                    
+                                    # Store row data
+                                    if batch_idx == 0:
+                                        # First batch: initialize row entry
+                                        if row_key not in rows_by_key:
+                                            rows_by_key[row_key] = []
+                                            key_order.append(row_key)
+                                        
+                                        rows_by_key[row_key].append({
+                                            'column_data': row_data_by_col.copy(),
+                                            'categories': categories_data,
+                                            'batches_processed': [0]
+                                        })
+                                    else:
+                                        # Subsequent batches: find matching row and merge data
+                                        if row_key in rows_by_key and rows_by_key[row_key]:
+                                            # Find the first unprocessed row with this key
+                                            for row_entry in rows_by_key[row_key]:
+                                                if batch_idx not in row_entry['batches_processed']:
+                                                    # Merge column data from this batch
+                                                    row_entry['column_data'].update(row_data_by_col)
+                                                    row_entry['categories'].update(categories_data)
+                                                    row_entry['batches_processed'].append(batch_idx)
+                                                    break
+                            
+                            # Reconstruct stitched rows in key_order with correct column ordering
+                            stitched_rows = []
+                            row_categories = []
+                            for row_key in key_order:
+                                if row_key in rows_by_key:
+                                    for row_entry in rows_by_key[row_key]:
+                                        # Build row in all_columns order
+                                        stitched_row = []
+                                        for col in all_columns:
+                                            if col in row_entry['column_data']:
+                                                stitched_row.append(row_entry['column_data'][col])
+                                            else:
+                                                # Column not present in any batch for this row
+                                                stitched_row.append(None)
+                                        
+                                        stitched_rows.append(stitched_row)
+                                        row_categories.append(list(row_entry['categories']))
+                            
+                            columns_from_metadata = all_columns
+                            
+                            if stitched_rows:
+                                # Join categories to the right of the rows
+                                for i, row in enumerate(stitched_rows):
+                                    row.append(row_categories[i])
+                                
+                                # Add the categories column at the end
+                                columns_from_metadata.append("Categories")
+                                
+                                # We are ready to yield the full rows now
+                                yield from self.clean_row(stitched_rows, columns_from_metadata)
+
+                            # After successful batching, continue to process other responses
+                            # The while loop will naturally continue after all responses are processed
+                            start_date = error_end_date + datetime.timedelta(days=1)
+                            break
+                        else:
                             # If we already are at gl_daily we have to give up
                             raise Exception(r)
 
+                        # For mode switching (weekly/daily), break to retry with new mode
+                        # The start_date is already set to error_start_date above
                         break
                     else:
                         self.gl_weekly = False
