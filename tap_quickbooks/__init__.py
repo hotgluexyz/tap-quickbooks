@@ -133,6 +133,17 @@ def do_discover(qb):
 
             properties[field_name] = property_schema
 
+        # Add Deleted field for delete tracking
+        # This field is populated when include_deleted is enabled
+        if qb.include_deleted and not sobject_name.endswith('Report'):
+            properties['Deleted'] = {
+                "type": ["boolean", "null"]
+            }
+            mdata = metadata.write(
+                mdata, ('properties', 'Deleted'), 'inclusion', 'available')
+            mdata = metadata.write(
+                mdata, ('properties', 'Deleted'), 'selected-by-default', True)
+
         if replication_key:
             mdata = metadata.write(
                 mdata, ('properties', replication_key), 'inclusion', 'automatic')
