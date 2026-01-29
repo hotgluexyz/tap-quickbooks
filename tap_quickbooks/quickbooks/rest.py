@@ -88,34 +88,25 @@ class Rest():
         
         LOGGER.info(f"Querying CDC for deleted {stream} records since {changed_since}")
         
-        try:
-            resp = self.qb._make_request('GET', url, headers=headers, params=params)
-            resp_json = resp.json()
-            
-            cdc_response = resp_json.get('CDCResponse', [])
-            if not cdc_response:
-                LOGGER.info(f"No CDC response for {stream}")
-                return
-            
-            for cdc_item in cdc_response:
-                query_response = cdc_item.get('QueryResponse', [])
-                for qr in query_response:
-                    records = qr.get(stream, [])
-                    for rec in records:
-                        # Check if this is a deleted record
-                        if rec.get('status') == 'Deleted':
-                            # Add deletion metadata
-                            rec['Deleted'] = True
-                            LOGGER.info(f"Found deleted {stream} record: Id={rec.get('Id')}")
-                            yield rec
-                            
-        except HTTPError as ex:
-            LOGGER.warning(f"CDC query failed for {stream}: {ex}")
-            # Don't fail the entire sync if CDC fails
+        resp = self.qb._make_request('GET', url, headers=headers, params=params)
+        resp_json = resp.json()
+        
+        cdc_response = resp_json.get('CDCResponse', [])
+        if not cdc_response:
+            LOGGER.info(f"No CDC response for {stream}")
             return
-        except Exception as ex:
-            LOGGER.warning(f"Unexpected error querying CDC for {stream}: {ex}")
-            return
+        
+        for cdc_item in cdc_response:
+            query_response = cdc_item.get('QueryResponse', [])
+            for qr in query_response:
+                records = qr.get(stream, [])
+                for rec in records:
+                    # Check if this is a deleted record
+                    if rec.get('status') == 'Deleted':
+                        # Add deletion metadata
+                        rec['Deleted'] = True
+                        LOGGER.info(f"Found deleted {stream} record: Id={rec.get('Id')}")
+                        yield rec
 
     # pylint: disable=too-many-arguments
     def _query_recur(
@@ -228,7 +219,7 @@ class Rest():
 
                 for rec in records:
                     if is_deleted:
-                        # Mark soft-deleted/inactive records
+                        # Mark soft-deleted/inactive records as deleted
                         rec['Deleted'] = True
                     yield rec
                 
@@ -243,9 +234,7 @@ class Rest():
 
         # Handle deleted records based on configuration
         if self.qb.include_deleted and stream not in EXCLUDED_FROM_DELETE_SYNC:
-            # Method 1: Use CDC endpoint for true delete detection (preferred)
             if stream in CDC_SUPPORTED_ENTITIES:
-                # Extract the start date from the WHERE clause or use default
                 start_date = self.qb.default_start_date
                 # Try to extract date from query
                 where_match = re.search(r"WHERE.*?>\s*'([^']+)'", query, re.IGNORECASE)
@@ -253,9 +242,7 @@ class Rest():
                     start_date = where_match.group(1)
                 
                 LOGGER.info(f"Using CDC to detect deleted {stream} records since {start_date}")
-                yield from self.query_cdc_deletes(stream, start_date)
-            
-            # Method 2: Fallback to Active=false query for soft deletes
+                yield from self.query_cdc_deletes(stream, start_date)            
             elif stream in ENTITIES_WITH_ACTIVE_FIELD:
                 LOGGER.info(f"Using Active=false query for soft-deleted {stream} records")
                 if "WHERE" in query:
@@ -263,5 +250,3 @@ class Rest():
                 else:
                     query_deleted = f"{query} where Active = false" 
                 yield from sync_records(query_deleted, is_deleted=True)
-            else:
-                LOGGER.info(f"No delete detection method available for {stream}")
