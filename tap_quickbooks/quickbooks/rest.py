@@ -1,6 +1,5 @@
 # pylint: disable=protected-access
 import singer
-import re
 import singer.utils as singer_utils
 from datetime import timedelta
 
@@ -24,7 +23,7 @@ CDC_SUPPORTED_ENTITIES = [
 
 # Entities that have an Active field for soft-delete querying (fallback)
 ENTITIES_WITH_ACTIVE_FIELD = [
-    "Account", "Class", "CustomerType", "PaymentMethod", "TaxRate",
+    "Account", "Class", "CompanyCurrency", "CustomerType", "PaymentMethod", "TaxRate",
     "TaxCode", "Term", "Vendor", "Customer", "Employee", "Item",
     "Department"
 ]
@@ -125,7 +124,7 @@ class Rest():
 
         retryable = False
         try:
-            for rec in self._sync_records(url, headers, params, catalog_entry['stream']):
+            for rec in self._sync_records(url, headers, params, catalog_entry['stream'], start_date_str):
                 yield rec
 
             # If the date range was chunked (an end_date was passed), sync
@@ -177,7 +176,17 @@ class Rest():
                     retries - 1):
                 yield record
 
-    def _sync_records(self, url, headers, params, stream):
+    def _sync_records(self, url, headers, params, stream, start_date):
+        """
+        Sync records for a given stream.
+        
+        Args:
+            url: The API endpoint URL
+            headers: HTTP headers for the request
+            params: Query parameters including the query string
+            stream: The entity type being synced
+            start_date: The start date for incremental sync (used for CDC delete detection)
+        """
         headers["Accept"] = "application/json"
         headers["Content-Type"] = "application/json"
         
@@ -226,12 +235,6 @@ class Rest():
         # Handle deleted records based on configuration
         if self.qb.include_deleted and stream not in EXCLUDED_FROM_DELETE_SYNC:
             if stream in CDC_SUPPORTED_ENTITIES:
-                start_date = self.qb.default_start_date
-                # Try to extract date from query
-                where_match = re.search(r"WHERE.*?>\s*'([^']+)'", query, re.IGNORECASE)
-                if where_match:
-                    start_date = where_match.group(1)
-                
                 LOGGER.info(f"Using CDC to detect deleted {stream} records since {start_date}")
                 yield from self.query_cdc_deletes(stream, start_date)            
             elif stream in ENTITIES_WITH_ACTIVE_FIELD:
