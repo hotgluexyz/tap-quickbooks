@@ -12,6 +12,7 @@ from tap_quickbooks.quickbooks.exceptions import (
 import threading
 from tap_quickbooks.util import cleanup
 import atexit
+from tap_quickbooks.quickbooks.rest import EXCLUDED_FROM_DELETE_SYNC
 
 LOGGER = singer.get_logger()
 
@@ -135,7 +136,7 @@ def do_discover(qb):
 
         # Add Deleted field for delete tracking
         # This field is populated when include_deleted is enabled
-        if qb.include_deleted and not sobject_name.endswith('Report'):
+        if qb.include_deleted and not sobject_name.endswith('Report') and sobject_name not in EXCLUDED_FROM_DELETE_SYNC:
             properties['Deleted'] = {
                 "type": ["boolean", "null"]
             }

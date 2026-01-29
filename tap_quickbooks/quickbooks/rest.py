@@ -59,14 +59,6 @@ class Rest():
         Yields:
             Records that have been deleted, with Deleted metadata added
         """
-        if stream not in CDC_SUPPORTED_ENTITIES:
-            LOGGER.info(f"CDC not supported for {stream}, skipping delete detection")
-            return
-        
-        if stream in EXCLUDED_FROM_DELETE_SYNC:
-            LOGGER.info(f"{stream} does not support deletion, skipping")
-            return
-
         # CDC has a 30-day limit - adjust start date if needed
         changed_since_dt = singer_utils.strptime_with_tz(changed_since)
         thirty_days_ago = singer_utils.now() - timedelta(days=30)
@@ -78,7 +70,6 @@ class Rest():
         url = f"{self.qb.instance_url}/cdc"
         headers = self.qb._get_standard_headers()
         headers["Accept"] = "application/json"
-        headers["Content-Type"] = "application/text"
         
         params = {
             "entities": stream,
