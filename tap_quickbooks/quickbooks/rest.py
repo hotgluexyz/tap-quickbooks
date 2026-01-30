@@ -30,7 +30,7 @@ ENTITIES_WITH_ACTIVE_FIELD = [
 
 # Entities excluded from delete syncing entirely
 EXCLUDED_FROM_DELETE_SYNC = [
-    "CompanyInfo", "Preferences"  # These don't support deletion
+    "CompanyInfo", "Preferences", "TimeActivity"  # These don't support deletion
 ]
 
 class Rest():
