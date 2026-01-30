@@ -41,8 +41,19 @@ class Rest():
     def query(self, catalog_entry, state):
         start_date = self.qb.get_start_date(state, catalog_entry)
         query = self.qb._build_query_string(catalog_entry, start_date)
+        stream = catalog_entry['stream']
 
-        return self._query_recur(query, catalog_entry, start_date)
+        # First, yield all active records (handles chunking internally)
+        for rec in self._query_recur(query, catalog_entry, start_date):
+            yield rec
+        
+        # Then, query for deleted records ONCE after all active records are synced
+        # This avoids duplicate CDC calls when date ranges are chunked
+        if self.qb.include_deleted and stream not in EXCLUDED_FROM_DELETE_SYNC and not stream.endswith('Report'):
+            if stream in CDC_SUPPORTED_ENTITIES:
+                LOGGER.info(f"Using CDC to detect deleted {stream} records since {start_date}")
+                for rec in self.query_cdc_deletes(stream, start_date):
+                    yield rec
 
     def query_cdc_deletes(self, stream, changed_since):
         """
@@ -124,7 +135,7 @@ class Rest():
 
         retryable = False
         try:
-            for rec in self._sync_records(url, headers, params, catalog_entry['stream'], start_date_str):
+            for rec in self._sync_records(url, headers, params, catalog_entry['stream']):
                 yield rec
 
             # If the date range was chunked (an end_date was passed), sync
@@ -176,7 +187,7 @@ class Rest():
                     retries - 1):
                 yield record
 
-    def _sync_records(self, url, headers, params, stream, start_date):
+    def _sync_records(self, url, headers, params, stream):
         """
         Sync records for a given stream.
         
@@ -185,7 +196,6 @@ class Rest():
             headers: HTTP headers for the request
             params: Query parameters including the query string
             stream: The entity type being synced
-            start_date: The start date for incremental sync (used for CDC delete detection)
         """
         headers["Accept"] = "application/json"
         headers["Content-Type"] = "application/json"
@@ -229,18 +239,14 @@ class Rest():
                 offset = (max * page) + 1
         
 
-        # First fetch all active records
+        # Fetch all active records
         yield from sync_records(query)
 
-        # Handle deleted records based on configuration
-        if self.qb.include_deleted and stream not in EXCLUDED_FROM_DELETE_SYNC:
-            if stream in CDC_SUPPORTED_ENTITIES:
-                LOGGER.info(f"Using CDC to detect deleted {stream} records since {start_date}")
-                yield from self.query_cdc_deletes(stream, start_date)            
-            elif stream in ENTITIES_WITH_ACTIVE_FIELD:
-                LOGGER.info(f"Using Active=false query for soft-deleted {stream} records")
-                if "WHERE" in query:
-                    query_deleted = query.replace("WHERE", "where Active = false and")
-                else:
-                    query_deleted = f"{query} where Active = false" 
-                yield from sync_records(query_deleted, is_deleted=True)
+        # For entities with Active field (not using CDC), query for soft-deleted records
+        # Note: CDC delete detection is handled at the query() level
+        if self.qb.include_deleted  and not stream.endswith('Report') and stream in ENTITIES_WITH_ACTIVE_FIELD:
+            if "WHERE" in query:
+                query_deleted = query.replace("WHERE", "where Active = false and")
+            else:
+                query_deleted = f"{query} where Active = false" 
+            yield from sync_records(query_deleted, is_deleted=True)
