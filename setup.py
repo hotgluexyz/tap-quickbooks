@@ -38,4 +38,10 @@ setup(name='tap-quickbooks',
           'tap_quickbooks.quickbooks.reportstreams.english_schemas': ['*.py']
       },
       include_package_data=True,
+      extras_require={
+        'dev': [
+            'pytest>=7.0.0',
+            'pre-commit>=2.17.0',
+        ]
+    },
 )
