@@ -1,0 +1,18 @@
+{
+  "Columns": {
+    "Column": [
+      {"ColTitle": "Date", "MetaData": [{"Value": "tx_date"}]},
+      {"ColTitle": "Amount", "MetaData": [{"Value": "subt_nat_amount"}]}
+    ]
+  },
+  "Rows": {
+    "Row": [
+      {
+        "ColData": [
+          {"value": "2024-01-01"},
+          {"value": ""}
+        ]
+      }
+    ]
+  }
+}
