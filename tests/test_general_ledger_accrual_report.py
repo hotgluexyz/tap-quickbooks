@@ -20,10 +20,8 @@ class TestGeneralLedgerAccrualReportFullSync:
 
     def test_full_sync_includes_accrual_in_params(self, report, mock_qb, start_date, catalog_entry):
         """concurrent_get is called with params containing accounting_method Accrual."""
-        today = datetime.date.today()
         start_str = start_date.strftime("%Y-%m-%d")
-        end_str = today.strftime("%Y-%m-%d")
-        mock_response = minimal_gl_report_response(start_str, end_str)
+        mock_response = minimal_gl_report_response(start_str)
 
         with patch.object(
             report,
@@ -45,10 +43,8 @@ class TestGeneralLedgerAccrualReportFullSync:
         self, report, mock_qb, start_date, catalog_entry
     ):
         """Full sync uses report_entity GeneralLedger."""
-        today = datetime.date.today()
         start_str = start_date.strftime("%Y-%m-%d")
-        end_str = today.strftime("%Y-%m-%d")
-        mock_response = minimal_gl_report_response(start_str, end_str)
+        mock_response = minimal_gl_report_response(start_str)
 
         with patch.object(
             report,
@@ -64,10 +60,8 @@ class TestGeneralLedgerAccrualReportFullSync:
         self, report, start_date, catalog_entry
     ):
         """Full sync yields cleansed records when the report has rows."""
-        today = datetime.date.today()
         start_str = start_date.strftime("%Y-%m-%d")
-        end_str = today.strftime("%Y-%m-%d")
-        mock_response = minimal_gl_report_response(start_str, end_str)
+        mock_response = minimal_gl_report_response(start_str)
 
         with patch.object(report, "concurrent_get", return_value=mock_response):
             records = list(report.sync(catalog_entry))
@@ -103,10 +97,8 @@ class TestGeneralLedgerAccrualReportFullSync:
             report_periods=None,
             state_passed=False,
         )
-        today = datetime.date.today()
         start_str = start_date.strftime("%Y-%m-%d")
-        end_str = today.strftime("%Y-%m-%d")
-        mock_response = minimal_gl_report_response(start_str, end_str)
+        mock_response = minimal_gl_report_response(start_str)
 
         with patch.object(report, "concurrent_get", return_value=mock_response) as mock_get:
             list(report.sync(catalog_entry))
@@ -122,10 +114,8 @@ class TestGeneralLedgerAccrualReportFullSync:
             report_periods=None,
             state_passed=True,  # state passed but gl_full_sync forces full sync
         )
-        today = datetime.date.today()
         start_str = start_date.strftime("%Y-%m-%d")
-        end_str = today.strftime("%Y-%m-%d")
-        mock_response = minimal_gl_report_response(start_str, end_str)
+        mock_response = minimal_gl_report_response(start_str)
 
         with patch.object(report, "concurrent_get", return_value=mock_response) as mock_get:
             list(report.sync(catalog_entry))
