@@ -14,7 +14,7 @@ def load_fixture(name):
         return json.load(f)
 
 
-def minimal_gl_report_response(start_date_str, end_date_str=None, amount="100"):
+def minimal_gl_report_response(start_date_str, amount="100"):
     """Load gl_report_response.json and override date/amount in the first row."""
     data = load_fixture("gl_report_response.json")
     data = copy.deepcopy(data)
