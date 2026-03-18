@@ -277,6 +277,7 @@ class QuickbooksTap(Tap):
         th.Property("gl_daily", th.BooleanType),
         th.Property("gl_basic_fields", th.BooleanType),
         th.Property("hg_sync_output", th.StringType),
+        th.Property("report_periods", th.IntegerType),
     ).to_dict()
     
     @classmethod
