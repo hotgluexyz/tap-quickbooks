@@ -360,7 +360,7 @@ class QuickbooksTap(Tap):
             catalog_dict = self.input_catalog.to_dict()
 
         state_dict = read_json_file(state) if isinstance(state, str) else (state or {})
-        state_passed = state is not None
+        state_passed = bool(state_dict)
         built_state = build_state(state_dict, catalog_dict)
 
         qb = None
