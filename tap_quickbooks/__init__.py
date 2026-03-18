@@ -2,7 +2,6 @@
 import json
 import sys
 import singer
-import singer.utils as singer_utils
 from singer import metadata, metrics
 import tap_quickbooks.quickbooks as quickbooks
 from tap_quickbooks.sync import (sync_stream, get_stream_version)
@@ -13,24 +12,13 @@ import threading
 from tap_quickbooks.util import cleanup
 import atexit
 
+from hotglue_singer_sdk.tap_base import Tap
+from hotglue_singer_sdk.helpers._util import read_json_file
+from hotglue_singer_sdk import typing as th
+from hotglue_singer_sdk.helpers.capabilities import AlertingLevel
+from tap_quickbooks.auth import QuickbooksOAuthAuthenticator
+
 LOGGER = singer.get_logger()
-
-REQUIRED_CONFIG_KEYS = [
-                        'refresh_token',
-                        'client_id',
-                        'client_secret',
-                        'start_date',
-                        'realmId',
-                        'select_fields_by_default'
-                        ]
-
-CONFIG = {
-    'refresh_token': None,
-    'client_id': None,
-    'client_secret': None,
-    'start_date': None,
-    'include_deleted': None
-}
 
 REPLICATION_KEY="MetaData.LastUpdatedTime"
 
@@ -266,45 +254,70 @@ def do_sync(qb, catalog, state, state_passed):
     singer.write_state(state)
     LOGGER.info("Finished sync")
 
-def main_impl():
-    args = singer_utils.parse_args(REQUIRED_CONFIG_KEYS)
+class QuickbooksTap(Tap):
+    name = "tap-quickbooks"
 
-    CONFIG.update(args.config)
-    LOGGER.debug(f"QB CONFIG IS {json.dumps(CONFIG)}")
+    alerting_level = AlertingLevel.WARNING
 
-    qb = None
-    try:
+    config_jsonschema = th.PropertiesList(
+        th.Property("refresh_token", th.StringType, required=True),
+        th.Property("client_id", th.StringType, required=True),
+        th.Property("client_secret", th.StringType, required=True),
+        th.Property("start_date", th.StringType, required=True),
+        th.Property("realmId", th.StringType, required=True),
+        th.Property("select_fields_by_default", th.BooleanType, required=True),
+        th.Property("is_sandbox", th.BooleanType),
+        th.Property("quota_percent_total", th.NumberType),
+        th.Property("quota_percent_per_run", th.NumberType),
+        th.Property("include_deleted", th.BooleanType),
+        th.Property("report_period_days", th.IntegerType),
+        th.Property("reports_full_sync", th.BooleanType),
+        th.Property("gl_full_sync", th.BooleanType),
+        th.Property("gl_weekly", th.BooleanType),
+        th.Property("gl_daily", th.BooleanType),
+        th.Property("gl_basic_fields", th.BooleanType),
+        th.Property("hg_sync_output", th.StringType),
+        th.Property("report_periods", th.IntegerType),
+    ).to_dict()
+    
+    @classmethod
+    def access_token_support(cls, connector=None):
+        """Return authenticator class and auth endpoint for token refresh."""
+        authenticator = QuickbooksOAuthAuthenticator
+        auth_endpoint = "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer"
+        return authenticator, auth_endpoint
+
+    def _build_qb(self):
+        config = dict(self.config)
         qb = Quickbooks(
-            refresh_token=CONFIG['refresh_token'],
-            qb_client_id=CONFIG['client_id'],
-            qb_client_secret=CONFIG['client_secret'],
-            quota_percent_total=CONFIG.get('quota_percent_total'),
-            quota_percent_per_run=CONFIG.get('quota_percent_per_run'),
-            is_sandbox=CONFIG.get('is_sandbox'),
-            select_fields_by_default=CONFIG.get('select_fields_by_default'),
-            default_start_date=CONFIG.get('start_date'),
-            include_deleted = CONFIG.get('include_deleted'),
+            refresh_token=config['refresh_token'],
+            qb_client_id=config['client_id'],
+            qb_client_secret=config['client_secret'],
+            quota_percent_total=config.get('quota_percent_total'),
+            quota_percent_per_run=config.get('quota_percent_per_run'),
+            is_sandbox=config.get('is_sandbox'),
+            select_fields_by_default=config.get('select_fields_by_default'),
+            default_start_date=config.get('start_date'),
+            include_deleted=config.get('include_deleted'),
             api_type='REST',
-            realm_id = CONFIG.get('realmId'),
-            report_period_days = CONFIG.get('report_period_days'),
-            reports_full_sync = CONFIG.get('reports_full_sync', False),
-            gl_full_sync = CONFIG.get('gl_full_sync'),
-            gl_weekly = CONFIG.get('gl_weekly', False),
-            gl_daily = CONFIG.get('gl_daily', False),
-            gl_basic_fields = CONFIG.get('gl_basic_fields', False),
-            hg_sync_output = CONFIG.get('hg_sync_output'),
-            report_periods = CONFIG.get('report_periods'),
+            realm_id=config.get('realmId'),
+            report_period_days=config.get('report_period_days'),
+            reports_full_sync=config.get('reports_full_sync', False),
+            gl_full_sync=config.get('gl_full_sync'),
+            gl_weekly=config.get('gl_weekly', False),
+            gl_daily=config.get('gl_daily', False),
+            gl_basic_fields=config.get('gl_basic_fields', False),
+            hg_sync_output=config.get('hg_sync_output'),
+            report_periods=config.get('report_periods'),
         )
-        qb.login()
+        try:
+            qb.login()
+        except Exception:
+            self._qb_cleanup(qb)
+            raise
+        return qb
 
-        if args.discover:
-            do_discover(qb)
-        elif args.properties:
-            catalog = args.properties
-            state_passed = bool(args.state)
-            state = build_state(args.state, catalog)
-            do_sync(qb, catalog, state, state_passed)
-    finally:
+    def _qb_cleanup(self, qb):
         if qb:
             if qb.rest_requests_attempted > 0:
                 LOGGER.debug(
@@ -312,22 +325,54 @@ def main_impl():
                     qb.rest_requests_attempted)
             if qb.login_timer:
                 qb.login_timer.cancel()
-                LOGGER.info(f"Main login timer canceled.")
+                LOGGER.info("Main login timer canceled.")
             qb.sync_finished = True
 
-        # cancel all timer threads
-        for thread in threading.enumerate():
-            if isinstance(thread, threading.Timer):
-                if thread.is_alive(): 
-                    thread.cancel()
-                    LOGGER.info(f"additional login timer canceled")
+            for thread in threading.enumerate():
+                if isinstance(thread, threading.Timer):
+                    if thread.is_alive():
+                        thread.cancel()
+                        LOGGER.info("Additional login timer canceled")
+
+    def discover_streams(self):
+        return []
+
+    def run_discovery(self):
+        qb = None
+        try:
+            qb = self._build_qb()
+            do_discover(qb)
+        finally:
+            self._qb_cleanup(qb)
+
+    def run_sync(self, catalog=None, state=None):
+        self.register_streams_from_catalog(catalog)
+        self.register_state_from_file(state)
+        if not self.input_catalog:
+            raise TapQuickbooksException(
+                "A catalog file is required to run sync. Use --catalog or --properties to provide one."
+            )
+        if isinstance(catalog, str):
+            catalog_dict = read_json_file(catalog)
+        elif isinstance(catalog, dict):
+            catalog_dict = catalog
+        else:
+            catalog_dict = self.input_catalog.to_dict()
+
+        state_dict = read_json_file(state) if isinstance(state, str) else (state or {})
+        state_passed = bool(state_dict)
+        built_state = build_state(state_dict, catalog_dict)
+
+        qb = None
+        try:
+            qb = self._build_qb()
+            do_sync(qb, catalog_dict, built_state, state_passed)
+        finally:
+            self._qb_cleanup(qb)
+
 
 def main():
-    try:
-        main_impl()
-    except Exception as e:
-        LOGGER.critical(e)
-        raise e
+    QuickbooksTap.cli()
 
 if __name__ == "__main__":
     atexit.register(cleanup)

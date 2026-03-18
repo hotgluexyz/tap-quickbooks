@@ -21,11 +21,12 @@ setup(name='tap-quickbooks',
 
       install_requires=[
           'requests>=2.20.0',
-          'singer-python==5.3.1',
+          'pipelinewise-singer-python==1.2.0',
           'xmltodict==0.11.0',
-          'jsonpath-ng==1.4.3',
+          'jsonpath-ng>=1.5.3,<2.0.0',
           'pytz==2018.4',
-          'attrs==20.2.0'
+          'attrs==20.2.0',
+          'hotglue-singer-sdk>=1.0.15,<2.0.0'
       ],
       entry_points='''
           [console_scripts]
