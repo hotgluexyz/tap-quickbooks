@@ -16,6 +16,7 @@ from hotglue_singer_sdk.tap_base import Tap
 from hotglue_singer_sdk.helpers._util import read_json_file
 from hotglue_singer_sdk import typing as th
 from hotglue_singer_sdk.helpers.capabilities import AlertingLevel
+from tap_quickbooks.auth import QuickbooksOAuthAuthenticator
 
 LOGGER = singer.get_logger()
 
@@ -277,6 +278,13 @@ class QuickbooksTap(Tap):
         th.Property("gl_basic_fields", th.BooleanType),
         th.Property("hg_sync_output", th.StringType),
     ).to_dict()
+    
+    @classmethod
+    def access_token_support(cls, connector=None):
+        """Return authenticator class and auth endpoint for token refresh."""
+        authenticator = QuickbooksOAuthAuthenticator
+        auth_endpoint = "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer"
+        return authenticator, auth_endpoint
 
     def _build_qb(self):
         config = dict(self.config)
