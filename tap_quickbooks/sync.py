@@ -9,6 +9,7 @@ import math
 import json
 import requests
 from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException
+from hotglue_etl_exceptions import InvalidCredentialsError
 from tap_quickbooks.util import save_api_usage
 
 LOGGER = singer.get_logger()
@@ -69,8 +70,11 @@ def sync_stream(qb, catalog_entry, state, state_passed):
         except RequestException as ex:
             response_message = ex.response.text if (ex.response is not None and hasattr(ex.response, "text")) else ""
             status_code = ex.response.status_code if ex.response is not None else ""
-            raise Exception("Error syncing {}: {} Response: {} Status code: {}".format(
-                stream, ex, response_message, status_code))
+            error_message = "Error syncing {}: {} Response: {} Status code: {}".format(
+                stream, ex, response_message, status_code)
+            if status_code == 401:
+                raise InvalidCredentialsError(error_message)
+            raise Exception(error_message)
         except TapQuickbooksException as qbe:
             raise qbe
         except Exception as ex:
