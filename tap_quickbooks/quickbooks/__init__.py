@@ -6,6 +6,7 @@ import time
 import backoff
 import requests
 from requests.exceptions import RequestException
+from hotglue_etl_exceptions import InvalidCredentialsError
 import singer
 import singer.utils as singer_utils
 import os;
@@ -500,7 +501,7 @@ class Quickbooks():
             # NB: requests.models.Response is always falsy here. It is false if status code >= 400
             if isinstance(resp, requests.models.Response):
                 error_message = error_message + ", Response from Quickbooks: {}".format(resp.text)
-            raise Exception(error_message) from e
+            raise InvalidCredentialsError(error_message) from e
         finally:
             if not self.sync_finished:
                 LOGGER.info("Starting new login timer")
