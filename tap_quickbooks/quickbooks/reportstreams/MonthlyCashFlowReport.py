@@ -51,54 +51,78 @@ class MonthlyCashFlowReport(BaseReportStream):
 
     def sync(self, catalog_entry):
         LOGGER.info(f"Starting full sync of MonthlyCashFlow")
-        end_date = datetime.date.today() 
-        start_date = self.start_date
-        params = {
-            "start_date": start_date.strftime("%Y-%m-%d"),
-            "end_date": end_date.strftime("%Y-%m-%d"),
-            "accounting_method": "Accrual",
-            "summarize_column_by": "Month"
-        }
+        today = datetime.date.today()
+        current_start = self.start_date.date()
 
-        LOGGER.info(f"Fetch MonthlyCashFlow Report for period {params['start_date']} to {params['end_date']}")
-        resp = self._get(report_entity='CashFlow', params=params)
+        # Accumulate results across year-chunks, keyed by (Account, Categories).
+        # Total is summed across chunks since it represents net cash flow over the period.
+        merged: Dict[tuple, dict] = {}
 
-        # Get column metadata.
-        columns = self._get_column_metadata(resp)
+        while current_start <= today:
+            current_end = datetime.date(current_start.year, 12, 31)
+            if current_end > today:
+                current_end = today
 
-        # Recursively get row data.
-        row_group = resp.get("Rows")
-        row_array = row_group.get("Row")
+            params = {
+                "start_date": current_start.strftime("%Y-%m-%d"),
+                "end_date": current_end.strftime("%Y-%m-%d"),
+                "accounting_method": "Accrual",
+                "summarize_column_by": "Month",
+            }
 
-        if row_array is None:
-            return
+            LOGGER.info(f"Fetch MonthlyCashFlow Report for period {params['start_date']} to {params['end_date']}")
+            resp = self._get(report_entity='CashFlow', params=params)
 
-        output = []
-        categories = []
-        for row in row_array:
-            self._recursive_row_search(row, output, categories)
+            columns = self._get_column_metadata(resp)
 
-        # Zip columns and row data.
-        for raw_row in output:
-            row = dict(zip(columns, raw_row))
-            if not row.get("Total"):
-                # If a row is missing the amount, skip it
+            row_group = resp.get("Rows")
+            row_array = row_group.get("Row")
+
+            if row_array is None:
+                current_start = datetime.date(current_start.year + 1, 1, 1)
                 continue
 
-            cleansed_row = {}
-            for k, v in row.items():
-                if v == "":
-                    continue
-                else:
-                    cleansed_row.update({k: v})
+            output = []
+            categories = []
+            for row in row_array:
+                self._recursive_row_search(row, output, categories)
 
-            cleansed_row["Total"] = float(row.get("Total"))
-            cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-            monthly_total = []
-            for key,value in cleansed_row.items():
-                if key not in ['Account', 'Categories', 'SyncTimestampUtc', 'Total']:
-                    monthly_total.append({key:value})
-            cleansed_row['MonthlyTotal'] = monthly_total
-            
-            yield cleansed_row
+            for raw_row in output:
+                row = dict(zip(columns, raw_row))
+                if not row.get("Total"):
+                    continue
+
+                cleansed_row = {}
+                for k, v in row.items():
+                    if v == "":
+                        continue
+                    else:
+                        cleansed_row[k] = v
+
+                chunk_total = float(row.get("Total"))
+
+                monthly_entries = []
+                for key, value in cleansed_row.items():
+                    if key not in ['Account', 'Categories', 'Total']:
+                        monthly_entries.append({key: value})
+
+                key = (cleansed_row.get("Account"), tuple(cleansed_row.get("Categories", [])))
+                if key not in merged:
+                    merged[key] = {
+                        "Account": cleansed_row.get("Account"),
+                        "Categories": cleansed_row.get("Categories"),
+                        "Total": 0.0,
+                        "MonthlyTotal": [],
+                    }
+                merged[key]["Total"] += chunk_total
+                merged[key]["MonthlyTotal"].extend(monthly_entries)
+
+            current_start = datetime.date(current_start.year + 1, 1, 1)
+
+        for record in merged.values():
+            if not record["MonthlyTotal"]:
+                continue
+            record["Total"] = round(record["Total"], 2)
+            record["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+            yield record
  

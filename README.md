@@ -24,7 +24,7 @@ $ tap-quickbooks --config config.json --properties properties.json --state state
   "client_id": "secret_client_id",
   "client_secret": "secret_client_secret",
   "refresh_token": "abc123",
-  "realmId": "123456789012345678901234567890"
+  "realmId": "123456789012345678901234567890",
   "start_date": "2017-11-02T00:00:00Z",
   "api_type": "REST",
   "select_fields_by_default": true
