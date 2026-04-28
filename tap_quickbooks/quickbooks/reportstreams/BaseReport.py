@@ -89,6 +89,55 @@ class BaseReportStream(QuickbooksStream):
             if header is not None:
                 categories.pop()
 
+    def _fetch_chunk_rows(self, report_entity, log_name, start_date, end_date):
+        """Fetch one year chunk from the QBO API and return (columns, flat_rows), or None if empty."""
+        params = {
+            "start_date": start_date.strftime("%Y-%m-%d"),
+            "end_date": end_date.strftime("%Y-%m-%d"),
+            "accounting_method": "Accrual",
+            "summarize_column_by": "Month",
+        }
+        LOGGER.info(f"Fetch {log_name} Report for period {params['start_date']} to {params['end_date']}")
+        resp = self._get(report_entity=report_entity, params=params)
+
+        row_array = resp.get("Rows", {}).get("Row")
+        if row_array is None:
+            return None
+
+        columns = self._get_monthly_column_metadata(resp)
+        output = []
+        for row in row_array:
+            self._recursive_row_search(row, output, [])
+        return columns, output
+
+    def _merge_row_into_dict(self, raw_row, columns, merged, track_total):
+        """Accumulate one raw row into the cross-chunk merged dict."""
+        row = dict(zip(columns, raw_row))
+
+        if track_total and not row.get("Total"):
+            return
+
+        cleansed_row = {k: v for k, v in row.items() if v != ""}
+        exclude_keys = {"Account", "Categories", "Total"} if track_total else {"Account", "Categories"}
+        monthly_entries = [{k: v} for k, v in cleansed_row.items() if k not in exclude_keys]
+
+        if not track_total and not monthly_entries:
+            return
+
+        key = (cleansed_row.get("Account"), tuple(cleansed_row.get("Categories", [])))
+        if key not in merged:
+            merged[key] = {
+                "Account": cleansed_row.get("Account"),
+                "Categories": cleansed_row.get("Categories"),
+                "MonthlyTotal": [],
+            }
+            if track_total:
+                merged[key]["Total"] = 0.0
+
+        if track_total:
+            merged[key]["Total"] += float(row.get("Total"))
+        merged[key]["MonthlyTotal"].extend(monthly_entries)
+
     def _sync_monthly_chunked(self, report_entity, log_name, track_total=False):
         """Year-chunked sync shared by MonthlyBalanceSheet and MonthlyCashFlow.
 
@@ -98,63 +147,15 @@ class BaseReportStream(QuickbooksStream):
         LOGGER.info(f"Starting full sync of {log_name}")
         today = datetime.date.today()
         current_start = self.start_date.date()
-
         merged: Dict[tuple, dict] = {}
 
         while current_start <= today:
-            current_end = datetime.date(current_start.year, 12, 31)
-            if current_end > today:
-                current_end = today
-
-            params = {
-                "start_date": current_start.strftime("%Y-%m-%d"),
-                "end_date": current_end.strftime("%Y-%m-%d"),
-                "accounting_method": "Accrual",
-                "summarize_column_by": "Month",
-            }
-
-            LOGGER.info(f"Fetch {log_name} Report for period {params['start_date']} to {params['end_date']}")
-            resp = self._get(report_entity=report_entity, params=params)
-
-            columns = self._get_monthly_column_metadata(resp)
-            row_array = resp.get("Rows", {}).get("Row")
-
-            if row_array is None:
-                current_start = datetime.date(current_start.year + 1, 1, 1)
-                continue
-
-            output = []
-            for row in row_array:
-                self._recursive_row_search(row, output, [])
-
-            for raw_row in output:
-                row = dict(zip(columns, raw_row))
-
-                if track_total and not row.get("Total"):
-                    continue
-
-                cleansed_row = {k: v for k, v in row.items() if v != ""}
-
-                exclude_keys = {"Account", "Categories", "Total"} if track_total else {"Account", "Categories"}
-                monthly_entries = [{k: v} for k, v in cleansed_row.items() if k not in exclude_keys]
-
-                if not track_total and not monthly_entries:
-                    continue
-
-                key = (cleansed_row.get("Account"), tuple(cleansed_row.get("Categories", [])))
-                if key not in merged:
-                    merged[key] = {
-                        "Account": cleansed_row.get("Account"),
-                        "Categories": cleansed_row.get("Categories"),
-                        "MonthlyTotal": [],
-                    }
-                    if track_total:
-                        merged[key]["Total"] = 0.0
-
-                if track_total:
-                    merged[key]["Total"] += float(row.get("Total"))
-                merged[key]["MonthlyTotal"].extend(monthly_entries)
-
+            current_end = min(datetime.date(current_start.year, 12, 31), today)
+            chunk = self._fetch_chunk_rows(report_entity, log_name, current_start, current_end)
+            if chunk is not None:
+                columns, output = chunk
+                for raw_row in output:
+                    self._merge_row_into_dict(raw_row, columns, merged, track_total)
             current_start = datetime.date(current_start.year + 1, 1, 1)
 
         for record in merged.values():
