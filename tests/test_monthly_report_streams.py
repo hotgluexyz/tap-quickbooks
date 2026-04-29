@@ -191,7 +191,7 @@ class TestProcessPeriod:
 
     def test_accumulates_rows_into_merged_with_correct_params(self, base_report):
         merged = {}
-        with patch.object(base_report, "_get", return_value=self.RESP) as mock_get:
+        with patch.object(base_report, "_get_504_fatal", return_value=self.RESP) as mock_get:
             base_report._process_period("BalanceSheet", "BS", self.START, self.END, merged, track_total=False)
 
         assert ("Checking", ("Assets",)) in merged
@@ -204,7 +204,7 @@ class TestProcessPeriod:
 
     def test_skips_empty_response(self, base_report):
         merged = {}
-        with patch.object(base_report, "_get", return_value={"Columns": {"Column": []}, "Rows": {}}):
+        with patch.object(base_report, "_get_504_fatal", return_value={"Columns": {"Column": []}, "Rows": {}}):
             base_report._process_period("BalanceSheet", "BS", self.START, self.END, merged, track_total=False)
         assert merged == {}
 
@@ -219,7 +219,7 @@ class TestProcessPeriod:
             return self.RESP
 
         merged = {}
-        with patch.object(base_report, "_get", side_effect=get_side_effect):
+        with patch.object(base_report, "_get_504_fatal", side_effect=get_side_effect):
             base_report._process_period("BalanceSheet", "BS", self.START, self.END, merged, track_total=False)
 
         assert starts_seen[0] == "2024-01-01"
@@ -237,7 +237,7 @@ class TestProcessPeriod:
         }
 
         merged = {}
-        with patch.object(base_report, "_get", return_value=pit_resp) as mock_get:
+        with patch.object(base_report, "_get_504_fatal", return_value=pit_resp) as mock_get:
             base_report._process_period(
                 "BalanceSheet", "BS",
                 datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),
@@ -253,7 +253,7 @@ class TestProcessPeriod:
         resp.status_code = 401
         err = requests.exceptions.HTTPError(response=resp)
         merged = {}
-        with patch.object(base_report, "_get", side_effect=err):
+        with patch.object(base_report, "_get_504_fatal", side_effect=err):
             with pytest.raises(requests.exceptions.HTTPError):
                 base_report._process_period("BalanceSheet", "BS", self.START, self.END, merged, track_total=False)
 
@@ -279,7 +279,7 @@ class TestProcessPeriodPointInTime:
 
     def test_cash_flow_skips_top_level_rows_with_no_category(self, base_report):
         merged = {}
-        with patch.object(base_report, "_get", return_value=self.PIT_RESP):
+        with patch.object(base_report, "_get_504_fatal", return_value=self.PIT_RESP):
             base_report._process_period_point_in_time(
                 "CashFlow", "CF",
                 datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),
@@ -292,7 +292,7 @@ class TestProcessPeriodPointInTime:
 
     def test_balance_sheet_includes_top_level_rows_with_no_category(self, base_report):
         merged = {}
-        with patch.object(base_report, "_get", return_value=self.PIT_RESP):
+        with patch.object(base_report, "_get_504_fatal", return_value=self.PIT_RESP):
             base_report._process_period_point_in_time(
                 "BalanceSheet", "BS",
                 datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),

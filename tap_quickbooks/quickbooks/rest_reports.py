@@ -15,12 +15,8 @@ LOGGER = singer.get_logger()
 def is_fatal_code(e: requests.exceptions.RequestException) -> bool:
     '''Helper function to determine if a Requests reponse status code
     is a "fatal" status code. If it is, the backoff decorator will giveup
-    instead of attemtping to backoff.
-    504 Gateway Timeout is treated as fatal here so it propagates immediately
-    to callers that implement adaptive range-splitting instead of retrying the
-    same oversized request.'''
-    code = e.response.status_code
-    return (400 <= code < 500 and code not in (400, 429)) or code == 504
+    instead of attemtping to backoff.'''
+    return 400 <= e.response.status_code < 500 and e.response.status_code not in [429, 400]
 
 class RetriableException(Exception):
     pass
@@ -33,22 +29,9 @@ class QuickbooksStream:
     def _get_abs_path(self, path: str) -> str:
         return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
 
-    @backoff.on_exception(backoff.expo,
-                          requests.exceptions.HTTPError,
-                          max_tries=10,
-                          factor=3,
-                          giveup=is_fatal_code)
-    @backoff.on_exception(backoff.expo,
-                          (requests.exceptions.ConnectionError,
-                           requests.exceptions.Timeout,
-                           RetriableException
-                           ),
-                          max_tries=10,
-                          factor=3)
-    def _get(self, report_entity: str, params: Optional[Dict] = None) -> Dict:
-        '''Constructs a standard way of making
-        a GET request to the Quickbooks REST API.
-        '''
+    def _execute_request(self, report_entity: str, params: Optional[Dict] = None) -> Dict:
+        '''Performs the raw HTTP GET to the Quickbooks Reports API, raises on error,
+        and returns the parsed JSON. No backoff — callers add their own decorator.'''
         url = f"{self.qb.instance_url}/reports/{report_entity}"
         headers = self.qb._get_standard_headers()
 
@@ -78,6 +61,22 @@ class QuickbooksStream:
             raise RetriableException(f"Empty response returned {response.text} ")
         
         return res_json
+
+    @backoff.on_exception(backoff.expo,
+                          requests.exceptions.HTTPError,
+                          max_tries=10,
+                          factor=3,
+                          giveup=is_fatal_code)
+    @backoff.on_exception(backoff.expo,
+                          (requests.exceptions.ConnectionError,
+                           requests.exceptions.Timeout,
+                           RetriableException
+                           ),
+                          max_tries=10,
+                          factor=3)
+    def _get(self, report_entity: str, params: Optional[Dict] = None) -> Dict:
+        '''GET with backoff. 504s are retried like any other 5xx.'''
+        return self._execute_request(report_entity, params)
 
     def _convert_string_value_to_float(self, value: str) -> float:
         '''Safely converts string values to floats.'''

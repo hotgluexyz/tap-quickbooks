@@ -2,12 +2,24 @@ import calendar
 import datetime
 from typing import Dict
 
+import backoff
 import requests
 import singer
 
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
+from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream, RetriableException
 
 LOGGER = singer.get_logger()
+
+
+def _is_fatal_including_504(e: requests.exceptions.RequestException) -> bool:
+    """Fatal predicate for _get_504_fatal: same as is_fatal_code but also stops on 504.
+
+    504 is treated as fatal so it propagates immediately to _process_period,
+    which implements adaptive range-splitting instead of retrying the same
+    oversized request.
+    """
+    code = e.response.status_code
+    return (400 <= code < 500 and code not in (400, 429)) or code == 504
 
 class BaseReportStream(QuickbooksStream):
 
@@ -40,6 +52,23 @@ class BaseReportStream(QuickbooksStream):
             }
         else:
             return response
+
+    @backoff.on_exception(backoff.expo,
+                          requests.exceptions.HTTPError,
+                          max_tries=10,
+                          factor=3,
+                          giveup=_is_fatal_including_504)
+    @backoff.on_exception(backoff.expo,
+                          (requests.exceptions.ConnectionError,
+                           requests.exceptions.Timeout,
+                           RetriableException,
+                           ),
+                          max_tries=10,
+                          factor=3)
+    def _get_504_fatal(self, report_entity: str, params=None):
+        """GET variant used by _process_period: 504 is fatal so it propagates
+        immediately for adaptive range-splitting rather than being retried."""
+        return self._execute_request(report_entity, params)
     
     def _get_column_metadata(self, resp, schema=None):
         columns = []
@@ -124,7 +153,7 @@ class BaseReportStream(QuickbooksStream):
         LOGGER.info(f"Fetch {log_name} Report for period {params['start_date']} to {params['end_date']}")
 
         try:
-            resp = self._get(report_entity=report_entity, params=params)
+            resp = self._get_504_fatal(report_entity=report_entity, params=params)
         except requests.exceptions.HTTPError as e:
             if e.response is None or e.response.status_code != 504:
                 raise
@@ -186,7 +215,7 @@ class BaseReportStream(QuickbooksStream):
         LOGGER.info(f"Fetch {log_name} point-in-time for {params['start_date']} to {params['end_date']}")
 
         try:
-            resp = self._get(report_entity=report_entity, params=params)
+            resp = self._get_504_fatal(report_entity=report_entity, params=params)
         except requests.exceptions.HTTPError:
             LOGGER.error(f"Point-in-time request failed for {log_name} {start_date} to {end_date}")
             raise
