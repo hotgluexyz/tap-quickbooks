@@ -8,13 +8,26 @@ from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 LOGGER = singer.get_logger()
 
 class BaseReportStream(QuickbooksStream):
+    DEFAULT_MONTHLY_REPORT_CHUNK_YEARS = 5
     
-    def __init__(self, qb, start_date, report_periods, state_passed=None):
+    def __init__(
+        self,
+        qb,
+        start_date,
+        report_periods,
+        state_passed=None,
+        monthly_report_chunk_years=None,
+    ):
         self.qb = qb
         self.start_date = start_date
         self.has_number_of_periods = report_periods is not None
         self.number_of_periods = report_periods or 3
         self.state_passed = state_passed
+        self.monthly_report_chunk_years = (
+            monthly_report_chunk_years or self.DEFAULT_MONTHLY_REPORT_CHUNK_YEARS
+        )
+        if self.monthly_report_chunk_years < 1:
+            raise ValueError("monthly_report_chunk_years must be at least 1")
     
     def concurrent_get(self, report_entity, params):
         log_msg = f"Fetch {report_entity} for period {params['start_date']} to {params['end_date']}"
@@ -90,7 +103,7 @@ class BaseReportStream(QuickbooksStream):
                 categories.pop()
 
     def _fetch_chunk_rows(self, report_entity, log_name, start_date, end_date):
-        """Fetch one year chunk from the QBO API and return (columns, flat_rows), or None if empty."""
+        """Fetch one date chunk from the QBO API and return (columns, flat_rows), or None if empty."""
         params = {
             "start_date": start_date.strftime("%Y-%m-%d"),
             "end_date": end_date.strftime("%Y-%m-%d"),
@@ -139,7 +152,7 @@ class BaseReportStream(QuickbooksStream):
         merged[key]["MonthlyTotal"].extend(monthly_entries)
 
     def _sync_monthly_chunked(self, report_entity, log_name, track_total=False):
-        """Year-chunked sync shared by MonthlyBalanceSheet and MonthlyCashFlow.
+        """Chunked sync shared by MonthlyBalanceSheet and MonthlyCashFlow.
 
         When track_total=True the Total column is excluded from MonthlyTotal entries
         and summed separately across chunks (cash flow semantics).
@@ -150,13 +163,14 @@ class BaseReportStream(QuickbooksStream):
         merged: Dict[tuple, dict] = {}
 
         while current_start <= today:
-            current_end = min(datetime.date(current_start.year, 12, 31), today)
+            chunk_end_year = current_start.year + self.monthly_report_chunk_years - 1
+            current_end = min(datetime.date(chunk_end_year, 12, 31), today)
             chunk = self._fetch_chunk_rows(report_entity, log_name, current_start, current_end)
             if chunk is not None:
                 columns, output = chunk
                 for raw_row in output:
                     self._merge_row_into_dict(raw_row, columns, merged, track_total)
-            current_start = datetime.date(current_start.year + 1, 1, 1)
+            current_start = datetime.date(current_end.year + 1, 1, 1)
 
         for record in merged.values():
             if not record["MonthlyTotal"]:
