@@ -198,12 +198,15 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                 "properties": {
                     "Quantity": number_type,
                     "Line": {
-                        "Id": string_type,
-                        "DetailType": string_type,
-                        "Amount": number_type,
-                        "Description": string_type,
-                        "LineNum": string_type,
-                        "SalesItemLineDetail": sales_item_line_detail
+                        "type": object_type["type"],
+                        "properties": {
+                            "Id": string_type,
+                            "DetailType": string_type,
+                            "Amount": number_type,
+                            "Description": string_type,
+                            "LineNum": string_type,
+                            "SalesItemLineDetail": sales_item_line_detail
+                        }
                     },
                     "GroupItemRef": qb_types["ref_type"]
                 }
