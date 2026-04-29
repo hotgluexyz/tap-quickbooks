@@ -1,9 +1,10 @@
 """Unit tests for shared monthly report parsing and stream wiring."""
 
 import datetime
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pytest
+import requests
 
 from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
 from tap_quickbooks.quickbooks.reportstreams.MonthlyBalanceSheetReport import (
@@ -12,6 +13,13 @@ from tap_quickbooks.quickbooks.reportstreams.MonthlyBalanceSheetReport import (
 from tap_quickbooks.quickbooks.reportstreams.MonthlyCashFlowReport import (
     MonthlyCashFlowReport,
 )
+
+
+def _make_504_error():
+    resp = MagicMock()
+    resp.status_code = 504
+    err = requests.exceptions.HTTPError(response=resp)
+    return err
 
 
 class ConcreteReport(BaseReportStream):
@@ -156,144 +164,231 @@ class TestMergeRowIntoDict:
         assert merged == {}
 
 
-class TestFetchChunkRows:
+class TestProcessPeriod:
     START = datetime.date(2024, 1, 1)
-    END = datetime.date(2028, 12, 31)
+    END = datetime.date(2024, 12, 31)
 
-    def test_returns_none_when_rows_key_missing(self, base_report):
-        resp = {"Columns": {"Column": []}, "Rows": {}}
-        with patch.object(base_report, "_get", return_value=resp):
-            assert base_report._fetch_chunk_rows("BalanceSheet", "BS", self.START, self.END) is None
+    RESP = {
+        "Columns": {
+            "Column": [
+                {"ColTitle": "", "ColType": "Account"},
+                {"ColTitle": "Jan 2024", "ColType": "Money"},
+            ]
+        },
+        "Rows": {
+            "Row": [
+                {
+                    "Header": {"ColData": [{"value": "Assets"}]},
+                    "Rows": {
+                        "Row": [
+                            {"ColData": [{"value": "Checking"}, {"value": "100.00"}]}
+                        ]
+                    },
+                }
+            ]
+        },
+    }
 
-    def test_fetches_params_columns_and_flattened_rows(self, base_report):
-        resp = {
-            "Columns": {
-                "Column": [
-                    {"ColTitle": "", "ColType": "Account"},
-                    {"ColTitle": "Jan 2024", "ColType": "Money"},
-                ]
-            },
-            "Rows": {
-                "Row": [
-                    {
-                        "Header": {"ColData": [{"value": "Assets"}]},
-                        "Rows": {
-                            "Row": [
-                                {
-                                    "ColData": [
-                                        {"value": "Checking"},
-                                        {"value": "100.00"},
-                                    ]
-                                }
-                            ]
-                        },
-                    }
-                ]
-            },
-        }
-        with patch.object(base_report, "_get", return_value=resp) as mock_get:
-            result = base_report._fetch_chunk_rows("BalanceSheet", "BS", self.START, self.END)
-        assert result == (
-            ["Account", "Jan2024", "Categories"],
-            [["Checking", "100.00", ["Assets"]]],
-        )
+    def test_accumulates_rows_into_merged_with_correct_params(self, base_report):
+        merged = {}
+        with patch.object(base_report, "_get", return_value=self.RESP) as mock_get:
+            base_report._process_period("BalanceSheet", "BS", self.START, self.END, merged, track_total=False)
+
+        assert ("Checking", ("Assets",)) in merged
+        assert merged[("Checking", ("Assets",))]["MonthlyTotal"] == [{"Jan2024": "100.00"}]
         params = mock_get.call_args.kwargs["params"]
         assert params["start_date"] == "2024-01-01"
-        assert params["end_date"] == "2028-12-31"
+        assert params["end_date"] == "2024-12-31"
         assert params["accounting_method"] == "Accrual"
         assert params["summarize_column_by"] == "Month"
 
+    def test_skips_empty_response(self, base_report):
+        merged = {}
+        with patch.object(base_report, "_get", return_value={"Columns": {"Column": []}, "Rows": {}}):
+            base_report._process_period("BalanceSheet", "BS", self.START, self.END, merged, track_total=False)
+        assert merged == {}
+
+    def test_splits_on_504_and_retries_halves(self, base_report):
+        starts_seen = []
+
+        def get_side_effect(**kwargs):
+            start = kwargs["params"]["start_date"]
+            starts_seen.append(start)
+            if start == "2024-01-01" and kwargs["params"]["end_date"] == "2024-12-31":
+                raise _make_504_error()
+            return self.RESP
+
+        merged = {}
+        with patch.object(base_report, "_get", side_effect=get_side_effect):
+            base_report._process_period("BalanceSheet", "BS", self.START, self.END, merged, track_total=False)
+
+        assert starts_seen[0] == "2024-01-01"
+        assert "2024-01-01" in starts_seen[1:]
+        assert "2024-07-01" in starts_seen
+
+    def test_single_month_goes_directly_to_point_in_time_without_columnar_attempt(self, base_report):
+        """A 1-month period skips summarize_column_by=Month entirely and uses PIT."""
+        pit_resp = {
+            "Columns": {"Column": [
+                {"ColTitle": "", "ColType": "Account"},
+                {"ColTitle": "Total", "ColType": "Money"},
+            ]},
+            "Rows": {"Row": [{"ColData": [{"value": "Checking"}, {"value": "500.00"}]}]},
+        }
+
+        merged = {}
+        with patch.object(base_report, "_get", return_value=pit_resp) as mock_get:
+            base_report._process_period(
+                "BalanceSheet", "BS",
+                datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),
+                merged, track_total=False,
+            )
+
+        assert merged[("Checking", ())]["MonthlyTotal"] == [{"Jan2024": "500.00"}]
+        params = mock_get.call_args.kwargs["params"]
+        assert "summarize_column_by" not in params
+
+    def test_raises_immediately_on_non_504_http_error(self, base_report):
+        resp = MagicMock()
+        resp.status_code = 401
+        err = requests.exceptions.HTTPError(response=resp)
+        merged = {}
+        with patch.object(base_report, "_get", side_effect=err):
+            with pytest.raises(requests.exceptions.HTTPError):
+                base_report._process_period("BalanceSheet", "BS", self.START, self.END, merged, track_total=False)
+
+
+class TestProcessPeriodPointInTime:
+    PIT_RESP = {
+        "Columns": {"Column": [
+            {"ColTitle": "", "ColType": "Account"},
+            {"ColTitle": "Total", "ColType": "Money"},
+        ]},
+        "Rows": {
+            "Row": [
+                {
+                    "Header": {"ColData": [{"value": "OPERATING ACTIVITIES"}]},
+                    "Rows": {"Row": [
+                        {"ColData": [{"value": "Net Income"}, {"value": "1500.00"}]},
+                    ]},
+                },
+                {"ColData": [{"value": "Cash at beginning of period"}, {"value": "5000.00"}]},
+            ]
+        },
+    }
+
+    def test_cash_flow_skips_top_level_rows_with_no_category(self, base_report):
+        merged = {}
+        with patch.object(base_report, "_get", return_value=self.PIT_RESP):
+            base_report._process_period_point_in_time(
+                "CashFlow", "CF",
+                datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),
+                merged, track_total=True,
+            )
+
+        keys = list(merged.keys())
+        assert ("Cash at beginning of period", ()) not in keys
+        assert ("Net Income", ("OPERATING ACTIVITIES",)) in keys
+
+    def test_balance_sheet_includes_top_level_rows_with_no_category(self, base_report):
+        merged = {}
+        with patch.object(base_report, "_get", return_value=self.PIT_RESP):
+            base_report._process_period_point_in_time(
+                "BalanceSheet", "BS",
+                datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),
+                merged, track_total=False,
+            )
+
+        assert ("Cash at beginning of period", ()) in merged
+
+
+class TestPointInTimeColName:
+    def test_full_month_returns_monYYYY(self, base_report):
+        assert base_report._point_in_time_col_name(
+            datetime.date(2024, 2, 1), datetime.date(2024, 2, 29)
+        ) == "Feb2024"
+
+    def test_partial_month_matches_qbo_format(self, base_report):
+        # QBO generates "Apr 1-29, 2026" → stripped → "Apr1-29,2026"
+        assert base_report._point_in_time_col_name(
+            datetime.date(2026, 4, 1), datetime.date(2026, 4, 29)
+        ) == "Apr1-29,2026"
+
+    def test_full_december_returns_dec(self, base_report):
+        assert base_report._point_in_time_col_name(
+            datetime.date(2023, 12, 1), datetime.date(2023, 12, 31)
+        ) == "Dec2023"
+
 
 class TestSyncMonthlyChunked:
+    """FixedDate.today() returns 2030-04-29; base_report.start_date is 2024-01-01."""
+
     def _without_timestamp(self, record):
         assert record.pop("SyncTimestampUtc")
         return record
 
-    def test_default_five_year_chunks_merge_balance_sheet_records(self, base_report):
-        chunks = [
-            (["Account", "Jan2024", "Categories"], [["Checking", "100.00", ["Assets"]]]),
-            (["Account", "Jan2029", "Categories"], [["Checking", "200.00", ["Assets"]]]),
-        ]
+    def test_calls_process_period_with_full_range(self, base_report):
         with patch(
             "tap_quickbooks.quickbooks.reportstreams.BaseReport.datetime.date",
             FixedDate,
-        ), patch.object(base_report, "_fetch_chunk_rows", side_effect=chunks) as mock_fetch:
-            records = list(base_report._sync_monthly_chunked("BalanceSheet", "BS", track_total=False))
+        ), patch.object(base_report, "_process_period") as mock_process:
+            list(base_report._sync_monthly_chunked("BalanceSheet", "BS", track_total=False))
 
-        assert [call.args[2:] for call in mock_fetch.call_args_list] == [
-            (datetime.date(2024, 1, 1), datetime.date(2028, 12, 31)),
-            (datetime.date(2029, 1, 1), datetime.date(2030, 4, 29)),
-        ]
-        assert [self._without_timestamp(record) for record in records] == [
-            {
+        mock_process.assert_called_once_with(
+            "BalanceSheet", "BS",
+            datetime.date(2024, 1, 1), FixedDate.today(),
+            {}, False,
+        )
+
+    def test_yields_records_after_process_period_fills_merged(self, base_report):
+        def fill_merged(report_entity, log_name, start, end, merged, track_total):
+            merged[("Checking", ("Assets",))] = {
                 "Account": "Checking",
                 "Categories": ["Assets"],
-                "MonthlyTotal": [{"Jan2024": "100.00"}, {"Jan2029": "200.00"}],
+                "MonthlyTotal": [{"Jan2024": "100.00"}],
             }
-        ]
 
-    def test_custom_chunk_years_control_chunk_boundaries(self, mock_qb):
-        report = ConcreteReport(
-            qb=mock_qb,
-            start_date=datetime.datetime(2024, 1, 1),
-            report_periods=None,
-            monthly_report_chunk_years=2,
-        )
         with patch(
             "tap_quickbooks.quickbooks.reportstreams.BaseReport.datetime.date",
             FixedDate,
-        ), patch.object(report, "_fetch_chunk_rows", return_value=None) as mock_fetch:
-            records = list(report._sync_monthly_chunked("BalanceSheet", "BS", track_total=False))
+        ), patch.object(base_report, "_process_period", side_effect=fill_merged):
+            records = list(base_report._sync_monthly_chunked("BalanceSheet", "BS", track_total=False))
 
-        assert records == []
-        assert [call.args[2:] for call in mock_fetch.call_args_list] == [
-            (datetime.date(2024, 1, 1), datetime.date(2025, 12, 31)),
-            (datetime.date(2026, 1, 1), datetime.date(2027, 12, 31)),
-            (datetime.date(2028, 1, 1), datetime.date(2029, 12, 31)),
-            (datetime.date(2030, 1, 1), datetime.date(2030, 4, 29)),
-        ]
+        assert len(records) == 1
+        r = records[0]
+        assert r["Account"] == "Checking"
+        assert r["MonthlyTotal"] == [{"Jan2024": "100.00"}]
+        assert r["SyncTimestampUtc"]
 
-    def test_chunk_years_must_be_positive(self, mock_qb):
-        with pytest.raises(ValueError, match="monthly_report_chunk_years"):
-            ConcreteReport(
-                qb=mock_qb,
-                start_date=datetime.datetime(2024, 1, 1),
-                report_periods=None,
-                monthly_report_chunk_years=-1,
-            )
-
-    def test_cash_flow_tracks_rounded_total_separately(self, base_report):
-        chunks = [
-            (
-                ["Account", "Jan2024", "Total", "Categories"],
-                [["Operations", "100.005", "100.005", []]],
-            ),
-            (
-                ["Account", "Jan2029", "Total", "Categories"],
-                [["Operations", "200.005", "200.005", []]],
-            ),
-        ]
-        with patch(
-            "tap_quickbooks.quickbooks.reportstreams.BaseReport.datetime.date",
-            FixedDate,
-        ), patch.object(base_report, "_fetch_chunk_rows", side_effect=chunks):
-            records = list(base_report._sync_monthly_chunked("CashFlow", "CF", track_total=True))
-
-        assert [self._without_timestamp(record) for record in records] == [
-            {
+    def test_cash_flow_rounds_total(self, base_report):
+        def fill_merged(report_entity, log_name, start, end, merged, track_total):
+            merged[("Operations", ())] = {
                 "Account": "Operations",
                 "Categories": [],
-                "MonthlyTotal": [{"Jan2024": "100.005"}, {"Jan2029": "200.005"}],
-                "Total": round(100.005 + 200.005, 2),
+                "MonthlyTotal": [{"Jan2024": "100.005"}],
+                "Total": 100.005,
             }
-        ]
 
-    @pytest.mark.parametrize("chunk", [None, (["Account", "Jan2024", "Categories"], [["Checking", "", []]])])
-    def test_empty_chunks_yield_no_records(self, base_report, chunk):
         with patch(
             "tap_quickbooks.quickbooks.reportstreams.BaseReport.datetime.date",
             FixedDate,
-        ), patch.object(base_report, "_fetch_chunk_rows", return_value=chunk):
+        ), patch.object(base_report, "_process_period", side_effect=fill_merged):
+            records = list(base_report._sync_monthly_chunked("CashFlow", "CF", track_total=True))
+
+        assert records[0]["Total"] == round(100.005, 2)
+
+    def test_empty_monthly_total_is_not_yielded(self, base_report):
+        def fill_merged(report_entity, log_name, start, end, merged, track_total):
+            merged[("Checking", ())] = {
+                "Account": "Checking",
+                "Categories": [],
+                "MonthlyTotal": [],
+            }
+
+        with patch(
+            "tap_quickbooks.quickbooks.reportstreams.BaseReport.datetime.date",
+            FixedDate,
+        ), patch.object(base_report, "_process_period", side_effect=fill_merged):
             records = list(base_report._sync_monthly_chunked("BalanceSheet", "BS", track_total=False))
 
         assert records == []

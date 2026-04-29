@@ -1,6 +1,8 @@
+import calendar
 import datetime
 from typing import Dict
 
+import requests
 import singer
 
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
@@ -8,26 +10,19 @@ from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 LOGGER = singer.get_logger()
 
 class BaseReportStream(QuickbooksStream):
-    DEFAULT_MONTHLY_REPORT_CHUNK_YEARS = 5
-    
+
     def __init__(
         self,
         qb,
         start_date,
         report_periods,
         state_passed=None,
-        monthly_report_chunk_years=None,
     ):
         self.qb = qb
         self.start_date = start_date
         self.has_number_of_periods = report_periods is not None
         self.number_of_periods = report_periods or 3
         self.state_passed = state_passed
-        self.monthly_report_chunk_years = (
-            monthly_report_chunk_years or self.DEFAULT_MONTHLY_REPORT_CHUNK_YEARS
-        )
-        if self.monthly_report_chunk_years < 1:
-            raise ValueError("monthly_report_chunk_years must be at least 1")
     
     def concurrent_get(self, report_entity, params):
         log_msg = f"Fetch {report_entity} for period {params['start_date']} to {params['end_date']}"
@@ -102,8 +97,24 @@ class BaseReportStream(QuickbooksStream):
             if header is not None:
                 categories.pop()
 
-    def _fetch_chunk_rows(self, report_entity, log_name, start_date, end_date):
-        """Fetch one date chunk from the QBO API and return (columns, flat_rows), or None if empty."""
+    def _process_period(self, report_entity, log_name, start_date, end_date, merged, track_total):
+        """Fetch one date chunk and accumulate rows into merged.
+
+        Single-month periods go directly to the point-in-time path, which avoids
+        the summarize_column_by=Month parameter that causes 504s on dense data.
+        Larger periods use the columnar path; on a 504 they are split in half and
+        each half is retried recursively until reaching one month.
+        """
+        months = (
+            (end_date.year - start_date.year) * 12
+            + (end_date.month - start_date.month)
+            + 1
+        )
+
+        if months == 1:
+            self._process_period_point_in_time(report_entity, log_name, start_date, end_date, merged, track_total)
+            return
+
         params = {
             "start_date": start_date.strftime("%Y-%m-%d"),
             "end_date": end_date.strftime("%Y-%m-%d"),
@@ -111,17 +122,113 @@ class BaseReportStream(QuickbooksStream):
             "summarize_column_by": "Month",
         }
         LOGGER.info(f"Fetch {log_name} Report for period {params['start_date']} to {params['end_date']}")
-        resp = self._get(report_entity=report_entity, params=params)
+
+        try:
+            resp = self._get(report_entity=report_entity, params=params)
+        except requests.exceptions.HTTPError as e:
+            if e.response is None or e.response.status_code != 504:
+                raise
+
+            half = months // 2
+            mid_year = start_date.year + (start_date.month - 1 + half) // 12
+            mid_month = (start_date.month - 1 + half) % 12 + 1
+            mid = datetime.date(mid_year, mid_month, 1)
+            mid_end = mid - datetime.timedelta(days=1)
+
+            LOGGER.warning(
+                f"504 timeout for {log_name} {start_date} to {end_date} "
+                f"({months} months) — splitting into "
+                f"{start_date} to {mid_end} and {mid} to {end_date}"
+            )
+            self._process_period(report_entity, log_name, start_date, mid_end, merged, track_total)
+            self._process_period(report_entity, log_name, mid, end_date, merged, track_total)
+            return
 
         row_array = resp.get("Rows", {}).get("Row")
         if row_array is None:
-            return None
+            return
 
         columns = self._get_monthly_column_metadata(resp)
         output = []
         for row in row_array:
             self._recursive_row_search(row, output, [])
-        return columns, output
+        for raw_row in output:
+            self._merge_row_into_dict(raw_row, columns, merged, track_total)
+
+    def _point_in_time_col_name(self, start_date, end_date):
+        """Return the column name that matches what QBO would generate with summarize_column_by=Month.
+
+        For a full calendar month (e.g. Feb 1-29): "Feb2024"
+        For a partial month (e.g. Apr 1-29 when today is Apr 29): "Apr1-29,2026"
+        The partial format replicates QBO's own ColTitle (e.g. "Apr 1-29, 2026") after
+        stripping spaces, which is what _get_monthly_column_metadata already does.
+        """
+        last_day = calendar.monthrange(end_date.year, end_date.month)[1]
+        if end_date.day == last_day:
+            return end_date.strftime("%b%Y")
+        return (
+            f"{end_date.strftime('%b')} {start_date.day}-{end_date.day}, {end_date.year}"
+        ).replace(" ", "")
+
+    def _process_period_point_in_time(self, report_entity, log_name, start_date, end_date, merged, track_total):
+        """Fallback fetch for a single-month period using a point-in-time request.
+
+        Called when summarize_column_by=Month times out even at the minimum chunk size.
+        Requests the report without summarize_column_by, which returns a single "Total"
+        column (the balance/flow as of end_date). The month column label is chosen to
+        match what QBO would have produced in a columnar response.
+        """
+        params = {
+            "start_date": start_date.strftime("%Y-%m-%d"),
+            "end_date": end_date.strftime("%Y-%m-%d"),
+            "accounting_method": "Accrual",
+        }
+        LOGGER.info(f"Fetch {log_name} point-in-time for {params['start_date']} to {params['end_date']}")
+
+        try:
+            resp = self._get(report_entity=report_entity, params=params)
+        except requests.exceptions.HTTPError:
+            LOGGER.error(f"Point-in-time request failed for {log_name} {start_date} to {end_date}")
+            raise
+
+        row_array = resp.get("Rows", {}).get("Row")
+        if row_array is None:
+            return
+
+        month_col = self._point_in_time_col_name(start_date, end_date)
+        output = []
+        for row in row_array:
+            self._recursive_row_search(row, output, [])
+
+        for raw_row in output:
+            # raw_row is [account_value, total_value, categories_list]
+            if len(raw_row) < 3:
+                continue
+            account, total_val, categories = raw_row[0], raw_row[1], raw_row[-1]
+            if not total_val:
+                continue
+            # Cash flow: skip rows with no parent category (e.g. "Cash at beginning
+            # of period"). These are balance items, not flows, and the columnar API
+            # already excludes them by leaving their Total column empty.
+            if track_total and not categories:
+                continue
+
+            key = (account, tuple(categories) if categories else ())
+            if key not in merged:
+                merged[key] = {
+                    "Account": account,
+                    "Categories": categories,
+                    "MonthlyTotal": [],
+                }
+                if track_total:
+                    merged[key]["Total"] = 0.0
+
+            merged[key]["MonthlyTotal"].append({month_col: total_val})
+            if track_total:
+                try:
+                    merged[key]["Total"] += float(total_val)
+                except (ValueError, TypeError):
+                    pass
 
     def _merge_row_into_dict(self, raw_row, columns, merged, track_total):
         """Accumulate one raw row into the cross-chunk merged dict."""
@@ -152,25 +259,22 @@ class BaseReportStream(QuickbooksStream):
         merged[key]["MonthlyTotal"].extend(monthly_entries)
 
     def _sync_monthly_chunked(self, report_entity, log_name, track_total=False):
-        """Chunked sync shared by MonthlyBalanceSheet and MonthlyCashFlow.
+        """Syncs a monthly report using adaptive binary splitting.
 
-        When track_total=True the Total column is excluded from MonthlyTotal entries
-        and summed separately across chunks (cash flow semantics).
+        When track_total=True the Total value is summed separately and excluded from
+        MonthlyTotal entries (cash flow semantics).
+
+        Starts with the full date range in a single summarize_column_by=Month request.
+        On 504, _process_period halves the range recursively. When a 1-month period
+        still times out, _process_period_point_in_time fetches it without
+        summarize_column_by so the request always completes. Column names produced by
+        that fallback match what QBO would have generated in the columnar response.
         """
         LOGGER.info(f"Starting full sync of {log_name}")
         today = datetime.date.today()
-        current_start = self.start_date.date()
         merged: Dict[tuple, dict] = {}
 
-        while current_start <= today:
-            chunk_end_year = current_start.year + self.monthly_report_chunk_years - 1
-            current_end = min(datetime.date(chunk_end_year, 12, 31), today)
-            chunk = self._fetch_chunk_rows(report_entity, log_name, current_start, current_end)
-            if chunk is not None:
-                columns, output = chunk
-                for raw_row in output:
-                    self._merge_row_into_dict(raw_row, columns, merged, track_total)
-            current_start = datetime.date(current_end.year + 1, 1, 1)
+        self._process_period(report_entity, log_name, self.start_date.date(), today, merged, track_total)
 
         for record in merged.values():
             if not record["MonthlyTotal"]:

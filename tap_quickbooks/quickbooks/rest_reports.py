@@ -15,8 +15,12 @@ LOGGER = singer.get_logger()
 def is_fatal_code(e: requests.exceptions.RequestException) -> bool:
     '''Helper function to determine if a Requests reponse status code
     is a "fatal" status code. If it is, the backoff decorator will giveup
-    instead of attemtping to backoff.'''
-    return 400 <= e.response.status_code < 500 and e.response.status_code not in [429, 400]
+    instead of attemtping to backoff.
+    504 Gateway Timeout is treated as fatal here so it propagates immediately
+    to callers that implement adaptive range-splitting instead of retrying the
+    same oversized request.'''
+    code = e.response.status_code
+    return (400 <= code < 500 and code not in (400, 429)) or code == 504
 
 class RetriableException(Exception):
     pass
