@@ -215,7 +215,7 @@ class BaseReportStream(QuickbooksStream):
         LOGGER.info(f"Fetch {log_name} point-in-time for {params['start_date']} to {params['end_date']}")
 
         try:
-            resp = self._get_504_fatal(report_entity=report_entity, params=params)
+            resp = self._get(report_entity=report_entity, params=params)
         except requests.exceptions.HTTPError:
             LOGGER.error(f"Point-in-time request failed for {log_name} {start_date} to {end_date}")
             raise

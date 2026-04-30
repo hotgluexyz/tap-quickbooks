@@ -237,7 +237,7 @@ class TestProcessPeriod:
         }
 
         merged = {}
-        with patch.object(base_report, "_get_504_fatal", return_value=pit_resp) as mock_get:
+        with patch.object(base_report, "_get", return_value=pit_resp) as mock_get:
             base_report._process_period(
                 "BalanceSheet", "BS",
                 datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),
@@ -279,7 +279,7 @@ class TestProcessPeriodPointInTime:
 
     def test_cash_flow_skips_top_level_rows_with_no_category(self, base_report):
         merged = {}
-        with patch.object(base_report, "_get_504_fatal", return_value=self.PIT_RESP):
+        with patch.object(base_report, "_get", return_value=self.PIT_RESP):
             base_report._process_period_point_in_time(
                 "CashFlow", "CF",
                 datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),
@@ -292,7 +292,7 @@ class TestProcessPeriodPointInTime:
 
     def test_balance_sheet_includes_top_level_rows_with_no_category(self, base_report):
         merged = {}
-        with patch.object(base_report, "_get_504_fatal", return_value=self.PIT_RESP):
+        with patch.object(base_report, "_get", return_value=self.PIT_RESP):
             base_report._process_period_point_in_time(
                 "BalanceSheet", "BS",
                 datetime.date(2024, 1, 1), datetime.date(2024, 1, 31),
