@@ -319,6 +319,13 @@ class TestPointInTimeColName:
             datetime.date(2023, 12, 1), datetime.date(2023, 12, 31)
         ) == "Dec2023"
 
+    def test_mid_month_start_ending_on_last_day_is_partial(self, base_report):
+        # Nov 2 → Nov 30: end_date.day == last_day but start_date.day != 1,
+        # so the result must be partial, not "Nov2017".
+        assert base_report._point_in_time_col_name(
+            datetime.date(2017, 11, 2), datetime.date(2017, 11, 30)
+        ) == "Nov2-30,2017"
+
 
 class TestSyncMonthlyChunked:
     """FixedDate.today() returns 2030-04-29; base_report.start_date is 2024-01-01."""

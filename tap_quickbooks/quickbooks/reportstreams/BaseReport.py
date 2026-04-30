@@ -193,7 +193,7 @@ class BaseReportStream(QuickbooksStream):
         stripping spaces, which is what _get_monthly_column_metadata already does.
         """
         last_day = calendar.monthrange(end_date.year, end_date.month)[1]
-        if end_date.day == last_day:
+        if start_date.day == 1 and end_date.day == last_day:
             return end_date.strftime("%b%Y")
         return (
             f"{end_date.strftime('%b')} {start_date.day}-{end_date.day}, {end_date.year}"
