@@ -149,6 +149,21 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         }
     }
 
+    sales_item_line_detail = {
+        "type": object_type["type"],
+        "properties": {
+            "ItemRef": qb_types["ref_type"],
+            "ClassRef": qb_types["ref_type"],
+            "ItemAccountRef": qb_types["ref_type"],
+            "TaxCodeRef": qb_types["ref_type"],
+            "Qty": number_type,
+            "UnitPrice": number_type,
+            "ServiceDate": qb_types["datetime"],
+            "Description" : string_type,
+            "TaxClassificationRef": qb_types["ref_type"]
+        }
+    }
+
     qb_types["invoice_line"] = {
         "type": object_type["type"],
         "properties": {
@@ -157,19 +172,7 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
             "Amount": number_type,
             "DetailType": string_type,
             "Description": string_type,
-            "SalesItemLineDetail": {
-                "type": object_type["type"],
-                "properties": {
-                    "ItemRef": qb_types["ref_type"],
-                    "ClassRef": qb_types["ref_type"],
-                    "ItemAccountRef": qb_types["ref_type"],
-                    "TaxCodeRef": qb_types["ref_type"],
-                    "Qty": number_type,
-                    "UnitPrice": number_type,
-                    "ServiceDate": qb_types["datetime"],
-                    "Description" : string_type
-                }
-            },
+            "SalesItemLineDetail": sales_item_line_detail,
             "SubTotalLineDetail": {
                 "type": object_type["type"],
                 "properties": {
@@ -188,6 +191,27 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                 "properties": {
                     "TaxCodeRef": qb_types["object_reference"],
                     "ServiceDate": qb_types["datetime"]
+                }
+            },
+            "GroupLineDetail": {
+                "type": object_type["type"],
+                "properties": {
+                    "Quantity": number_type,
+                    "Line": {
+                        "type": ["array", "null"],
+                        "items": {
+                            "type": object_type["type"],
+                            "properties": {
+                                "Id": string_type,
+                                "DetailType": string_type,
+                                "Amount": number_type,
+                                "Description": string_type,
+                                "LineNum": string_type,
+                                "SalesItemLineDetail": sales_item_line_detail
+                            }
+                        }
+                    },
+                    "GroupItemRef": qb_types["ref_type"]
                 }
             }
         }
