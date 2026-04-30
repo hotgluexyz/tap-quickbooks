@@ -75,6 +75,8 @@ class Rest():
                     retryable = True
                 else:
                     raise_for_invalid_credentials(ex.response)
+                    # raise any other unhandled exception
+                    raise ex
             except TapQuickbooksException as qbe:
                 raise qbe
             except:
