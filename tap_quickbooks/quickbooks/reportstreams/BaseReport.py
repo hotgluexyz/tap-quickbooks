@@ -6,7 +6,7 @@ import backoff
 import requests
 import singer
 
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream, RetriableException
+from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream, RetriableException, is_fatal_code
 
 LOGGER = singer.get_logger()
 
@@ -18,8 +18,7 @@ def _is_fatal_including_504(e: requests.exceptions.RequestException) -> bool:
     which implements adaptive range-splitting instead of retrying the same
     oversized request.
     """
-    code = e.response.status_code
-    return (400 <= code < 500 and code not in (400, 429)) or code == 504
+    return is_fatal_code(e) or e.response.status_code == 504
 
 class BaseReportStream(QuickbooksStream):
 
