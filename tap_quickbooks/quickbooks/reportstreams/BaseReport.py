@@ -284,7 +284,10 @@ class BaseReportStream(QuickbooksStream):
                 merged[key]["Total"] = 0.0
 
         if track_total:
-            merged[key]["Total"] += float(row.get("Total"))
+            try:
+                merged[key]["Total"] += float(row.get("Total"))
+            except (ValueError, TypeError):
+                pass
         merged[key]["MonthlyTotal"].extend(monthly_entries)
 
     def _sync_monthly_chunked(self, report_entity, log_name, track_total=False):

@@ -3,7 +3,6 @@ from typing import ClassVar, List
 import singer
 
 from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
-from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
 
