@@ -267,6 +267,9 @@ class Quickbooks:
                  monthly_balance_sheet_full_sync = None,
                  gl_weekly = None,
                  gl_daily = None,
+                 gl_monthly = None,
+                 gl_six_monthly = None,
+                 gl_yearly = None,
                  gl_basic_fields = None,
                  realm_id=None,
                  pnl_adjusted_gain_loss=None,
@@ -287,6 +290,9 @@ class Quickbooks:
         self.reports_full_sync = reports_full_sync
         self.gl_weekly = gl_weekly
         self.gl_daily = gl_daily
+        self.gl_monthly = gl_monthly
+        self.gl_six_monthly = gl_six_monthly
+        self.gl_yearly = gl_yearly
         self.gl_basic_fields = gl_basic_fields
         self.include_deleted = include_deleted
         self.realm_id = realm_id

@@ -66,13 +66,15 @@ class ProfitAndLossReport(QuickbooksStream):
 
         if full_sync:
             start_date = self.start_date.date()
-            delta = 30
 
             while start_date<datetime.date.today():
-                LOGGER.info(f"Starting full sync of P&L")
-                end_date = (start_date + datetime.timedelta(delta))
-                if end_date>datetime.date.today():
-                    end_date = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2099, 12, 31)
+                LOGGER.info("Starting full sync of P&L")
+                
+                period_end = datetime.date(start_date.year, 12, 31)
+                if period_end > datetime.date.today():
+                    end_date = datetime.date.today() 
+                else: 
+                    end_date = period_end
 
                 params = {
                     "start_date": start_date.strftime("%Y-%m-%d"),

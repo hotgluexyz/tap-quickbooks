@@ -1,15 +1,14 @@
 import datetime
-from typing import ClassVar, Dict, List, Optional
+from typing import ClassVar, Dict, List
 
 import singer
 
-from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
-from tap_quickbooks.sync import transform_data_hook
+from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseMonthlyReportStream
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
 
-class MonthlyCashFlowReport(QuickbooksStream):
+class MonthlyCashFlowReport(BaseMonthlyReportStream):
     tap_stream_id: ClassVar[str] = 'MonthlyCashFlowReport'
     stream: ClassVar[str] = 'MonthlyCashFlowReport'
     key_properties: ClassVar[List[str]] = []
@@ -20,18 +19,6 @@ class MonthlyCashFlowReport(QuickbooksStream):
         self.start_date = start_date
         self.state_passed = state_passed
         self.fetch_future_transactions = fetch_future_transactions
-
-    def _get_column_metadata(self, resp):
-        columns = []
-        for column in resp.get("Columns").get("Column"):
-            if column.get("ColTitle") == "" and column.get("ColType") == "Account":
-                columns.append("Account")
-            elif column.get("ColTitle") == "Memo/Description":
-                columns.append("Memo")
-            else:
-                columns.append(column.get("ColTitle").replace(" ", ""))
-        columns.append("Categories")
-        return columns
 
     def _recursive_row_search(self, row, output, categories):
         row_group = row.get("Rows")
@@ -59,58 +46,19 @@ class MonthlyCashFlowReport(QuickbooksStream):
         full_sync = not self.state_passed
 
         if full_sync:
-            LOGGER.info(f"Starting full sync of MonthlyCashFlow")
-            end_date = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2050, 12, 31)
-            start_date = self.start_date
-            params = {
-                "start_date": start_date.strftime("%Y-%m-%d"),
-                "end_date": end_date.strftime("%Y-%m-%d"),
-                "accounting_method": "Accrual",
-                "summarize_column_by": "Month"
-            }
+            LOGGER.info("Starting full sync of MonthlyCashFlow")
+            today = datetime.date.today() if not self.fetch_future_transactions else datetime.date(2050, 12, 31)
+            start = self.start_date.date() if hasattr(self.start_date, "date") else self.start_date
+            merged: Dict[tuple, dict] = {}
 
-            LOGGER.info(f"Fetch MonthlyCashFlow Report for period {params['start_date']} to {params['end_date']}")
-            resp = self._get(report_entity='CashFlow', params=params)
+            self._process_period("CashFlow", "MonthlyCashFlow", start, today, merged, track_total=True)
 
-            # Get column metadata.
-            columns = self._get_column_metadata(resp)
-
-            # Recursively get row data.
-            row_group = resp.get("Rows")
-            row_array = row_group.get("Row")
-
-            if row_array is None:
-                LOGGER.info(f"No MonthlyCashFlow Report found for period {params['start_date']} to {params['end_date']}")
-                return
-
-            output = []
-            categories = []
-            for row in row_array:
-                self._recursive_row_search(row, output, categories)
-
-            # Zip columns and row data.
-            for raw_row in output:
-                row = dict(zip(columns, raw_row))
-                if not row.get("Total"):
-                    # If a row is missing the amount, skip it
+            for record in merged.values():
+                if not record["MonthlyTotal"]:
                     continue
-
-                cleansed_row = {}
-                for k, v in row.items():
-                    if v == "":
-                        continue
-                    else:
-                        cleansed_row.update({k: v})
-
-                cleansed_row["Total"] = float(row.get("Total"))
-                cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
-                monthly_total = []
-                for key,value in cleansed_row.items():
-                    if key not in ['Account', 'Categories', 'SyncTimestampUtc', 'Total']:
-                        monthly_total.append({key:value})
-                cleansed_row['MonthlyTotal'] = monthly_total
-             
-                yield cleansed_row
+                record["Total"] = round(record["Total"], 2)
+                record["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+                yield record
         else:
             LOGGER.info(f"Syncing MonthlyCashFlow of last {NUMBER_OF_PERIODS} periods")
             end_date = datetime.date.today()
