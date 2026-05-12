@@ -427,7 +427,7 @@ class Quickbooks():
         except Exception as e:
             LOGGER.error("Error saving API usage: %s", str(e))
 
-        if resp.status_code in [400, 500]:
+        if resp.status_code in [400, 429, 500]:
             intuit_tid = resp.headers.get('intuit_tid', 'N/A')
             LOGGER.error("Request failed with status %s, intuit_tid: %s, response: %s", resp.status_code, intuit_tid, resp.text)
             if "Authorization Failure" in resp.text:
