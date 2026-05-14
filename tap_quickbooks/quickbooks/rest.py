@@ -73,6 +73,8 @@ class Rest():
                         day_range,
                         catalog_entry['stream'])
                     retryable = True
+                else:
+                    raise ex
             except:
                 raise ex
 
