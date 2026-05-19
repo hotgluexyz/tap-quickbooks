@@ -43,6 +43,11 @@ class MonthlyBalanceSheetReport(BaseReportStream):
             row_array = row_group.get("Row")
             header = row.get("Header")
             if header is not None:
+                header_cols = header.get("ColData", [])
+                if len(header_cols) > 1 and any(c.get("value") for c in header_cols[1:]):
+                    values = [c.get("value") for c in header_cols]
+                    values.append(categories.copy())
+                    output.append(values.copy())
                 categories.append(header.get("ColData")[0].get("value"))
             for row in row_array:
                 self._recursive_row_search(row, output, categories)
