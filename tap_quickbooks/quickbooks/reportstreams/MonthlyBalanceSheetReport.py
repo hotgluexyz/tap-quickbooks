@@ -48,7 +48,6 @@ class MonthlyBalanceSheetReport(BaseReportStream):
                     values = [c.get("value") for c in header_cols]
                     values.append(categories.copy())
                     output.append(values.copy())
-                # categories.append(header_cols[0].get("value"))
                 categories.append(header.get("ColData")[0].get("value"))
             for row in row_array:
                 self._recursive_row_search(row, output, categories)
