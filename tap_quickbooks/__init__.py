@@ -269,7 +269,7 @@ class QuickbooksTap(Tap):
             "supported_operators": ["AND"],
             "supports_nesting_clauses": False,
             "filters": {
-                "vendor_id": {
+                "vendors": {
                     "label": "Vendor Name (ID)",
                     "supported_operators": ["IN", "EQ"],
                     "target_field": "VendorRef",
@@ -438,6 +438,7 @@ class QuickbooksTap(Tap):
                 data = [
                     {
                         "id": rec.get("id"),
+                        "VendorRef": rec.get("id"),
                         "name": rec.get("name"),
                         "name_id": f"{rec.get('name')} ({rec.get('id')})"
                     }
