@@ -314,7 +314,8 @@ class Quickbooks():
                  gl_basic_fields = None,
                  hg_sync_output = None,
                  realm_id = None,
-                 report_periods = None):
+                 report_periods = None,
+                 selected_filters = None):
         
         if not realm_id:
             raise TapQuickbooksException("The 'realmId' is missing from the configuration file. It is a required field and cannot be empty.")
@@ -337,6 +338,9 @@ class Quickbooks():
         self.hg_sync_output = hg_sync_output
         self.sync_finished = False
         self.report_periods = report_periods
+        # Selected filters passed via --selected-filters (hotglue_singer_sdk
+        # convention). Shape: {"filters_version": "...", "streams": {<stream>: {...}}}.
+        self.selected_filters = selected_filters or {}
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'
 
@@ -536,28 +540,125 @@ class Quickbooks():
                                     catalog_entry['tap_stream_id'],
                                     replication_key) or self.default_start_date)
 
+    def fetch_all(self, entity, fields):
+        '''Fetch every record of a Quickbooks entity, selecting only `fields`.
+
+        Used to build reference data for --get-available-filters. Paginates
+        through the Quickbooks query endpoint (max 1000 rows per page).
+        '''
+        if not self.access_token:
+            self.login()
+
+        headers = self._get_standard_headers()
+        headers["Accept"] = "application/json"
+        headers["Content-Type"] = "application/json"
+        url = f"{self.instance_url}/query"
+
+        select = ", ".join(fields)
+        results = []
+        offset = 1
+        max_results = 1000
+
+        while True:
+            query = "SELECT {} FROM {} STARTPOSITION {} MAXRESULTS {}".format(
+                select, entity, offset, max_results)
+            params = {"query": query, "minorversion": "75"}
+            resp = self._make_request('GET', url, headers=headers, params=params, sink_name=entity)
+            records = resp.json().get('QueryResponse', {}).get(entity, [])
+
+            if not records:
+                break
+
+            results.extend(records)
+
+            if len(records) < max_results:
+                break
+
+            offset += max_results
+
+        return results
+
+    @staticmethod
+    def _escape_quotes(value):
+        '''Quote a literal for the Quickbooks query language.
+
+        Strings are wrapped in single quotes with embedded single quotes
+        escaped using a backslash (Quickbooks convention). Non-strings are
+        returned untouched.
+        '''
+        if isinstance(value, str):
+            return "'{}'".format(value.replace("'", "\\'"))
+        return value
+
+    def _parse_filters(self, filters):
+        '''Parse a flat set of selected-filter clauses into Quickbooks fragments.
+
+        Quickbooks (QBO) only supports flat conditions joined by AND - it has no
+        nested groups or OR - so only `clause_*` entries are handled:
+          clause_*: {"field", "operator" (EQ|IN), "value"}
+        '''
+        parsed_filters = []
+        for key, value in filters.items():
+            if not key.startswith("clause_"):
+                continue
+
+            operator = value['operator']
+            if operator == "EQ":
+                parsed_filters.append(
+                    "{} = {}".format(value['field'], self._escape_quotes(value['value'])))
+            elif operator == "IN":
+                raw_value = value['value']
+                if isinstance(raw_value, list):
+                    if len(raw_value) == 0:
+                        continue
+                    filter_value = ", ".join(self._escape_quotes(v) for v in raw_value)
+                else:
+                    filter_value = self._escape_quotes(raw_value)
+                parsed_filters.append(
+                    "{} {} ({})".format(value['field'], operator, filter_value))
+            else:
+                raise TapQuickbooksException("Unsupported filter operator: {}".format(operator))
+
+        return parsed_filters
+
+    def _get_selected_filter_clause(self, stream):
+        '''Returns the WHERE fragment (without the WHERE keyword) for a stream's
+        selected filters, or None when no filters are configured for it.'''
+        stream_filters = self.selected_filters.get("streams", {}).get(stream)
+        if not stream_filters:
+            return None
+
+        LOGGER.info("Parsing '%s' selected filters: %s", stream, stream_filters)
+        parsed_filters = self._parse_filters(stream_filters)
+        if not parsed_filters:
+            return None
+
+        return " AND ".join(parsed_filters)
+
     def _build_query_string(self, catalog_entry, start_date, end_date=None, order_by_clause=True):
         selected_properties = self._get_selected_properties(catalog_entry)
 
-        query = "SELECT {} FROM {}".format("*", catalog_entry['stream'])
+        stream = catalog_entry['stream']
+        query = "SELECT {} FROM {}".format("*", stream)
 
         catalog_metadata = metadata.to_map(catalog_entry['metadata'])
         replication_key = catalog_metadata.get((), {}).get('replication-key')
 
+        conditions = []
+
         if replication_key:
-            where_clause = " WHERE {} >  '{}' ".format(
-                replication_key,
-                start_date)
+            conditions.append("{} >  '{}'".format(replication_key, start_date))
             if end_date:
-                end_date_clause = " AND {} <= {}".format(replication_key, end_date)
-            else:
-                end_date_clause = ""
+                conditions.append("{} <= {}".format(replication_key, end_date))
 
-            # order_by = " ORDERBY {} ASC".format(replication_key)
-            # if order_by_clause:
-            #   return query + where_clause + end_date_clause + order_by
+        # Apply any selected filters for this stream (e.g. filtering Bills by
+        # VendorRef). Provided via the --selected-filters file.
+        filter_clause = self._get_selected_filter_clause(stream)
+        if filter_clause:
+            conditions.append(filter_clause)
 
-            return query + where_clause + end_date_clause
+        if conditions:
+            return query + " WHERE " + " AND ".join(conditions)
         else:
             return query
 
