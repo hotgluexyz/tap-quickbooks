@@ -270,7 +270,7 @@ class QuickbooksTap(Tap):
             "supports_nesting_clauses": False,
             "filters": {
                 "vendor_id": {
-                    "label": "Bill Vendor",
+                    "label": "Vendor Name (ID)",
                     "supported_operators": ["IN", "EQ"],
                     "target_field": "VendorRef",
                     "options": "reference_data.Vendor.id",
@@ -428,10 +428,25 @@ class QuickbooksTap(Tap):
             qb_fields = list(field_map.values())
 
             records = qb.fetch_all(spec["entity"], qb_fields)
-            reference_data[stream_name] = [
+            data = [
                 {qb_to_logical[qf]: rec.get(qf) for qf in qb_fields if qf in rec}
                 for rec in records
             ]
+            
+            # make label like Vendor Name (ID) if id and name are in the data
+            if data and "id" in data[0] and "name" in data[0]:
+                data = [
+                    {
+                        "name": f"{rec.get('name')} ({rec.get('id')})",
+                        "id": rec.get("id")
+                    }
+                    for rec in data
+                ]
+            
+            reference_data[stream_name] = data
+            
+                
+
         return reference_data
 
     def get_available_filters(self, catalog=None):
