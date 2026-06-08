@@ -259,6 +259,35 @@ class QuickbooksTap(Tap):
 
     alerting_level = AlertingLevel.WARNING
 
+    # Declarative filter metadata surfaced by --get-available-filters. Mirrors the
+    # hotglue_singer_sdk per-stream get_available_filters_metadata() contract.
+    # Quickbooks can only filter Bills by VendorRef (the vendor's Id), so the
+    # filter targets VendorRef while the reference data also carries the display
+    # name for the UI to render.
+    AVAILABLE_FILTERS = {
+        "Bill": {
+            "supported_operators": ["AND"],
+            "supports_nesting_clauses": False,
+            "filters": {
+                "vendors": {
+                    "label": "Vendor Name (ID)",
+                    "supported_operators": ["IN", "EQ"],
+                    "target_field": "VendorRef",
+                    "options": "reference_data.Vendor.name(id)",
+                },
+            },
+        },
+    }
+
+    # Maps a reference-data stream name (as used in a filter's `options`) to the
+    # Quickbooks entity and the logical->Quickbooks field name mapping.
+    REFERENCE_DATA = {
+        "Vendor": {
+            "entity": "Vendor",
+            "fields": {"id": "Id", "name": "DisplayName"},
+        },
+    }
+
     config_jsonschema = th.PropertiesList(
         th.Property("refresh_token", th.StringType, required=True),
         th.Property("client_id", th.StringType, required=True),
@@ -309,6 +338,7 @@ class QuickbooksTap(Tap):
             gl_basic_fields=config.get('gl_basic_fields', False),
             hg_sync_output=config.get('hg_sync_output'),
             report_periods=config.get('report_periods'),
+            selected_filters=getattr(self, '_selected_filters', None),
         )
         try:
             qb.login()
@@ -370,6 +400,87 @@ class QuickbooksTap(Tap):
         finally:
             self._qb_cleanup(qb)
 
+    def _load_reference_data(self, qb, stream_name_to_fields):
+        """Fetch reference data (e.g. the list of Vendors) for the given streams.
+
+        `stream_name_to_fields` maps a reference-data stream name to the set of
+        logical fields requested by the filters' `options`. The full field set
+        defined in REFERENCE_DATA is always returned so the UI has both the
+        submit value (id) and a display label (name).
+        """
+        reference_data = {}
+        for stream_name in stream_name_to_fields:
+            spec = self.REFERENCE_DATA.get(stream_name)
+            if not spec:
+                raise TapQuickbooksException(
+                    f"No reference data mapping configured for '{stream_name}'.")
+
+            field_map = spec["fields"]
+            qb_to_logical = {qb_field: logical for logical, qb_field in field_map.items()}
+            qb_fields = list(field_map.values())
+
+            records = qb.fetch_all(spec["entity"], qb_fields)
+            data = [
+                {qb_to_logical[qf]: rec.get(qf) for qf in qb_fields if qf in rec}
+                for rec in records
+            ]
+
+            # Expose a "name (id)" label so the UI can show the name while the
+            # selection still carries the id (decoded back in _parse_filters).
+            if data and "id" in data[0] and "name" in data[0]:
+                data = [
+                    {
+                        "id": rec.get("id"),
+                        "name": rec.get("name"),
+                        "name(id)": f"{rec.get('name')} ({rec.get('id')})",
+                    }
+                    for rec in data
+                ]
+
+            reference_data[stream_name] = data
+
+        return reference_data
+
+    def get_available_filters(self, catalog=None):
+        """Emit the available-filters payload for the selected streams.
+
+        Overrides the SDK implementation because this tap is catalog-driven and
+        does not register SDK Stream objects. Produces the same payload shape:
+        {filters_version, reference_data, streams}.
+        """
+        if isinstance(catalog, str):
+            catalog_dict = read_json_file(catalog)
+        elif isinstance(catalog, dict):
+            catalog_dict = catalog
+        else:
+            catalog_dict = self.input_catalog.to_dict()
+            
+        stream_names = [entry["stream"] for entry in catalog_dict.get("streams", [])]
+
+        streams_filters_metadata = {
+            stream_name: filters_metadata
+            for stream_name, filters_metadata in self.AVAILABLE_FILTERS.items()
+            if stream_name in stream_names
+        }
+
+        reference_data_fields = self.extract_reference_data_fields_metadata(streams_filters_metadata)
+
+        reference_data = {}
+        if reference_data_fields:
+            qb = None
+            try:
+                qb = self._build_qb()
+                reference_data = self._load_reference_data(qb, reference_data_fields)
+            finally:
+                self._qb_cleanup(qb)
+
+        payload = {
+            "filters_version": self.available_filters_version,
+            "reference_data": reference_data,
+            "streams": streams_filters_metadata,
+        }
+        json.dump(payload, sys.stdout, indent=2)
+        sys.stdout.flush()
 
 def main():
     QuickbooksTap.cli()
