@@ -80,19 +80,21 @@ flag.
 Downloaded files are grouped by the linked entity under the sync-output root:
 
 ```
-<sync-output>/{entity_type}_attachments/{entity_id}/{file_name}
+<sync-output>/{entity_type}_attachments/{entity_id}/{attachable_id}_{file_name}
 ```
 
 For example:
 
 ```
-<sync-output>/bill_attachments/130/receipt.pdf
-<sync-output>/invoice_attachments/42/logo.png
+<sync-output>/bill_attachments/130/57_receipt.pdf
+<sync-output>/invoice_attachments/42/61_logo.png
 ```
 
 `entity_type` is the lowercased QuickBooks entity (e.g. `bill`, `invoice`) taken
-from the attachment's `AttachableRef`. Attachments not linked to any entity are
-written to a flat `attachments/{file_name}` folder.
+from the attachment's `AttachableRef`. The file name is prefixed with the
+`Attachable` record id so two attachments that share a `FileName` on the same
+entity don't overwrite each other. Attachments not linked to any entity are written
+to a flat `attachments/{attachable_id}_{file_name}` folder.
 
 The sync-output root is resolved as follows: when the `JOB_ID` environment variable
 is set (hotglue), the base is `/home/hotglue/{JOB_ID}/sync-output`; otherwise it is

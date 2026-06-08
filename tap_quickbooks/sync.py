@@ -111,7 +111,10 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
         #Check if it is Attachable stream with a downloadable file
         if qb.download_attachments and stream == 'Attachable' and "TempDownloadUri" in rec:
             file_name = rec["FileName"].replace("/", "_")
-            rec['FileName'] = file_name
+
+            # Add the Attachable record ID to the file name to make it unique
+            # This is because two attachments that share a FileName on the same entity don't overwrite each other
+            file_name = f"{rec['Id']}_{file_name}"
 
             # Group by linked entity, e.g. bill_attachments/<bill_id>/<file>,
             # invoice_attachments/<invoice_id>/<file>; fall back to a flat folder.
