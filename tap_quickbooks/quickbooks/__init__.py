@@ -606,40 +606,56 @@ class Quickbooks():
                 return stripped[stripped.rfind("(") + 1:-1].strip()
         return value
 
-    def _parse_filters(self, filters):
-        '''Parse a flat set of selected-filter clauses into Quickbooks fragments.
+    def _parse_clause(self, clause):
+        '''Convert a single `clause_*` entry into a Quickbooks query fragment.
 
-        Quickbooks (QBO) only supports flat conditions joined by AND - it has no
-        nested groups or OR - so only `clause_*` entries are handled:
-          clause_*: {"field", "operator" (EQ|IN), "value"}
+        Returns None when the clause resolves to no usable values (e.g. an
+        empty selection) so callers never emit an invalid `IN ()`.
+        '''
+        operator = clause['operator']
+        raw_value = clause['value']
+
+        if isinstance(raw_value, list):
+            values = [self._extract_id(v) for v in raw_value]
+        else:
+            values = [self._extract_id(raw_value)]
+
+        values = [v for v in values if v not in (None, "")]
+        if not values:
+            return None
+
+        if operator == "EQ":
+            return "{} = {}".format(clause['field'], self._escape_quotes(values[0]))
+        elif operator == "IN":
+            filter_value = ", ".join(str(self._escape_quotes(v)) for v in values)
+            return "{} IN ({})".format(clause['field'], filter_value)
+        else:
+            raise TapQuickbooksException("Unsupported filter operator: {}".format(operator))
+
+    def _parse_filters(self, filters):
+        '''Parse a selected-filters subtree into Quickbooks query fragments.
+
+        hotglue nests clauses under one or more `group_*` envelopes per stream
+        (with `operator_*` glue tokens between them), even when clause nesting
+        is not enabled. Quickbooks (QBO) supports neither nested groups nor OR,
+        so we recurse into every group, collect each `clause_*`, and let the
+        caller AND them together:
+          group_*:    nested subtree (recursed into and flattened)
+          clause_*:   {"field", "operator" (EQ|IN), "value"}
+          operator_*: boolean glue - only AND is representable in QBO
         '''
         parsed_filters = []
         for key, value in filters.items():
-            if not key.startswith("clause_"):
-                continue
-
-            operator = value['operator']
-            raw_value = value['value']
-
-            if isinstance(raw_value, list):
-                values = [self._extract_id(v) for v in raw_value]
-            else:
-                values = [self._extract_id(raw_value)]
-
-            # Drop empty selections so we never emit an invalid `IN ()` clause.
-            values = [v for v in values if v not in (None, "")]
-            if not values:
-                continue
-
-            if operator == "EQ":
-                parsed_filters.append(
-                    "{} = {}".format(value['field'], self._escape_quotes(values[0])))
-            elif operator == "IN":
-                filter_value = ", ".join(str(self._escape_quotes(v)) for v in values)
-                parsed_filters.append(
-                    "{} IN ({})".format(value['field'], filter_value))
-            else:
-                raise TapQuickbooksException("Unsupported filter operator: {}".format(operator))
+            if key.startswith("group_"):
+                parsed_filters.extend(self._parse_filters(value))
+            elif key.startswith("clause_"):
+                fragment = self._parse_clause(value)
+                if fragment:
+                    parsed_filters.append(fragment)
+            elif key.startswith("operator_"):
+                if isinstance(value, str) and value.strip().upper() == "OR":
+                    raise TapQuickbooksException(
+                        "Quickbooks does not support OR in selected filters; only AND is allowed.")
 
         return parsed_filters
 
