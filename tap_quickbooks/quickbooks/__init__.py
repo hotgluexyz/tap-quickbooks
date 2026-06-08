@@ -315,6 +315,7 @@ class Quickbooks():
                  hg_sync_output = None,
                  realm_id = None,
                  report_periods = None,
+                 selected_filters = None,
                  download_attachments = None):
         
         if not realm_id:
@@ -338,6 +339,9 @@ class Quickbooks():
         self.hg_sync_output = hg_sync_output
         self.sync_finished = False
         self.report_periods = report_periods
+        # Selected filters passed via --selected-filters (hotglue_singer_sdk
+        # convention). Shape: {"filters_version": "...", "streams": {<stream>: {...}}}.
+        self.selected_filters = selected_filters or {}
         self.download_attachments = download_attachments is True or (
             isinstance(download_attachments, str) and download_attachments.lower() == 'true')
 
@@ -539,28 +543,163 @@ class Quickbooks():
                                     catalog_entry['tap_stream_id'],
                                     replication_key) or self.default_start_date)
 
+    def fetch_all(self, entity, fields):
+        '''Fetch every record of a Quickbooks entity, selecting only `fields`.
+
+        Used to build reference data for --get-available-filters. Paginates
+        through the Quickbooks query endpoint (max 1000 rows per page).
+        '''
+        if not self.access_token:
+            self.login()
+
+        headers = self._get_standard_headers()
+        headers["Accept"] = "application/json"
+        headers["Content-Type"] = "application/json"
+        url = f"{self.instance_url}/query"
+
+        select = ", ".join(fields)
+        results = []
+        offset = 1
+        max_results = 1000
+
+        while True:
+            query = "SELECT {} FROM {} STARTPOSITION {} MAXRESULTS {}".format(
+                select, entity, offset, max_results)
+            params = {"query": query, "minorversion": "75"}
+            resp = self._make_request('GET', url, headers=headers, params=params, sink_name=entity)
+            records = resp.json().get('QueryResponse', {}).get(entity, [])
+
+            if not records:
+                break
+
+            results.extend(records)
+
+            if len(records) < max_results:
+                break
+
+            offset += max_results
+
+        return results
+
+    @staticmethod
+    def _escape_quotes(value):
+        '''Quote a literal for the Quickbooks query language.
+
+        Strings are wrapped in single quotes with embedded single quotes
+        escaped using a backslash (Quickbooks convention). Non-strings are
+        returned untouched.
+        '''
+        if isinstance(value, str):
+            return "'{}'".format(value.replace("'", "\\'"))
+        return value
+
+    @staticmethod
+    def _extract_id(value):
+        '''Extract the id from a "Name (id)" reference value.
+
+        --get-available-filters labels reference options as "<name> (<id>)" so
+        the selection carries both, but only the id is valid in a Quickbooks
+        query. The last parenthesised group is used so names that themselves
+        contain parentheses (e.g. "LinkedIn Corporation  (CP) (56)") resolve
+        correctly. Values not in that form (e.g. a raw id) are returned as-is.
+        '''
+        if isinstance(value, str):
+            stripped = value.rstrip()
+            if stripped.endswith(")") and "(" in stripped:
+                return stripped[stripped.rfind("(") + 1:-1].strip()
+        return value
+
+    def _parse_clause(self, clause):
+        '''Convert a single `clause_*` entry into a Quickbooks query fragment.
+
+        Returns None when the clause resolves to no usable values (e.g. an
+        empty selection) so callers never emit an invalid `IN ()`.
+        '''
+        operator = clause['operator']
+        raw_value = clause['value']
+
+        if isinstance(raw_value, list):
+            values = [self._extract_id(v) for v in raw_value]
+        else:
+            values = [self._extract_id(raw_value)]
+
+        values = [v for v in values if v not in (None, "")]
+        if not values:
+            return None
+
+        if operator == "EQ":
+            return "{} = {}".format(clause['field'], self._escape_quotes(values[0]))
+        elif operator == "IN":
+            filter_value = ", ".join(str(self._escape_quotes(v)) for v in values)
+            return "{} IN ({})".format(clause['field'], filter_value)
+        else:
+            raise TapQuickbooksException("Unsupported filter operator: {}".format(operator))
+
+    def _parse_filters(self, filters):
+        '''Parse a selected-filters subtree into Quickbooks query fragments.
+
+        hotglue nests clauses under one or more `group_*` envelopes per stream
+        (with `operator_*` glue tokens between them), even when clause nesting
+        is not enabled. Quickbooks (QBO) supports neither nested groups nor OR,
+        so we recurse into every group, collect each `clause_*`, and let the
+        caller AND them together:
+          group_*:    nested subtree (recursed into and flattened)
+          clause_*:   {"field", "operator" (EQ|IN), "value"}
+          operator_*: boolean glue - only AND is representable in QBO
+        '''
+        parsed_filters = []
+        for key, value in filters.items():
+            if key.startswith("group_"):
+                parsed_filters.extend(self._parse_filters(value))
+            elif key.startswith("clause_"):
+                fragment = self._parse_clause(value)
+                if fragment:
+                    parsed_filters.append(fragment)
+            elif key.startswith("operator_"):
+                if isinstance(value, str) and value.strip().upper() == "OR":
+                    raise TapQuickbooksException(
+                        "Quickbooks does not support OR in selected filters; only AND is allowed.")
+
+        return parsed_filters
+
+    def _get_selected_filter_clause(self, stream):
+        '''Returns the WHERE fragment (without the WHERE keyword) for a stream's
+        selected filters, or None when no filters are configured for it.'''
+        stream_filters = self.selected_filters.get("streams", {}).get(stream)
+        if not stream_filters:
+            return None
+
+        LOGGER.info("Parsing '%s' selected filters: %s", stream, stream_filters)
+        parsed_filters = self._parse_filters(stream_filters)
+        if not parsed_filters:
+            return None
+
+        return " AND ".join(parsed_filters)
+
     def _build_query_string(self, catalog_entry, start_date, end_date=None, order_by_clause=True):
         selected_properties = self._get_selected_properties(catalog_entry)
 
-        query = "SELECT {} FROM {}".format("*", catalog_entry['stream'])
+        stream = catalog_entry['stream']
+        query = "SELECT {} FROM {}".format("*", stream)
 
         catalog_metadata = metadata.to_map(catalog_entry['metadata'])
         replication_key = catalog_metadata.get((), {}).get('replication-key')
 
+        conditions = []
+
         if replication_key:
-            where_clause = " WHERE {} >  '{}' ".format(
-                replication_key,
-                start_date)
+            conditions.append("{} >  '{}'".format(replication_key, start_date))
             if end_date:
-                end_date_clause = " AND {} <= {}".format(replication_key, end_date)
-            else:
-                end_date_clause = ""
+                conditions.append("{} <= {}".format(replication_key, end_date))
 
-            # order_by = " ORDERBY {} ASC".format(replication_key)
-            # if order_by_clause:
-            #   return query + where_clause + end_date_clause + order_by
+        # Apply any selected filters for this stream (e.g. filtering Bills by
+        # VendorRef). Provided via the --selected-filters file.
+        filter_clause = self._get_selected_filter_clause(stream)
+        if filter_clause:
+            conditions.append(filter_clause)
 
-            return query + where_clause + end_date_clause
+        if conditions:
+            return query + " WHERE " + " AND ".join(conditions)
         else:
             return query
 
