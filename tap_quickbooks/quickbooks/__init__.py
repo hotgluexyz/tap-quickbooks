@@ -590,6 +590,22 @@ class Quickbooks():
             return "'{}'".format(value.replace("'", "\\'"))
         return value
 
+    @staticmethod
+    def _extract_id(value):
+        '''Extract the id from a "Name (id)" reference value.
+
+        --get-available-filters labels reference options as "<name> (<id>)" so
+        the selection carries both, but only the id is valid in a Quickbooks
+        query. The last parenthesised group is used so names that themselves
+        contain parentheses (e.g. "LinkedIn Corporation  (CP) (56)") resolve
+        correctly. Values not in that form (e.g. a raw id) are returned as-is.
+        '''
+        if isinstance(value, str):
+            stripped = value.rstrip()
+            if stripped.endswith(")") and "(" in stripped:
+                return stripped[stripped.rfind("(") + 1:-1].strip()
+        return value
+
     def _parse_filters(self, filters):
         '''Parse a flat set of selected-filter clauses into Quickbooks fragments.
 
@@ -604,24 +620,24 @@ class Quickbooks():
 
             operator = value['operator']
             raw_value = value['value']
-            
+
             if isinstance(raw_value, list):
-                raw_value = [v.split("(")[1].split(")")[0] if "(" in v and ")" in v else v for v in raw_value]
+                values = [self._extract_id(v) for v in raw_value]
             else:
-                raw_value = raw_value if "(" in raw_value and ")" in raw_value else raw_value.split("(")[1].split(")")[0]
+                values = [self._extract_id(raw_value)]
+
+            # Drop empty selections so we never emit an invalid `IN ()` clause.
+            values = [v for v in values if v not in (None, "")]
+            if not values:
+                continue
 
             if operator == "EQ":
                 parsed_filters.append(
-                    "{} = {}".format(value['field'], self._escape_quotes(raw_value)))
+                    "{} = {}".format(value['field'], self._escape_quotes(values[0])))
             elif operator == "IN":
-                if isinstance(raw_value, list):
-                    if len(raw_value) == 0:
-                        continue
-                    filter_value = ", ".join(self._escape_quotes(v) for v in raw_value)
-                else:
-                    filter_value = self._escape_quotes(raw_value)
+                filter_value = ", ".join(str(self._escape_quotes(v)) for v in values)
                 parsed_filters.append(
-                    "{} {} ({})".format(value['field'], operator, filter_value))
+                    "{} IN ({})".format(value['field'], filter_value))
             else:
                 raise TapQuickbooksException("Unsupported filter operator: {}".format(operator))
 

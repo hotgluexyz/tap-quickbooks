@@ -400,14 +400,6 @@ class QuickbooksTap(Tap):
         finally:
             self._qb_cleanup(qb)
 
-    def _resolve_catalog_dict(self, catalog):
-        if isinstance(catalog, dict):
-            return catalog
-        if isinstance(catalog, str):
-            return read_json_file(catalog)
-        self.register_streams_from_catalog(catalog)
-        return self.input_catalog.to_dict() if self.input_catalog else {"streams": []}
-
     def _load_reference_data(self, qb, stream_name_to_fields):
         """Fetch reference data (e.g. the list of Vendors) for the given streams.
 
@@ -432,21 +424,20 @@ class QuickbooksTap(Tap):
                 {qb_to_logical[qf]: rec.get(qf) for qf in qb_fields if qf in rec}
                 for rec in records
             ]
-            
-            # make label like Vendor Name (ID) if id and name are in the data
+
+            # Expose a "name (id)" label so the UI can show the name while the
+            # selection still carries the id (decoded back in _parse_filters).
             if data and "id" in data[0] and "name" in data[0]:
                 data = [
                     {
                         "id": rec.get("id"),
                         "name": rec.get("name"),
-                        "name(id)": f"{rec.get('name')} ({rec.get('id')})"
+                        "name(id)": f"{rec.get('name')} ({rec.get('id')})",
                     }
                     for rec in data
                 ]
-            
+
             reference_data[stream_name] = data
-            
-                
 
         return reference_data
 
@@ -457,11 +448,6 @@ class QuickbooksTap(Tap):
         does not register SDK Stream objects. Produces the same payload shape:
         {filters_version, reference_data, streams}.
         """
-        self.register_streams_from_catalog(catalog)
-        if not self.input_catalog:
-            raise TapQuickbooksException(
-                "A catalog file is required to run sync. Use --catalog or --properties to provide one."
-            )
         if isinstance(catalog, str):
             catalog_dict = read_json_file(catalog)
         elif isinstance(catalog, dict):
