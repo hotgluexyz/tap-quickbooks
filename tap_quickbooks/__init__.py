@@ -278,6 +278,7 @@ class QuickbooksTap(Tap):
         th.Property("gl_basic_fields", th.BooleanType),
         th.Property("hg_sync_output", th.StringType),
         th.Property("report_periods", th.IntegerType),
+        th.Property("download_attachments", th.BooleanType, default=False),
     ).to_dict()
     
     @classmethod
@@ -309,6 +310,7 @@ class QuickbooksTap(Tap):
             gl_basic_fields=config.get('gl_basic_fields', False),
             hg_sync_output=config.get('hg_sync_output'),
             report_periods=config.get('report_periods'),
+            download_attachments=config.get('download_attachments', False),
         )
         try:
             qb.login()

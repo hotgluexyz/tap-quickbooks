@@ -721,7 +721,8 @@
     {"name": "Id", "type": "string"},
     {"name": "SyncToken", "type": "string"},
     {"name": "MetaData", "type": "string"},
-    {"name": "AttachableRef", "type": "array","child_type": "string"}
+    {"name": "AttachableRef", "type": "array","child_type": "string"},
+    {"name": "downloaded_file", "type": "string"}
   ],
   "CompanyCurrency": [
     {"name": "Id", "type": "string"},

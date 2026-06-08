@@ -314,7 +314,8 @@ class Quickbooks():
                  gl_basic_fields = None,
                  hg_sync_output = None,
                  realm_id = None,
-                 report_periods = None):
+                 report_periods = None,
+                 download_attachments = None):
         
         if not realm_id:
             raise TapQuickbooksException("The 'realmId' is missing from the configuration file. It is a required field and cannot be empty.")
@@ -337,6 +338,8 @@ class Quickbooks():
         self.hg_sync_output = hg_sync_output
         self.sync_finished = False
         self.report_periods = report_periods
+        self.download_attachments = download_attachments is True or (
+            isinstance(download_attachments, str) and download_attachments.lower() == 'true')
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'
 
