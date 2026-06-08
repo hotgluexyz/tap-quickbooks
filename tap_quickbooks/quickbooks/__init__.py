@@ -603,11 +603,17 @@ class Quickbooks():
                 continue
 
             operator = value['operator']
+            raw_value = value['value']
+            
+            if isinstance(raw_value, list):
+                raw_value = [v.split("(")[1].split(")")[0] if "(" in v and ")" in v else v for v in raw_value]
+            else:
+                raw_value = raw_value if "(" in raw_value and ")" in raw_value else raw_value.split("(")[1].split(")")[0]
+
             if operator == "EQ":
                 parsed_filters.append(
-                    "{} = {}".format(value['field'], self._escape_quotes(value['value'])))
+                    "{} = {}".format(value['field'], self._escape_quotes(raw_value)))
             elif operator == "IN":
-                raw_value = value['value']
                 if isinstance(raw_value, list):
                     if len(raw_value) == 0:
                         continue
