@@ -273,7 +273,7 @@ class QuickbooksTap(Tap):
                     "label": "Vendor Name (ID)",
                     "supported_operators": ["IN", "EQ"],
                     "target_field": "VendorRef",
-                    "options": "reference_data.Vendor.name_id",
+                    "options": "reference_data.Vendor.name(id)",
                 },
             },
         },
@@ -438,9 +438,8 @@ class QuickbooksTap(Tap):
                 data = [
                     {
                         "id": rec.get("id"),
-                        "VendorRef": rec.get("id"),
                         "name": rec.get("name"),
-                        "name_id": f"{rec.get('name')} ({rec.get('id')})"
+                        "name(id)": f"{rec.get('name')} ({rec.get('id')})"
                     }
                     for rec in data
                 ]
