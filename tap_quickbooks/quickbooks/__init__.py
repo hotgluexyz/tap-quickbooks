@@ -315,7 +315,8 @@ class Quickbooks():
                  hg_sync_output = None,
                  realm_id = None,
                  report_periods = None,
-                 selected_filters = None):
+                 selected_filters = None,
+                 download_attachments = None):
         
         if not realm_id:
             raise TapQuickbooksException("The 'realmId' is missing from the configuration file. It is a required field and cannot be empty.")
@@ -341,6 +342,8 @@ class Quickbooks():
         # Selected filters passed via --selected-filters (hotglue_singer_sdk
         # convention). Shape: {"filters_version": "...", "streams": {<stream>: {...}}}.
         self.selected_filters = selected_filters or {}
+        self.download_attachments = download_attachments is True or (
+            isinstance(download_attachments, str) and download_attachments.lower() == 'true')
 
         self.base_url = "https://sandbox-quickbooks.api.intuit.com/v3/company/" if is_sandbox is True else 'https://quickbooks.api.intuit.com/v3/company/'
 

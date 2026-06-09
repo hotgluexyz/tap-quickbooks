@@ -52,3 +52,50 @@ To sync data, select fields in the `properties.json` output and run the tap.
 ```
 > tap-quickbooks --config config.json --properties properties.json [--state state.json]
 ```
+
+## Downloading Attachments
+
+QuickBooks Online exposes file attachments through the `Attachable` entity, which
+links a file to one or more transactions (Invoice, Bill, PurchaseOrder, etc.) via
+`AttachableRef[]`. Each `Attachable` record includes a pre-signed `TempDownloadUri`.
+
+When the `Attachable` stream is selected, the tap can download the underlying file
+bytes for each record. Downloading is opt-in via the `download_attachments` config
+flag.
+
+### Config options
+
+```json
+{
+  "download_attachments": true
+}
+```
+
+- `download_attachments` (boolean, default `false`) - master on/off switch for
+  fetching attachment file bytes. When `false`, `Attachable` metadata records are
+  still emitted but no files are downloaded.
+
+### Output layout
+
+Downloaded files are grouped by the linked entity under the sync-output root:
+
+```
+<sync-output>/{entity_type}_attachments/{entity_id}/{attachable_id}_{file_name}
+```
+
+For example:
+
+```
+<sync-output>/bill_attachments/130/57_receipt.pdf
+<sync-output>/invoice_attachments/42/61_logo.png
+```
+
+`entity_type` is the lowercased QuickBooks entity (e.g. `bill`, `invoice`) taken
+from the attachment's `AttachableRef`. The file name is prefixed with the
+`Attachable` record id so two attachments that share a `FileName` on the same
+entity don't overwrite each other. Attachments not linked to any entity are written
+to a flat `attachments/{attachable_id}_{file_name}` folder.
+
+The sync-output root is resolved as follows: when the `JOB_ID` environment variable
+is set (hotglue), the base is `/home/hotglue/{JOB_ID}/sync-output`; otherwise it is
+`./sync-output`. A `hg_sync_output` config value, if provided, overrides this base.

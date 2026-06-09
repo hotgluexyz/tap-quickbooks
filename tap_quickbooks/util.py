@@ -16,6 +16,19 @@ _stop_event = threading.Event()
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
+
+def get_sync_output_dir():
+    """Returns the shared sync-output root used for downloaded files.
+
+    Mirrors the convention used across hotglue taps: when running on hotglue
+    (``JOB_ID`` set) files are written under ``/home/hotglue/{JOB_ID}/sync-output``,
+    otherwise the current working directory.
+    """
+    job_id = os.environ.get("JOB_ID")
+    if job_id:
+        return f"/home/hotglue/{job_id}/sync-output"
+    return "./sync-output"
+
 def _log_writer():
     """Background thread that writes logs to file."""
     LOG_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)

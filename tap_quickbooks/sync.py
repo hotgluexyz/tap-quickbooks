@@ -10,7 +10,7 @@ import json
 import requests
 from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException
 from hotglue_etl_exceptions import InvalidCredentialsError
-from tap_quickbooks.util import save_api_usage
+from tap_quickbooks.util import save_api_usage, get_sync_output_dir
 
 LOGGER = singer.get_logger()
 
@@ -109,18 +109,33 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
 
     for rec in query_func(catalog_entry, state, state_passed):
         #Check if it is Attachable stream with a downloadable file
-        if stream == 'Attachable' and "TempDownloadUri" in rec:
-            file_name = rec["FileName"]
-            attachable_ref = rec.get("AttachableRef",[])
-            if len(attachable_ref)>0 and "EntityRef" in attachable_ref[0]:
-                attachable_ref = attachable_ref[0]['EntityRef']
-                if attachable_ref:
-                    file_name = f"{attachable_ref['type']}-{attachable_ref['value']}-{file_name}"
-            #Save the newly formatted file name        
-            rec['FileName'] = file_name      
-            download_file(
-                rec["TempDownloadUri"], os.path.join(qb.hg_sync_output or "", file_name)
+        if qb.download_attachments and stream == 'Attachable' and "TempDownloadUri" in rec:
+            file_name = rec["FileName"].replace("/", "_")
+
+            # Add the Attachable record ID to the file name to make it unique
+            # This is because two attachments that share a FileName on the same entity don't overwrite each other
+            file_name = f"{rec['Id']}_{file_name}"
+
+            # Group by linked entity, e.g. bill_attachments/<bill_id>/<file>,
+            # invoice_attachments/<invoice_id>/<file>; fall back to a flat folder.
+            entity_ref = None
+            attachable_ref = rec.get("AttachableRef", [])
+            if len(attachable_ref) > 0 and "EntityRef" in attachable_ref[0]:
+                entity_ref = attachable_ref[0]["EntityRef"]
+
+            if entity_ref and entity_ref.get("type") and entity_ref.get("value"):
+                folder = f"{entity_ref['type'].lower()}_attachments"
+                rel_path = os.path.join(folder, str(entity_ref["value"]), file_name)
+            else:
+                rel_path = os.path.join("attachments", file_name)
+
+            downloaded = download_file(
+                rec["TempDownloadUri"],
+                os.path.join(_attachment_base_dir(qb), rel_path)
             )
+
+            # Only expose the path when the file was actually written to disk
+            rec["downloaded_file"] = rel_path if downloaded else ""
         counter.increment()
         with Transformer(pre_hook=transform_data_hook) as transformer:
             rec = transformer.transform(rec, schema)
@@ -165,8 +180,13 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
             state, catalog_entry['tap_stream_id'], 'version', None)
 
 def download_file(url, local_filename):
+    """Downloads url to local_filename. Returns True only if the file was written."""
     # Send an HTTP GET request to the URL
-    response = requests.get(url, stream=True)
+    try:
+        response = requests.get(url, stream=True)
+    except Exception as e:
+        LOGGER.warning("Failed to download file %s: %s", local_filename, str(e))
+        return False
 
     try:
         save_api_usage("GET", url, None, None, response)
@@ -175,13 +195,25 @@ def download_file(url, local_filename):
 
     LOGGER.info(f"Downloading file: {local_filename}")
     # Check if the request was successful (status code 200)
-    if response.status_code == 200:
+    if response.status_code != 200:
+        LOGGER.warning("Failed to download file. HTTP status code: %s", response.status_code)
+        return False
+
+    try:
+        os.makedirs(os.path.dirname(local_filename) or ".", exist_ok=True)
         # Open a local file with write-binary mode to save the downloaded content
         with open(local_filename, 'wb') as f:
             # Iterate over the content of the response in chunks and write to the file
             for chunk in response.iter_content(chunk_size=1024):
                 f.write(chunk)
-        LOGGER.info(f"File downloaded successfully: {local_filename}")
-    else:
-        LOGGER.info(f"Failed to download file. HTTP status code: {response.status_code}")
-        
+    except Exception as e:
+        LOGGER.warning("Failed to write file %s: %s", local_filename, str(e))
+        return False
+
+    LOGGER.info(f"File downloaded successfully: {local_filename}")
+    return True
+
+
+def _attachment_base_dir(qb):
+    """Resolves the sync-output root for attachment files."""
+    return qb.hg_sync_output or get_sync_output_dir()
