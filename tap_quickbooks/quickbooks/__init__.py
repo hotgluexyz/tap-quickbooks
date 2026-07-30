@@ -23,7 +23,7 @@ from tap_quickbooks.quickbooks.reportstreams.DailyCashFlowReport import DailyCas
 from tap_quickbooks.quickbooks.reportstreams.MonthlyCashFlowReport import MonthlyCashFlowReport
 from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import TransactionListReport
 from tap_quickbooks.quickbooks.reportstreams.ARAgingSummaryReport import ARAgingSummaryReport
-from tap_quickbooks.util import save_api_usage
+from tap_quickbooks.util import mask_secret, redact_for_log, save_api_usage
 
 from tap_quickbooks.quickbooks.rest import Rest
 from tap_quickbooks.quickbooks.exceptions import (
@@ -417,7 +417,12 @@ class Quickbooks():
             LOGGER.info("Making %s request to %s with params: %s", http_method, url, params)
             resp = self.session.get(url, headers=headers, stream=stream, params=params)
         elif http_method == "POST":
-            LOGGER.info("Making %s request to %s with body %s", http_method, url, body)
+            LOGGER.info(
+                "Making %s request to %s with body %s",
+                http_method,
+                url,
+                redact_for_log(body),
+            )
             resp = self.session.post(url, headers=headers, data=body)
         else:
             raise TapQuickbooksException("Unsupported HTTP method")
@@ -476,7 +481,7 @@ class Quickbooks():
             self.access_token = auth['access_token']
 
             new_refresh_token = auth['refresh_token']
-            LOGGER.info(F"REFRESH TOKEN: {new_refresh_token}")
+            LOGGER.info("REFRESH TOKEN: %s", mask_secret(new_refresh_token))
 
             # persist access_token
             parser = argparse.ArgumentParser()
@@ -489,8 +494,8 @@ class Quickbooks():
 
             # Check if the refresh token is update, if so update the config file with new refresh token.
             if new_refresh_token != self.refresh_token:
-                LOGGER.info(f"Old refresh token [{self.refresh_token}] expired.")
-                LOGGER.info("New Refresh token: {}".format(new_refresh_token))
+                LOGGER.info("Old refresh token [%s] expired.", mask_secret(self.refresh_token))
+                LOGGER.info("New Refresh token: %s", mask_secret(new_refresh_token))
                 parser = argparse.ArgumentParser()
                 parser.add_argument('-c', '--config', help='Config file', required=True)
                 _args, unknown = parser.parse_known_args()
