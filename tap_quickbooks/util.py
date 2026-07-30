@@ -4,7 +4,9 @@ import threading
 import queue
 import os
 from pathlib import Path
-from typing import Optional
+from typing import Any, Mapping, Optional
+
+SECRET_LOG_KEYS = frozenset({"access_token", "client_secret", "refresh_token"})
 
 # Configurable log path
 LOG_FILE_PATH = Path(os.getenv("API_USAGE_LOG", "api_usage.jsonl"))
@@ -28,6 +30,29 @@ def get_sync_output_dir():
     if job_id:
         return f"/home/hotglue/{job_id}/sync-output"
     return "./sync-output"
+
+
+def mask_secret(value, visible=4):
+    """Return a log-safe token suffix, e.g. RT1-...xvcf -> ***xvcf."""
+    if value is None:
+        return value
+    secret = str(value)
+    if not secret:
+        return secret
+    if len(secret) <= visible:
+        return "***"
+    return f"***{secret[-visible:]}"
+
+
+def redact_for_log(data: Any) -> Any:
+    """Return a copy of request payloads with sensitive fields masked for logging."""
+    if not isinstance(data, Mapping):
+        return data
+    redacted = dict(data)
+    for key in SECRET_LOG_KEYS:
+        if key in redacted:
+            redacted[key] = mask_secret(redacted[key])
+    return redacted
 
 def _log_writer():
     """Background thread that writes logs to file."""

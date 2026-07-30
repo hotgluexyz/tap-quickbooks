@@ -28,6 +28,8 @@ def transform_data_hook(data, typ, schema):
 
         if not typ == 'object':
             result = json.dumps(data)
+    elif isinstance(data, list) and typ not in ('array', 'object'):
+        result = json.dumps(data)
 
     # Quickbooks can return the value '0.0' for integer typed fields. This
     # causes a schema violation. Convert it to '0' if schema['type'] has
