@@ -4,7 +4,7 @@ from tap_quickbooks.util import mask_secret, redact_for_log
 
 
 def test_mask_secret_shows_suffix():
-    assert mask_secret("RT1-126-H0-1794170450b2w4wb69ey4diwpfxvcf") == "***xvcf"
+    assert mask_secret("test-refresh-token-abcdef") == "***cdef"
 
 
 def test_mask_secret_handles_short_values():
@@ -14,17 +14,17 @@ def test_mask_secret_handles_short_values():
 def test_redact_for_log_masks_oauth_body():
     body = {
         "grant_type": "refresh_token",
-        "client_id": "ABELs0U8bWJw6ZH4rNZS6y2Wai6qQlVUTtzQoS32OhW0x6AccX",
-        "client_secret": "LucG0PEhvuS1zyZT04Gwg0AuFARTD2kKfEsnoxdl",
-        "refresh_token": "RT1-126-H0-1794170450b2w4wb69ey4diwpfxvcf",
+        "client_id": "test-client-id-1234567890",
+        "client_secret": "test-client-secret-abcdefghij",
+        "refresh_token": "test-refresh-token-abcdef",
     }
 
     redacted = redact_for_log(body)
 
     assert redacted["client_id"] == body["client_id"]
-    assert redacted["client_secret"] == "***oxdl"
-    assert redacted["refresh_token"] == "***xvcf"
-    assert body["client_secret"] == "LucG0PEhvuS1zyZT04Gwg0AuFARTD2kKfEsnoxdl"
+    assert redacted["client_secret"] == "***ghij"
+    assert redacted["refresh_token"] == "***cdef"
+    assert body["client_secret"] == "test-client-secret-abcdefghij"
 
 
 def test_redact_for_log_passes_through_non_mappings():
