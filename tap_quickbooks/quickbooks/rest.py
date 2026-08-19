@@ -9,6 +9,7 @@ from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException, raise_f
 LOGGER = singer.get_logger()
 
 MAX_RETRIES = 4
+CDC_MAX_RESULTS = 1000
 
 # Entities that support the CDC endpoint for delete tracking
 # Note: CDC cannot be used for journalCode, taxAgency, timeActivity, taxCode, or taxRate
@@ -75,39 +76,61 @@ class Rest():
         
         if changed_since_dt < thirty_days_ago:
             LOGGER.info(f"CDC has 30-day limit. Adjusting changed_since from {changed_since} to 30 days ago")
-            changed_since = singer_utils.strftime(thirty_days_ago)
+            changed_since_dt = thirty_days_ago
 
         url = f"{self.qb.instance_url}/cdc"
         headers = self.qb._get_standard_headers()
         headers["Accept"] = "application/json"
-        
-        params = {
-            "entities": stream,
-            "changedSince": changed_since,
-            "minorversion": "75"
-        }
-        
-        LOGGER.info(f"Querying CDC for deleted {stream} records since {changed_since}")
-        
-        resp = self.qb._make_request('GET', url, headers=headers, params=params)
-        resp_json = resp.json()
-        
-        cdc_response = resp_json.get('CDCResponse', [])
-        if not cdc_response:
-            LOGGER.info(f"No CDC response for {stream}")
-            return
-        
-        for cdc_item in cdc_response:
-            query_response = cdc_item.get('QueryResponse', [])
-            for qr in query_response:
-                records = qr.get(stream, [])
-                for rec in records:
-                    # Check if this is a deleted record
-                    if rec.get('status') == 'Deleted':
-                        # Add deletion metadata
-                        rec['Deleted'] = True
-                        LOGGER.info(f"Found deleted {stream} record: Id={rec.get('Id')}")
-                        yield rec
+
+        # CDC returns at most 1000 objects and has no end-date or paging params.
+        # Walk changedSince forward using the latest LastUpdatedTime so a full
+        # page is not treated as a complete result.
+        window_start = changed_since_dt
+        seen_ids = set()
+        while True:
+            changed_since = singer_utils.strftime(window_start)
+            params = {
+                "entities": stream,
+                "changedSince": changed_since,
+                "minorversion": "75"
+            }
+
+            LOGGER.info(f"Querying CDC for deleted {stream} records since {changed_since}")
+            resp = self.qb._make_request('GET', url, headers=headers, params=params)
+            resp_json = resp.json()
+            cdc_response = resp_json.get('CDCResponse', [])
+
+            if not cdc_response:
+                LOGGER.info(f"No CDC response for {stream}")
+                return
+
+            capped = False
+            latest_update = None
+            for cdc_item in cdc_response:
+                query_response = cdc_item.get('QueryResponse', [])
+                for qr in query_response:
+                    records = qr.get(stream, [])
+                    if qr.get('maxResults', len(records)) >= CDC_MAX_RESULTS:
+                        capped = True
+                    for rec in records:
+                        rec_updated = (rec.get('MetaData') or {}).get('LastUpdatedTime')
+                        if rec_updated:
+                            rec_updated_dt = singer_utils.strptime_with_tz(rec_updated)
+                            if latest_update is None or rec_updated_dt > latest_update:
+                                latest_update = rec_updated_dt
+                        if rec.get('status') == 'Deleted':
+                            rec_id = rec.get('Id')
+                            if rec_id in seen_ids:
+                                continue
+                            seen_ids.add(rec_id)
+                            rec['Deleted'] = True
+                            LOGGER.info(f"Found deleted {stream} record: Id={rec_id}")
+                            yield rec
+
+            if not capped:
+                return
+
+            window_start = latest_update
 
     # pylint: disable=too-many-arguments
     def _query_recur(
