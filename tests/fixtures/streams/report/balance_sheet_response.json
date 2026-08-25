@@ -1,0 +1,47 @@
+{
+  "Columns": {
+    "Column": [
+      {"ColTitle": "", "ColType": "Account"},
+      {"ColTitle": "Total", "ColType": "Money"}
+    ]
+  },
+  "Rows": {
+    "Row": [
+      {
+        "Header": {"ColData": [{"value": "ASSETS"}]},
+        "Rows": {
+          "Row": [
+            {
+              "Header": {"ColData": [{"value": "Bank Accounts"}]},
+              "Rows": {
+                "Row": [
+                  {
+                    "ColData": [
+                      {"value": "Checking", "id": "35"},
+                      {"value": "100.00"}
+                    ],
+                    "type": "Data"
+                  },
+                  {
+                    "ColData": [
+                      {"value": "Savings", "id": "36"},
+                      {"value": "250.50"}
+                    ],
+                    "type": "Data"
+                  }
+                ]
+              }
+            },
+            {
+              "ColData": [
+                {"value": "Summary Row"},
+                {"value": ""}
+              ],
+              "type": "Data"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
