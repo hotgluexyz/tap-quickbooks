@@ -290,9 +290,11 @@ class BaseReportStream(QuickbooksStream):
         cleansed_row = {}
         for k, v in row.items():
             if isinstance(v, dict):
-                cleansed_row[k] = v.get("value")
                 if v.get("id"):
                     cleansed_row[f"{k}Id"] = v.get("id")
+                value = v.get("value")
+                if value != "":
+                    cleansed_row[k] = value
             elif v != "":
                 cleansed_row[k] = v
 

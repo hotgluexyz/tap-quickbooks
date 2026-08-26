@@ -165,6 +165,18 @@ class TestMergeRowIntoDict:
         monthly_total = merged[("Checking", ("Assets",))]["MonthlyTotal"]
         assert all("AccountId" not in entry for entry in monthly_total)
 
+    def test_merge_row_skips_empty_structured_monthly_cells(self, base_report):
+        merged = {}
+        base_report._merge_row_into_dict(
+            [{"value": "Checking", "id": "35"}, {"value": ""}, "200.00", "200.00", ["Assets"]],
+            self.COLS,
+            merged,
+            track_total=False,
+        )
+        monthly_total = merged[("Checking", ("Assets",))]["MonthlyTotal"]
+        assert {"Jan2024": ""} not in monthly_total
+        assert monthly_total == [{"Feb2024": "200.00"}, {"Total": "200.00"}]
+
     @pytest.mark.parametrize(
         "raw_row,track_total",
         [
