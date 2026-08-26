@@ -422,6 +422,7 @@
   "BalanceSheetReport": [
     {"name": "Total", "type": "number"},
     {"name": "Account", "type": "string"},
+    {"name": "AccountId", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"}
   ],
   "MonthlyBalanceSheetReport": [
