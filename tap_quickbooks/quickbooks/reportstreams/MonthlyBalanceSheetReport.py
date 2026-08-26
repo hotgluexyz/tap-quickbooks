@@ -1,13 +1,16 @@
 import datetime
-from typing import ClassVar, Dict, List, Optional
+from typing import ClassVar, List
 
 import singer
 
 from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
-from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
+
+# Metadata fields kept on the record; MonthlyTotal holds per-month amount columns only.
+_MONTHLY_TOTAL_SKIP = frozenset({"Account", "AccountId", "Categories", "SyncTimestampUtc"})
+
 
 class MonthlyBalanceSheetReport(BaseReportStream):
     tap_stream_id: ClassVar[str] = 'MonthlyBalanceSheetReport'
@@ -32,7 +35,7 @@ class MonthlyBalanceSheetReport(BaseReportStream):
         if 'ColData' in list(row.keys()):
             # Write the row
             data = row.get("ColData")
-            values = [column.get("value") for column in data]
+            values = [column for column in data]
             categories_copy = categories.copy()
             values.append(categories_copy)
             values_copy = values.copy()
@@ -92,18 +95,20 @@ class MonthlyBalanceSheetReport(BaseReportStream):
 
             cleansed_row = {}
             for k, v in row.items():
-                if v == "":
+                if isinstance(v, dict):
+                    cleansed_row[k] = v.get("value")
+                    if v.get("id"):
+                        cleansed_row[f"{k}Id"] = v.get("id")
+                elif v == "":
                     continue
                 else:
-                    cleansed_row.update({k: v})
+                    cleansed_row[k] = v
 
-            
             cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
             monthly_total = []
-            for key,value in cleansed_row.items():
-                if key not in ['Account', 'Categories', 'SyncTimestampUtc']:
-                    monthly_total.append({key:value})
+            for key, value in cleansed_row.items():
+                if key not in _MONTHLY_TOTAL_SKIP:
+                    monthly_total.append({key: value})
             cleansed_row['MonthlyTotal'] = monthly_total
 
             yield cleansed_row
-       
