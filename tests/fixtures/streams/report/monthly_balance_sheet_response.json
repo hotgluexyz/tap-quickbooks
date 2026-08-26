@@ -1,0 +1,35 @@
+{
+  "Columns": {
+    "Column": [
+      {"ColTitle": "", "ColType": "Account"},
+      {"ColTitle": "Jan 2024", "ColType": "Money"},
+      {"ColTitle": "Feb 2024", "ColType": "Money"}
+    ]
+  },
+  "Rows": {
+    "Row": [
+      {
+        "Header": {"ColData": [{"value": "ASSETS"}]},
+        "Rows": {
+          "Row": [
+            {
+              "Header": {"ColData": [{"value": "Bank Accounts"}]},
+              "Rows": {
+                "Row": [
+                  {
+                    "ColData": [
+                      {"value": "Checking", "id": "35"},
+                      {"value": "100.00"},
+                      {"value": "110.00"}
+                    ],
+                    "type": "Data"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

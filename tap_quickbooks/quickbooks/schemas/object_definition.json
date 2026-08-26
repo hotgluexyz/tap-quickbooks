@@ -427,6 +427,7 @@
   ],
   "MonthlyBalanceSheetReport": [
     {"name": "Account", "type": "string"},
+    {"name": "AccountId", "type": "string"},
     {"name": "Categories", "type": "array", "child_type": "string"},
     {"name": "MonthlyTotal", "type": "array", "child_type": "string"}
   ],
@@ -601,7 +602,8 @@
     {"name": "EndDate", "type": "string"},
     {"name": "Total", "type": "number"},
     {"name": "Categories", "type": "array", "child_type": "string"},
-    {"name": "Account", "type": "string"}
+    {"name": "Account", "type": "string"},
+    {"name": "AccountId", "type": "string"}
   ],
   "TransactionListReport": [
     {"name": "Date", "type": "string"},
