@@ -45,5 +45,11 @@ class TestBalanceSheetReport:
     def test_object_definition_includes_account_id(self):
         from tap_quickbooks.quickbooks import QB_OBJECT_DEFINITIONS
 
-        field_names = [f["name"] for f in QB_OBJECT_DEFINITIONS["BalanceSheetReport"]]
-        assert "AccountId" in field_names
+        balance_sheet_fields = [f["name"] for f in QB_OBJECT_DEFINITIONS["BalanceSheetReport"]]
+        monthly_bs_fields = [f["name"] for f in QB_OBJECT_DEFINITIONS["MonthlyBalanceSheetReport"]]
+        monthly_cf_fields = [f["name"] for f in QB_OBJECT_DEFINITIONS["MonthlyCashFlowReport"]]
+        pnl_fields = [f["name"] for f in QB_OBJECT_DEFINITIONS["ProfitAndLossReport"]]
+        assert "AccountId" in balance_sheet_fields
+        assert "AccountId" in monthly_bs_fields
+        assert "AccountId" in monthly_cf_fields
+        assert "AccountId" in pnl_fields
