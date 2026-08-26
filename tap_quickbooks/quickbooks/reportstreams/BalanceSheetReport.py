@@ -1,11 +1,18 @@
 import datetime
-from typing import ClassVar, Dict, List, Optional
+from typing import ClassVar, List
 
 import singer
+
 from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
-from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
+
+
+def _col_value(cell):
+    """Return the string value from a ColData cell or plain scalar."""
+    if isinstance(cell, dict):
+        return cell.get("value")
+    return cell
 
 
 class BalanceSheetReport(BaseReportStream):
@@ -31,7 +38,7 @@ class BalanceSheetReport(BaseReportStream):
         if 'ColData' in list(row.keys()):
             # Write the row
             data = row.get("ColData")
-            values = [column.get("value") for column in data]
+            values = [column for column in data]
             categories_copy = categories.copy()
             values.append(categories_copy)
             values_copy = values.copy()
@@ -79,19 +86,22 @@ class BalanceSheetReport(BaseReportStream):
         # Zip columns and row data.
         for raw_row in output:
             row = dict(zip(columns, raw_row))
-            if not row.get("Total"):
+            if not _col_value(row.get("Total")):
                 # If a row is missing the amount, skip it
                 continue
 
             cleansed_row = {}
             for k, v in row.items():
-                if v == "":
+                if isinstance(v, dict):
+                    cleansed_row[k] = v.get("value")
+                    if v.get("id"):
+                        cleansed_row[f"{k}Id"] = v.get("id")
+                elif v == "":
                     continue
                 else:
-                    cleansed_row.update({k: v})
+                    cleansed_row[k] = v
 
-            cleansed_row["Total"] = float(row.get("Total"))
+            cleansed_row["Total"] = float(_col_value(row.get("Total")))
             cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
 
             yield cleansed_row
-   
