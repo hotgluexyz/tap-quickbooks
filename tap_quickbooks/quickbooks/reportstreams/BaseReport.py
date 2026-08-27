@@ -11,18 +11,11 @@ from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream, RetriableEx
 LOGGER = singer.get_logger()
 
 
-def _col_value(cell):
-    """Return the string value from a ColData cell or plain scalar."""
+def _col_field(cell, key="value"):
+    """Return a field from a ColData cell, or the scalar itself for value lookups."""
     if isinstance(cell, dict):
-        return cell.get("value")
-    return cell
-
-
-def _account_id_from_cell(cell):
-    """Return account id from a ColData cell when present."""
-    if isinstance(cell, dict):
-        return cell.get("id")
-    return None
+        return cell.get(key)
+    return cell if key == "value" else None
 
 
 def _is_fatal_including_504(e: requests.exceptions.RequestException) -> bool:
@@ -251,8 +244,8 @@ class BaseReportStream(QuickbooksStream):
             if len(raw_row) < 3:
                 continue
             account_cell, total_val, categories = raw_row[0], raw_row[1], raw_row[-1]
-            account = _col_value(account_cell)
-            if not _col_value(total_val):
+            account = _col_field(account_cell)
+            if not _col_field(total_val):
                 continue
             # Cash flow: skip rows with no parent category (e.g. "Cash at beginning
             # of period"). These are balance items, not flows, and the columnar API
@@ -267,16 +260,16 @@ class BaseReportStream(QuickbooksStream):
                     "Categories": categories,
                     "MonthlyTotal": [],
                 }
-                account_id = _account_id_from_cell(account_cell)
+                account_id = _col_field(account_cell, "id")
                 if account_id:
                     merged[key]["AccountId"] = account_id
                 if track_total:
                     merged[key]["Total"] = 0.0
 
-            merged[key]["MonthlyTotal"].append({month_col: _col_value(total_val)})
+            merged[key]["MonthlyTotal"].append({month_col: _col_field(total_val)})
             if track_total:
                 try:
-                    merged[key]["Total"] += float(_col_value(total_val))
+                    merged[key]["Total"] += float(_col_field(total_val))
                 except (ValueError, TypeError):
                     pass
 
@@ -284,7 +277,7 @@ class BaseReportStream(QuickbooksStream):
         """Accumulate one raw row into the cross-chunk merged dict."""
         row = dict(zip(columns, raw_row))
 
-        if track_total and not _col_value(row.get("Total")):
+        if track_total and not _col_field(row.get("Total")):
             return
 
         cleansed_row = {}
@@ -322,7 +315,7 @@ class BaseReportStream(QuickbooksStream):
 
         if track_total:
             try:
-                merged[key]["Total"] += float(_col_value(row.get("Total")))
+                merged[key]["Total"] += float(_col_field(row.get("Total")))
             except (ValueError, TypeError):
                 pass
         merged[key]["MonthlyTotal"].extend(monthly_entries)

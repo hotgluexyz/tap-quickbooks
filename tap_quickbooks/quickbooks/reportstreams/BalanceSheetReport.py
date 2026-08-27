@@ -3,16 +3,9 @@ from typing import ClassVar, List
 
 import singer
 
-from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
+from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream, _col_field
 
 LOGGER = singer.get_logger()
-
-
-def _col_value(cell):
-    """Return the string value from a ColData cell or plain scalar."""
-    if isinstance(cell, dict):
-        return cell.get("value")
-    return cell
 
 
 class BalanceSheetReport(BaseReportStream):
@@ -86,7 +79,7 @@ class BalanceSheetReport(BaseReportStream):
         # Zip columns and row data.
         for raw_row in output:
             row = dict(zip(columns, raw_row))
-            if not _col_value(row.get("Total")):
+            if not _col_field(row.get("Total")):
                 # If a row is missing the amount, skip it
                 continue
 
@@ -101,7 +94,7 @@ class BalanceSheetReport(BaseReportStream):
                 else:
                     cleansed_row[k] = v
 
-            cleansed_row["Total"] = float(_col_value(row.get("Total")))
+            cleansed_row["Total"] = float(_col_field(row.get("Total")))
             cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
 
             yield cleansed_row
