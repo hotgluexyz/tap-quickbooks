@@ -75,7 +75,7 @@ class TestRecursiveRowSearch:
                             "Row": [
                                 {
                                     "ColData": [
-                                        {"value": "Checking"},
+                                        {"value": "Checking", "id": "35"},
                                         {"value": "100.00"},
                                     ]
                                 }
@@ -88,7 +88,9 @@ class TestRecursiveRowSearch:
         categories = []
         output = []
         base_report._recursive_row_search(row, output, categories)
-        assert output == [["Checking", "100.00", ["Assets", "Bank Accounts"]]]
+        assert output == [
+            [{"value": "Checking", "id": "35"}, {"value": "100.00"}, ["Assets", "Bank Accounts"]]
+        ]
         assert categories == []
 
     @pytest.mark.parametrize("row", [{"Rows": {}}, {"Rows": None}])
@@ -150,6 +152,30 @@ class TestMergeRowIntoDict:
                 "Total": 300.0,
             }
         }
+
+    def test_merge_row_emits_account_id(self, base_report):
+        merged = {}
+        base_report._merge_row_into_dict(
+            [{"value": "Checking", "id": "35"}, "100.00", "", "100.00", ["Assets"]],
+            self.COLS,
+            merged,
+            track_total=False,
+        )
+        assert merged[("Checking", ("Assets",))]["AccountId"] == "35"
+        monthly_total = merged[("Checking", ("Assets",))]["MonthlyTotal"]
+        assert all("AccountId" not in entry for entry in monthly_total)
+
+    def test_merge_row_skips_empty_structured_monthly_cells(self, base_report):
+        merged = {}
+        base_report._merge_row_into_dict(
+            [{"value": "Checking", "id": "35"}, {"value": ""}, "200.00", "200.00", ["Assets"]],
+            self.COLS,
+            merged,
+            track_total=False,
+        )
+        monthly_total = merged[("Checking", ("Assets",))]["MonthlyTotal"]
+        assert {"Jan2024": ""} not in monthly_total
+        assert monthly_total == [{"Feb2024": "200.00"}, {"Total": "200.00"}]
 
     @pytest.mark.parametrize(
         "raw_row,track_total",
