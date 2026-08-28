@@ -21,7 +21,11 @@ class ARAgingSummaryReport(BaseReportStream):
             if column.get("ColTitle") == "" and column.get("ColType") == "Customer":
                 columns.append("Customer")
             else:
-                columns.append(column.get("ColTitle").replace(" ", ""))
+                normalized = column.get("ColTitle").replace(" ", "")
+                # v2 Reports API returns "91 AND OVER" in ALL CAPS; schema field is "91andover".
+                if normalized == "91ANDOVER":
+                    normalized = "91andover"
+                columns.append(normalized)
         return columns
 
     def sync(self, catalog_entry):
