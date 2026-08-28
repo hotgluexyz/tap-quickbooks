@@ -17,7 +17,7 @@ from tap_quickbooks.quickbooks.reportstreams.DailyCashFlowReport import (
 class TestIsEmptyOrZeroDailyValue:
     @pytest.mark.parametrize(
         "value",
-        ["", "0", "0.0", "0.00", "0,00", 0, 0.0],
+        ["", None, "0", "0.0", "0.00", "0,00", 0, 0.0],
     )
     def test_zero_like_values(self, value):
         assert _is_empty_or_zero_daily_value(value) is True
@@ -157,4 +157,33 @@ class TestDailyCashFlowReportSync:
 
         assert len(records) == 1
         assert records[0]["Total"] == 5.0
+        assert records[0]["DailyTotal"] == [{"2026-01-02": "5.00"}]
+
+    def test_parse_and_yield_rows_skips_missing_daily_values(self, report):
+        resp = {
+            "Columns": {
+                "Column": [
+                    {"ColTitle": "", "ColType": "Account"},
+                    {"ColTitle": "2026-01-01", "ColType": "Money"},
+                    {"ColTitle": "2026-01-02", "ColType": "Money"},
+                    {"ColTitle": "Total", "ColType": "Money"},
+                ]
+            },
+            "Rows": {
+                "Row": [
+                    {
+                        "ColData": [
+                            {"value": "Net Income"},
+                            {"value": None},
+                            {"value": "5.00"},
+                            {"value": "5.00"},
+                        ]
+                    }
+                ]
+            },
+        }
+        columns = report._get_column_metadata(resp)
+        records = list(report._parse_and_yield_rows(resp, columns))
+
+        assert len(records) == 1
         assert records[0]["DailyTotal"] == [{"2026-01-02": "5.00"}]

@@ -21,9 +21,9 @@ class ARAgingSummaryReport(BaseReportStream):
                 columns.append("Customer")
             else:
                 normalized = column.get("ColTitle").replace(" ", "")
-                # v2 returns ALL CAPS for some buckets (e.g. "91 AND OVER"); schema uses lowercase.
-                if normalized.isupper():
-                    normalized = normalized.lower()
+                # v2 Reports API returns "91 AND OVER" in ALL CAPS; schema field is "91andover".
+                if normalized == "91ANDOVER":
+                    normalized = "91andover"
                 columns.append(normalized)
         return columns
 

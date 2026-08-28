@@ -14,7 +14,7 @@ MAX_DAYS_PER_REQUEST = 200
 
 def _is_empty_or_zero_daily_value(value) -> bool:
     """True when a day column has no activity (v1 omits these; v2 often sends 0.00)."""
-    if value == "":
+    if value is None or value == "":
         return True
     try:
         return float(str(value).replace(",", "")) == 0.0
