@@ -88,12 +88,15 @@ class DailyCashFlowReport(QuickbooksStream):
 
         output = []
         categories = []
+        # Recursively get row data.
         for row in row_array:
             self._recursive_row_search(row, output, categories)
 
+        # Zip columns and row data.
         for raw_row in output:
             row = dict(zip(columns, raw_row))
             if not row.get("Total"):
+                # If a row is missing the amount, skip it
                 continue
 
             cleansed_row = {k: v for k, v in row.items() if v != ""}
@@ -130,6 +133,7 @@ class DailyCashFlowReport(QuickbooksStream):
                 f"Fetch DailyCashFlow Report for period {params['start_date']} to {params['end_date']}"
             )
             resp = self._get(report_entity="CashFlow", params=params)
+            # Get column metadata.
             columns = self._get_column_metadata(resp)
             for record in self._parse_and_yield_rows(resp, columns):
                 key = (record.get("Account"), tuple(record.get("Categories") or []))
@@ -165,12 +169,15 @@ class DailyCashFlowReport(QuickbooksStream):
                 LOGGER.info(f"Fetch CashFlow for period {params['start_date']} to {params['end_date']}")
                 resp = self._get(report_entity='CashFlow', params=params)
 
+                # Get column metadata.
                 columns = self._get_column_metadata(resp)
 
+                # Recursively get row data.
                 row_group = resp.get("Rows")
                 row_array = row_group.get("Row")
 
                 if row_array is None:
+                    # Update end date
                     end_date = start_date - datetime.timedelta(days=1)
                     continue
 
@@ -179,9 +186,11 @@ class DailyCashFlowReport(QuickbooksStream):
                 for row in row_array:
                     self._recursive_row_search(row, output, categories)
 
+                # Zip columns and row data.
                 for raw_row in output:
                     row = dict(zip(columns, raw_row))
                     if not row.get("Total"):
+                        # If a row is missing the amount, skip it
                         continue
 
                     cleansed_row = {}
