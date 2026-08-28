@@ -20,7 +20,11 @@ class ARAgingSummaryReport(BaseReportStream):
             if column.get("ColTitle") == "" and column.get("ColType") == "Customer":
                 columns.append("Customer")
             else:
-                columns.append(column.get("ColTitle").replace(" ", ""))
+                normalized = column.get("ColTitle").replace(" ", "")
+                # v2 returns ALL CAPS for some buckets (e.g. "91 AND OVER"); schema uses lowercase.
+                if normalized.isupper():
+                    normalized = normalized.lower()
+                columns.append(normalized)
         return columns
 
     def sync(self, catalog_entry):
