@@ -1,0 +1,19 @@
+{
+  "CDCResponse": [
+    {
+      "QueryResponse": [
+        {
+          "startPosition": 1,
+          "maxResults": 1000
+        }
+      ]
+    }
+  ],
+  "sample_deleted_record": {
+    "Id": "1",
+    "status": "Deleted",
+    "MetaData": {
+      "LastUpdatedTime": "2026-08-01T00:00:00Z"
+    }
+  }
+}
