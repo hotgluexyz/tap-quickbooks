@@ -7,7 +7,6 @@ from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
 from tap_quickbooks.quickbooks.reportstreams.report_period_chunking import (
     iter_month_chunks,
     merge_period_column_record,
-    warn_if_period_rollup_present,
 )
 
 LOGGER = singer.get_logger()
@@ -125,13 +124,6 @@ class MonthlyBalanceSheetReport(BaseReportStream):
             LOGGER.info(f"Fetch MonthlyBalanceSheet Report for period {params['start_date']} to {params['end_date']}")
             resp = self._get(report_entity='BalanceSheet', params=params)
             for record in self._records_from_response(resp):
-                warn_if_period_rollup_present(
-                    LOGGER,
-                    record.get('MonthlyTotal'),
-                    report_name="MonthlyBalanceSheet",
-                    period_start=params["start_date"],
-                    period_end=params["end_date"],
-                )
                 merge_period_column_record(
                     merged,
                     record,

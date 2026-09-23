@@ -10,8 +10,6 @@ MAX_REPORT_PERIOD_COLUMNS = 200
 MAX_DAYS_PER_REQUEST = MAX_REPORT_PERIOD_COLUMNS
 MAX_MONTHS_PER_REQUEST = MAX_REPORT_PERIOD_COLUMNS
 
-PERIOD_ROLLUP_COLUMN = "Other"
-
 
 def iter_day_chunks(
     start_date: datetime.datetime,
@@ -48,27 +46,6 @@ def iter_month_chunks(
 def record_merge_key(record: dict) -> tuple:
     """Stable merge key for account-level report rows."""
     return (record.get("Account"), tuple(record.get("Categories") or []))
-
-
-def warn_if_period_rollup_present(
-    logger,
-    period_entries,
-    *,
-    report_name: str,
-    period_start: str,
-    period_end: str,
-) -> None:
-    """Log when QBO still returns the v2 overflow column despite chunking."""
-    for entry in period_entries or []:
-        if PERIOD_ROLLUP_COLUMN in entry:
-            logger.warning(
-                "%s response for %s to %s includes %s; period data may be incomplete",
-                report_name,
-                period_start,
-                period_end,
-                PERIOD_ROLLUP_COLUMN,
-            )
-            return
 
 
 def merge_period_column_record(
