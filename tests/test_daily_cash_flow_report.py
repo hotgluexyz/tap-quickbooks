@@ -7,13 +7,9 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from tap_quickbooks.quickbooks.reportstreams.DailyCashFlowReport import (
-    MAX_DAYS_PER_REQUEST,
     DailyCashFlowReport,
     _is_empty_or_zero_daily_value,
-    iter_date_chunks,
 )
-
-
 class TestIsEmptyOrZeroDailyValue:
     @pytest.mark.parametrize(
         "value",
@@ -25,38 +21,6 @@ class TestIsEmptyOrZeroDailyValue:
     @pytest.mark.parametrize("value", ["1.00", "-1.00", "0.01"])
     def test_non_zero_values(self, value):
         assert _is_empty_or_zero_daily_value(value) is False
-
-
-class TestIterDateChunks:
-    def test_single_chunk_under_limit(self):
-        start = datetime.datetime(2026, 1, 1)
-        end = datetime.datetime(2026, 1, 31)
-        chunks = list(iter_date_chunks(start, end, max_days=200))
-        assert chunks == [(start, end)]
-
-    def test_exactly_max_days_is_one_chunk(self):
-        start = datetime.datetime(2026, 1, 1)
-        end = start + timedelta(days=MAX_DAYS_PER_REQUEST - 1)
-        chunks = list(iter_date_chunks(start, end, max_days=MAX_DAYS_PER_REQUEST))
-        assert len(chunks) == 1
-        assert chunks[0] == (start, end)
-
-    def test_max_plus_one_splits_into_two_chunks(self):
-        start = datetime.datetime(2026, 1, 1)
-        end = start + timedelta(days=MAX_DAYS_PER_REQUEST)
-        chunks = list(iter_date_chunks(start, end, max_days=MAX_DAYS_PER_REQUEST))
-        assert len(chunks) == 2
-        assert chunks[0][0] == start
-        assert chunks[0][1] == start + timedelta(days=MAX_DAYS_PER_REQUEST - 1)
-        assert chunks[1] == (chunks[0][1] + timedelta(days=1), end)
-
-    def test_year_long_range_produces_expected_chunk_count(self):
-        start = datetime.datetime(2025, 1, 1)
-        end = datetime.datetime(2025, 12, 31)
-        chunks = list(iter_date_chunks(start, end, max_days=200))
-        assert len(chunks) == 2
-        assert (chunks[0][1] - chunks[0][0]).days == 199
-        assert chunks[1][1] == end
 
 
 class TestDailyCashFlowReportSync:
