@@ -1,17 +1,18 @@
 import datetime
 from datetime import timedelta
-from typing import ClassVar, Dict, Iterator, List, Optional, Tuple
+from typing import ClassVar, List
 
 import singer
 
+from tap_quickbooks.quickbooks.reportstreams.report_period_chunking import (
+    iter_day_chunks,
+    merge_period_column_record,
+)
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream
 from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
 NUMBER_OF_PERIODS = 3
-
-# v2 caps summarize_column_by=Days at 200 daily columns per request; excess rolls into "Other".
-MAX_DAYS_PER_REQUEST = 200
 
 
 def _is_empty_or_zero_daily_value(value) -> bool:
@@ -22,19 +23,6 @@ def _is_empty_or_zero_daily_value(value) -> bool:
         return float(str(value).replace(",", "")) == 0.0
     except (TypeError, ValueError):
         return False
-
-
-def iter_date_chunks(
-    start_date: datetime.datetime,
-    end_date: datetime.datetime,
-    max_days: int = MAX_DAYS_PER_REQUEST,
-) -> Iterator[Tuple[datetime.datetime, datetime.datetime]]:
-    """Yield inclusive (chunk_start, chunk_end) windows of at most max_days."""
-    chunk_start = start_date
-    while chunk_start <= end_date:
-        chunk_end = min(chunk_start + timedelta(days=max_days - 1), end_date)
-        yield chunk_start, chunk_end
-        chunk_start = chunk_end + timedelta(days=1)
 
 
 class DailyCashFlowReport(QuickbooksStream):
@@ -122,7 +110,7 @@ class DailyCashFlowReport(QuickbooksStream):
             start_date = self.start_date.replace(tzinfo=None)
 
         merged = {}
-        for chunk_start, chunk_end in iter_date_chunks(start_date, current_date):
+        for chunk_start, chunk_end in iter_day_chunks(start_date, current_date):
             params = {
                 "start_date": chunk_start.strftime("%Y-%m-%d"),
                 "end_date": chunk_end.strftime("%Y-%m-%d"),
@@ -136,12 +124,12 @@ class DailyCashFlowReport(QuickbooksStream):
             # Get column metadata.
             columns = self._get_column_metadata(resp)
             for record in self._parse_and_yield_rows(resp, columns):
-                key = (record.get("Account"), tuple(record.get("Categories") or []))
-                if key not in merged:
-                    merged[key] = record
-                else:
-                    merged[key]["DailyTotal"].extend(record["DailyTotal"])
-                    merged[key]["Total"] += record["Total"]
+                merge_period_column_record(
+                    merged,
+                    record,
+                    period_attr="DailyTotal",
+                    sum_total=True,
+                )
 
         sync_ts = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
         for record in merged.values():
