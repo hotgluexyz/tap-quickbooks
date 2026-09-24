@@ -1,10 +1,13 @@
 import datetime
-from typing import ClassVar, Dict, List, Optional
+from typing import ClassVar, List
 
 import singer
 
 from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
-from tap_quickbooks.sync import transform_data_hook
+from tap_quickbooks.quickbooks.reportstreams.report_period_chunking import (
+    iter_month_chunks,
+    merge_period_column_record,
+)
 
 LOGGER = singer.get_logger()
 
@@ -49,20 +52,7 @@ class MonthlyBalanceSheetReport(BaseReportStream):
             if header is not None:
                 categories.pop()
 
-    def sync(self, catalog_entry):
-        LOGGER.info(f"Starting full sync of MonthylBalanceSheet")
-        end_date = datetime.date.today()
-        start_date = self.start_date
-        params = {
-            "start_date": start_date.strftime("%Y-%m-%d"),
-            "end_date": end_date.strftime("%Y-%m-%d"),
-            "accounting_method": "Accrual",
-            "summarize_column_by": "Month"
-        }
-
-        LOGGER.info(f"Fetch MonthlyBalanceSheet Report for period {params['start_date']} to {params['end_date']}")
-        resp = self._get(report_entity='BalanceSheet', params=params)
-
+    def _records_from_response(self, resp):
         # Get column metadata.
         columns = self._get_column_metadata(resp)
 
@@ -92,8 +82,6 @@ class MonthlyBalanceSheetReport(BaseReportStream):
                 else:
                     cleansed_row.update({k: v})
 
-            
-            cleansed_row["SyncTimestampUtc"] = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
             monthly_total = []
             for key,value in cleansed_row.items():
                 if key not in ['Account', 'Categories', 'SyncTimestampUtc']:
@@ -101,3 +89,34 @@ class MonthlyBalanceSheetReport(BaseReportStream):
             cleansed_row['MonthlyTotal'] = monthly_total
 
             yield cleansed_row
+
+    def sync(self, catalog_entry):
+        LOGGER.info(f"Starting full sync of MonthylBalanceSheet")
+        end_date = datetime.date.today()
+        start_date = self.start_date
+        if isinstance(start_date, datetime.datetime):
+            start_date = start_date.date()
+
+        merged = {}
+        for chunk_start, chunk_end in iter_month_chunks(start_date, end_date):
+            params = {
+                "start_date": chunk_start.strftime("%Y-%m-%d"),
+                "end_date": chunk_end.strftime("%Y-%m-%d"),
+                "accounting_method": "Accrual",
+                "summarize_column_by": "Month"
+            }
+
+            LOGGER.info(f"Fetch MonthlyBalanceSheet Report for period {params['start_date']} to {params['end_date']}")
+            resp = self._get(report_entity='BalanceSheet', params=params)
+            for record in self._records_from_response(resp):
+                merge_period_column_record(
+                    merged,
+                    record,
+                    period_attr='MonthlyTotal',
+                    sum_total=False,
+                )
+
+        sync_ts = singer.utils.strftime(singer.utils.now(), "%Y-%m-%dT%H:%M:%SZ")
+        for record in merged.values():
+            record["SyncTimestampUtc"] = sync_ts
+            yield record
