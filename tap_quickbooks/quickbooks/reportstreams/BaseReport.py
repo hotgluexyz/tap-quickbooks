@@ -6,6 +6,7 @@ import backoff
 import requests
 import singer
 
+from tap_quickbooks.quickbooks.reportstreams.report_period_chunking import iter_month_chunks
 from tap_quickbooks.quickbooks.rest_reports import QuickbooksStream, RetriableException, is_fatal_code
 
 LOGGER = singer.get_logger()
@@ -326,17 +327,21 @@ class BaseReportStream(QuickbooksStream):
         When track_total=True the Total value is summed separately and excluded from
         MonthlyTotal entries (cash flow semantics).
 
-        Starts with the full date range in a single summarize_column_by=Month request.
-        On 504, _process_period halves the range recursively. When a 1-month period
-        still times out, _process_period_point_in_time fetches it without
-        summarize_column_by so the request always completes. Column names produced by
-        that fallback match what QBO would have generated in the columnar response.
+        The outer loop caps each columnar request at 200 months (Reports v2). Within
+        each window, _process_period uses summarize_column_by=Month; on 504 it halves
+        the range recursively. When a 1-month period still times out,
+        _process_period_point_in_time fetches it without summarize_column_by so the
+        request always completes.
         """
         LOGGER.info(f"Starting full sync of {log_name}")
         today = datetime.date.today()
+        start = self.start_date.date() if hasattr(self.start_date, "date") else self.start_date
         merged: Dict[tuple, dict] = {}
 
-        self._process_period(report_entity, log_name, self.start_date.date(), today, merged, track_total)
+        for chunk_start, chunk_end in iter_month_chunks(start, today):
+            self._process_period(
+                report_entity, log_name, chunk_start, chunk_end, merged, track_total
+            )
 
         for record in merged.values():
             if not record["MonthlyTotal"]:

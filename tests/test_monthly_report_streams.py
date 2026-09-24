@@ -360,7 +360,7 @@ class TestSyncMonthlyChunked:
         assert record.pop("SyncTimestampUtc")
         return record
 
-    def test_calls_process_period_with_full_range(self, base_report):
+    def test_calls_process_period_once_when_range_within_column_cap(self, base_report):
         with patch(
             "tap_quickbooks.quickbooks.reportstreams.BaseReport.datetime.date",
             FixedDate,
@@ -372,6 +372,27 @@ class TestSyncMonthlyChunked:
             datetime.date(2024, 1, 1), FixedDate.today(),
             {}, False,
         )
+
+    def test_splits_sync_into_200_month_windows_for_long_ranges(self, mock_qb):
+        report = ConcreteReport(
+            qb=mock_qb,
+            start_date=datetime.datetime(2005, 1, 1),
+            report_periods=None,
+        )
+        calls = []
+
+        def capture_period(report_entity, log_name, start, end, merged, track_total):
+            calls.append((start, end))
+
+        with patch(
+            "tap_quickbooks.quickbooks.reportstreams.BaseReport.datetime.date",
+            FixedDate,
+        ), patch.object(report, "_process_period", side_effect=capture_period):
+            list(report._sync_monthly_chunked("CashFlow", "MonthlyCashFlow", track_total=True))
+
+        assert len(calls) == 2
+        assert calls[0] == (datetime.date(2005, 1, 1), datetime.date(2021, 8, 31))
+        assert calls[1] == (datetime.date(2021, 9, 1), FixedDate.today())
 
     def test_yields_records_after_process_period_fills_merged(self, base_report):
         def fill_merged(report_entity, log_name, start, end, merged, track_total):
