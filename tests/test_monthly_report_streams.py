@@ -383,16 +383,33 @@ class TestSyncMonthlyChunked:
 
         def capture_period(report_entity, log_name, start, end, merged, track_total):
             calls.append((start, end))
+            key = ("Net Income", ("OPERATING ACTIVITIES",))
+            month_col = "Aug2021" if start.year == 2005 else "Apr2030"
+            if key not in merged:
+                merged[key] = {
+                    "Account": "Net Income",
+                    "Categories": ["OPERATING ACTIVITIES"],
+                    "MonthlyTotal": [],
+                    "Total": 0.0,
+                }
+            merged[key]["MonthlyTotal"].append({month_col: "1.00"})
+            merged[key]["Total"] += 1.0
 
         with patch(
             "tap_quickbooks.quickbooks.reportstreams.BaseReport.datetime.date",
             FixedDate,
         ), patch.object(report, "_process_period", side_effect=capture_period):
-            list(report._sync_monthly_chunked("CashFlow", "MonthlyCashFlow", track_total=True))
+            records = list(
+                report._sync_monthly_chunked("CashFlow", "MonthlyCashFlow", track_total=True)
+            )
 
         assert len(calls) == 2
         assert calls[0] == (datetime.date(2005, 1, 1), datetime.date(2021, 8, 31))
         assert calls[1] == (datetime.date(2021, 9, 1), FixedDate.today())
+        assert len(records) == 1
+        month_keys = {k for entry in records[0]["MonthlyTotal"] for k in entry}
+        assert month_keys == {"Aug2021", "Apr2030"}
+        assert records[0]["Total"] == 2.0
 
     def test_yields_records_after_process_period_fills_merged(self, base_report):
         def fill_merged(report_entity, log_name, start, end, merged, track_total):
