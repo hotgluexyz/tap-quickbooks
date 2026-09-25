@@ -257,6 +257,9 @@ def do_sync(qb, catalog, state, state_passed):
 class QuickbooksTap(Tap):
     name = "tap-quickbooks"
 
+    dynamic_catalog = True
+    static_stream_names = list(quickbooks.QB_OBJECTS)
+
     alerting_level = AlertingLevel.WARNING
 
     # Declarative filter metadata surfaced by --get-available-filters. Mirrors the
