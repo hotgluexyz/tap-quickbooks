@@ -20,6 +20,30 @@ from tap_quickbooks.auth import QuickbooksOAuthAuthenticator
 
 LOGGER = singer.get_logger()
 
+# DISPLAY list for the connector landing page, not a support contract.
+# Sourced from tap_quickbooks/quickbooks/schemas/object_definition.json.
+# Runtime discovery remains authoritative.
+COMMON_QUICKBOOKS_OBJECTS = [
+    "Account",
+    "Bill",
+    "BillPayment",
+    "CreditMemo",
+    "Customer",
+    "Employee",
+    "Estimate",
+    "Invoice",
+    "Item",
+    "JournalEntry",
+    "Payment",
+    "Purchase",
+    "PurchaseOrder",
+    "SalesReceipt",
+    "TimeActivity",
+    "Transfer",
+    "Vendor",
+    "VendorCredit",
+]
+
 REPLICATION_KEY="MetaData.LastUpdatedTime"
 
 def stream_is_selected(mdata):
@@ -258,7 +282,7 @@ class QuickbooksTap(Tap):
     name = "tap-quickbooks"
 
     dynamic_catalog = True
-    static_stream_names = list(quickbooks.QB_OBJECTS)
+    static_stream_names = COMMON_QUICKBOOKS_OBJECTS
 
     alerting_level = AlertingLevel.WARNING
 
