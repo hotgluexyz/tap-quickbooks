@@ -20,6 +20,27 @@ from tap_quickbooks.auth import QuickbooksOAuthAuthenticator
 
 LOGGER = singer.get_logger()
 
+DISPLAY_ONLY_STREAM_NAMES = [
+    "Account",
+    "Bill",
+    "BillPayment",
+    "CreditMemo",
+    "Customer",
+    "Employee",
+    "Estimate",
+    "Invoice",
+    "Item",
+    "JournalEntry",
+    "Payment",
+    "Purchase",
+    "PurchaseOrder",
+    "SalesReceipt",
+    "TimeActivity",
+    "Transfer",
+    "Vendor",
+    "VendorCredit",
+]
+
 REPLICATION_KEY="MetaData.LastUpdatedTime"
 
 def stream_is_selected(mdata):
@@ -256,6 +277,9 @@ def do_sync(qb, catalog, state, state_passed):
 
 class QuickbooksTap(Tap):
     name = "tap-quickbooks"
+
+    dynamic_catalog = True
+    static_stream_names = DISPLAY_ONLY_STREAM_NAMES
 
     alerting_level = AlertingLevel.WARNING
 
