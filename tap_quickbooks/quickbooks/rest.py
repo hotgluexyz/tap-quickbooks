@@ -1,7 +1,7 @@
 # pylint: disable=protected-access
 import singer
-import json
 import singer.utils as singer_utils
+from datetime import timedelta
 
 from requests.exceptions import HTTPError
 from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException, raise_for_invalid_credentials
@@ -9,6 +9,30 @@ from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException, raise_f
 LOGGER = singer.get_logger()
 
 MAX_RETRIES = 4
+CDC_MAX_RESULTS = 1000
+
+# Entities that support the CDC endpoint for delete tracking
+# Note: CDC cannot be used for journalCode, taxAgency, timeActivity, taxCode, or taxRate
+CDC_SUPPORTED_ENTITIES = [
+    "Account", "Bill", "BillPayment", "Budget", "Class",
+    "CreditMemo", "Customer", "Department", "Deposit", "Employee",
+    "Estimate", "Invoice", "Item", "JournalEntry", "Payment",
+    "PaymentMethod", "Purchase", "PurchaseOrder",
+    "SalesReceipt", "Term", "Transfer", "Vendor",
+    "VendorCredit", "CustomerType", "Attachable"
+]
+
+# Entities that have an Active field for soft-delete querying (fallback)
+ENTITIES_WITH_ACTIVE_FIELD = [
+    "Account", "Class", "CompanyCurrency", "CustomerType", "PaymentMethod", "TaxRate",
+    "TaxCode", "Term", "Vendor", "Customer", "Employee", "Item",
+    "Department"
+]
+
+# Entities excluded from delete syncing entirely
+EXCLUDED_FROM_DELETE_SYNC = [
+    "CompanyInfo", "Preferences", "TimeActivity"  # These don't support deletion
+]
 
 class Rest():
 
@@ -18,8 +42,95 @@ class Rest():
     def query(self, catalog_entry, state):
         start_date = self.qb.get_start_date(state, catalog_entry)
         query = self.qb._build_query_string(catalog_entry, start_date)
+        stream = catalog_entry['stream']
 
-        return self._query_recur(query, catalog_entry, start_date)
+        # First, yield all active records (handles chunking internally)
+        for rec in self._query_recur(query, catalog_entry, start_date):
+            yield rec
+        
+        # Then, query for deleted records ONCE after all active records are synced
+        # This avoids duplicate CDC calls when date ranges are chunked
+        if self.qb.include_deleted and stream not in EXCLUDED_FROM_DELETE_SYNC and not stream.endswith('Report'):
+            if stream in CDC_SUPPORTED_ENTITIES:
+                LOGGER.info(f"Using CDC to detect deleted {stream} records since {start_date}")
+                for rec in self.query_cdc_deletes(stream, start_date):
+                    yield rec
+
+    def query_cdc_deletes(self, stream, changed_since):
+        """
+        Query the CDC endpoint to get deleted records for a specific entity.
+        
+        The CDC endpoint returns records with status="Deleted" for truly deleted items.
+        CDC has a 30-day lookback limit.
+        
+        Args:
+            stream: The entity type to query (e.g., "Invoice", "Customer")
+            changed_since: ISO format datetime string for the changedSince parameter
+        
+        Yields:
+            Records that have been deleted, with Deleted metadata added
+        """
+        # CDC has a 30-day limit - adjust start date if needed
+        changed_since_dt = singer_utils.strptime_with_tz(changed_since)
+        thirty_days_ago = singer_utils.now() - timedelta(days=30)
+        
+        if changed_since_dt < thirty_days_ago:
+            LOGGER.info(f"CDC has 30-day limit. Adjusting changed_since from {changed_since} to 30 days ago")
+            changed_since_dt = thirty_days_ago
+
+        url = f"{self.qb.instance_url}/cdc"
+        headers = self.qb._get_standard_headers()
+        headers["Accept"] = "application/json"
+
+        # CDC returns at most 1000 objects and has no end-date or paging params.
+        # Walk changedSince forward using the latest LastUpdatedTime so a full
+        # page is not treated as a complete result.
+        window_start = changed_since_dt
+        seen_ids = set()
+        while True:
+            changed_since = singer_utils.strftime(window_start)
+            params = {
+                "entities": stream,
+                "changedSince": changed_since,
+                "minorversion": "75"
+            }
+
+            LOGGER.info(f"Querying CDC for deleted {stream} records since {changed_since}")
+            resp = self.qb._make_request('GET', url, headers=headers, params=params)
+            resp_json = resp.json()
+            cdc_response = resp_json.get('CDCResponse', [])
+
+            if not cdc_response:
+                LOGGER.info(f"No CDC response for {stream}")
+                return
+
+            capped = False
+            latest_update = None
+            for cdc_item in cdc_response:
+                query_response = cdc_item.get('QueryResponse', [])
+                for qr in query_response:
+                    records = qr.get(stream, [])
+                    if qr.get('maxResults', len(records)) >= CDC_MAX_RESULTS:
+                        capped = True
+                    for rec in records:
+                        rec_updated = (rec.get('MetaData') or {}).get('LastUpdatedTime')
+                        if rec_updated:
+                            rec_updated_dt = singer_utils.strptime_with_tz(rec_updated)
+                            if latest_update is None or rec_updated_dt > latest_update:
+                                latest_update = rec_updated_dt
+                        if rec.get('status') == 'Deleted':
+                            rec_id = rec.get('Id')
+                            if rec_id in seen_ids:
+                                continue
+                            seen_ids.add(rec_id)
+                            rec['Deleted'] = True
+                            LOGGER.info(f"Found deleted {stream} record: Id={rec_id}")
+                            yield rec
+
+            if not capped:
+                return
+
+            window_start = latest_update
 
     # pylint: disable=too-many-arguments
     def _query_recur(
@@ -102,11 +213,17 @@ class Rest():
                 yield record
 
     def _sync_records(self, url, headers, params, stream):
+        """
+        Sync records for a given stream.
+        
+        Args:
+            url: The API endpoint URL
+            headers: HTTP headers for the request
+            params: Query parameters including the query string
+            stream: The entity type being synced
+        """
         headers["Accept"] = "application/json"
         headers["Content-Type"] = "application/json"
-
-        excluded_entities = ["Bill", "Payment", "Transfer", "CompanyInfo", "CreditMemo", "Invoice",
-                            "JournalEntry", "Preferences", "Purchase", "SalesReceipt", "TimeActivity", "BillPayment","Estimate"]
         
         query = params['query']
 
@@ -130,25 +247,29 @@ class Rest():
                         LOGGER.info(f"Response (deleted) with no data {resp_json}")
                     else:
                         LOGGER.info(f"Response with no data {resp_json}")
-                    break;
+                    break
 
                 page += 1
-                records = resp_json['QueryResponse'][stream];
+                records = resp_json['QueryResponse'][stream]
 
-                for _, rec in enumerate(records):
+                for rec in records:
+                    if is_deleted:
+                        # Mark soft-deleted/inactive records as deleted
+                        rec['Deleted'] = True
                     yield rec
                 
                 if count < max:
-                    break;
+                    break
 
                 offset = (max * page) + 1
         
 
-        # first fetch all active records
+        # Fetch all active records
         yield from sync_records(query)
 
-        # then fetch all deleted records
-        if self.qb.include_deleted and stream not in excluded_entities:
+        # For entities with Active field (not using CDC), query for soft-deleted records
+        # Note: CDC delete detection is handled at the query() level
+        if self.qb.include_deleted  and not stream.endswith('Report') and stream in ENTITIES_WITH_ACTIVE_FIELD:
             if "WHERE" in query:
                 query_deleted = query.replace("WHERE", "where Active = false and")
             else:
