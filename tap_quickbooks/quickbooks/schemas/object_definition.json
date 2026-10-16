@@ -760,6 +760,7 @@
   ],
   "VendorCredit": [
     {"name": "Id", "type": "string"},
+    {"name": "status", "type": "string"},
     {"name": "Balance", "type": "string"},
     {"name": "domain", "type": "string"},
     {"name": "sparse", "type": "boolean"},
