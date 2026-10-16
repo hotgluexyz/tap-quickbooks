@@ -141,6 +141,42 @@ class TestVendorCreditCdc:
         assert len(deleted) == 1
         assert deleted[0]["Id"] == "99"
 
+    def test_skips_subdivide_when_truncated_boundary_reaches_window_end(self):
+        window_end = singer_utils.now()
+        window_start = window_end - timedelta(hours=1)
+        boundary_time = singer_utils.strftime(window_end)
+        truncated_payload = {
+            "CDCResponse": [{
+                "QueryResponse": {
+                    "VendorCredit": [
+                        {"Id": "1", "status": "Deleted", "domain": "QBO"},
+                        {
+                            "Id": "2",
+                            "MetaData": {"LastUpdatedTime": boundary_time},
+                        },
+                    ],
+                    "totalCount": 3,
+                    "maxResults": 2,
+                },
+            }],
+        }
+        qb = _qb_with_cdc_responses([truncated_payload])
+        rest = Rest(qb)
+        url = f"{qb.instance_url}/cdc"
+        headers = qb._get_standard_headers.return_value
+
+        deleted = list(
+            rest._yield_partition_cdc_deletes(
+                url,
+                headers,
+                window_start,
+                window_end,
+                set(),
+            ))
+
+        assert [rec["Id"] for rec in deleted] == ["1"]
+        assert qb._make_request.call_count == 1
+
     def test_raises_when_truncated_at_minimum_window(self):
         truncated_payload = {
             "CDCResponse": [{

@@ -264,6 +264,15 @@ class Rest():
         if not truncated:
             return
 
+        if records:
+            boundary_last_updated = Rest._record_last_updated(records[-1])
+            if boundary_last_updated:
+                try:
+                    if singer_utils.strptime_with_tz(boundary_last_updated) >= window_end:
+                        return
+                except (ValueError, TypeError):
+                    pass
+
         window_span = window_end - window_start
         if window_span <= timedelta(seconds=1):
             raise TapQuickbooksException(
