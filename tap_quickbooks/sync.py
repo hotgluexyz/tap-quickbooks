@@ -9,6 +9,7 @@ import math
 import json
 import requests
 from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException
+from tap_quickbooks.quickbooks.rest import Rest
 from hotglue_etl_exceptions import InvalidCredentialsError
 from tap_quickbooks.util import save_api_usage, get_sync_output_dir
 
@@ -152,7 +153,7 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
 
         if replication_key:
             jsonpath_expression = parse(f"$.{replication_key}")
-            _rec = {'MetaData': json.loads(rec.get('MetaData', "{}"))}
+            _rec = {'MetaData': Rest._parse_metadata(rec)}
             match = jsonpath_expression.find(_rec)
             original_replication_key_value = ""
             if replication_key and len(match) > 0:
@@ -163,8 +164,13 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
 
             # Before writing a bookmark, make sure Quickbooks has not given us a
             # record with one outside our range
-            if previous_max_replication_key is None or (
-                    replication_key_value and replication_key_value <= start_time and replication_key_value > previous_max_replication_key
+            if (
+                    replication_key_value is not None
+                    and replication_key_value <= start_time
+                    and (
+                        previous_max_replication_key is None
+                        or replication_key_value > previous_max_replication_key
+                    )
             ):
                 state = singer.write_bookmark(
                     state,

@@ -11,6 +11,8 @@ LOGGER = singer.get_logger()
 
 MAX_RETRIES = 4
 CDC_MAX_LOOKBACK_DAYS = 30
+CDC_RESULT_LIMIT = 1000
+CDC_PARTITION = timedelta(hours=4)
 VENDOR_CREDIT_STREAM = "VendorCredit"
 
 class Rest():
@@ -175,16 +177,106 @@ class Rest():
         return singer_utils.strftime(changed_since)
 
     @staticmethod
-    def _record_last_updated(rec):
+    def _parse_metadata(rec):
         meta = rec.get('MetaData')
+        if meta is None:
+            return {}
         if isinstance(meta, dict):
-            return meta.get('LastUpdatedTime')
-        if isinstance(meta, str) and meta:
+            return meta
+        if isinstance(meta, str):
+            if not meta.strip():
+                return {}
             try:
-                return json.loads(meta).get('LastUpdatedTime')
+                parsed = json.loads(meta)
+                return parsed if isinstance(parsed, dict) else {}
             except json.JSONDecodeError:
-                return None
-        return None
+                return {}
+        return {}
+
+    @staticmethod
+    def _record_last_updated(rec):
+        return Rest._parse_metadata(rec).get('LastUpdatedTime')
+
+    @staticmethod
+    def _record_in_cdc_window(rec, window_start, window_end):
+        last_updated = Rest._record_last_updated(rec)
+        if not last_updated:
+            return True
+        updated_at = singer_utils.strptime_with_tz(last_updated)
+        return window_start <= updated_at < window_end
+
+    def _fetch_cdc_vendor_credits(self, url, headers, changed_since):
+        params = {
+            "entities": VENDOR_CREDIT_STREAM,
+            "changedSince": changed_since,
+            "minorversion": "75",
+        }
+        resp = self.qb._make_request('GET', url, headers=headers, params=params)
+        resp_json = resp.json()
+        records = []
+        truncated = False
+        saw_page = False
+
+        for query_page, vendor_credits in self._iter_cdc_vendor_credits(resp_json):
+            saw_page = True
+            records.extend(vendor_credits)
+            total_count = query_page.get('totalCount') or len(vendor_credits)
+            max_results = query_page.get('maxResults') or len(vendor_credits)
+            if (
+                len(vendor_credits) >= CDC_RESULT_LIMIT
+                or total_count > max_results
+            ):
+                truncated = True
+
+        if not saw_page:
+            return [], False
+
+        if len(records) >= CDC_RESULT_LIMIT:
+            truncated = True
+        return records, truncated
+
+    def _yield_partition_cdc_deletes(
+            self,
+            url,
+            headers,
+            window_start,
+            window_end,
+            seen_deleted_ids):
+        records, truncated = self._fetch_cdc_vendor_credits(
+            url,
+            headers,
+            singer_utils.strftime(window_start),
+        )
+
+        for rec in records:
+            if rec.get('status') != 'Deleted':
+                continue
+            if not self._record_in_cdc_window(rec, window_start, window_end):
+                continue
+            rec_id = rec.get('Id')
+            if not rec_id or rec_id in seen_deleted_ids:
+                continue
+            seen_deleted_ids.add(rec_id)
+            rec = dict(rec)
+            rec['MetaData'] = Rest._parse_metadata(rec)
+            yield rec
+
+        if not truncated:
+            return
+
+        if window_end - window_start <= timedelta(seconds=1):
+            LOGGER.warning(
+                "VendorCredit CDC partition could not be subdivided further (%s - %s)",
+                window_start,
+                window_end,
+            )
+            return
+
+        midpoint = window_start + (window_end - window_start) / 2
+        yield from self._yield_partition_cdc_deletes(
+            url, headers, window_start, midpoint, seen_deleted_ids)
+        yield from self._yield_partition_cdc_deletes(
+            url, headers, midpoint, window_end, seen_deleted_ids)
 
     @staticmethod
     def _iter_cdc_vendor_credits(cdc_payload):
@@ -211,57 +303,27 @@ class Rest():
         headers = self.qb._get_standard_headers()
         headers["Accept"] = "application/json"
 
-        changed_since = self._cdc_changed_since(start_date_str)
+        window_start = singer_utils.strptime_with_tz(self._cdc_changed_since(start_date_str))
+        window_end = singer_utils.now()
+        seen_deleted_ids = set()
 
-        while True:
-            params = {
-                "entities": VENDOR_CREDIT_STREAM,
-                "changedSince": changed_since,
-                "minorversion": "75",
-            }
-            try:
-                resp = self.qb._make_request('GET', url, headers=headers, params=params)
-            except HTTPError as ex:
-                LOGGER.warning(
-                    "VendorCredit CDC request failed (changedSince=%s): %s",
-                    changed_since,
-                    ex,
+        partition_start = window_start
+        try:
+            while partition_start < window_end:
+                partition_end = min(partition_start + CDC_PARTITION, window_end)
+                yield from self._yield_partition_cdc_deletes(
+                    url,
+                    headers,
+                    partition_start,
+                    partition_end,
+                    seen_deleted_ids,
                 )
-                return
-            except Exception as ex:
-                if ex.__class__.__name__ != "RetriableApiError":
-                    raise
-                LOGGER.warning(
-                    "VendorCredit CDC request failed (changedSince=%s): %s",
-                    changed_since,
-                    ex,
-                )
-                return
-
-            resp_json = resp.json()
-            last_page = None
-            last_records = []
-
-            for query_page, vendor_credits in self._iter_cdc_vendor_credits(resp_json):
-                last_page = query_page
-                last_records = vendor_credits
-                for rec in vendor_credits:
-                    if rec.get('status') == 'Deleted':
-                        yield rec
-
-            if not last_page or not last_records:
-                break
-
-            total_count = last_page.get('totalCount') or len(last_records)
-            max_results = last_page.get('maxResults') or len(last_records)
-            if total_count <= max_results:
-                break
-
-            next_changed_since = self._record_last_updated(last_records[-1])
-            if not next_changed_since or next_changed_since == changed_since:
-                LOGGER.warning(
-                    "VendorCredit CDC pagination stopped: unable to advance changedSince from %s",
-                    changed_since,
-                )
-                break
-            changed_since = next_changed_since
+                partition_start = partition_end
+        except HTTPError as ex:
+            LOGGER.warning("VendorCredit CDC request failed: %s", ex)
+            raise
+        except Exception as ex:
+            if ex.__class__.__name__ != "RetriableApiError":
+                raise
+            LOGGER.warning("VendorCredit CDC request failed: %s", ex)
+            raise
