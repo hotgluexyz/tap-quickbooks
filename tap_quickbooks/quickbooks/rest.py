@@ -264,15 +264,25 @@ class Rest():
         if not truncated:
             return
 
-        if window_end - window_start <= timedelta(seconds=1):
-            LOGGER.warning(
-                "VendorCredit CDC partition could not be subdivided further (%s - %s)",
-                window_start,
-                window_end,
-            )
-            return
+        window_span = window_end - window_start
+        if window_span <= timedelta(seconds=1):
+            raise TapQuickbooksException(
+                "VendorCredit CDC sync incomplete: more than {} VendorCredit changes "
+                "may exist between {} and {}.".format(
+                    CDC_RESULT_LIMIT - 1,
+                    singer_utils.strftime(window_start),
+                    singer_utils.strftime(window_end),
+                ))
 
-        midpoint = window_start + (window_end - window_start) / 2
+        half = window_span // 2
+        if half <= timedelta(0):
+            raise TapQuickbooksException(
+                "VendorCredit CDC sync incomplete: unable to subdivide window {} - {}.".format(
+                    singer_utils.strftime(window_start),
+                    singer_utils.strftime(window_end),
+                ))
+
+        midpoint = window_start + half
         yield from self._yield_partition_cdc_deletes(
             url, headers, window_start, midpoint, seen_deleted_ids)
         yield from self._yield_partition_cdc_deletes(

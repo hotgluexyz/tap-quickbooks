@@ -8,6 +8,7 @@ import singer.utils as singer_utils
 from requests.exceptions import HTTPError
 
 from tap_quickbooks.quickbooks import RetriableApiError
+from tap_quickbooks.quickbooks.exceptions import TapQuickbooksException
 from tap_quickbooks.quickbooks.rest import Rest, CDC_MAX_LOOKBACK_DAYS
 
 
@@ -139,6 +140,35 @@ class TestVendorCreditCdc:
         deleted = list(rest._sync_vendor_credit_cdc_deletes(start))
         assert len(deleted) == 1
         assert deleted[0]["Id"] == "99"
+
+    def test_raises_when_truncated_at_minimum_window(self):
+        truncated_payload = {
+            "CDCResponse": [{
+                "QueryResponse": {
+                    "VendorCredit": [
+                        {"Id": "1", "status": "Deleted", "domain": "QBO"},
+                    ],
+                    "totalCount": 1001,
+                    "maxResults": 1000,
+                },
+            }],
+        }
+        qb = _qb_with_cdc_responses([truncated_payload])
+        rest = Rest(qb)
+        window_start = singer_utils.now()
+        window_end = window_start + timedelta(seconds=1)
+        url = f"{qb.instance_url}/cdc"
+        headers = qb._get_standard_headers.return_value
+
+        with pytest.raises(TapQuickbooksException, match="incomplete"):
+            list(
+                rest._yield_partition_cdc_deletes(
+                    url,
+                    headers,
+                    window_start,
+                    window_end,
+                    set(),
+                ))
 
     def test_cdc_failure_propagates(self):
         qb = MagicMock()
