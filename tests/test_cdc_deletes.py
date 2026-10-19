@@ -1,9 +1,11 @@
 """Unit tests for CDC deleted-record retrieval and the 1000-object cap."""
 
 from copy import deepcopy
+from datetime import timedelta
 from unittest.mock import MagicMock
 
 import pytest
+import singer.utils as singer_utils
 
 from tap_quickbooks.quickbooks.rest import CDC_MAX_RESULTS, Rest
 
@@ -45,15 +47,25 @@ class TestQueryCdcDeletesCap:
         sample = fixture["sample_deleted_record"]
         assert fixture["CDCResponse"][0]["QueryResponse"][0]["maxResults"] == CDC_MAX_RESULTS
 
+        # CDC clamps changedSince to the last 30 days; use recent timestamps.
+        base = singer_utils.now() - timedelta(days=5)
+        sync_start = singer_utils.strftime(base - timedelta(days=1))
+
         page1 = [
-            _deleted_bill(i, f"2026-08-01T00:{i // 60:02d}:{i % 60:02d}Z")
+            _deleted_bill(
+                i,
+                singer_utils.strftime(base + timedelta(seconds=i)),
+            )
             for i in range(CDC_MAX_RESULTS)
         ]
         assert sample["status"] == "Deleted"
         assert "LastUpdatedTime" in sample["MetaData"]
 
         page2 = [
-            _deleted_bill(1000 + i, f"2026-08-02T00:00:{i:02d}Z")
+            _deleted_bill(
+                1000 + i,
+                singer_utils.strftime(base + timedelta(days=1, seconds=i)),
+            )
             for i in range(5)
         ]
 
@@ -62,7 +74,7 @@ class TestQueryCdcDeletesCap:
         resp2.json.return_value = _cdc_page("Bill", page2, max_results=len(page2))
         rest.qb._make_request = MagicMock(side_effect=[resp1, resp2])
 
-        records = list(rest.query_cdc_deletes("Bill", "2026-08-01T00:00:00Z"))
+        records = list(rest.query_cdc_deletes("Bill", sync_start))
 
         assert len(records) == CDC_MAX_RESULTS + 5
         assert all(rec["Deleted"] is True for rec in records)
