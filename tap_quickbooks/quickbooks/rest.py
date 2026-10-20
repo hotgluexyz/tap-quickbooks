@@ -14,12 +14,9 @@ CDC_MAX_RESULTS = 1000
 # Entities that support the CDC endpoint for delete tracking
 # Note: CDC cannot be used for journalCode, taxAgency, timeActivity, taxCode, or taxRate
 CDC_SUPPORTED_ENTITIES = [
-    "Account", "Bill", "BillPayment", "Budget", "Class",
-    "CreditMemo", "Customer", "Department", "Deposit", "Employee",
-    "Estimate", "Invoice", "Item", "JournalEntry", "Payment",
-    "PaymentMethod", "Purchase", "PurchaseOrder",
-    "SalesReceipt", "Term", "Transfer", "Vendor",
-    "VendorCredit", "CustomerType", "Attachable"
+    "Bill", "BillPayment", "Budget", "CreditMemo", "Deposit", 
+    "Estimate", "Invoice", "JournalEntry", "Payment","Purchase", "PurchaseOrder",
+    "SalesReceipt",  "Transfer", "VendorCredit",  "Attachable"
 ]
 
 # Entities that have an Active field for soft-delete querying (fallback)
