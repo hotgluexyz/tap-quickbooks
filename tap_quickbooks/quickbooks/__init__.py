@@ -282,7 +282,14 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                     "TaxCodeRef": qb_types["ref_type"],
                     "TaxApplicableOn": string_type,
                     "TxnType": string_type,
-                    "Entity": qb_types["ref_type"],
+                    "Entity": {
+                        "type": object_type["type"],
+                        "properties": {
+                            "type": string_type,
+                            "value": string_type,
+                            "name": string_type,
+                        },
+                    },
                 }
             },
             "LinkedTxn": {
