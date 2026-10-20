@@ -225,6 +225,7 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         "properties": {
             "TxnId": string_type,
             "TxnType": string_type,
+            "TxnLineId": string_type,
         }
     }
 
