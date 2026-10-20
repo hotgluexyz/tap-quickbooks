@@ -268,7 +268,7 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         "type": object_type["type"],
         "properties": {
             "Id": string_type,
-            "LineNum": string_type,
+            "LineNum": number_type,
             "DetailType": string_type,
             "Description": string_type,
             "Amount": number_type,
@@ -285,7 +285,10 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                     "Entity": qb_types["ref_type"],
                 }
             },
-            "LinkedTxn": {"type": "array", "items": qb_types["LinkedTxn"]},
+            "LinkedTxn": {
+                "type": ["null", "array"],
+                "items": qb_types["LinkedTxn"],
+            },
         }
     }
 
