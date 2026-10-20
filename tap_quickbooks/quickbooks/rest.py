@@ -106,7 +106,8 @@ class Rest():
         headers["Content-Type"] = "application/json"
 
         excluded_entities = ["Bill", "Payment", "Transfer", "CompanyInfo", "CreditMemo", "Invoice",
-                            "JournalEntry", "Preferences", "Purchase", "SalesReceipt", "TimeActivity", "BillPayment","Estimate"]
+                            "JournalEntry", "Preferences", "Purchase", "SalesReceipt", "TimeActivity", "BillPayment",
+                            "Estimate", "Deposit", "RefundReceipt"]
         
         query = params['query']
 
