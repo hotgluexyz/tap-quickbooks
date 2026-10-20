@@ -183,7 +183,7 @@
     {"name": "TxnDate", "type": "datetime"},
     {"name": "TotalAmt", "type": "number"},
     {"name": "PrivateNote", "type": "string"},
-    {"name": "Line", "type": "string"},
+    {"name": "Line", "type": "array", "child_type": "deposit_line"},
     {"name": "CurrencyRef", "type": "string"},
     {"name": "ExchangeRate", "type": "number"},
     {"name": "GlobalTaxCalculation", "type": "string"},
