@@ -180,9 +180,10 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
             else:
                 replication_key_value = None
 
-            # Future values are capped at start_time once the stream is done
-            if previous_max_replication_key is None or (
-                    replication_key_value and replication_key_value > previous_max_replication_key
+            # Before writing a bookmark, make sure Quickbooks has not given us a
+            # record with one outside our range (this includes the first record)
+            if replication_key_value and replication_key_value <= start_time and (
+                    previous_max_replication_key is None or replication_key_value > previous_max_replication_key
             ):
                 state = singer.write_bookmark(
                     state,
@@ -194,15 +195,7 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
             # Tables with no replication_key will send an
             # activate_version message for the next sync
 
-    if replication_key:
-        bookmark = singer.get_bookmark(state, catalog_entry['tap_stream_id'], replication_key)
-        if bookmark:
-            state = singer.write_bookmark(
-                state,
-                catalog_entry['tap_stream_id'],
-                replication_key,
-                cap_future_bookmark(stream, bookmark, start_time))
-    else:
+    if not replication_key:
         singer.write_message(activate_version_message)
         state = singer.write_bookmark(
             state, catalog_entry['tap_stream_id'], 'version', None)
