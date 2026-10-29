@@ -2,9 +2,10 @@
 import json
 import sys
 import singer
+import singer.utils as singer_utils
 from singer import metadata, metrics
 import tap_quickbooks.quickbooks as quickbooks
-from tap_quickbooks.sync import (sync_stream, get_stream_version)
+from tap_quickbooks.sync import (sync_stream, get_stream_version, cap_future_bookmark)
 from tap_quickbooks.quickbooks import Quickbooks
 from tap_quickbooks.quickbooks.exceptions import (
     TapQuickbooksException, TapQuickbooksQuotaExceededException)
@@ -48,6 +49,7 @@ def stream_is_selected(mdata):
 
 def build_state(raw_state, catalog):
     state = {}
+    now = singer_utils.now()
 
     for catalog_entry in catalog['streams']:
         tap_stream_id = catalog_entry['tap_stream_id']
@@ -76,8 +78,10 @@ def build_state(raw_state, catalog):
                 state = singer.write_bookmark(
                     state, tap_stream_id, 'version', version)
             if replication_key_value is not None:
+                # Heal states that already hold a future bookmark from an earlier run
                 state = singer.write_bookmark(
-                    state, tap_stream_id, replication_key, replication_key_value)
+                    state, tap_stream_id, replication_key,
+                    cap_future_bookmark(tap_stream_id, replication_key_value, now))
         elif replication_method == 'FULL_TABLE' and version is None:
             state = singer.write_bookmark(state, tap_stream_id, 'version', version)
 

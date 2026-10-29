@@ -1,3 +1,4 @@
+import datetime
 import os
 import time
 import singer
@@ -13,6 +14,24 @@ from hotglue_etl_exceptions import InvalidCredentialsError
 from tap_quickbooks.util import save_api_usage, get_sync_output_dir
 
 LOGGER = singer.get_logger()
+
+BOOKMARK_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
+
+
+def cap_future_bookmark(stream, bookmark, now):
+    """Returns `bookmark`, or `now` (as a UTC string) when `bookmark` is later than `now`.
+
+    Quickbooks (notably sandbox companies) can report MetaData.LastUpdatedTime
+    values in the future. Writing one to state makes every later sync query
+    `> <future date>` and skip real changes until that date passes.
+    The comparison is timezone-aware, so offsets like -08:00 are respected.
+    """
+    if singer_utils.strptime_with_tz(bookmark) <= now:
+        return bookmark
+
+    capped = now.astimezone(datetime.timezone.utc).strftime(BOOKMARK_FORMAT)
+    LOGGER.warning("%s: bookmark %s is in the future, writing %s instead", stream, bookmark, capped)
+    return capped
 
 
 # __null__ = ""
@@ -162,9 +181,9 @@ def sync_records(qb, catalog_entry, state, counter, state_passed):
                 replication_key_value = None
 
             # Before writing a bookmark, make sure Quickbooks has not given us a
-            # record with one outside our range
-            if previous_max_replication_key is None or (
-                    replication_key_value and replication_key_value <= start_time and replication_key_value > previous_max_replication_key
+            # record with one outside our range (this includes the first record)
+            if replication_key_value and replication_key_value <= start_time and (
+                    previous_max_replication_key is None or replication_key_value > previous_max_replication_key
             ):
                 state = singer.write_bookmark(
                     state,
