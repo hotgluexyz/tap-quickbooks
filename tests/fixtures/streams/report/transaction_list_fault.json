@@ -1,0 +1,11 @@
+{
+  "Fault": {
+    "Error": [
+      {
+        "Message": "Invalid report request",
+        "Detail": "Sample validation detail",
+        "code": "6000"
+      }
+    ]
+  }
+}
