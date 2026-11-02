@@ -5,8 +5,10 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import TransactionListReport
-from tap_quickbooks.quickbooks.rest_reports import RetriableException
+from tap_quickbooks.quickbooks.reportstreams.TransactionListReport import (
+    InvalidTransactionListResponse,
+    TransactionListReport,
+)
 from tests.fixtures.streams.report import load_fixture
 
 
@@ -27,9 +29,13 @@ class TestTransactionListReportValidation:
         with pytest.raises(Exception, match="QuickBooks TransactionList error"):
             stream._validate_transaction_list_response(resp)
 
-    def test_missing_columns_raises_retriable(self, stream):
-        with pytest.raises(RetriableException, match="missing Columns"):
+    def test_missing_columns_raises_invalid_response(self, stream):
+        with pytest.raises(InvalidTransactionListResponse, match="missing Columns"):
             stream._validate_transaction_list_response({})
+
+    def test_empty_column_list_raises_invalid_response(self, stream):
+        with pytest.raises(InvalidTransactionListResponse, match="missing Columns"):
+            stream._validate_transaction_list_response({"Columns": {"Column": []}})
 
 
 class TestTransactionListReportSync:
@@ -44,20 +50,20 @@ class TestTransactionListReportSync:
         good = load_fixture("transaction_list_response.json")
         side_effects = [{}, good]
 
-        def fake_execute(_entity, _params):
+        def fake_get(report_entity=None, params=None, **_kwargs):
             body = side_effects.pop(0)
             return body
 
-        with patch.object(stream, "_execute_request", side_effect=fake_execute):
+        with patch.object(stream, "_get", side_effect=fake_get):
             records = list(stream.sync(catalog_entry))
         assert len(records) == 1
 
     def test_fault_fails_sync_without_retry(self, stream, catalog_entry):
         fault = load_fixture("transaction_list_fault.json")
-        with patch.object(stream, "_execute_request", return_value=fault) as mock_execute:
+        with patch.object(stream, "_get", return_value=fault) as mock_get:
             with pytest.raises(Exception, match="QuickBooks TransactionList error"):
                 list(stream.sync(catalog_entry))
-        assert mock_execute.call_count == 1
+        assert mock_get.call_count == 1
 
     def test_empty_rows_returns_no_records(self, stream, catalog_entry):
         resp = load_fixture("transaction_list_response.json")

@@ -5,9 +5,12 @@ import backoff
 import singer
 
 from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
-from tap_quickbooks.quickbooks.rest_reports import RetriableException
 
 LOGGER = singer.get_logger()
+
+
+class InvalidTransactionListResponse(Exception):
+    """TransactionList body lacks column metadata; retry at report fetch level only."""
 
 
 class TransactionListReport(BaseReportStream):
@@ -26,22 +29,23 @@ class TransactionListReport(BaseReportStream):
             detail = err.get("Detail") or err.get("code") or ""
             raise Exception(f"QuickBooks TransactionList error: {message} ({detail})")
 
-        if not resp.get("Columns") or resp["Columns"].get("Column") is None:
+        columns = (resp.get("Columns") or {}).get("Column")
+        if not columns:
             LOGGER.warning(
                 "TransactionList response missing Columns; will retry. Top-level keys: %s",
                 list(resp.keys()),
             )
-            raise RetriableException("TransactionList response missing Columns")
+            raise InvalidTransactionListResponse("TransactionList response missing Columns")
 
     @backoff.on_exception(
         backoff.expo,
-        RetriableException,
+        InvalidTransactionListResponse,
         max_tries=5,
         factor=3,
     )
     def _fetch_transaction_list(self, params):
         """GET TransactionList with retries when QBO returns an unusable 200 body."""
-        resp = self._execute_request("TransactionList", params)
+        resp = self._get(report_entity="TransactionList", params=params)
         self._validate_transaction_list_response(resp)
         return resp
 
