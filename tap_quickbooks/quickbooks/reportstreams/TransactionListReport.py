@@ -1,12 +1,16 @@
 import datetime
-from typing import ClassVar, Dict, List, Optional
+from typing import ClassVar, List
 
+import backoff
 import singer
 
 from tap_quickbooks.quickbooks.reportstreams.BaseReport import BaseReportStream
-from tap_quickbooks.sync import transform_data_hook
 
 LOGGER = singer.get_logger()
+
+
+class InvalidTransactionListResponse(Exception):
+    """TransactionList body lacks column metadata; retry at report fetch level only."""
 
 
 class TransactionListReport(BaseReportStream):
@@ -14,6 +18,36 @@ class TransactionListReport(BaseReportStream):
     stream: ClassVar[str] = 'TransactionListReport'
     key_properties: ClassVar[List[str]] = []
     replication_method: ClassVar[str] = 'FULL_TABLE'
+
+    def _validate_transaction_list_response(self, resp):
+        """Raise on Intuit Fault; retry when the report payload has no column metadata."""
+        fault = resp.get("Fault")
+        if fault:
+            errors = fault.get("Error") or [{}]
+            err = errors[0] if errors else {}
+            message = err.get("Message") or "QuickBooks report error"
+            detail = err.get("Detail") or err.get("code") or ""
+            raise Exception(f"QuickBooks TransactionList error: {message} ({detail})")
+
+        columns = (resp.get("Columns") or {}).get("Column")
+        if not columns:
+            LOGGER.warning(
+                "TransactionList response missing Columns; will retry. Top-level keys: %s",
+                list(resp.keys()),
+            )
+            raise InvalidTransactionListResponse("TransactionList response missing Columns")
+
+    @backoff.on_exception(
+        backoff.expo,
+        InvalidTransactionListResponse,
+        max_tries=5,
+        factor=3,
+    )
+    def _fetch_transaction_list(self, params):
+        """GET TransactionList with retries when QBO returns an unusable 200 body."""
+        resp = self._get(report_entity="TransactionList", params=params)
+        self._validate_transaction_list_response(resp)
+        return resp
 
     def _get_column_metadata(self, resp):
         columns = []
@@ -75,9 +109,10 @@ class TransactionListReport(BaseReportStream):
             'tracking_num',
             'tx_date',
             'txn_type',
-            'term_name',
             'dept_name',
-            'subt_nat_amount'
+            # Request both amounts; QBO returns only the one applicable for the company.
+            'subt_nat_amount',
+            'subt_nat_home_amount',
         ]
         params = {
             "start_date": start_date.strftime("%Y-%m-%d"),
@@ -87,7 +122,7 @@ class TransactionListReport(BaseReportStream):
         }
 
         LOGGER.info(f"Fetch TransactionListReport for period {params['start_date']} to {params['end_date']}")
-        resp = self._get(report_entity='TransactionList', params=params)
+        resp = self._fetch_transaction_list(params)
 
         # Get column metadata.
         columns = self._get_column_metadata(resp)
