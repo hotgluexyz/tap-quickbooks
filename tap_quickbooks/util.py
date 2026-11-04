@@ -86,8 +86,8 @@ def save_api_usage(method, url, params, body, response, stream=None):
     request_dict = {
         "method": method,
         "url": url,
-        "params": params,
-        "body": body,
+        "params": redact_for_log(params),
+        "body": redact_for_log(body),
     }
     request_dict = {k: v for k, v in request_dict.items() if v is not None}
 
