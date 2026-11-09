@@ -19,8 +19,8 @@ interactions:
   response:
     body:
       string: '{"expires_in": "360***", "access_token": "acc***", "refresh_token":
-        "ref***", "token_type": "-Fallback-scrubbed-QtrjgM", "x_refresh_token_expires_in":
-        5701}'
+        "ref***", "token_type": "-Fallback-scrubbed-PmlrYO", "x_refresh_token_expires_in":
+        3980}'
     headers:
       Cache-Control:
       - no-cache, no-store
@@ -74,25 +74,25 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Employee++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {"Employee": [{"BillableTime": true, "domain": "-Fallback-scrubbed-LEw",
-        "sparse": true, "Id": "55", "SyncToken": "5068", "MetaData": {"CreateTime":
-        "2000-06-08T15:58:48-08:00", "LastUpdatedTime": "2021-02-16T11:21:48-08:00"},
-        "GivenName": "-Fallback-scrubbed-iFlIR", "FamilyName": "-Fallback-scrubbed-AzgXN",
-        "DisplayName": "Fake-Daniel Herrera", "PrintOnCheckName": "Fake-Daniel Herrera",
-        "Active": true, "V4IDPseudonym": "-Fallback-scrubbed-qRwDwCiDVFASSwafQGSCruhXpZhPcwxVoLNAvg"},
-        {"BillableTime": true, "HiredDate": "1979-02-13", "domain": "-Fallback-scrubbed-LEw",
-        "sparse": true, "Id": "54", "SyncToken": "3065", "MetaData": {"CreateTime":
-        "2016-02-02T05:56:42-08:00", "LastUpdatedTime": "2021-02-16T11:46:26-08:00"},
-        "GivenName": "-Fallback-scrubbed-erBN", "FamilyName": "-Fallback-scrubbed-Afxvxgd",
-        "DisplayName": "Fake-Melissa Watson", "PrintOnCheckName": "Fake-Melissa Watson",
-        "Active": true, "V4IDPseudonym": "-Fallback-scrubbed-irehZUKIUEHBGlraKwYCfXSMXXIJBufbwweuJo",
-        "PrimaryPhone": {"FreeFormNumber": "-Fallback-scrubbed-QXryKLfcWuYyaV"}}],
-        "startPosition": 1, "maxResults": 2}, "time": "1984-05-13T05:56:01.967-07:00"}'
+      string: '{"QueryResponse": {"Employee": [{"BillableTime": true, "domain": "-Fallback-scrubbed-nSC",
+        "sparse": true, "Id": "55", "SyncToken": "8418", "MetaData": {"CreateTime":
+        "1999-06-20T17:30:29-08:00", "LastUpdatedTime": "2021-02-16T11:21:48-08:00"},
+        "GivenName": "-Fallback-scrubbed-iZlbb", "FamilyName": "-Fallback-scrubbed-DTtSC",
+        "DisplayName": "Fake-Adriana Elliott MD", "PrintOnCheckName": "Fake-Adriana
+        Elliott MD", "Active": false, "V4IDPseudonym": "-Fallback-scrubbed-AZQsWGPsiwrODrnhkVUlxWwracFUWskjcQWvtP"},
+        {"BillableTime": true, "HiredDate": "1972-12-25", "domain": "-Fallback-scrubbed-nSC",
+        "sparse": true, "Id": "54", "SyncToken": "5151", "MetaData": {"CreateTime":
+        "2002-11-01T07:53:54-08:00", "LastUpdatedTime": "2021-02-16T11:46:26-08:00"},
+        "GivenName": "-Fallback-scrubbed-lBRb", "FamilyName": "-Fallback-scrubbed-RmrCUzI",
+        "DisplayName": "Fake-Gregory Lamb", "PrintOnCheckName": "Fake-Gregory Lamb",
+        "Active": false, "V4IDPseudonym": "-Fallback-scrubbed-iTtrwldUOjaTIJRFocSgGJbIzbzWoDwZhGzDFg",
+        "PrimaryPhone": {"FreeFormNumber": "-Fallback-scrubbed-BLVcNEuJWvuAXO"}}],
+        "startPosition": 1, "maxResults": 2}, "time": "1983-11-29T00:12:30.967-07:00"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '1156'
+      - '1162'
       Content-Type:
       - application/json;charset=utf-8
       Date:

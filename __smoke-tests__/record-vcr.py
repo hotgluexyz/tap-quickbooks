@@ -18,6 +18,8 @@ class QuickbooksTapTestRunner(VCRTapTestRunner):
         "Id",
         "MetaData.LastUpdatedTime",
         "LastUpdatedTime",
+        "ColTitle",
+        "ColType",
         "maxResults",
         "startPosition",
         "totalCount",
@@ -25,7 +27,8 @@ class QuickbooksTapTestRunner(VCRTapTestRunner):
 
     def __init__(self, test_case, script_dir):
         super().__init__(test_case, script_dir)
-        config = json.loads(open(f"{self.test_case_path}/config.json").read())
+        with open(f"{self.test_case_path}/config.json") as config_file:
+            config = json.load(config_file)
         self.realm_id = config["realmId"]
 
     def scrub_uri(self, uri):

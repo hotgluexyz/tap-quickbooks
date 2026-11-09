@@ -18,9 +18,9 @@ interactions:
     uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
   response:
     body:
-      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-wpcnMU",
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-VUvFKl",
         "access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
-        4263}'
+        7435}'
     headers:
       Cache-Control:
       - no-cache, no-store
@@ -74,40 +74,41 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Class++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {"Class": [{"Name": "Fake-Anthony Hernandez", "SubClass":
-        true, "ParentRef": {"value": "9528"}, "FullyQualifiedName": "-Fallback-scrubbed-IjPWnTCbyKVdkAEyzpIfVd",
-        "Active": true, "domain": "-Fallback-scrubbed-cad", "sparse": false, "Id":
-        "5000000000000275722", "SyncToken": "4294", "MetaData": {"CreateTime": "1985-01-03T04:36:34-07:00",
-        "LastUpdatedTime": "2023-03-15T09:56:55-07:00"}}, {"Name": "Fake-Kimberly
-        Hernandez", "SubClass": false, "FullyQualifiedName": "Fake-Kimberly Hernandez",
-        "Active": true, "domain": "-Fallback-scrubbed-cad", "sparse": false, "Id":
-        "5000000000000275721", "SyncToken": "4294", "MetaData": {"CreateTime": "2025-04-02T08:30:04-07:00",
-        "LastUpdatedTime": "2023-03-15T09:56:46-07:00"}}, {"Name": "Fake-Kevin Rice",
-        "SubClass": false, "FullyQualifiedName": "Fake-Kevin Rice", "Active": true,
-        "domain": "-Fallback-scrubbed-cad", "sparse": false, "Id": "572500", "SyncToken":
-        "4294", "MetaData": {"CreateTime": "1983-10-02T07:55:52-07:00", "LastUpdatedTime":
-        "2025-06-24T06:26:09-07:00"}}, {"Name": "Fake-Sandra Stephens", "SubClass":
-        true, "ParentRef": {"value": "5940"}, "FullyQualifiedName": "-Fallback-scrubbed-wWJlKDzKvNgkSjwzjjaxr",
-        "Active": true, "domain": "-Fallback-scrubbed-cad", "sparse": false, "Id":
-        "572501", "SyncToken": "4294", "MetaData": {"CreateTime": "1987-07-08T01:25:59-07:00",
-        "LastUpdatedTime": "2025-06-24T06:26:09-07:00"}}, {"Name": "Fake-Jason Russell",
-        "SubClass": false, "FullyQualifiedName": "Fake-Jason Russell", "Active": true,
-        "domain": "-Fallback-scrubbed-cad", "sparse": false, "Id": "572503", "SyncToken":
-        "4294", "MetaData": {"CreateTime": "1984-03-03T21:26:53-07:00", "LastUpdatedTime":
-        "2025-06-24T06:30:56-07:00"}}, {"Name": "Fake-Richard Gonzales", "SubClass":
-        false, "FullyQualifiedName": "Fake-Richard Gonzales", "Active": true, "domain":
-        "-Fallback-scrubbed-cad", "sparse": false, "Id": "572502", "SyncToken": "4294",
-        "MetaData": {"CreateTime": "1994-01-11T11:30:04-07:00", "LastUpdatedTime":
-        "2025-06-24T06:30:12-07:00"}}, {"Name": "Fake-Latasha King", "SubClass": false,
-        "FullyQualifiedName": "Fake-Latasha King", "Active": true, "domain": "-Fallback-scrubbed-cad",
-        "sparse": false, "Id": "5000000000000275720", "SyncToken": "4294", "MetaData":
-        {"CreateTime": "1992-05-22T20:36:41-07:00", "LastUpdatedTime": "2023-03-15T09:56:55-07:00"}}],
-        "startPosition": 1, "maxResults": 7, "totalCount": 7}, "time": "2025-09-30T22:24:17.117-07:00"}'
+      string: '{"QueryResponse": {"Class": [{"Name": "Fake-Michelle Guerra", "SubClass":
+        true, "ParentRef": {"value": "4580"}, "FullyQualifiedName": "-Fallback-scrubbed-kSppZxJOmSDtQGqwtWExcB",
+        "Active": true, "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id":
+        "5000000000000275722", "SyncToken": "7316", "MetaData": {"CreateTime": "1980-02-10T10:20:49-07:00",
+        "LastUpdatedTime": "2023-03-15T09:56:55-07:00"}}, {"Name": "Fake-John Vance",
+        "SubClass": true, "FullyQualifiedName": "Fake-John Vance", "Active": true,
+        "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "5000000000000275721",
+        "SyncToken": "7316", "MetaData": {"CreateTime": "2020-03-14T21:56:47-07:00",
+        "LastUpdatedTime": "2023-03-15T09:56:46-07:00"}}, {"Name": "Fake-Jackson Smith",
+        "SubClass": true, "FullyQualifiedName": "Fake-Jackson Smith", "Active": true,
+        "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "572500", "SyncToken":
+        "7316", "MetaData": {"CreateTime": "1980-03-29T06:14:54-07:00", "LastUpdatedTime":
+        "2025-06-24T06:26:09-07:00"}}, {"Name": "Fake-Taylor Knight", "SubClass":
+        true, "ParentRef": {"value": "923"}, "FullyQualifiedName": "-Fallback-scrubbed-ffgBgUexoieiaGEyUstAZ",
+        "Active": true, "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id":
+        "572501", "SyncToken": "7316", "MetaData": {"CreateTime": "2026-01-22T12:16:51-07:00",
+        "LastUpdatedTime": "2025-06-24T06:26:09-07:00"}}, {"Name": "Fake-Maria Turner",
+        "SubClass": true, "FullyQualifiedName": "Fake-Maria Turner", "Active": true,
+        "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "572503", "SyncToken":
+        "7316", "MetaData": {"CreateTime": "1997-06-21T07:50:45-07:00", "LastUpdatedTime":
+        "2025-06-24T06:30:56-07:00"}}, {"Name": "Fake-David Thompson", "SubClass":
+        true, "FullyQualifiedName": "Fake-David Thompson", "Active": true, "domain":
+        "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "572502", "SyncToken": "7316",
+        "MetaData": {"CreateTime": "2025-11-10T16:59:46-07:00", "LastUpdatedTime":
+        "2025-06-24T06:30:12-07:00"}}, {"Name": "Fake-Nicole Nguyen", "SubClass":
+        true, "FullyQualifiedName": "Fake-Nicole Nguyen", "Active": true, "domain":
+        "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "5000000000000275720", "SyncToken":
+        "7316", "MetaData": {"CreateTime": "2023-09-19T17:19:31-07:00", "LastUpdatedTime":
+        "2023-03-15T09:56:55-07:00"}}], "startPosition": 1, "maxResults": 7, "totalCount":
+        7}, "time": "1974-10-25T08:59:44.117-07:00"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '2427'
+      - '2396'
       Content-Type:
       - application/json
       Date:

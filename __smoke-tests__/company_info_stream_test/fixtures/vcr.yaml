@@ -18,8 +18,8 @@ interactions:
     uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
   response:
     body:
-      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 6116, "token_type":
-        "-Fallback-scrubbed-tDgkxK", "refresh_token": "ref***", "access_token": "acc***"}'
+      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 6885, "token_type":
+        "-Fallback-scrubbed-MbDVeO", "refresh_token": "ref***", "access_token": "acc***"}'
     headers:
       Cache-Control:
       - no-cache, no-store
@@ -73,39 +73,40 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+CompanyInfo++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {"CompanyInfo": [{"CompanyName": "Fake-Munoz-Smith",
-        "LegalName": "Fake-Munoz-Smith", "CompanyAddr": {"Id": "1", "Line1": "-Fallback-scrubbed-jXheqonEkYbebt",
-        "City": "Fake-Heidistad", "Country": "-Fallback-scrubbed-obc", "CountrySubDivisionCode":
-        "-Fallback-scrubbed-lQ", "PostalCode": "15605"}, "CustomerCommunicationAddr":
-        {"Id": "606", "Line1": "-Fallback-scrubbed-jXheqonEkYbebt", "City": "Fake-Heidistad",
-        "Country": "-Fallback-scrubbed-obc", "CountrySubDivisionCode": "-Fallback-scrubbed-lQ",
-        "PostalCode": "15605"}, "LegalAddr": {"Id": "1", "Line1": "-Fallback-scrubbed-jXheqonEkYbebt",
-        "City": "Fake-Heidistad", "Country": "-Fallback-scrubbed-obc", "CountrySubDivisionCode":
-        "-Fallback-scrubbed-lQ", "PostalCode": "15605"}, "CustomerCommunicationEmailAddr":
-        {"Address": "Fake-435 Young Parkway Apt. 861"}, "PrimaryPhone": {"FreeFormNumber":
-        "9644"}, "CompanyStartDate": "2012-08-18", "FiscalYearStartMonth": "-Fallback-scrubbed-XBqaMvA",
-        "Country": "-Fallback-scrubbed-qQ", "Email": {"Address": "Fake-435 Young Parkway
-        Apt. 861"}, "WebAddr": {"URI": "-Fallback-scrubbed-CVVibvSneQTUfReKkrwGbjpQnwPy"},
-        "SupportedLanguages": "-Fallback-scrubbed-dE", "DefaultTimeZone": "-Fallback-scrubbed-SwNClnizdgZQbnbSnOE",
-        "NameValue": [{"Name": "Fake-Kim Patterson", "Value": "false"}, {"Name": "Fake-Christopher
-        Phillips", "Value": "true"}, {"Name": "Fake-Benjamin Smith", "Value": "true"},
-        {"Name": "Fake-Sarah Mata", "Value": "-Fallback-scrubbed-uRZnCuhrNytWMFEVhZkZqfafgZwCJNvBNAKq"},
-        {"Name": "Fake-Barbara Gill", "Value": "-Fallback-scrubbed-GpeIX"}, {"Name":
-        "Fake-Misty Stewart", "Value": "6274"}, {"Name": "Fake-Mary Hall DVM", "Value":
-        "-Fallback-scrubbed-ZsPArHAcxN"}, {"Name": "Fake-Raymond Johnson", "Value":
-        "-Fallback-scrubbed-aJTeuQbpjkAApoRxSVxQMI"}, {"Name": "Fake-Jody Harper",
-        "Value": "true"}, {"Name": "Fake-Rebecca Yoder", "Value": "true"}, {"Name":
-        "Fake-John Davis", "Value": "-Fallback-scrubbed-BzIEsibPWwERncIUrCol"}, {"Name":
-        "Fake-Jennifer Harrison", "Value": "false"}, {"Name": "Fake-Deanna Washington",
-        "Value": "1993-05-08T01:41:05-07:00"}], "domain": "-Fallback-scrubbed-DkO",
-        "sparse": true, "Id": "1", "SyncToken": "3781", "MetaData": {"CreateTime":
-        "1974-01-01T09:38:11-07:00", "LastUpdatedTime": "2025-06-20T09:17:05-07:00"}}],
-        "maxResults": 1}, "time": "1988-01-22T02:31:39.798-07:00"}'
+      string: '{"QueryResponse": {"CompanyInfo": [{"CompanyName": "Fake-Wu LLC", "LegalName":
+        "Fake-Wu LLC", "CompanyAddr": {"Id": "1", "Line1": "-Fallback-scrubbed-UCDmopPYahmzWa",
+        "City": "Fake-South Davidmouth", "Country": "-Fallback-scrubbed-cID", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-Wg", "PostalCode": "67333"}, "CustomerCommunicationAddr":
+        {"Id": "606", "Line1": "-Fallback-scrubbed-UCDmopPYahmzWa", "City": "Fake-South
+        Davidmouth", "Country": "-Fallback-scrubbed-cID", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-Wg", "PostalCode": "67333"}, "LegalAddr": {"Id": "1",
+        "Line1": "-Fallback-scrubbed-UCDmopPYahmzWa", "City": "Fake-South Davidmouth",
+        "Country": "-Fallback-scrubbed-cID", "CountrySubDivisionCode": "-Fallback-scrubbed-Wg",
+        "PostalCode": "67333"}, "CustomerCommunicationEmailAddr": {"Address": "Fake-6315
+        Oneill Rapid"}, "PrimaryPhone": {"FreeFormNumber": "5788"}, "CompanyStartDate":
+        "2024-01-31", "FiscalYearStartMonth": "-Fallback-scrubbed-xyBJkTl", "Country":
+        "-Fallback-scrubbed-XR", "Email": {"Address": "Fake-6315 Oneill Rapid"}, "WebAddr":
+        {"URI": "-Fallback-scrubbed-gTxGdJEwumLwLNwcMLNSXqSCQagB"}, "SupportedLanguages":
+        "-Fallback-scrubbed-FY", "DefaultTimeZone": "-Fallback-scrubbed-BHvaxnGeOJLocyMQdNm",
+        "NameValue": [{"Name": "Fake-Michael Smith", "Value": "true"}, {"Name": "Fake-Brian
+        Rodriguez", "Value": "true"}, {"Name": "Fake-Austin Johnson", "Value": "true"},
+        {"Name": "Fake-Joel Green", "Value": "-Fallback-scrubbed-MkrhBKeHKWXIIVZsblGhPVzgvTolZhfenElF"},
+        {"Name": "Fake-Jennifer Smith", "Value": "-Fallback-scrubbed-LnLUj"}, {"Name":
+        "Fake-Michael Hernandez", "Value": "6263"}, {"Name": "Fake-Tara Montgomery",
+        "Value": "-Fallback-scrubbed-AwCWEXyFze"}, {"Name": "Fake-Sara Kelley", "Value":
+        "-Fallback-scrubbed-YRdILNiOJjPvyejmRSEqHw"}, {"Name": "Fake-Miguel Juarez",
+        "Value": "true"}, {"Name": "Fake-Earl Blankenship", "Value": "true"}, {"Name":
+        "Fake-Shawn Walker", "Value": "-Fallback-scrubbed-sMHNLOzPviVgsKiWzYmc"},
+        {"Name": "Fake-Ryan Schmidt", "Value": "true"}, {"Name": "Fake-Amanda Mccarty",
+        "Value": "2011-01-12T14:07:01-07:00"}], "domain": "-Fallback-scrubbed-Vhq",
+        "sparse": true, "Id": "1", "SyncToken": "1401", "MetaData": {"CreateTime":
+        "2008-04-01T01:39:09-07:00", "LastUpdatedTime": "2025-06-20T09:17:05-07:00"}}],
+        "maxResults": 1}, "time": "2009-04-30T11:43:58.798-07:00"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '2338'
+      - '2327'
       Content-Type:
       - application/json
       Date:

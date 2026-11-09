@@ -18,8 +18,8 @@ interactions:
     uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
   response:
     body:
-      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-znPIvC",
-        "x_refresh_token_expires_in": 408, "refresh_token": "ref***", "access_token":
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-oNCTXT",
+        "x_refresh_token_expires_in": 5122, "refresh_token": "ref***", "access_token":
         "acc***"}'
     headers:
       Cache-Control:
@@ -27,7 +27,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '155'
+      - '156'
       Content-Type:
       - application/json;charset=utf-8
       Date:
@@ -74,41 +74,40 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Department++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {"Department": [{"Name": "Fake-Jessica Padilla",
-        "SubDepartment": false, "FullyQualifiedName": "Fake-Jessica Padilla", "Active":
-        true, "domain": "-Fallback-scrubbed-khQ", "sparse": false, "Id": "4", "SyncToken":
-        "2368", "MetaData": {"CreateTime": "2018-11-13T00:11:52-07:00", "LastUpdatedTime":
-        "2025-06-18T10:24:33-07:00"}}, {"Name": "Fake-Edward Washington", "SubDepartment":
-        true, "ParentRef": {"value": "4714"}, "FullyQualifiedName": "-Fallback-scrubbed-LFPjCtybrHGLWYXDFuRTzFsNAXYpnTnNNhwyiJNGBsbC",
-        "Active": true, "domain": "-Fallback-scrubbed-khQ", "sparse": false, "Id":
-        "6", "SyncToken": "2368", "MetaData": {"CreateTime": "1982-01-23T06:06:03-07:00",
-        "LastUpdatedTime": "2025-06-18T10:24:33-07:00"}}, {"Name": "Fake-Denise Freeman",
-        "SubDepartment": false, "FullyQualifiedName": "Fake-Denise Freeman", "Active":
-        true, "domain": "-Fallback-scrubbed-khQ", "sparse": false, "Id": "3", "SyncToken":
-        "2368", "MetaData": {"CreateTime": "1974-09-08T22:36:10-07:00", "LastUpdatedTime":
-        "2023-03-14T17:29:35-07:00"}}, {"Name": "Fake-Sarah Caldwell", "SubDepartment":
-        false, "FullyQualifiedName": "Fake-Sarah Caldwell", "Active": true, "domain":
-        "-Fallback-scrubbed-khQ", "sparse": false, "Id": "7", "SyncToken": "2368",
-        "MetaData": {"CreateTime": "1970-11-14T15:59:32-07:00", "LastUpdatedTime":
-        "2025-06-24T07:08:41-07:00"}}, {"Name": "Fake-Jamie Carter", "SubDepartment":
-        false, "FullyQualifiedName": "Fake-Jamie Carter", "Active": true, "domain":
-        "-Fallback-scrubbed-khQ", "sparse": false, "Id": "1", "SyncToken": "2368",
-        "MetaData": {"CreateTime": "2003-08-21T13:01:01-07:00", "LastUpdatedTime":
-        "2022-10-27T11:41:20-07:00"}}, {"Name": "Fake-Dennis Ellison", "SubDepartment":
-        false, "FullyQualifiedName": "Fake-Dennis Ellison", "Active": true, "domain":
-        "-Fallback-scrubbed-khQ", "sparse": false, "Id": "2", "SyncToken": "2368",
-        "MetaData": {"CreateTime": "2012-03-26T15:42:44-08:00", "LastUpdatedTime":
-        "2023-03-09T07:16:17-08:00"}}, {"Name": "Fake-Elizabeth Donovan", "SubDepartment":
-        false, "FullyQualifiedName": "Fake-Elizabeth Donovan", "Active": true, "domain":
-        "-Fallback-scrubbed-khQ", "sparse": false, "Id": "5", "SyncToken": "2368",
-        "MetaData": {"CreateTime": "1979-03-21T16:33:05-07:00", "LastUpdatedTime":
-        "2023-04-11T09:29:37-07:00"}}], "startPosition": 1, "maxResults": 7}, "time":
-        "1989-07-25T04:50:54.521-07:00"}'
+      string: '{"QueryResponse": {"Department": [{"Name": "Fake-Ashley Maldonado",
+        "SubDepartment": true, "FullyQualifiedName": "Fake-Ashley Maldonado", "Active":
+        false, "domain": "-Fallback-scrubbed-BGZ", "sparse": true, "Id": "4", "SyncToken":
+        "1293", "MetaData": {"CreateTime": "1992-01-07T23:18:38-07:00", "LastUpdatedTime":
+        "2025-06-18T10:24:33-07:00"}}, {"Name": "Fake-Luke Wilson", "SubDepartment":
+        false, "ParentRef": {"value": "3156"}, "FullyQualifiedName": "-Fallback-scrubbed-eJUdueFiSmSfrmyXhPvNRUctZNLdcNPsuwfHhBRpwTyP",
+        "Active": false, "domain": "-Fallback-scrubbed-BGZ", "sparse": true, "Id":
+        "6", "SyncToken": "1293", "MetaData": {"CreateTime": "1995-06-04T05:09:58-07:00",
+        "LastUpdatedTime": "2025-06-18T10:24:33-07:00"}}, {"Name": "Fake-Linda Shepherd",
+        "SubDepartment": true, "FullyQualifiedName": "Fake-Linda Shepherd", "Active":
+        false, "domain": "-Fallback-scrubbed-BGZ", "sparse": true, "Id": "3", "SyncToken":
+        "1293", "MetaData": {"CreateTime": "2011-08-10T00:20:17-07:00", "LastUpdatedTime":
+        "2023-03-14T17:29:35-07:00"}}, {"Name": "Fake-Kerri Le", "SubDepartment":
+        true, "FullyQualifiedName": "Fake-Kerri Le", "Active": false, "domain": "-Fallback-scrubbed-BGZ",
+        "sparse": true, "Id": "7", "SyncToken": "1293", "MetaData": {"CreateTime":
+        "1982-10-13T17:44:06-07:00", "LastUpdatedTime": "2025-06-24T07:08:41-07:00"}},
+        {"Name": "Fake-Zachary Stanley", "SubDepartment": true, "FullyQualifiedName":
+        "Fake-Zachary Stanley", "Active": false, "domain": "-Fallback-scrubbed-BGZ",
+        "sparse": true, "Id": "1", "SyncToken": "1293", "MetaData": {"CreateTime":
+        "1976-09-16T22:46:00-07:00", "LastUpdatedTime": "2022-10-27T11:41:20-07:00"}},
+        {"Name": "Fake-Jonathan Blankenship", "SubDepartment": true, "FullyQualifiedName":
+        "Fake-Jonathan Blankenship", "Active": false, "domain": "-Fallback-scrubbed-BGZ",
+        "sparse": true, "Id": "2", "SyncToken": "1293", "MetaData": {"CreateTime":
+        "1988-12-06T05:25:12-08:00", "LastUpdatedTime": "2023-03-09T07:16:17-08:00"}},
+        {"Name": "Fake-Cindy Young", "SubDepartment": true, "FullyQualifiedName":
+        "Fake-Cindy Young", "Active": false, "domain": "-Fallback-scrubbed-BGZ", "sparse":
+        true, "Id": "5", "SyncToken": "1293", "MetaData": {"CreateTime": "2014-01-02T10:34:12-07:00",
+        "LastUpdatedTime": "2023-04-11T09:29:37-07:00"}}], "startPosition": 1, "maxResults":
+        7}, "time": "1971-07-12T23:33:38.521-07:00"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '2351'
+      - '2336'
       Content-Type:
       - application/json
       Date:

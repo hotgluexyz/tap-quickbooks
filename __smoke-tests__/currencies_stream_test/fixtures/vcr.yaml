@@ -18,16 +18,16 @@ interactions:
     uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
   response:
     body:
-      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-pXZEDA",
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-NigqQk",
         "access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
-        8609}'
+        287}'
     headers:
       Cache-Control:
       - no-cache, no-store
       Connection:
       - keep-alive
       Content-Length:
-      - '156'
+      - '155'
       Content-Type:
       - application/json;charset=utf-8
       Date:
@@ -74,23 +74,23 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+CompanyCurrency++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {"CompanyCurrency": [{"Code": "-Fallback-scrubbed-xGK",
-        "Name": "Fake-Kim Edwards", "Active": true, "domain": "-Fallback-scrubbed-OkW",
-        "sparse": true, "Id": "3", "SyncToken": "4056", "MetaData": {"CreateTime":
-        "2000-01-14T17:48:43-07:00", "LastUpdatedTime": "2025-05-29T05:39:53-07:00"}},
-        {"Code": "-Fallback-scrubbed-AJv", "Name": "Fake-Brett Warren", "Active":
-        true, "domain": "-Fallback-scrubbed-OkW", "sparse": true, "Id": "2", "SyncToken":
-        "4056", "MetaData": {"CreateTime": "2007-03-27T23:05:00-07:00", "LastUpdatedTime":
-        "2025-05-22T19:25:15-07:00"}}, {"Code": "-Fallback-scrubbed-SGW", "Name":
-        "Fake-William Elliott", "Active": true, "domain": "-Fallback-scrubbed-OkW",
-        "sparse": true, "Id": "1", "SyncToken": "4056", "MetaData": {"CreateTime":
-        "1981-04-23T14:24:05-07:00", "LastUpdatedTime": "2025-05-22T19:25:14-07:00"}}],
-        "startPosition": 1, "maxResults": 3, "totalCount": 3}, "time": "1989-01-16T01:01:44.489-07:00"}'
+      string: '{"QueryResponse": {"CompanyCurrency": [{"Code": "-Fallback-scrubbed-nOT",
+        "Name": "Fake-Jessica Moss", "Active": true, "domain": "-Fallback-scrubbed-VxA",
+        "sparse": true, "Id": "3", "SyncToken": "9255", "MetaData": {"CreateTime":
+        "2020-12-24T04:44:50-07:00", "LastUpdatedTime": "2025-05-29T05:39:53-07:00"}},
+        {"Code": "-Fallback-scrubbed-dHF", "Name": "Fake-Deborah Davis", "Active":
+        true, "domain": "-Fallback-scrubbed-VxA", "sparse": true, "Id": "2", "SyncToken":
+        "9255", "MetaData": {"CreateTime": "2005-06-12T17:30:10-07:00", "LastUpdatedTime":
+        "2025-05-22T19:25:15-07:00"}}, {"Code": "-Fallback-scrubbed-ROy", "Name":
+        "Fake-Mrs. Jennifer Beltran", "Active": true, "domain": "-Fallback-scrubbed-VxA",
+        "sparse": true, "Id": "1", "SyncToken": "9255", "MetaData": {"CreateTime":
+        "1980-12-10T13:42:18-07:00", "LastUpdatedTime": "2025-05-22T19:25:14-07:00"}}],
+        "startPosition": 1, "maxResults": 3, "totalCount": 3}, "time": "2015-07-24T14:39:58.489-07:00"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '947'
+      - '955'
       Content-Type:
       - application/json;charset=utf-8
       Date:

@@ -18,8 +18,8 @@ interactions:
     uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
   response:
     body:
-      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-oLPiob",
-        "x_refresh_token_expires_in": 3631, "refresh_token": "ref***", "access_token":
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-fYJzPb",
+        "x_refresh_token_expires_in": 5633, "refresh_token": "ref***", "access_token":
         "acc***"}'
     headers:
       Cache-Control:
@@ -74,19 +74,19 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+CustomerType++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {"CustomerType": [{"Name": "Fake-Brent Mcgee", "Active":
-        false, "domain": "-Fallback-scrubbed-MUn", "sparse": false, "Id": "5000000000000054673",
-        "SyncToken": "5669", "MetaData": {"CreateTime": "2002-01-09T16:52:56-08:00",
-        "LastUpdatedTime": "2023-02-28T23:33:10-08:00"}}, {"Name": "Fake-Marie Combs",
-        "Active": false, "domain": "-Fallback-scrubbed-MUn", "sparse": false, "Id":
-        "5000000000000054672", "SyncToken": "5669", "MetaData": {"CreateTime": "2009-05-11T18:59:31-08:00",
+      string: '{"QueryResponse": {"CustomerType": [{"Name": "Fake-Matthew Chung",
+        "Active": false, "domain": "-Fallback-scrubbed-VRE", "sparse": true, "Id":
+        "5000000000000054673", "SyncToken": "5469", "MetaData": {"CreateTime": "1995-06-18T11:47:20-08:00",
+        "LastUpdatedTime": "2023-02-28T23:33:10-08:00"}}, {"Name": "Fake-Rhonda Moore",
+        "Active": false, "domain": "-Fallback-scrubbed-VRE", "sparse": true, "Id":
+        "5000000000000054672", "SyncToken": "5469", "MetaData": {"CreateTime": "1979-03-24T22:03:26-08:00",
         "LastUpdatedTime": "2023-02-28T23:01:49-08:00"}}], "startPosition": 1, "maxResults":
-        2}, "time": "1980-01-06T21:56:48.847-07:00"}'
+        2}, "time": "1973-01-26T09:59:23.847-07:00"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '625'
+      - '626'
       Content-Type:
       - application/json;charset=utf-8
       Date:

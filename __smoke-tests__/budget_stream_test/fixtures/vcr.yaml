@@ -18,8 +18,8 @@ interactions:
     uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
   response:
     body:
-      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 3198, "token_type":
-        "-Fallback-scrubbed-sfLKPS", "refresh_token": "ref***", "access_token": "acc***"}'
+      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 9320, "token_type":
+        "-Fallback-scrubbed-wwjYBY", "refresh_token": "ref***", "access_token": "acc***"}'
     headers:
       Cache-Control:
       - no-cache, no-store
@@ -73,7 +73,7 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Budget++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {}, "time": "1979-05-15T13:28:39.251-07:00"}'
+      string: '{"QueryResponse": {}, "time": "2001-12-30T05:42:26.251-07:00"}'
     headers:
       Connection:
       - keep-alive
