@@ -18,8 +18,8 @@ interactions:
     uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
   response:
     body:
-      string: '{"x_refresh_token_expires_in": 1870, "refresh_token": "ref***", "access_token":
-        "acc***", "token_type": "-Fallback-scrubbed-GhvqkI", "expires_in": "360***"}'
+      string: '{"x_refresh_token_expires_in": 3985, "refresh_token": "ref***", "access_token":
+        "acc***", "token_type": "-Fallback-scrubbed-WoFbxd", "expires_in": "360***"}'
     headers:
       Cache-Control:
       - no-cache, no-store
@@ -73,123 +73,123 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+TaxCode++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {"TaxCode": [{"Name": "Fake-Jack Kelly", "Description":
-        "Fake-Jack Kelly", "Taxable": true, "TaxGroup": true, "Id": "TAX", "MetaData":
-        {"CreateTime": "2006-01-24T14:07:45-07:00", "LastUpdatedTime": "2021-03-16T08:04:06-07:00"}},
-        {"Name": "Fake-Jessica Leach", "Description": "Fake-Jessica Leach", "Taxable":
-        true, "TaxGroup": true, "Id": "NON", "MetaData": {"CreateTime": "2006-01-24T14:07:45-07:00",
-        "LastUpdatedTime": "2021-03-16T08:04:06-07:00"}}, {"Name": "Fake-Karina Hawkins",
-        "Description": "Fake-Karina Hawkins", "Taxable": true, "TaxGroup": true, "Id":
-        "CustomSalesTax", "MetaData": {"CreateTime": "2006-01-24T14:07:45-07:00",
-        "LastUpdatedTime": "2021-03-16T08:04:06-07:00"}}, {"Name": "Fake-Lisa Parks",
-        "Description": "Fake-Lisa Parks", "Active": true, "Hidden": true, "Taxable":
+      string: '{"QueryResponse": {"TaxCode": [{"Name": "Fake-Lauren Dalton", "Description":
+        "Fake-Lauren Dalton", "Taxable": true, "TaxGroup": false, "Id": "TAX", "MetaData":
+        {"CreateTime": "2023-01-28T16:04:31-07:00", "LastUpdatedTime": "2021-03-16T08:04:06-07:00"}},
+        {"Name": "Fake-Rachel Rivas", "Description": "Fake-Rachel Rivas", "Taxable":
+        false, "TaxGroup": false, "Id": "NON", "MetaData": {"CreateTime": "2023-01-28T16:04:31-07:00",
+        "LastUpdatedTime": "2021-03-16T08:04:06-07:00"}}, {"Name": "Fake-Monica Jones",
+        "Description": "Fake-Monica Jones", "Taxable": true, "TaxGroup": true, "Id":
+        "CustomSalesTax", "MetaData": {"CreateTime": "2023-01-28T16:04:31-07:00",
+        "LastUpdatedTime": "2021-03-16T08:04:06-07:00"}}, {"Name": "Fake-Jasmine Tucker",
+        "Description": "Fake-Jasmine Tucker", "Active": true, "Hidden": false, "Taxable":
         true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "8343", "name": "Fake-Raven Reese"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "5", "SyncToken": "150", "MetaData": {"CreateTime": "2026-02-01T04:16:29-07:00",
-        "LastUpdatedTime": "2023-04-11T09:22:33-07:00"}}, {"Name": "Fake-Lisa Cameron",
-        "Description": "Fake-Lisa Cameron", "Active": true, "Hidden": true, "Taxable":
+        {"value": "5534", "name": "Fake-David Brown"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "5", "SyncToken": "1668", "MetaData": {"CreateTime": "1985-12-28T19:52:51-07:00",
+        "LastUpdatedTime": "2023-04-11T09:22:33-07:00"}}, {"Name": "Fake-Nicholas
+        Rivera", "Description": "Fake-Nicholas Rivera", "Active": true, "Hidden":
+        false, "Taxable": true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail":
+        [{"TaxRateRef": {"value": "2064", "name": "Fake-Shannon Holmes"}, "TaxTypeApplicable":
+        "-Fallback-scrubbed-qglUNkbILQZ", "TaxOrder": 5759}]}, "PurchaseTaxRateList":
+        {"TaxRateDetail": []}, "TaxCodeConfigType": "-Fallback-scrubbed-LqZgQRriWiQc",
+        "domain": "-Fallback-scrubbed-Kyp", "sparse": false, "Id": "8", "SyncToken":
+        "1668", "MetaData": {"CreateTime": "2020-01-01T16:55:11-07:00", "LastUpdatedTime":
+        "2023-04-11T09:27:37-07:00"}}, {"Name": "Fake-David Kennedy", "Description":
+        "Fake-David Kennedy", "Active": true, "Hidden": false, "Taxable": true, "TaxGroup":
+        true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef": {"value": "999",
+        "name": "Fake-Isabel Bridges"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "9", "SyncToken": "1668", "MetaData": {"CreateTime": "2005-07-23T15:19:02-07:00",
+        "LastUpdatedTime": "2023-04-11T09:28:50-07:00"}}, {"Name": "Fake-Matthew Smith",
+        "Description": "Fake-Matthew Smith", "Active": true, "Hidden": false, "Taxable":
         true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "1237", "name": "Fake-Gregory Bray"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "8", "SyncToken": "150", "MetaData": {"CreateTime": "1985-07-11T19:55:34-07:00",
-        "LastUpdatedTime": "2023-04-11T09:27:37-07:00"}}, {"Name": "Fake-Andrew Rollins",
-        "Description": "Fake-Andrew Rollins", "Active": true, "Hidden": true, "Taxable":
+        {"value": "2215", "name": "Fake-Tammy Good"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "4", "SyncToken": "1668", "MetaData": {"CreateTime": "1975-03-06T10:06:22-07:00",
+        "LastUpdatedTime": "2023-04-11T09:13:08-07:00"}}, {"Name": "Fake-Lisa Brown",
+        "Description": "Fake-Lisa Brown", "Active": true, "Hidden": false, "Taxable":
         true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "6211", "name": "Fake-Derrick Campbell"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "9", "SyncToken": "150", "MetaData": {"CreateTime": "1986-10-20T18:55:38-07:00",
-        "LastUpdatedTime": "2023-04-11T09:28:50-07:00"}}, {"Name": "Fake-Christian
-        Dean", "Description": "Fake-Christian Dean", "Active": true, "Hidden": true,
-        "Taxable": true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "7176", "name": "Fake-William Harrison"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "4", "SyncToken": "150", "MetaData": {"CreateTime": "2019-08-30T20:24:04-07:00",
-        "LastUpdatedTime": "2023-04-11T09:13:08-07:00"}}, {"Name": "Fake-Adam Buchanan",
-        "Description": "Fake-Adam Buchanan", "Active": true, "Hidden": true, "Taxable":
+        {"value": "4805", "name": "Fake-Terry Farmer"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "7", "SyncToken": "1668", "MetaData": {"CreateTime": "2008-09-18T03:42:59-07:00",
+        "LastUpdatedTime": "2023-04-11T09:26:51-07:00"}}, {"Name": "Fake-Maria Wong",
+        "Description": "Fake-Maria Wong", "Active": true, "Hidden": false, "Taxable":
         true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "8561", "name": "Fake-Jonathan Marquez Jr."}, "TaxTypeApplicable":
-        "-Fallback-scrubbed-FNZWKDzgazN", "TaxOrder": 7865}]}, "PurchaseTaxRateList":
-        {"TaxRateDetail": []}, "TaxCodeConfigType": "-Fallback-scrubbed-vwEfXVahKolL",
-        "domain": "-Fallback-scrubbed-BDf", "sparse": true, "Id": "7", "SyncToken":
-        "150", "MetaData": {"CreateTime": "1999-12-02T21:14:01-07:00", "LastUpdatedTime":
-        "2023-04-11T09:26:51-07:00"}}, {"Name": "Fake-Stephen Garcia", "Description":
-        "Fake-Stephen Garcia", "Active": true, "Hidden": true, "Taxable": true, "TaxGroup":
-        true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef": {"value": "2098",
-        "name": "Fake-Michael Flores"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "10", "SyncToken": "150", "MetaData": {"CreateTime": "1996-01-02T23:56:02-07:00",
-        "LastUpdatedTime": "2023-04-11T09:28:59-07:00"}}, {"Name": "Fake-Robert Dickerson",
-        "Description": "Fake-Robert Dickerson", "Active": true, "Hidden": true, "Taxable":
+        {"value": "5142", "name": "Fake-Jason Ramirez"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "10", "SyncToken": "1668", "MetaData": {"CreateTime": "1997-02-26T11:41:08-07:00",
+        "LastUpdatedTime": "2023-04-11T09:28:59-07:00"}}, {"Name": "Fake-Amber Schwartz",
+        "Description": "Fake-Amber Schwartz", "Active": true, "Hidden": false, "Taxable":
         true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "2911", "name": "Fake-Beth Williams"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "12", "SyncToken": "150", "MetaData": {"CreateTime": "1994-09-13T22:53:53-07:00",
-        "LastUpdatedTime": "2023-04-11T09:30:40-07:00"}}, {"Name": "Fake-Sarah Burke",
-        "Description": "Fake-Sarah Burke", "Active": true, "Hidden": true, "Taxable":
+        {"value": "2054", "name": "Fake-Scott Lawson"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "12", "SyncToken": "1668", "MetaData": {"CreateTime": "2004-01-20T21:56:30-07:00",
+        "LastUpdatedTime": "2023-04-11T09:30:40-07:00"}}, {"Name": "Fake-Megan Taylor",
+        "Description": "Fake-Megan Taylor", "Active": true, "Hidden": false, "Taxable":
         true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "8182", "name": "Fake-Sarah Burke"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "2", "SyncToken": "150", "MetaData": {"CreateTime": "2014-01-06T19:33:25-08:00",
-        "LastUpdatedTime": "2021-02-17T12:17:04-08:00"}}, {"Name": "Fake-Dr. Karen
-        Robles", "Description": "Fake-Dr. Karen Robles", "Active": true, "Hidden":
-        true, "Taxable": true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail":
-        [{"TaxRateRef": {"value": "6379", "name": "Fake-Dustin Briggs"}, "TaxTypeApplicable":
-        "-Fallback-scrubbed-FNZWKDzgazN", "TaxOrder": 7865}, {"TaxRateRef": {"value":
-        "9843", "name": "Fake-Eric Stafford"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}, {"TaxRateRef": {"value": "2362", "name": "Fake-Angela Carlson"},
-        "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN", "TaxOrder": 7865},
-        {"TaxRateRef": {"value": "8346", "name": "Fake-Michael Atkins"}, "TaxTypeApplicable":
-        "-Fallback-scrubbed-FNZWKDzgazN", "TaxOrder": 7865}]}, "PurchaseTaxRateList":
-        {"TaxRateDetail": []}, "TaxCodeConfigType": "-Fallback-scrubbed-zCIQXTbWpaolTCZs",
-        "domain": "-Fallback-scrubbed-BDf", "sparse": true, "Id": "15", "SyncToken":
-        "150", "MetaData": {"CreateTime": "2021-11-15T06:49:03-07:00", "LastUpdatedTime":
-        "2023-08-24T15:32:19-07:00"}}, {"Name": "Fake-Ruth Abbott", "Description":
-        "Fake-Ruth Abbott", "Active": true, "Hidden": true, "Taxable": true, "TaxGroup":
-        true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef": {"value": "6299",
-        "name": "Fake-Michelle Martinez"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "13", "SyncToken": "150", "MetaData": {"CreateTime": "1977-11-24T07:45:42-07:00",
-        "LastUpdatedTime": "2023-04-16T22:17:43-07:00"}}, {"Name": "Fake-John Pham",
-        "Description": "Fake-John Pham", "Active": true, "Hidden": true, "Taxable":
+        {"value": "9405", "name": "Fake-Megan Taylor"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "2", "SyncToken": "1668", "MetaData": {"CreateTime": "1979-11-16T09:27:44-08:00",
+        "LastUpdatedTime": "2021-02-17T12:17:04-08:00"}}, {"Name": "Fake-Julie Graham",
+        "Description": "Fake-Julie Graham", "Active": true, "Hidden": false, "Taxable":
         true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "3508", "name": "Fake-John Pham"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
-        "-Fallback-scrubbed-vwEfXVahKolL", "domain": "-Fallback-scrubbed-BDf", "sparse":
-        true, "Id": "11", "SyncToken": "9466", "MetaData": {"CreateTime": "1993-03-16T22:50:20-07:00",
-        "LastUpdatedTime": "2023-08-24T15:51:47-07:00"}}, {"Name": "Fake-Ruth Sullivan",
-        "Description": "Fake-Ruth Sullivan", "Active": true, "Hidden": true, "Taxable":
+        {"value": "2570", "name": "Fake-Karen Dunn"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}, {"TaxRateRef": {"value": "231", "name": "Fake-Richard Fowler"},
+        "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ", "TaxOrder": 5759},
+        {"TaxRateRef": {"value": "2721", "name": "Fake-Jeffrey Alvarado"}, "TaxTypeApplicable":
+        "-Fallback-scrubbed-qglUNkbILQZ", "TaxOrder": 5759}, {"TaxRateRef": {"value":
+        "1611", "name": "Fake-Kevin Jones"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-ZxVjOmIMKcoZxOLm", "domain": "-Fallback-scrubbed-Kyp",
+        "sparse": false, "Id": "15", "SyncToken": "1668", "MetaData": {"CreateTime":
+        "1970-12-08T23:08:39-07:00", "LastUpdatedTime": "2023-08-24T15:32:19-07:00"}},
+        {"Name": "Fake-James Stone", "Description": "Fake-James Stone", "Active":
+        true, "Hidden": false, "Taxable": true, "TaxGroup": true, "SalesTaxRateList":
+        {"TaxRateDetail": [{"TaxRateRef": {"value": "3651", "name": "Fake-Bradley
+        Wood"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ", "TaxOrder":
+        5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "13", "SyncToken": "1668", "MetaData": {"CreateTime": "1996-07-29T18:58:02-07:00",
+        "LastUpdatedTime": "2023-04-16T22:17:43-07:00"}}, {"Name": "Fake-Keith Murray",
+        "Description": "Fake-Keith Murray", "Active": true, "Hidden": false, "Taxable":
         true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "3493", "name": "Fake-Anthony Graham"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "PurchaseTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
-        {"value": "6268", "name": "Fake-Javier Garcia"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}]}, "TaxCodeConfigType": "-Fallback-scrubbed-zCIQXTbWpaolTCZs",
-        "domain": "-Fallback-scrubbed-BDf", "sparse": true, "Id": "14", "SyncToken":
-        "150", "MetaData": {"CreateTime": "2021-11-15T06:49:03-07:00", "LastUpdatedTime":
-        "2023-08-24T15:32:19-07:00"}}, {"Name": "Fake-Shelly Morales MD", "Description":
-        "Fake-Shelly Morales MD", "Active": true, "Hidden": true, "Taxable": true,
-        "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef": {"value":
-        "9466", "name": "Fake-Justin Lopez"}, "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN",
-        "TaxOrder": 7865}, {"TaxRateRef": {"value": "7126", "name": "Fake-Sarah Fuller"},
-        "TaxTypeApplicable": "-Fallback-scrubbed-FNZWKDzgazN", "TaxOrder": 7865}]},
-        "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType": "-Fallback-scrubbed-vwEfXVahKolL",
-        "domain": "-Fallback-scrubbed-BDf", "sparse": true, "Id": "3", "SyncToken":
-        "150", "MetaData": {"CreateTime": "2014-01-06T19:33:25-08:00", "LastUpdatedTime":
-        "2021-02-17T12:17:04-08:00"}}], "startPosition": 1, "maxResults": 16, "totalCount":
-        16}, "time": "1970-12-14T16:06:41.948-07:00"}'
+        {"value": "2069", "name": "Fake-Keith Murray"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "11", "SyncToken": "7302", "MetaData": {"CreateTime": "2013-12-25T16:42:36-07:00",
+        "LastUpdatedTime": "2023-08-24T15:51:47-07:00"}}, {"Name": "Fake-David Brooks",
+        "Description": "Fake-David Brooks", "Active": true, "Hidden": false, "Taxable":
+        true, "TaxGroup": true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
+        {"value": "5655", "name": "Fake-Shane Collins"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": [{"TaxRateRef":
+        {"value": "2890", "name": "Fake-Carlos Green"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}]}, "TaxCodeConfigType": "-Fallback-scrubbed-ZxVjOmIMKcoZxOLm",
+        "domain": "-Fallback-scrubbed-Kyp", "sparse": false, "Id": "14", "SyncToken":
+        "1668", "MetaData": {"CreateTime": "1970-12-08T23:08:39-07:00", "LastUpdatedTime":
+        "2023-08-24T15:32:19-07:00"}}, {"Name": "Fake-Deborah Martin", "Description":
+        "Fake-Deborah Martin", "Active": true, "Hidden": false, "Taxable": true, "TaxGroup":
+        true, "SalesTaxRateList": {"TaxRateDetail": [{"TaxRateRef": {"value": "7302",
+        "name": "Fake-Mr. Lee Mckinney Jr."}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ",
+        "TaxOrder": 5759}, {"TaxRateRef": {"value": "4073", "name": "Fake-Mackenzie
+        Hernandez"}, "TaxTypeApplicable": "-Fallback-scrubbed-qglUNkbILQZ", "TaxOrder":
+        5759}]}, "PurchaseTaxRateList": {"TaxRateDetail": []}, "TaxCodeConfigType":
+        "-Fallback-scrubbed-LqZgQRriWiQc", "domain": "-Fallback-scrubbed-Kyp", "sparse":
+        false, "Id": "3", "SyncToken": "1668", "MetaData": {"CreateTime": "1979-11-16T09:27:44-08:00",
+        "LastUpdatedTime": "2021-02-17T12:17:04-08:00"}}], "startPosition": 1, "maxResults":
+        16, "totalCount": 16}, "time": "2024-10-15T02:28:29.948-07:00"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '9382'
+      - '9398'
       Content-Type:
       - application/json
       Date:
