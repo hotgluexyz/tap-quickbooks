@@ -1,0 +1,180 @@
+{
+  "streams": [
+    {
+      "stream": "Account",
+      "tap_stream_id": "Account",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Name": {
+            "type": ["string", "null"]
+          },
+          "SubAccount": {
+            "type": ["boolean", "null"]
+          },
+          "Description": {
+            "type": ["string", "null"]
+          },
+          "FullyQualifiedName": {
+            "type": ["string", "null"]
+          },
+          "Active": {
+            "type": ["boolean", "null"]
+          },
+          "Classification": {
+            "type": ["string", "null"]
+          },
+          "AccountType": {
+            "type": ["string", "null"]
+          },
+          "AccountSubType": {
+            "type": ["string", "null"]
+          },
+          "AcctNum": {
+            "type": ["string", "null"]
+          },
+          "CurrentBalance": {
+            "type": ["null", "number"]
+          },
+          "CurrentBalanceWithSubAccounts": {
+            "type": ["null", "number"]
+          },
+          "CurrencyRef": {
+            "type": ["string", "null"]
+          },
+          "ParentRef": {
+            "type": ["string", "null"]
+          },
+          "Id": {
+            "type": ["string", "null"]
+          },
+          "MetaData": {
+            "type": ["string", "null"]
+          }
+        }
+      },
+      "metadata": [
+        {
+          "breadcrumb": ["properties", "Name"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "SubAccount"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Description"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "FullyQualifiedName"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Active"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Classification"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "AccountType"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "AccountSubType"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "AcctNum"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "CurrentBalance"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "CurrentBalanceWithSubAccounts"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "CurrencyRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "ParentRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Id"],
+          "metadata": {
+            "inclusion": "automatic",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "MetaData"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "MetaData.LastUpdatedTime"],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "valid-replication-keys": ["MetaData.LastUpdatedTime"],
+            "table-key-properties": ["Id"],
+            "selected": true
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "streams": [
+    {
+      "stream": "Bill",
+      "tap_stream_id": "Bill",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": ["string", "null"]
+          },
+          "VendorRef": {
+            "type": ["string", "null"]
+          },
+          "Line": {
+            "type": ["string", "null"]
+          },
+          "CurrencyRef": {
+            "type": ["string", "null"]
+          },
+          "TxnDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": ["string", "null"]
+              }
+            ]
+          },
+          "APAccountRef": {
+            "type": ["string", "null"]
+          },
+          "SalesTermRef": {
+            "type": ["string", "null"]
+          },
+          "LinkedTxn": {
+            "type": ["string", "null"]
+          },
+          "TotalAmt": {
+            "type": ["string", "null"]
+          },
+          "DueDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": ["string", "null"]
+              }
+            ]
+          },
+          "MetaData": {
+            "type": ["string", "null"]
+          },
+          "DocNumber": {
+            "type": ["string", "null"]
+          },
+          "PrivateNote": {
+            "type": ["string", "null"]
+          },
+          "ExchangeRate": {
+            "type": ["null", "number"]
+          },
+          "DepartmentRef": {
+            "type": ["string", "null"]
+          },
+          "HomeBalance": {
+            "type": ["null", "number"]
+          },
+          "RecurDataRef": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": ["string", "null"]
+              }
+            ]
+          },
+          "Balance": {
+            "type": ["null", "number"]
+          }
+        }
+      },
+      "metadata": [
+        {
+          "breadcrumb": ["properties", "Id"],
+          "metadata": {
+            "inclusion": "automatic",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "VendorRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Line"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "CurrencyRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "TxnDate"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "APAccountRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "SalesTermRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "LinkedTxn"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "TotalAmt"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "DueDate"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "MetaData"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "DocNumber"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "PrivateNote"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "ExchangeRate"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "DepartmentRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "HomeBalance"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "RecurDataRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Balance"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "MetaData.LastUpdatedTime"],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "valid-replication-keys": ["MetaData.LastUpdatedTime"],
+            "table-key-properties": ["Id"],
+            "selected": true
+          }
+        }
+      ]
+    }
+  ]
+}

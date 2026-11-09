@@ -1,0 +1,217 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-GkBlZU",
+        "access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
+        3396}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:03:58 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f32e-6bb8ce7e5543f4f2540f6dc6
+      x-amzn-trace-id:
+      - Root=1-6891f32e-6bb8ce7e5543f4f2540f6dc6
+      x-envoy-upstream-service-time:
+      - '121'
+      x-request-id:
+      - 1-6891f32e-6bb8ce7e5543f4f2540f6dc6
+      x-spanid:
+      - f4dc0958-8c34-0904-c29e-b673ae25d276
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/BalanceSheet?accounting_method=Accrual&minorversion=40&start_date=2005-01-01
+  response:
+    body:
+      string: '{"Header": {"Time": "1996-01-20T00:18:57-07:00", "ReportName": "-Fallback-scrubbed-dsILYqwtJcoU",
+        "ReportBasis": "-Fallback-scrubbed-voJydVn", "StartPeriod": "1976-11-24",
+        "EndPeriod": "2018-05-20", "SummarizeColumnsBy": "-Fallback-scrubbed-EpbLd",
+        "Currency": "-Fallback-scrubbed-DkN", "Option": [{"Name": "Fake-Sophia Dean",
+        "Value": "-Fallback-scrubbed-WAIL"}, {"Name": "Fake-Michael Mitchell", "Value":
+        "true"}]}, "Columns": {"Column": [{"ColTitle": "", "ColType": "-Fallback-scrubbed-GigRiZE",
+        "MetaData": [{"Name": "Fake-Roy Fernandez", "Value": "-Fallback-scrubbed-uhkIjJF"}]},
+        {"ColTitle": "-Fallback-scrubbed-EpbLd", "ColType": "-Fallback-scrubbed-lkUsT",
+        "MetaData": [{"Name": "Fake-Roy Fernandez", "Value": "-Fallback-scrubbed-bmwrl"}]}]},
+        "Rows": {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-vKJjcV"},
+        {"value": ""}]}, "Rows": {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-cIAwOcYWJXumZY"},
+        {"value": ""}]}, "Rows": {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-wmdlsOqBzrXtF"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-iOPBgzhizLOveCcUmesMcpWF",
+        "id": "1150040000"}, {"value": "4810.6829528861"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-lzOyAJmc", "id": "35"}, {"value":
+        "-49326.136112081"}], "type": "-Fallback-scrubbed-jbRd"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-qIEZWQP", "id": "36"}, {"value": "486938686154.966"}],
+        "type": "-Fallback-scrubbed-jbRd"}, {"ColData": [{"value": "-Fallback-scrubbed-HrhEqrrU",
+        "id": "1150040001"}, {"value": "-2186418110.49848"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-fIeCCSUmkZa", "id": "1150040002"},
+        {"value": "8851369440084.6"}], "type": "-Fallback-scrubbed-jbRd"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-ysFwJGegjpbxefJxnLL"}, {"value":
+        "-13.394588302861"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group": "-Fallback-scrubbed-xPzATlzzlnLP"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-fasvhtgNtVSWtEZEjSj"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-LhvicXzVendMJjRrxVJfhBFvwkfzBw",
+        "id": "84"}, {"value": "4722695488975.6"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-hTYikbBbNUDtyMaGDbVFY", "id": "91"},
+        {"value": "78081887.3847228"}], "type": "-Fallback-scrubbed-jbRd"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-NaZYgGOGghzjrVtEodGCRalnJyVCIiN", "id": "101"},
+        {"value": "105180496.49789"}], "type": "-Fallback-scrubbed-jbRd"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-QnZHfXUrLwWyRwENgHCLHKtqLSQRwQO", "id": "98"},
+        {"value": "-48048.8186483507"}], "type": "-Fallback-scrubbed-jbRd"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-zWzBquQCyykPlcIxoFjtXXZAr"}, {"value":
+        "7151.4068924657"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group": "-Fallback-scrubbed-NW"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-IHBdWsAFiozuXziyibXR"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-MaicNNeTJsIWtQX",
+        "id": "81"}, {"value": "364.823237377429"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-GlQVPhbWRVSDoFTDJpS", "id": "32"},
+        {"value": "-61949919023.5576"}], "type": "-Fallback-scrubbed-jbRd"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-yMEMPJaHELFWSeWIW", "id": "4"}, {"value": "4.8938860085082"}],
+        "type": "-Fallback-scrubbed-jbRd"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-qVgASAiQMFdJFOmtHIPXipfECK"},
+        {"value": "-4367847896383.2"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group":
+        "-Fallback-scrubbed-JgJHchnifmBcGjekbp"}]}, "Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-gKcbleVlwnIqxxFYtCnI"}, {"value": "-753.883931376992"}]},
+        "type": "-Fallback-scrubbed-aIHfMEa", "group": "-Fallback-scrubbed-qsPDHPimNSVLM"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-MnaeovsYzQpX"}, {"value":
+        ""}]}, "Rows": {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-JMRyuuXVvG",
+        "id": "37"}, {"value": "897884300433.22"}]}, "Rows": {"Row": [{"ColData":
+        [{"value": "-Fallback-scrubbed-GpLsRSVVGryayLDBT", "id": "39"}, {"value":
+        "-822330354.987121"}], "type": "-Fallback-scrubbed-jbRd"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-cYdeZtFWtUsxG", "id": "38"}, {"value": "49550664.39455"}],
+        "type": "-Fallback-scrubbed-jbRd"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-ImUUrUntdKSPgoDY"},
+        {"value": "949040459.70443"}]}, "type": "-Fallback-scrubbed-aIHfMEa"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-HLngOoDtOgwoyWyeXv"}, {"value":
+        "949040459.70443"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group": "-Fallback-scrubbed-KaGHWGFjvmy"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-zdiwXaKYekln"}, {"value":
+        "99077199208656.5"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group": "-Fallback-scrubbed-krXmgVrSavE"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-oSDLsBdWJQCeORMfZLSKvV"},
+        {"value": ""}]}, "Rows": {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-DLBUeduJpDl"},
+        {"value": ""}]}, "Rows": {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-mfZlvMLeSVnCQdqyxHk"},
+        {"value": ""}]}, "Rows": {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-TvmSdzNhKftAJmTb"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-YRKMeOjeHmCJXoRxAKxxhY",
+        "id": "33"}, {"value": "5.68908353721006"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-NATWfydrvobHOFjrjtLxELsEZfSn",
+        "id": "109"}, {"value": "-538.676282939682"}], "type": "-Fallback-scrubbed-jbRd"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-JhZKvJwaKUQOPleNeKzkRc"},
+        {"value": "1794598194868.31"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group":
+        "-Fallback-scrubbed-JH"}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-cynKHjXaSfpA"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-mgPDhdVcet",
+        "id": "41"}, {"value": "21787936749.2667"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-cSXT", "id": "42"}, {"value": "-620.82568926801"}],
+        "type": "-Fallback-scrubbed-jbRd"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-fXhvrCegKweQfybXtw"},
+        {"value": "-7633571.58927712"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group":
+        "-Fallback-scrubbed-JfucgWOluna"}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-TGNnJDjrCvmZsUjpsgbnqZSHi"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-gmTtZeQwrjhjAqMNGWctSPdSDNSndxvXav",
+        "id": "90"}, {"value": "-7228.4575872042"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-twiegSRqSMfeqCwaHYylecvcTRUcDPuY",
+        "id": "89"}, {"value": "80640450304880.6"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-tTrlhNDozKCftWjTnhQEZIXjdbleSLKiUEhwBETVKOFFgnlVEXdhRDAOwNn",
+        "id": "95"}, {"value": "1505237.87026228"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-fZmCKLRNPWax", "id": "43"}, {"value":
+        "-76.146513532947"}], "type": "-Fallback-scrubbed-jbRd"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-LdxPcWkwZQCCeObHQEZRBsSsrRk", "id": "96"}, {"value": "-838.874044909545"}],
+        "type": "-Fallback-scrubbed-jbRd"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-geEsGuDPrADsCyLdnlejIbAdIWWIPIP"},
+        {"value": "-91.3430538424435"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group":
+        "-Fallback-scrubbed-ICTrSGDJaSonzIdWSeExUsf"}]}, "Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-bDnaVcQlRcZNAAFijvJOqYbJf"}, {"value": "-49215536724.5162"}]},
+        "type": "-Fallback-scrubbed-aIHfMEa", "group": "-Fallback-scrubbed-nMtPXPLtFSbNUecyap"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-DrjznJFGwxDPzukdvjfFB"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-SugoBnAmDyqNO",
+        "id": "44"}, {"value": "-20.1544194685097"}], "type": "-Fallback-scrubbed-jbRd"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-OBadzVWhRHHXIDhEuyFwLTTkNgt"},
+        {"value": "-20.1544194685097"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group":
+        "-Fallback-scrubbed-PaCyJZRqAhpAKQOaoXW"}]}, "Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-NoCznOGioachMbXVk"}, {"value": "-5462763129.46211"}]},
+        "type": "-Fallback-scrubbed-aIHfMEa", "group": "-Fallback-scrubbed-DLBUeduJpDl"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-FEAlXS"}, {"value":
+        ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-PlIUkEGekLjZTUpPSQLXWQ",
+        "id": "34"}, {"value": "-1478162584.3333"}], "type": "-Fallback-scrubbed-jbRd"},
+        {"ColData": [{"value": "-Fallback-scrubbed-MMvAjMKfCGElOScAb", "id": "2"},
+        {"value": "229.637010998456"}], "type": "-Fallback-scrubbed-jbRd"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-UhBTHYycYI"}, {"value": "-182.49407207463"}],
+        "type": "-Fallback-scrubbed-jbRd", "group": "-Fallback-scrubbed-cEDKiNAtG"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-pFEfgxesOnKC"}, {"value":
+        "5.447975860685"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group": "-Fallback-scrubbed-FEAlXS"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-uJdndyEKkgAOGAMfZbYqatuadkSW"},
+        {"value": "99077199208656.5"}]}, "type": "-Fallback-scrubbed-aIHfMEa", "group":
+        "-Fallback-scrubbed-CWkNcXYJTkeojhFXeBDAOkvtc"}]}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '9353'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:04:00 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '6079'
+      intuit_tid:
+      - 1-6891f330-6682e4e0159faf2759bd323e
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6891f330-6682e4e0159faf2759bd323e
+      x-envoy-upstream-service-time:
+      - '472'
+      x-request-id:
+      - 1-6891f330-6682e4e0159faf2759bd323e
+      x-spanid:
+      - 86f2304a-f2c4-e3a2-6507-661169a484b1
+    status:
+      code: 200
+      message: OK
+version: 1

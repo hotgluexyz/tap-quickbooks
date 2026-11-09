@@ -1,0 +1,257 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-LSPDRi",
+        "access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
+        4304}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:49:42 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891fde5-351f3cd60834f40f17094aac
+      x-amzn-trace-id:
+      - Root=1-6891fde5-351f3cd60834f40f17094aac
+      x-envoy-upstream-service-time:
+      - '113'
+      x-request-id:
+      - 1-6891fde5-351f3cd60834f40f17094aac
+      x-spanid:
+      - a597d673-6b6f-8a18-9ca5-a3a62c26a8c6
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Estimate++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Estimate": [{"domain": "-Fallback-scrubbed-QQI",
+        "sparse": false, "Id": "100", "SyncToken": "4181", "MetaData": {"CreateTime":
+        "2018-06-15T05:50:31-08:00", "LastUpdatedTime": "2021-02-18T13:16:17-08:00"},
+        "CustomField": [{"DefinitionId": "9957", "Name": "Fake-Elizabeth Mays", "Type":
+        "-Fallback-scrubbed-sKfLGfZLpT"}, {"DefinitionId": "2942", "Name": "Fake-Timothy
+        Huber", "Type": "-Fallback-scrubbed-sKfLGfZLpT"}], "DocNumber": "2000", "TxnDate":
+        "1975-07-16", "CurrencyRef": {"value": "-Fallback-scrubbed-Smv", "name": "Fake-Misty
+        Torres"}, "ExchangeRate": 3819, "TxnStatus": "-Fallback-scrubbed-Ulxnljzd",
+        "Line": [{"Id": "1", "LineNum": 3819, "Description": "-Fallback-scrubbed-UzzCQwKSpFEtr",
+        "Amount": 58537740585487.6, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "4418", "name": "-Fallback-scrubbed-UzzCQwKSpFEtr"},
+        "UnitPrice": 5033, "Qty": 3819, "ItemAccountRef": {"value": "9211", "name":
+        "Fake-Alejandra Horn"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-XUa"},
+        "TaxClassificationRef": {"value": "-Fallback-scrubbed-TlwizkYGhQxjXnnJQDXNxggM"}}},
+        {"Id": "2", "LineNum": 838, "Description": "-Fallback-scrubbed-TzCzhMbWGfyeD",
+        "Amount": 401955447155.6, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "8685", "name": "Fake-Brenda
+        Holland"}, "UnitPrice": 401955447155.6, "Qty": 3819, "ItemAccountRef": {"value":
+        "9211", "name": "Fake-Alejandra Horn"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-XUa"},
+        "TaxClassificationRef": {"value": "-Fallback-scrubbed-TlwizkYGhQxjXnnJQDXNxggM"}}},
+        {"Id": "3", "LineNum": 7513, "Description": "-Fallback-scrubbed-XLoaiViOrswLhNZUAaXyDEhnzhUlSXPXvk",
+        "Amount": -7726466.51977977, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "1432", "name": "Fake-Peter Stevens"},
+        "UnitPrice": 23375780851.1342, "Qty": 2134, "ItemAccountRef": {"value": "9211",
+        "name": "Fake-Alejandra Horn"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-XUa"},
+        "TaxClassificationRef": {"value": "-Fallback-scrubbed-EfsjDPLuEVozCYWyIVriuOok"}}},
+        {"Amount": -614.965097534371, "DetailType": "-Fallback-scrubbed-YZbNgddHTFCMsvOQEm",
+        "SubTotalLineDetail": {}}], "TxnTaxDetail": {"TxnTaxCodeRef": {"value": "2942"},
+        "TotalTax": 83.469123506566, "TaxLine": [{"Amount": 83.469123506566, "DetailType":
+        "-Fallback-scrubbed-ehebacTIawhBi", "TaxLineDetail": {"TaxRateRef": {"value":
+        "1432"}, "PercentBased": false, "TaxPercent": 5671, "NetAmountTaxable": -614.965097534371}}]},
+        "CustomerRef": {"value": "3500", "name": "Fake-Jesse Wade"}, "CustomerMemo":
+        {"value": "-Fallback-scrubbed-yTwsLClrHWWiuHgwwaPflLemMOhtyitlSRPoGlQrkMBCiGIvt"},
+        "BillAddr": {"Id": "86", "Line1": "-Fallback-scrubbed-EzoItWbDcrQwQvBni",
+        "Line2": "Fake-Jesse Wade", "Line3": "-Fallback-scrubbed-aTwBFfaFEdrsmrhGifGrTn",
+        "Line4": "-Fallback-scrubbed-JUmoHeeKyEVOejERUabHZC", "Lat": -20.7534545,
+        "Long": "-4.874178420201"}, "ShipAddr": {"Id": "25", "Line1": "-Fallback-scrubbed-aTwBFfaFEdrsmrhGifGrTn",
+        "City": "Fake-Theresaview", "CountrySubDivisionCode": "-Fallback-scrubbed-KK",
+        "PostalCode": "56473", "Lat": -20.7534545, "Long": "-4.874178420201"}, "FreeFormAddress":
+        false, "TotalAmt": 144862574446.337, "HomeTotalAmt": 144862574446.337, "ApplyTaxAfterDiscount":
+        false, "PrintStatus": "-Fallback-scrubbed-sHgzvyjQdrN", "EmailStatus": "-Fallback-scrubbed-iyHeqD",
+        "BillEmail": {"Address": "Fake-5638 Andrea Point Apt. 892"}, "TaxExemptionRef":
+        {"value": "2628"}}, {"domain": "-Fallback-scrubbed-QQI", "sparse": false,
+        "Id": "41", "SyncToken": "4181", "MetaData": {"CreateTime": "2016-05-31T17:56:48-08:00",
+        "LastUpdatedTime": "2021-02-17T13:41:59-08:00"}, "CustomField": [{"DefinitionId":
+        "9957", "Name": "Fake-Elizabeth Mays", "Type": "-Fallback-scrubbed-sKfLGfZLpT"},
+        {"DefinitionId": "2942", "Name": "Fake-Timothy Huber", "Type": "-Fallback-scrubbed-sKfLGfZLpT"}],
+        "DocNumber": "2000", "TxnDate": "2010-09-29", "CurrencyRef": {"value": "-Fallback-scrubbed-Smv",
+        "name": "Fake-Misty Torres"}, "ExchangeRate": 3819, "TxnStatus": "-Fallback-scrubbed-dXKTdS",
+        "LinkedTxn": [{"TxnId": "7591", "TxnType": "-Fallback-scrubbed-eaPrOgv"}],
+        "Line": [{"Id": "1", "LineNum": 3819, "Description": "-Fallback-scrubbed-UzzCQwKSpFEtr",
+        "Amount": 58537740585487.6, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "4418", "name": "-Fallback-scrubbed-UzzCQwKSpFEtr"},
+        "UnitPrice": 5033, "Qty": 3819, "ItemAccountRef": {"value": "9211", "name":
+        "Fake-Alejandra Horn"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-jKf"},
+        "TaxClassificationRef": {}}}, {"Id": "2", "LineNum": 838, "Description": "-Fallback-scrubbed-bjmAeFvdTNtgs",
+        "Amount": 151106895078.112, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "4533", "name": "Fake-Elizabeth
+        Davis"}, "UnitPrice": 54, "Qty": -658.156790644996, "ItemAccountRef": {"value":
+        "399", "name": "Fake-Ethan Chan"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-jKf"},
+        "TaxClassificationRef": {}}}, {"Id": "3", "LineNum": 7513, "Description":
+        "-Fallback-scrubbed-TzCzhMbWGfyeD", "Amount": -59036.4226664937, "DetailType":
+        "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG", "SalesItemLineDetail": {"ItemRef":
+        {"value": "8685", "name": "Fake-Brenda Holland"}, "UnitPrice": 83892216027649.5,
+        "Qty": 838, "ItemAccountRef": {"value": "9211", "name": "Fake-Alejandra Horn"},
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-jKf"}, "TaxClassificationRef":
+        {}}}, {"Amount": -47797823146642.8, "DetailType": "-Fallback-scrubbed-YZbNgddHTFCMsvOQEm",
+        "SubTotalLineDetail": {}}], "TxnTaxDetail": {"TotalTax": 3685}, "CustomerRef":
+        {"value": "1086", "name": "Fake-Chad Johnson"}, "CustomerMemo": {"value":
+        "-Fallback-scrubbed-yTwsLClrHWWiuHgwwaPflLemMOhtyitlSRPoGlQrkMBCiGIvt"}, "BillAddr":
+        {"Id": "59", "Line1": "Fake-Chad Johnson", "Line2": "-Fallback-scrubbed-TmUWsGxQkRXqP",
+        "Line3": "-Fallback-scrubbed-JUmoHeeKyEVOejERUabHZC", "Lat": 54.757843, "Long":
+        "692.944296182304"}, "ShipAddr": {"Id": "10", "Line1": "-Fallback-scrubbed-TmUWsGxQkRXqP",
+        "City": "Fake-Theresaview", "CountrySubDivisionCode": "-Fallback-scrubbed-KK",
+        "PostalCode": "56473", "Lat": 24.1872365, "Long": "-813531088230.944"}, "FreeFormAddress":
+        false, "TotalAmt": -47797823146642.8, "HomeTotalAmt": -47797823146642.8, "ApplyTaxAfterDiscount":
+        false, "PrintStatus": "-Fallback-scrubbed-sHgzvyjQdrN", "EmailStatus": "-Fallback-scrubbed-iyHeqD",
+        "BillEmail": {"Address": "Fake-9617 Rice Garden"}, "TaxExemptionRef": {"value":
+        "2628"}}, {"domain": "-Fallback-scrubbed-QQI", "sparse": false, "Id": "46",
+        "SyncToken": "4181", "MetaData": {"CreateTime": "1978-03-27T10:10:31-08:00",
+        "LastUpdatedTime": "2021-02-17T12:42:59-08:00"}, "CustomField": [{"DefinitionId":
+        "9957", "Name": "Fake-Elizabeth Mays", "Type": "-Fallback-scrubbed-sKfLGfZLpT"},
+        {"DefinitionId": "2942", "Name": "Fake-Timothy Huber", "Type": "-Fallback-scrubbed-sKfLGfZLpT"}],
+        "DocNumber": "2000", "TxnDate": "1987-08-04", "CurrencyRef": {"value": "-Fallback-scrubbed-Smv",
+        "name": "Fake-Misty Torres"}, "ExchangeRate": 3819, "TxnStatus": "-Fallback-scrubbed-dXKTdS",
+        "LinkedTxn": [{"TxnId": "7160", "TxnType": "-Fallback-scrubbed-eaPrOgv"}],
+        "Line": [{"Id": "1", "LineNum": 3819, "Description": "-Fallback-scrubbed-AqDsapULEbsevnqfcFZwK",
+        "Amount": -3299926.2879008, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "1086", "name": "Fake-Robert
+        Kent"}, "UnitPrice": 2942, "Qty": 838, "ItemAccountRef": {"value": "4531",
+        "name": "-Fallback-scrubbed-AqDsapULEbsevnqfcFZwK"}, "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-jKf"}, "TaxClassificationRef": {}}}, {"Amount": -3299926.2879008,
+        "DetailType": "-Fallback-scrubbed-YZbNgddHTFCMsvOQEm", "SubTotalLineDetail":
+        {}}], "TxnTaxDetail": {"TotalTax": 3685}, "CustomerRef": {"value": "9640",
+        "name": "Fake-Michael Dyer"}, "CustomerMemo": {"value": "-Fallback-scrubbed-yTwsLClrHWWiuHgwwaPflLemMOhtyitlSRPoGlQrkMBCiGIvt"},
+        "BillAddr": {"Id": "65", "Line1": "-Fallback-scrubbed-ztPWclBKgFSQRjdSU",
+        "Line2": "Fake-Michael Dyer", "Line3": "-Fallback-scrubbed-QursdkCxygUmkELM",
+        "Line4": "-Fallback-scrubbed-MNUIQGStYtRHdvMecGj", "Lat": -5.0949375, "Long":
+        -5.0949375}, "ShipAddr": {"Id": "21", "Line1": "-Fallback-scrubbed-QursdkCxygUmkELM",
+        "City": "Fake-East Anthony", "CountrySubDivisionCode": "-Fallback-scrubbed-KK",
+        "PostalCode": "07306", "Lat": -5.0949375, "Long": -5.0949375}, "FreeFormAddress":
+        false, "TotalAmt": -3299926.2879008, "HomeTotalAmt": -3299926.2879008, "ApplyTaxAfterDiscount":
+        false, "PrintStatus": "-Fallback-scrubbed-sHgzvyjQdrN", "EmailStatus": "-Fallback-scrubbed-iyHeqD",
+        "BillEmail": {"Address": "Fake-465 James Ramp"}, "TaxExemptionRef": {"value":
+        "2628"}}, {"domain": "-Fallback-scrubbed-QQI", "sparse": false, "Id": "48",
+        "SyncToken": "4181", "MetaData": {"CreateTime": "2021-02-11T05:19:03-08:00",
+        "LastUpdatedTime": "2021-02-16T11:43:20-08:00"}, "CustomField": [{"DefinitionId":
+        "9957", "Name": "Fake-Elizabeth Mays", "Type": "-Fallback-scrubbed-sKfLGfZLpT"},
+        {"DefinitionId": "2942", "Name": "Fake-Timothy Huber", "Type": "-Fallback-scrubbed-sKfLGfZLpT"}],
+        "DocNumber": "2000", "TxnDate": "1987-08-04", "CurrencyRef": {"value": "-Fallback-scrubbed-Smv",
+        "name": "Fake-Misty Torres"}, "ExchangeRate": 3819, "TxnStatus": "-Fallback-scrubbed-dXKTdS",
+        "LinkedTxn": [{"TxnId": "1696", "TxnType": "-Fallback-scrubbed-eaPrOgv"}],
+        "Line": [{"Id": "1", "LineNum": 3819, "Description": "-Fallback-scrubbed-bjmAeFvdTNtgs",
+        "Amount": 600129901.943277, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "4533", "name": "Fake-Elizabeth
+        Davis"}, "UnitPrice": 54, "Qty": 8506, "ItemAccountRef": {"value": "399",
+        "name": "Fake-Ethan Chan"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-jKf"},
+        "TaxClassificationRef": {}}}, {"Id": "2", "LineNum": 838, "Description": "-Fallback-scrubbed-zJCSTxmdtPPEFoClfuvBlmfCvukdALnN",
+        "Amount": 475685788.577821, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "3508", "name": "Fake-Tiffany
+        Howard"}, "UnitPrice": 9499, "Qty": 2134, "ItemAccountRef": {"value": "430",
+        "name": "Fake-Lee Harmon"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-jKf"},
+        "TaxClassificationRef": {}}}, {"Id": "3", "LineNum": 7513, "Description":
+        "-Fallback-scrubbed-UzzCQwKSpFEtr", "Amount": 58537740585487.6, "DetailType":
+        "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG", "SalesItemLineDetail": {"ItemRef":
+        {"value": "4418", "name": "-Fallback-scrubbed-UzzCQwKSpFEtr"}, "UnitPrice":
+        5033, "Qty": 3819, "ItemAccountRef": {"value": "9211", "name": "Fake-Alejandra
+        Horn"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-jKf"}, "TaxClassificationRef":
+        {}}}, {"Id": "4", "LineNum": 8506, "Description": "-Fallback-scrubbed-qGtIQxhUbQYg",
+        "Amount": -58995.785572975, "DetailType": "-Fallback-scrubbed-BpHDRLCQOHxjubGRBUG",
+        "SalesItemLineDetail": {"ItemRef": {"value": "9526", "name": "Fake-Annette
+        Lopez"}, "UnitPrice": 83892216027649.5, "Qty": 5671, "ItemAccountRef": {"value":
+        "9211", "name": "Fake-Alejandra Horn"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-jKf"},
+        "TaxClassificationRef": {}}}, {"Amount": 2.936793022112, "DetailType": "-Fallback-scrubbed-YZbNgddHTFCMsvOQEm",
+        "SubTotalLineDetail": {}}], "TxnTaxDetail": {"TotalTax": 3685}, "CustomerRef":
+        {"value": "1996", "name": "Fake-Peter Bowman"}, "CustomerMemo": {"value":
+        "-Fallback-scrubbed-yTwsLClrHWWiuHgwwaPflLemMOhtyitlSRPoGlQrkMBCiGIvt"}, "BillAddr":
+        {"Id": "67", "Line1": "-Fallback-scrubbed-ZLlMChWRtJWGi", "Line2": "Fake-Peter
+        Bowman", "Line3": "-Fallback-scrubbed-uwhjBLQxqIph", "Line4": "-Fallback-scrubbed-JUmoHeeKyEVOejERUabHZC",
+        "Lat": 54.757843, "Long": "692.944296182304"}, "ShipAddr": {"Id": "19", "Line1":
+        "-Fallback-scrubbed-qKZpzagzazIMeoaONO", "City": "Fake-Theresaview", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-KK", "PostalCode": "40997", "Lat": 44.3591435, "Long":
+        "937866.909170475"}, "FreeFormAddress": false, "TotalAmt": 2.936793022112,
+        "HomeTotalAmt": 2.936793022112, "ApplyTaxAfterDiscount": false, "PrintStatus":
+        "-Fallback-scrubbed-sHgzvyjQdrN", "EmailStatus": "-Fallback-scrubbed-CzyVFRaaGM",
+        "BillEmail": {"Address": "Fake-71893 Price Island"}, "DeliveryInfo": {"DeliveryType":
+        "-Fallback-scrubbed-olwtw"}, "TaxExemptionRef": {"value": "2628"}}], "startPosition":
+        1, "maxResults": 4}, "time": "1973-10-31T09:12:24.522-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '12429'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:49:43 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '9375'
+      intuit_tid:
+      - 1-6891fde7-5a8006c912121fb248704db2
+      x-amzn-trace-id:
+      - Root=1-6891fde7-5a8006c912121fb248704db2
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '317'
+      x-request-id:
+      - 1-6891fde7-5a8006c912121fb248704db2
+      x-spanid:
+      - 778e4372-62d2-f0eb-b600-88edd99fa53f
+    status:
+      code: 200
+      message: OK
+version: 1

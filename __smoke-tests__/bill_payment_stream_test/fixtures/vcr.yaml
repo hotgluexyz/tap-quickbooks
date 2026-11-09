@@ -1,0 +1,597 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "access_token": "acc***", "token_type": "-Fallback-scrubbed-JIdctF",
+        "refresh_token": "ref***", "x_refresh_token_expires_in": 560}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '155'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:11:03 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f4d6-481953ac72cc59b60306de06
+      x-amzn-trace-id:
+      - Root=1-6891f4d6-481953ac72cc59b60306de06
+      x-envoy-upstream-service-time:
+      - '109'
+      x-request-id:
+      - 1-6891f4d6-481953ac72cc59b60306de06
+      x-spanid:
+      - ca2698da-c10f-cba9-d63a-42b6da1976fe
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+BillPayment++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"BillPayment": [{"VendorRef": {"value": "6773",
+        "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": 621.755807150528, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "788", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "1972-05-21T09:49:38-07:00", "LastUpdatedTime": "2025-07-24T11:06:36-07:00"},
+        "TxnDate": "1993-07-04", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": 621.755807150528, "LinkedTxn": [{"TxnId": "3777",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "1464",
+        "name": "Fake-Timothy Blake"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -8389439875643.26, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "743", "SyncToken": "648", "MetaData": {"CreateTime":
+        "2000-05-11T12:25:46-07:00", "LastUpdatedTime": "2025-07-07T06:59:26-07:00"},
+        "DocNumber": "648", "TxnDate": "1970-04-29", "DepartmentRef": {"value": "2661"},
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": -8389439875643.26, "LinkedTxn": [{"TxnId":
+        "5750", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "6773", "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": 621.755807150528, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "764", "SyncToken": "648", "MetaData": {"CreateTime":
+        "1988-06-21T23:44:43-07:00", "LastUpdatedTime": "2025-07-01T06:50:28-07:00"},
+        "DocNumber": "-Fallback-scrubbed-vkcXaNAX", "TxnDate": "1993-07-04", "DepartmentRef":
+        {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name":
+        "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": 621.755807150528,
+        "LinkedTxn": [{"TxnId": "3777", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "6773", "name": "Fake-Lori Martinez"}, "PayType":
+        "-Fallback-scrubbed-nmLknjHSrZ", "CreditCardPayment": {"CCAccountRef": {"value":
+        "4668", "name": "Fake-Tracy Santos"}}, "TotalAmt": -6.84855841009302, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "762", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "2023-09-07T10:31:39-07:00", "LastUpdatedTime":
+        "2025-06-25T14:59:19-07:00"}, "DocNumber": "-Fallback-scrubbed-EDosoZQY",
+        "TxnDate": "1997-06-04", "DepartmentRef": {"value": "9045"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -6.84855841009302, "LinkedTxn": [{"TxnId": "3777",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "6773",
+        "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -6.84855841009302, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "731", "SyncToken": "648", "MetaData": {"CreateTime":
+        "1973-03-03T05:22:44-07:00", "LastUpdatedTime": "2025-06-25T14:56:40-07:00"},
+        "DocNumber": "-Fallback-scrubbed-gZIRLxSn", "TxnDate": "1984-03-23", "DepartmentRef":
+        {"value": "9045"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name":
+        "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -6.84855841009302,
+        "LinkedTxn": [{"TxnId": "3777", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "6773", "name": "Fake-Lori Martinez"}, "PayType":
+        "-Fallback-scrubbed-QiBDY", "CheckPayment": {"BankAccountRef": {"value": "3700",
+        "name": "Fake-George Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"},
+        "TotalAmt": -6.84855841009302, "domain": "-Fallback-scrubbed-Mhy", "sparse":
+        false, "Id": "730", "SyncToken": "8677", "MetaData": {"CreateTime": "1985-11-22T16:00:09-07:00",
+        "LastUpdatedTime": "2025-06-18T12:14:57-07:00"}, "DocNumber": "-Fallback-scrubbed-IYFXmvNq",
+        "TxnDate": "1981-10-13", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -6.84855841009302, "LinkedTxn": [{"TxnId": "3777",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "6773",
+        "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": 154747.201561, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "691", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "2022-01-23T22:14:43-07:00", "LastUpdatedTime": "2025-06-13T06:17:23-07:00"},
+        "DocNumber": "-Fallback-scrubbed-lVbgQOPjhCIqCMxjLzKGx", "TxnDate": "1984-03-23",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": 154747.201561,
+        "LinkedTxn": [{"TxnId": "6541", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "6773", "name": "Fake-Lori Martinez"}, "PayType":
+        "-Fallback-scrubbed-QiBDY", "CheckPayment": {"BankAccountRef": {"value": "3700",
+        "name": "Fake-George Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"},
+        "TotalAmt": 621.755807150528, "domain": "-Fallback-scrubbed-Mhy", "sparse":
+        false, "Id": "690", "SyncToken": "8677", "MetaData": {"CreateTime": "1995-11-20T19:13:10-07:00",
+        "LastUpdatedTime": "2025-06-13T06:16:46-07:00"}, "DocNumber": "-Fallback-scrubbed-maMkyHviwrjYNzYRiVwun",
+        "TxnDate": "1984-03-23", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": 621.755807150528, "LinkedTxn": [{"TxnId": "6541",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "6773",
+        "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": 154747.201561, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "689", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "1999-03-26T03:13:45-07:00", "LastUpdatedTime": "2025-06-13T06:13:11-07:00"},
+        "DocNumber": "-Fallback-scrubbed-NCKxPCksYKWtFOktglFXo", "TxnDate": "1984-03-23",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": 154747.201561,
+        "LinkedTxn": [{"TxnId": "6541", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "6773", "name": "Fake-Lori Martinez"}, "PayType":
+        "-Fallback-scrubbed-QiBDY", "CheckPayment": {"BankAccountRef": {"value": "3700",
+        "name": "Fake-George Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"},
+        "TotalAmt": 621.755807150528, "domain": "-Fallback-scrubbed-Mhy", "sparse":
+        false, "Id": "688", "SyncToken": "8677", "MetaData": {"CreateTime": "2002-01-05T01:08:27-07:00",
+        "LastUpdatedTime": "2025-06-13T06:13:10-07:00"}, "DocNumber": "-Fallback-scrubbed-MqtiRkFbfUxADlwVJSejF",
+        "TxnDate": "1984-03-23", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": 621.755807150528, "LinkedTxn": [{"TxnId": "6541",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "6773",
+        "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": 154747.201561, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "687", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "1993-12-05T08:32:01-07:00", "LastUpdatedTime": "2025-06-13T06:09:36-07:00"},
+        "DocNumber": "-Fallback-scrubbed-ahzSTqPzsHfEBrBseXTHP", "TxnDate": "1984-03-23",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": 154747.201561,
+        "LinkedTxn": [{"TxnId": "6541", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "6773", "name": "Fake-Lori Martinez"}, "PayType":
+        "-Fallback-scrubbed-QiBDY", "CheckPayment": {"BankAccountRef": {"value": "3700",
+        "name": "Fake-George Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"},
+        "TotalAmt": 621.755807150528, "domain": "-Fallback-scrubbed-Mhy", "sparse":
+        false, "Id": "686", "SyncToken": "8677", "MetaData": {"CreateTime": "2004-09-07T12:59:05-07:00",
+        "LastUpdatedTime": "2025-06-13T06:09:35-07:00"}, "DocNumber": "-Fallback-scrubbed-IOYJiAwbLUmymTEVTKwrp",
+        "TxnDate": "1984-03-23", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": 621.755807150528, "LinkedTxn": [{"TxnId": "6541",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "6773",
+        "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment":
+        {"BankAccountRef": {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus":
+        "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -206473995395.485, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "685", "SyncToken": "648",
+        "MetaData": {"CreateTime": "1996-02-20T16:12:47-07:00", "LastUpdatedTime":
+        "2025-06-13T06:06:16-07:00"}, "DocNumber": "-Fallback-scrubbed-NXVHQenoxXSlofAkEYuBF",
+        "TxnDate": "1975-03-30", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -206473995395.485, "LinkedTxn": [{"TxnId": "6541",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "6773",
+        "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment":
+        {"BankAccountRef": {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus":
+        "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -618898.361540364, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "683", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "2021-05-26T23:57:26-07:00", "LastUpdatedTime":
+        "2025-06-12T13:45:42-07:00"}, "DocNumber": "-Fallback-scrubbed-BWQikqqqJrsMqaEbUqeTG",
+        "TxnDate": "1984-03-23", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -618898.361540364, "LinkedTxn": [{"TxnId": "6541",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "6773",
+        "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -23100180142824.4, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "682", "SyncToken": "648", "MetaData": {"CreateTime":
+        "2009-07-07T01:33:25-07:00", "LastUpdatedTime": "2025-06-12T13:40:09-07:00"},
+        "DocNumber": "-Fallback-scrubbed-LwkgJMpCSmLHEVVdmXWLV", "TxnDate": "1984-03-23",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -23100180142824.4,
+        "LinkedTxn": [{"TxnId": "6541", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "6464", "name": "Fake-Diana Kelley"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "2766", "name": "Fake-Mr. Casey
+        Lawson"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": -420698191644.669,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "657", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2024-07-30T20:51:46-07:00", "LastUpdatedTime":
+        "2025-06-04T14:11:03-07:00"}, "DocNumber": "8793", "TxnDate": "2013-03-22",
+        "DepartmentRef": {"value": "3247"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "PrivateNote": "5146",
+        "Line": [{"Amount": -420698191644.669, "LinkedTxn": [{"TxnId": "451", "TxnType":
+        "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "6152", "name": "Fake-Tammy
+        Snyder"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment": {"BankAccountRef":
+        {"value": "2766", "name": "Fake-Mr. Casey Lawson"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"},
+        "TotalAmt": -74.2942041711223, "domain": "-Fallback-scrubbed-Mhy", "sparse":
+        false, "Id": "653", "SyncToken": "8677", "MetaData": {"CreateTime": "1977-02-06T06:49:22-07:00",
+        "LastUpdatedTime": "2025-06-04T13:51:14-07:00"}, "DocNumber": "3247", "TxnDate":
+        "2013-03-22", "DepartmentRef": {"value": "3247"}, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate": 239,
+        "PrivateNote": "3971", "Line": [{"Amount": -74.2942041711223, "LinkedTxn":
+        [{"TxnId": "6531", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "2766", "name": "Fake-Mr. Casey
+        Lawson"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": 823147276.78986,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "621", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "1999-12-15T11:45:55-07:00", "LastUpdatedTime":
+        "2025-05-14T11:07:07-07:00"}, "DocNumber": "6276", "TxnDate": "1985-01-13",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": 823147276.78986,
+        "LinkedTxn": [{"TxnId": "3957", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "6464", "name": "Fake-Diana Kelley"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "2766", "name": "Fake-Mr. Casey
+        Lawson"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": -3893.88406524472,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "620", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "1983-03-29T16:48:08-07:00", "LastUpdatedTime":
+        "2025-05-14T09:46:03-07:00"}, "DocNumber": "648", "TxnDate": "1985-01-13",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "PrivateNote": "5146",
+        "Line": [{"Amount": -3893.88406524472, "LinkedTxn": [{"TxnId": "2824", "TxnType":
+        "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "9275", "name": "Fake-Timothy
+        Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment": {"BankAccountRef":
+        {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"},
+        "TotalAmt": 195526147752.13, "domain": "-Fallback-scrubbed-Mhy", "sparse":
+        false, "Id": "613", "SyncToken": "8677", "MetaData": {"CreateTime": "1980-09-02T11:45:53-07:00",
+        "LastUpdatedTime": "2025-05-08T10:57:17-07:00"}, "TxnDate": "1987-05-27",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": 195526147752.13,
+        "LinkedTxn": [{"TxnId": "3957", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType":
+        "-Fallback-scrubbed-QiBDY", "CheckPayment": {"BankAccountRef": {"value": "3700",
+        "name": "Fake-George Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"},
+        "TotalAmt": -610994107.805127, "domain": "-Fallback-scrubbed-Mhy", "sparse":
+        false, "Id": "612", "SyncToken": "8677", "MetaData": {"CreateTime": "2013-07-12T19:33:53-07:00",
+        "LastUpdatedTime": "2025-05-08T10:48:27-07:00"}, "TxnDate": "1987-05-27",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -610994107.805127,
+        "LinkedTxn": [{"TxnId": "9263", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType":
+        "-Fallback-scrubbed-QiBDY", "CheckPayment": {"BankAccountRef": {"value": "3700",
+        "name": "Fake-George Duffy"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"},
+        "TotalAmt": 95752473696.9523, "domain": "-Fallback-scrubbed-Mhy", "sparse":
+        false, "Id": "611", "SyncToken": "8677", "MetaData": {"CreateTime": "2001-07-07T12:15:16-07:00",
+        "LastUpdatedTime": "2025-05-08T10:32:07-07:00"}, "DocNumber": "1824", "TxnDate":
+        "1987-05-27", "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate": 239,
+        "Line": [{"Amount": 95752473696.9523, "LinkedTxn": [{"TxnId": "5079", "TxnType":
+        "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "9275", "name": "Fake-Timothy
+        Thompson"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ", "CreditCardPayment":
+        {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy Santos"}}, "TotalAmt":
+        57895481300.8592, "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id":
+        "604", "SyncToken": "648", "MetaData": {"CreateTime": "1986-04-05T02:59:14-07:00",
+        "LastUpdatedTime": "2025-05-01T09:54:02-07:00"}, "TxnDate": "1989-05-03",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": 57895481300.8592,
+        "LinkedTxn": [{"TxnId": "9263", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType":
+        "-Fallback-scrubbed-nmLknjHSrZ", "CreditCardPayment": {}, "TotalAmt": 4077,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "610", "SyncToken":
+        "648", "MetaData": {"CreateTime": "2014-10-11T20:50:34-07:00", "LastUpdatedTime":
+        "2025-05-01T06:34:09-07:00"}, "TxnDate": "1973-06-06", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate": 239,
+        "Line": []}, {"VendorRef": {"value": "9275", "name": "Fake-Timothy Thompson"},
+        "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment": {"PrintStatus": "-Fallback-scrubbed-uvjkpO"},
+        "TotalAmt": 4077, "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id":
+        "607", "SyncToken": "648", "MetaData": {"CreateTime": "1980-03-04T01:12:34-07:00",
+        "LastUpdatedTime": "2025-05-01T06:29:15-07:00"}, "DocNumber": "896", "TxnDate":
+        "1988-12-12", "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "PrivateNote": "-Fallback-scrubbed-HvfsIB",
+        "Line": []}, {"VendorRef": {"value": "9275", "name": "Fake-Timothy Thompson"},
+        "PayType": "-Fallback-scrubbed-nmLknjHSrZ", "CreditCardPayment": {"CCAccountRef":
+        {"value": "4668", "name": "Fake-Tracy Santos"}}, "TotalAmt": -2778.68390409126,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "606", "SyncToken":
+        "3247", "MetaData": {"CreateTime": "1986-06-04T15:32:30-07:00", "LastUpdatedTime":
+        "2025-05-01T06:26:57-07:00"}, "DocNumber": "648", "TxnDate": "2001-09-11",
+        "DepartmentRef": {"value": "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -2778.68390409126,
+        "LinkedTxn": [{"TxnId": "3957", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType":
+        "-Fallback-scrubbed-nmLknjHSrZ", "CreditCardPayment": {"CCAccountRef": {"value":
+        "4668", "name": "Fake-Tracy Santos"}}, "TotalAmt": -2778.68390409126, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "603", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "2016-11-30T14:21:39-07:00", "LastUpdatedTime":
+        "2025-04-30T13:13:01-07:00"}, "TxnDate": "1988-12-12", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -2778.68390409126, "LinkedTxn":
+        [{"TxnId": "9263", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -76.3677598938659, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "601", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "1980-07-07T17:13:03-07:00", "LastUpdatedTime": "2025-04-23T16:57:51-07:00"},
+        "TxnDate": "2011-07-12", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn": [{"TxnId": "5079",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "9275",
+        "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment":
+        {"BankAccountRef": {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus":
+        "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "600", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "1984-10-21T01:07:33-07:00", "LastUpdatedTime":
+        "2025-04-23T16:57:50-07:00"}, "TxnDate": "2011-07-12", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -76.3677598938659, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "599", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "2018-04-24T09:20:21-07:00", "LastUpdatedTime": "2025-04-22T05:54:51-07:00"},
+        "TxnDate": "2021-03-22", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn": [{"TxnId": "5079",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "9275",
+        "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment":
+        {"BankAccountRef": {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus":
+        "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "598", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "1974-11-02T07:05:03-07:00", "LastUpdatedTime":
+        "2025-04-22T05:54:50-07:00"}, "TxnDate": "2021-03-22", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -76.3677598938659, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "597", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "2019-02-24T08:55:26-07:00", "LastUpdatedTime": "2025-04-21T10:18:01-07:00"},
+        "TxnDate": "1982-03-07", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn": [{"TxnId": "5079",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "9275",
+        "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment":
+        {"BankAccountRef": {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus":
+        "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "596", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "1973-04-13T07:32:36-07:00", "LastUpdatedTime":
+        "2025-04-21T10:18:00-07:00"}, "TxnDate": "1982-03-07", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -76.3677598938659, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "595", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "1996-06-17T18:35:22-07:00", "LastUpdatedTime": "2025-04-21T08:09:20-07:00"},
+        "TxnDate": "1982-03-07", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn": [{"TxnId": "5079",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "9275",
+        "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment":
+        {"BankAccountRef": {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus":
+        "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "594", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "1996-06-17T18:35:22-07:00", "LastUpdatedTime":
+        "2025-04-21T08:09:20-07:00"}, "TxnDate": "1982-03-07", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "593", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2012-10-07T05:55:05-07:00", "LastUpdatedTime":
+        "2025-04-21T08:07:22-07:00"}, "TxnDate": "1982-03-07", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "592", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "1983-07-02T00:45:39-07:00", "LastUpdatedTime":
+        "2025-04-21T07:52:46-07:00"}, "TxnDate": "1982-03-07", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "591", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2026-04-03T21:14:01-07:00", "LastUpdatedTime":
+        "2025-04-21T07:52:24-07:00"}, "TxnDate": "1982-03-07", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -76.3677598938659, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "590", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "2015-01-23T14:40:51-07:00", "LastUpdatedTime": "2025-04-21T07:51:19-07:00"},
+        "TxnDate": "1982-03-07", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn": [{"TxnId": "5079",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "9275",
+        "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment":
+        {"BankAccountRef": {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus":
+        "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "589", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "1971-07-07T13:49:03-07:00", "LastUpdatedTime":
+        "2025-04-21T07:29:04-07:00"}, "TxnDate": "1982-03-07", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -76.3677598938659,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "588", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2014-12-02T00:58:21-07:00", "LastUpdatedTime":
+        "2025-04-21T07:25:05-07:00"}, "TxnDate": "1982-03-07", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -76.3677598938659, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-JTPsEVyBspa"}, "TotalAmt": -6.84855841009302,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "587", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "1993-03-15T11:11:10-07:00", "LastUpdatedTime":
+        "2025-04-21T07:22:51-07:00"}, "TxnDate": "1982-03-07", "DepartmentRef": {"value":
+        "8793"}, "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas
+        Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -6.84855841009302, "LinkedTxn":
+        [{"TxnId": "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef":
+        {"value": "9275", "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "9930", "name": "Fake-Shawn
+        Griffin"}}, "TotalAmt": 621.755807150528, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "586", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "2005-05-21T19:58:29-07:00", "LastUpdatedTime": "2025-04-18T06:30:13-07:00"},
+        "TxnDate": "1977-10-28", "DepartmentRef": {"value": "8793"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"}, "ExchangeRate":
+        239, "Line": [{"Amount": 621.755807150528, "LinkedTxn": [{"TxnId": "5079",
+        "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value": "9275",
+        "name": "Fake-Timothy Thompson"}, "PayType": "-Fallback-scrubbed-QiBDY", "CheckPayment":
+        {"BankAccountRef": {"value": "3700", "name": "Fake-George Duffy"}, "PrintStatus":
+        "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": -6.84855841009302, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "585", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "1970-08-04T03:32:35-07:00", "LastUpdatedTime": "2025-04-18T06:27:17-07:00"},
+        "DocNumber": "6809", "TxnDate": "1977-10-28", "DepartmentRef": {"value": "8793"},
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": -6.84855841009302, "LinkedTxn": [{"TxnId":
+        "5079", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "6646", "name": "Fake-Megan Hurley"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": -816494907.283499, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "118", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "2016-12-08T15:32:20-08:00", "LastUpdatedTime": "2021-02-18T12:56:17-08:00"},
+        "DocNumber": "648", "TxnDate": "1990-06-16", "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": -816494907.283499,
+        "LinkedTxn": [{"TxnId": "8265", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "8031", "name": "Fake-Shelley Mathis"}, "PayType":
+        "-Fallback-scrubbed-nmLknjHSrZ", "CreditCardPayment": {"CCAccountRef": {"value":
+        "4668", "name": "Fake-Tracy Santos"}}, "TotalAmt": -65834922.254882, "domain":
+        "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "117", "SyncToken": "8677",
+        "MetaData": {"CreateTime": "1985-06-06T12:03:00-08:00", "LastUpdatedTime":
+        "2021-02-18T12:55:23-08:00"}, "DocNumber": "648", "TxnDate": "1990-06-16",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": -65834922.254882, "LinkedTxn": [{"TxnId":
+        "1034", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "230", "name": "Fake-Christopher Burgess"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": 59252282361396.6,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "104", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2019-08-04T07:46:11-08:00", "LastUpdatedTime":
+        "2021-02-17T13:43:08-08:00"}, "DocNumber": "7308", "TxnDate": "1970-12-30",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": 59252282361396.6, "LinkedTxn": [{"TxnId":
+        "4054", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "7167", "name": "Fake-Christy Howard"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": 99470.200730872,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "91", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2002-01-18T01:20:18-08:00", "LastUpdatedTime":
+        "2021-02-17T13:19:24-08:00"}, "DocNumber": "8460", "TxnDate": "1998-07-11",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": 99470.200730872, "LinkedTxn": [{"TxnId":
+        "8794", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "6773", "name": "Fake-Lori Martinez"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": -55531.2041548366,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "82", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "1987-08-12T02:36:24-08:00", "LastUpdatedTime":
+        "2021-02-17T13:06:58-08:00"}, "DocNumber": "2730", "TxnDate": "1984-01-07",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": -55531.2041548366, "LinkedTxn": [{"TxnId":
+        "3247", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "4668", "name": "Fake-Ariana Ayala"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": 613.83076736797,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "79", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "1983-10-29T17:03:56-08:00", "LastUpdatedTime":
+        "2021-02-17T13:01:57-08:00"}, "DocNumber": "9045", "TxnDate": "1970-06-17",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": 613.83076736797, "LinkedTxn": [{"TxnId":
+        "6276", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "4822", "name": "Fake-Paul Nicholson"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": 8.4900956870965,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "77", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2003-01-19T13:36:29-08:00", "LastUpdatedTime":
+        "2021-02-17T12:57:18-08:00"}, "DocNumber": "2661", "TxnDate": "1984-01-07",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": 8.4900956870965, "LinkedTxn": [{"TxnId":
+        "3700", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "8031", "name": "Fake-Shelley Mathis"}, "PayType": "-Fallback-scrubbed-nmLknjHSrZ",
+        "CreditCardPayment": {"CCAccountRef": {"value": "4668", "name": "Fake-Tracy
+        Santos"}}, "TotalAmt": 6364436.7273604, "domain": "-Fallback-scrubbed-Mhy",
+        "sparse": false, "Id": "50", "SyncToken": "8677", "MetaData": {"CreateTime":
+        "1999-01-28T15:08:23-08:00", "LastUpdatedTime": "2021-02-16T11:44:29-08:00"},
+        "DocNumber": "648", "TxnDate": "1993-03-10", "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz",
+        "name": "Fake-Thomas Moses"}, "ExchangeRate": 239, "Line": [{"Amount": 6364436.7273604,
+        "LinkedTxn": [{"TxnId": "7618", "TxnType": "-Fallback-scrubbed-LGfV"}]}]},
+        {"VendorRef": {"value": "6464", "name": "Fake-Diana Kelley"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": -3893.88406524472,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "37", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2009-05-12T23:23:09-08:00", "LastUpdatedTime":
+        "2021-02-16T11:13:46-08:00"}, "DocNumber": "3247", "TxnDate": "1993-03-10",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": -3893.88406524472, "LinkedTxn": [{"TxnId":
+        "1016", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}, {"VendorRef": {"value":
+        "6152", "name": "Fake-Tammy Snyder"}, "PayType": "-Fallback-scrubbed-QiBDY",
+        "CheckPayment": {"BankAccountRef": {"value": "3700", "name": "Fake-George
+        Duffy"}, "PrintStatus": "-Fallback-scrubbed-uvjkpO"}, "TotalAmt": -5197.5806571327,
+        "domain": "-Fallback-scrubbed-Mhy", "sparse": false, "Id": "22", "SyncToken":
+        "8677", "MetaData": {"CreateTime": "2026-05-27T22:47:10-08:00", "LastUpdatedTime":
+        "2021-02-15T15:28:48-08:00"}, "DocNumber": "648", "TxnDate": "2016-05-13",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-Pcz", "name": "Fake-Thomas Moses"},
+        "ExchangeRate": 239, "Line": [{"Amount": -5197.5806571327, "LinkedTxn": [{"TxnId":
+        "648", "TxnType": "-Fallback-scrubbed-LGfV"}]}]}], "startPosition": 1, "maxResults":
+        54, "totalCount": 54}, "time": "2006-07-04T07:22:36.791-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '39266'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:11:04 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '29414'
+      intuit_tid:
+      - 1-6891f4d8-095eaae74ac3691908363b7c
+      x-amzn-trace-id:
+      - Root=1-6891f4d8-095eaae74ac3691908363b7c
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '215'
+      x-request-id:
+      - 1-6891f4d8-095eaae74ac3691908363b7c
+      x-spanid:
+      - 63613d19-03da-fed8-3595-10187eb52285
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,139 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-znPIvC",
+        "x_refresh_token_expires_in": 408, "refresh_token": "ref***", "access_token":
+        "acc***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '155'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:47:37 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891fd69-1ccd9196211013d845d8b26c
+      x-amzn-trace-id:
+      - Root=1-6891fd69-1ccd9196211013d845d8b26c
+      x-envoy-upstream-service-time:
+      - '106'
+      x-request-id:
+      - 1-6891fd69-1ccd9196211013d845d8b26c
+      x-spanid:
+      - 266fdb8d-ecfb-7245-910a-c83deedf7092
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Department++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Department": [{"Name": "Fake-Jessica Padilla",
+        "SubDepartment": false, "FullyQualifiedName": "Fake-Jessica Padilla", "Active":
+        true, "domain": "-Fallback-scrubbed-khQ", "sparse": false, "Id": "4", "SyncToken":
+        "2368", "MetaData": {"CreateTime": "2018-11-13T00:11:52-07:00", "LastUpdatedTime":
+        "2025-06-18T10:24:33-07:00"}}, {"Name": "Fake-Edward Washington", "SubDepartment":
+        true, "ParentRef": {"value": "4714"}, "FullyQualifiedName": "-Fallback-scrubbed-LFPjCtybrHGLWYXDFuRTzFsNAXYpnTnNNhwyiJNGBsbC",
+        "Active": true, "domain": "-Fallback-scrubbed-khQ", "sparse": false, "Id":
+        "6", "SyncToken": "2368", "MetaData": {"CreateTime": "1982-01-23T06:06:03-07:00",
+        "LastUpdatedTime": "2025-06-18T10:24:33-07:00"}}, {"Name": "Fake-Denise Freeman",
+        "SubDepartment": false, "FullyQualifiedName": "Fake-Denise Freeman", "Active":
+        true, "domain": "-Fallback-scrubbed-khQ", "sparse": false, "Id": "3", "SyncToken":
+        "2368", "MetaData": {"CreateTime": "1974-09-08T22:36:10-07:00", "LastUpdatedTime":
+        "2023-03-14T17:29:35-07:00"}}, {"Name": "Fake-Sarah Caldwell", "SubDepartment":
+        false, "FullyQualifiedName": "Fake-Sarah Caldwell", "Active": true, "domain":
+        "-Fallback-scrubbed-khQ", "sparse": false, "Id": "7", "SyncToken": "2368",
+        "MetaData": {"CreateTime": "1970-11-14T15:59:32-07:00", "LastUpdatedTime":
+        "2025-06-24T07:08:41-07:00"}}, {"Name": "Fake-Jamie Carter", "SubDepartment":
+        false, "FullyQualifiedName": "Fake-Jamie Carter", "Active": true, "domain":
+        "-Fallback-scrubbed-khQ", "sparse": false, "Id": "1", "SyncToken": "2368",
+        "MetaData": {"CreateTime": "2003-08-21T13:01:01-07:00", "LastUpdatedTime":
+        "2022-10-27T11:41:20-07:00"}}, {"Name": "Fake-Dennis Ellison", "SubDepartment":
+        false, "FullyQualifiedName": "Fake-Dennis Ellison", "Active": true, "domain":
+        "-Fallback-scrubbed-khQ", "sparse": false, "Id": "2", "SyncToken": "2368",
+        "MetaData": {"CreateTime": "2012-03-26T15:42:44-08:00", "LastUpdatedTime":
+        "2023-03-09T07:16:17-08:00"}}, {"Name": "Fake-Elizabeth Donovan", "SubDepartment":
+        false, "FullyQualifiedName": "Fake-Elizabeth Donovan", "Active": true, "domain":
+        "-Fallback-scrubbed-khQ", "sparse": false, "Id": "5", "SyncToken": "2368",
+        "MetaData": {"CreateTime": "1979-03-21T16:33:05-07:00", "LastUpdatedTime":
+        "2023-04-11T09:29:37-07:00"}}], "startPosition": 1, "maxResults": 7}, "time":
+        "1989-07-25T04:50:54.521-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2351'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:47:39 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '1959'
+      intuit_tid:
+      - 1-6891fd6b-71aeca7e573a542970e45008
+      x-amzn-trace-id:
+      - Root=1-6891fd6b-71aeca7e573a542970e45008
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '141'
+      x-request-id:
+      - 1-6891fd6b-71aeca7e573a542970e45008
+      x-spanid:
+      - dfa82519-5e46-0383-f5e8-53d20c25e48a
+    status:
+      code: 200
+      message: OK
+version: 1

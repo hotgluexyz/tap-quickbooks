@@ -1,0 +1,253 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-mpgwBM",
+        "access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
+        4401}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:02:10 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f2c2-33fd25915189fd7969b61f37
+      x-amzn-trace-id:
+      - Root=1-6891f2c2-33fd25915189fd7969b61f37
+      x-envoy-upstream-service-time:
+      - '107'
+      x-request-id:
+      - 1-6891f2c2-33fd25915189fd7969b61f37
+      x-spanid:
+      - 179ffe8c-1f2e-a88b-42a2-777084545bcc
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/AgedReceivables?accounting_method=Accrual&minorversion=40&start_date=2005-01-01
+  response:
+    body:
+      string: '{"Header": {"Time": "2017-12-29T03:43:54-07:00", "ReportName": "-Fallback-scrubbed-XqBStOgTrkfvtWM",
+        "EndPeriod": "1977-06-16", "SummarizeColumnsBy": "-Fallback-scrubbed-nqUKY",
+        "Currency": "-Fallback-scrubbed-tux", "Option": [{"Name": "Fake-Lisa Cervantes",
+        "Value": "1977-06-16"}, {"Name": "Fake-Robert Martin", "Value": "true"}]},
+        "Columns": {"Column": [{"ColTitle": "", "ColType": "-Fallback-scrubbed-UVDNHTuv"},
+        {"ColTitle": "-Fallback-scrubbed-qFrMdRK", "ColType": "-Fallback-scrubbed-tjIAs",
+        "MetaData": [{"Name": "Fake-Jessica Hanson", "Value": "-Fallback-scrubbed-dtiNRKX"}]},
+        {"ColTitle": "-Fallback-scrubbed-LrgWAQ", "ColType": "-Fallback-scrubbed-tjIAs",
+        "MetaData": [{"Name": "Fake-Jessica Hanson", "Value": "157"}]}, {"ColTitle":
+        "-Fallback-scrubbed-hKEDwgj", "ColType": "-Fallback-scrubbed-tjIAs", "MetaData":
+        [{"Name": "Fake-Jessica Hanson", "Value": "3357"}]}, {"ColTitle": "-Fallback-scrubbed-pNrgcEy",
+        "ColType": "-Fallback-scrubbed-tjIAs", "MetaData": [{"Name": "Fake-Jessica
+        Hanson", "Value": "6812"}]}, {"ColTitle": "-Fallback-scrubbed-ndcVyKUALHD",
+        "ColType": "-Fallback-scrubbed-tjIAs", "MetaData": [{"Name": "Fake-Jessica
+        Hanson", "Value": "9669"}]}, {"ColTitle": "-Fallback-scrubbed-nqUKY", "ColType":
+        "-Fallback-scrubbed-tjIAs", "MetaData": [{"Name": "Fake-Jessica Hanson", "Value":
+        "-Fallback-scrubbed-fuXNF"}]}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-dTlpjqLbX",
+        "id": "59"}, {"value": ""}, {"value": "85.416818490757"}, {"value": "-664624853.781429"},
+        {"value": "41902802.41244"}, {"value": "7.72195070698542"}, {"value": "-339938077506.531"}]},
+        {"ColData": [{"value": "-Fallback-scrubbed-GkmamcGmUMVkZFHJYeGE", "id": "1"},
+        {"value": ""}, {"value": ""}, {"value": "73.9193372093688"}, {"value": ""},
+        {"value": "-83861777.27514"}, {"value": "207.860120757183"}]}, {"ColData":
+        [{"value": "-Fallback-scrubbed-wOQNKNKJk", "id": "140"}, {"value": ""}, {"value":
+        "-1428304.76877407"}, {"value": "3.3037218052928"}, {"value": ""}, {"value":
+        ""}, {"value": "405853142.695451"}]}, {"ColData": [{"value": "-Fallback-scrubbed-DuDtLjvymMPrF",
+        "id": "95"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "-324240.1297672"}, {"value": "-324240.1297672"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-PdTFjQUADvbkHOv", "id": "85"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "-77850.7532091378"}, {"value":
+        "-77850.7532091378"}]}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-RjuRQXeXzWbnPgy",
+        "id": "84"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "5722251.70446263"}, {"value": "5722251.70446263"}]}, "Rows": {"Row": [{"ColData":
+        [{"value": "-Fallback-scrubbed-qmpXmJPjvFCQTJO", "id": "86"}, {"value": ""},
+        {"value": ""}, {"value": ""}, {"value": ""}, {"value": "-77850.7532091378"},
+        {"value": "-77850.7532091378"}], "type": "-Fallback-scrubbed-VHPN"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-lYWxrcgklqvRQYO", "id": "87"}, {"value": ""},
+        {"value": ""}, {"value": ""}, {"value": ""}, {"value": "-77850.7532091378"},
+        {"value": "-77850.7532091378"}], "type": "-Fallback-scrubbed-VHPN"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-lWFofWcQcxGSzNQ", "id": "88"}, {"value": ""},
+        {"value": ""}, {"value": ""}, {"value": ""}, {"value": "-77850.7532091378"},
+        {"value": "-77850.7532091378"}], "type": "-Fallback-scrubbed-VHPN"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-qNEOjwEfyzPMBPwTbzYOS"}, {"value":
+        "-25.49882357251"}, {"value": "-25.49882357251"}, {"value": "-25.49882357251"},
+        {"value": "-25.49882357251"}, {"value": "63.6941398057915"}, {"value": "63.6941398057915"}]},
+        "type": "-Fallback-scrubbed-frImPqq"}, {"ColData": [{"value": "-Fallback-scrubbed-MjopoWRjLLy",
+        "id": "64"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "7943.52723945542"}, {"value": "7943.52723945542"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-mitXvZCtepeGRVZLKa", "id": "112"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "6045901169936.23"}, {"value":
+        "6045901169936.23"}]}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-yQFHnadEDFlhcQBVpFUtnF",
+        "id": "7"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        ""}, {"value": "-25.49882357251"}]}, "Rows": {"Row": [{"ColData": [{"value":
+        "-Fallback-scrubbed-yhSJwPHreJhRkmkjvsWz", "id": "8"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "-6528081.98747701"}, {"value":
+        "-6528081.98747701"}], "type": "-Fallback-scrubbed-VHPN"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-RFyRGWPvTHIi", "id": "9"}, {"value": ""}, {"value": ""},
+        {"value": ""}, {"value": ""}, {"value": "3823446408.78066"}, {"value": "3823446408.78066"}],
+        "type": "-Fallback-scrubbed-VHPN"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-WeFtFaiUKrPtmTroMzSplMIstDGE"},
+        {"value": "-25.49882357251"}, {"value": "-25.49882357251"}, {"value": "-25.49882357251"},
+        {"value": "-25.49882357251"}, {"value": "-9028530112.51732"}, {"value": "-9028530112.51732"}]},
+        "type": "-Fallback-scrubbed-frImPqq"}, {"ColData": [{"value": "-Fallback-scrubbed-GYtINLfKCcS",
+        "id": "121"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": "-67264949.4508442"},
+        {"value": ""}, {"value": "-67264949.4508442"}]}, {"ColData": [{"value": "-Fallback-scrubbed-NkrRVKbWuJFgyBic",
+        "id": "10"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "55659230310.561"}, {"value": "55659230310.561"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-vgwodAcPhy", "id": "102"}, {"value": ""}, {"value": ""},
+        {"value": ""}, {"value": ""}, {"value": "6045901169936.23"}, {"value": "6045901169936.23"}]},
+        {"ColData": [{"value": "-Fallback-scrubbed-bXeAJZdmZViWKSm", "id": "12"},
+        {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": "68.831981768525"},
+        {"value": "68.831981768525"}]}, {"ColData": [{"value": "-Fallback-scrubbed-ubHlaomsnKY",
+        "id": "13"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "-40665417552.527"}, {"value": "-40665417552.527"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-QhapcZpaGotfO", "id": "106"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "6045901169936.23"}, {"value":
+        "6045901169936.23"}]}, {"ColData": [{"value": "-Fallback-scrubbed-wmkbKmxoHyzjRlpD",
+        "id": "16"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "-85820675253433.2"}, {"value": "-85820675253433.2"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-IAjBJiThID", "id": "103"}, {"value": ""}, {"value": ""},
+        {"value": ""}, {"value": ""}, {"value": "5.94727850085917"}, {"value": "5.94727850085917"}]},
+        {"ColData": [{"value": "-Fallback-scrubbed-CKIWUDnU", "id": "17"}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": "57857186992.9281"},
+        {"value": "57857186992.9281"}]}, {"ColData": [{"value": "-Fallback-scrubbed-aZAnqWFIz",
+        "id": "60"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "-485707956368.566"}, {"value": "-485707956368.566"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-HxbBQhhMfoaRBJRvFkwEwlGq", "id": "18"}, {"value": ""},
+        {"value": ""}, {"value": ""}, {"value": ""}, {"value": "-39560203352182.2"},
+        {"value": "-39560203352182.2"}]}, {"ColData": [{"value": "-Fallback-scrubbed-UKLJBkCJJDCa",
+        "id": "2"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "-5335426523588.32"}, {"value": "-5335426523588.32"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-jiJBaBYeFzRKkx", "id": "20"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "-2.25296833844342"}, {"value":
+        "-2.25296833844342"}]}, {"ColData": [{"value": "-Fallback-scrubbed-RtmAHooVTeGGHiFPpaDOJcOi",
+        "id": "21"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "-490751111552.394"}, {"value": "-490751111552.394"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-LqPdbSzaKHQgqdBHv", "id": "62"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "-7314236436.62259"}, {"value":
+        "-7314236436.62259"}]}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-xcefpiufgunVo",
+        "id": "22"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        ""}, {"value": "-25.49882357251"}]}, "Rows": {"Row": [{"ColData": [{"value":
+        "-Fallback-scrubbed-DOAxfGaYcBpbiW", "id": "23"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "-96549.4569042925"}, {"value":
+        "-96549.4569042925"}], "type": "-Fallback-scrubbed-VHPN"}]}, "Summary": {"ColData":
+        [{"value": "-Fallback-scrubbed-EAuwNBublfhUhPtzCxA"}, {"value": "-25.49882357251"},
+        {"value": "-25.49882357251"}, {"value": "-25.49882357251"}, {"value": "-25.49882357251"},
+        {"value": "-96549.4569042925"}, {"value": "-96549.4569042925"}]}, "type":
+        "-Fallback-scrubbed-frImPqq"}, {"ColData": [{"value": "-Fallback-scrubbed-gdhoDXiwIbWIGVvJFQ",
+        "id": "25"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "2067800.29170479"}, {"value": "2067800.29170479"}]}, {"Header": {"ColData":
+        [{"value": "-Fallback-scrubbed-GQBCZNKVst", "id": "81"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": "-25.49882357251"}]},
+        "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-pIGUeOFdwVKkl",
+        "id": "92"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "-6578871.747938"}, {"value": "-6578871.747938"}], "type": "-Fallback-scrubbed-VHPN"},
+        {"ColData": [{"value": "-Fallback-scrubbed-QUgxNcAjnhmz", "id": "93"}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": "-6578871.747938"},
+        {"value": "-6578871.747938"}], "type": "-Fallback-scrubbed-VHPN"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-lJSRBHtrWsd", "id": "91"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "-6578871.747938"}, {"value":
+        "-6578871.747938"}], "type": "-Fallback-scrubbed-VHPN"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-LUSwBiPjmdVF", "id": "101"}, {"value": ""}, {"value":
+        ""}, {"value": ""}, {"value": ""}, {"value": "-6578871.747938"}, {"value":
+        "-6578871.747938"}], "type": "-Fallback-scrubbed-VHPN"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-gOQZydtnHN", "id": "90"}, {"value": ""}, {"value": ""},
+        {"value": ""}, {"value": ""}, {"value": "-4624.26617550588"}, {"value": "-4624.26617550588"}],
+        "type": "-Fallback-scrubbed-VHPN"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-cVUVQbPsPRBHqrJh"},
+        {"value": "-25.49882357251"}, {"value": "-25.49882357251"}, {"value": "-25.49882357251"},
+        {"value": "-25.49882357251"}, {"value": "-906854236828.12"}, {"value": "-906854236828.12"}]},
+        "type": "-Fallback-scrubbed-frImPqq"}, {"ColData": [{"value": "-Fallback-scrubbed-jfOZIteaHvMFRL",
+        "id": "26"}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value":
+        "355174594.684663"}, {"value": "355174594.684663"}]}, {"ColData": [{"value":
+        "-Fallback-scrubbed-PaLFyTmhBrG", "id": "130"}, {"value": ""}, {"value": "-928087009428.69"},
+        {"value": ""}, {"value": "532435577.149059"}, {"value": ""}, {"value": "-915956.781175117"}]},
+        {"ColData": [{"value": "-Fallback-scrubbed-AoQgbxoPbeHgutLpfeA", "id": "29"},
+        {"value": ""}, {"value": ""}, {"value": ""}, {"value": ""}, {"value": "-398041840784.412"},
+        {"value": "-398041840784.412"}]}, {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-GddSX"},
+        {"value": "-25.49882357251"}, {"value": "-737.50441160517"}, {"value": "3954550202.97194"},
+        {"value": "-228.43196474827"}, {"value": "4832.15401902097"}, {"value": "8529530720.79862"}]},
+        "type": "-Fallback-scrubbed-frImPqq", "group": "-Fallback-scrubbed-agpEIzRkWJ"}]}}'
+    headers:
+      Cache-Control:
+      - max-age=0, no-cache, no-store, must-revalidate, private
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '11554'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:02:12 GMT
+      Expires:
+      - '0'
+      QBO-Version:
+      - '2056.104'
+      Service-Time:
+      - total=510, db=75
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '7823'
+      intuit_tid:
+      - 1-6891f2c4-27fec9a249f30014284197a2
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6891f2c4-27fec9a249f30014284197a2
+      x-envoy-upstream-service-time:
+      - '543'
+      x-request-id:
+      - 1-6891f2c4-27fec9a249f30014284197a2
+      x-spanid:
+      - cd54b05e-e564-6368-7db7-cb28bf3cbfe6
+    status:
+      code: 200
+      message: OK
+version: 1
