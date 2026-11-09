@@ -1,0 +1,4 @@
+{
+  "filter_query_parameters": ["end_date", "start_date", "minorversion"],
+  "freeze_time": "2025-06-18 00:00:00"
+}

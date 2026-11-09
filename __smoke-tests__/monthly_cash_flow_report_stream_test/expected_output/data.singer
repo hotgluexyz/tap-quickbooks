@@ -1,0 +1,6 @@
+{"type": "STATE", "value": {"current_stream": "MonthlyCashFlowReport"}}
+{"type": "SCHEMA", "stream": "MonthlyCashFlowReport", "schema": {"type": "object", "additionalProperties": false, "properties": {"Total": {"type": ["null", "number"]}, "Account": {"type": ["string", "null"]}, "Categories": {"type": ["null", "array"], "items": {"type": ["string", "null"]}}, "MonthlyTotal": {"type": ["null", "array"], "items": {"type": ["string", "null"]}}}}, "key_properties": []}
+{"type": "ACTIVATE_VERSION", "stream": "MonthlyCashFlowReport", "version": 1777518510000}
+{"type": "ACTIVATE_VERSION", "stream": "MonthlyCashFlowReport", "version": 1777518510000}
+{"type": "STATE", "value": {"current_stream": "MonthlyCashFlowReport", "bookmarks": {"MonthlyCashFlowReport": {"version": null}}}}
+{"type": "STATE", "value": {"current_stream": null, "bookmarks": {"MonthlyCashFlowReport": {"version": null}}}}

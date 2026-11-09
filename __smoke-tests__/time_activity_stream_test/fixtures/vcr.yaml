@@ -1,0 +1,152 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-msXxDK",
+        "x_refresh_token_expires_in": 2486, "access_token": "acc***", "refresh_token":
+        "ref***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 13:16:58 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-68920449-0a57dc146bde24b846ef145d
+      x-amzn-trace-id:
+      - Root=1-68920449-0a57dc146bde24b846ef145d
+      x-envoy-upstream-service-time:
+      - '116'
+      x-request-id:
+      - 1-68920449-0a57dc146bde24b846ef145d
+      x-spanid:
+      - 10b49da8-5e97-e072-1aaf-f4803b2c3709
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+TimeActivity++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"TimeActivity": [{"TxnDate": "2024-07-11", "NameOf":
+        "-Fallback-scrubbed-fyfSzQFk", "EmployeeRef": {"value": "9652", "name": "Fake-Gary
+        Holmes"}, "CustomerRef": {"value": "6138", "name": "Fake-Russell Smith"},
+        "ItemRef": {"value": "8120", "name": "Fake-James Barnett"}, "TimeChargeId":
+        3576, "BillableStatus": "-Fallback-scrubbed-HgaYbHoSrlkFU", "Taxable": false,
+        "HourlyRate": 9830, "CostRate": 9362, "Hours": 9390, "Minutes": 9362, "Seconds":
+        9362, "Description": "-Fallback-scrubbed-HcHAyIqqNmnrjTd", "domain": "-Fallback-scrubbed-iPf",
+        "sparse": false, "Id": "5", "SyncToken": "3074", "MetaData": {"CreateTime":
+        "1977-11-25T03:40:23-08:00", "LastUpdatedTime": "2021-02-16T11:55:25-08:00"}},
+        {"TxnDate": "2024-07-11", "NameOf": "-Fallback-scrubbed-fyfSzQFk", "EmployeeRef":
+        {"value": "9652", "name": "Fake-Gary Holmes"}, "CustomerRef": {"value": "6138",
+        "name": "Fake-Russell Smith"}, "ItemRef": {"value": "685", "name": "Fake-Julie
+        Davis"}, "TimeChargeId": 8211, "BillableStatus": "-Fallback-scrubbed-HgaYbHoSrlkFU",
+        "Taxable": false, "HourlyRate": 9830, "CostRate": 9362, "Hours": 4876, "Minutes":
+        9362, "Seconds": 9362, "Description": "-Fallback-scrubbed-LmXyZMoeoQIXeZXfBUIIAyf",
+        "domain": "-Fallback-scrubbed-iPf", "sparse": false, "Id": "4", "SyncToken":
+        "3074", "MetaData": {"CreateTime": "2026-01-20T10:58:34-08:00", "LastUpdatedTime":
+        "2021-02-16T11:54:02-08:00"}}, {"TxnDate": "2026-02-12", "NameOf": "-Fallback-scrubbed-fyfSzQFk",
+        "EmployeeRef": {"value": "4696", "name": "Fake-Jody Hobbs"}, "CustomerRef":
+        {"value": "9987", "name": "Fake-Julia Spears"}, "ItemRef": {"value": "7586",
+        "name": "Fake-Judy Morris"}, "TimeChargeId": 5971, "BillableStatus": "-Fallback-scrubbed-AbSwgvKO",
+        "Taxable": false, "HourlyRate": 9905, "CostRate": 9362, "Hours": 1271, "Minutes":
+        9362, "Seconds": 9362, "Description": "-Fallback-scrubbed-OuJNeXyIwuWmQ",
+        "domain": "-Fallback-scrubbed-iPf", "sparse": false, "Id": "3", "SyncToken":
+        "3074", "MetaData": {"CreateTime": "1993-09-18T03:10:35-08:00", "LastUpdatedTime":
+        "2021-02-16T11:53:15-08:00"}}, {"TxnDate": "2024-07-11", "NameOf": "-Fallback-scrubbed-fyfSzQFk",
+        "EmployeeRef": {"value": "4696", "name": "Fake-Jody Hobbs"}, "CustomerRef":
+        {"value": "9987", "name": "Fake-Julia Spears"}, "ItemRef": {"value": "907",
+        "name": "Fake-Angela Thomas"}, "BillableStatus": "-Fallback-scrubbed-qQGBIcofOqm",
+        "Taxable": false, "HourlyRate": 9362, "CostRate": 9362, "Hours": 9585, "Minutes":
+        9362, "Seconds": 9362, "Description": "-Fallback-scrubbed-IiOBkJoZo", "domain":
+        "-Fallback-scrubbed-iPf", "sparse": false, "Id": "2", "SyncToken": "3074",
+        "MetaData": {"CreateTime": "1976-05-31T01:26:55-08:00", "LastUpdatedTime":
+        "2021-02-16T11:47:12-08:00"}}, {"TxnDate": "2016-07-05", "NameOf": "-Fallback-scrubbed-fyfSzQFk",
+        "EmployeeRef": {"value": "9652", "name": "Fake-Gary Holmes"}, "CustomerRef":
+        {"value": "1306", "name": "Fake-Stephanie Cole"}, "ItemRef": {"value": "907",
+        "name": "Fake-Angela Thomas"}, "BillableStatus": "-Fallback-scrubbed-qQGBIcofOqm",
+        "Taxable": false, "HourlyRate": 9362, "CostRate": 9362, "Hours": 9585, "Minutes":
+        3861, "Seconds": 9362, "Description": "-Fallback-scrubbed-SrDvzntngBYEiEGNwkDWSGdUJyiAyuhgXyrpTVemvlMu",
+        "domain": "-Fallback-scrubbed-iPf", "sparse": false, "Id": "1", "SyncToken":
+        "3074", "MetaData": {"CreateTime": "1985-10-11T14:10:52-08:00", "LastUpdatedTime":
+        "2021-02-16T11:23:26-08:00"}}], "startPosition": 1, "maxResults": 5}, "time":
+        "2010-03-26T14:01:39.196-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3471'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 13:17:00 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '2645'
+      intuit_tid:
+      - 1-6892044b-6951c81f33e6f44f39b75002
+      x-amzn-trace-id:
+      - Root=1-6892044b-6951c81f33e6f44f39b75002
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '597'
+      x-request-id:
+      - 1-6892044b-6951c81f33e6f44f39b75002
+      x-spanid:
+      - b6270ce0-9cd9-0999-d0c5-c83a5c47a3c2
+    status:
+      code: 200
+      message: OK
+version: 1
