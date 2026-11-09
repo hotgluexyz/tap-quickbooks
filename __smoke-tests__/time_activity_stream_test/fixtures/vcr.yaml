@@ -18,8 +18,8 @@ interactions:
     uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
   response:
     body:
-      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-msXxDK",
-        "x_refresh_token_expires_in": 2486, "access_token": "acc***", "refresh_token":
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-ZfRvJh",
+        "x_refresh_token_expires_in": 9022, "access_token": "acc***", "refresh_token":
         "ref***"}'
     headers:
       Cache-Control:
@@ -74,54 +74,54 @@ interactions:
     uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+TimeActivity++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
   response:
     body:
-      string: '{"QueryResponse": {"TimeActivity": [{"TxnDate": "2024-07-11", "NameOf":
-        "-Fallback-scrubbed-fyfSzQFk", "EmployeeRef": {"value": "9652", "name": "Fake-Gary
-        Holmes"}, "CustomerRef": {"value": "6138", "name": "Fake-Russell Smith"},
-        "ItemRef": {"value": "8120", "name": "Fake-James Barnett"}, "TimeChargeId":
-        3576, "BillableStatus": "-Fallback-scrubbed-HgaYbHoSrlkFU", "Taxable": false,
-        "HourlyRate": 9830, "CostRate": 9362, "Hours": 9390, "Minutes": 9362, "Seconds":
-        9362, "Description": "-Fallback-scrubbed-HcHAyIqqNmnrjTd", "domain": "-Fallback-scrubbed-iPf",
-        "sparse": false, "Id": "5", "SyncToken": "3074", "MetaData": {"CreateTime":
-        "1977-11-25T03:40:23-08:00", "LastUpdatedTime": "2021-02-16T11:55:25-08:00"}},
-        {"TxnDate": "2024-07-11", "NameOf": "-Fallback-scrubbed-fyfSzQFk", "EmployeeRef":
-        {"value": "9652", "name": "Fake-Gary Holmes"}, "CustomerRef": {"value": "6138",
-        "name": "Fake-Russell Smith"}, "ItemRef": {"value": "685", "name": "Fake-Julie
-        Davis"}, "TimeChargeId": 8211, "BillableStatus": "-Fallback-scrubbed-HgaYbHoSrlkFU",
-        "Taxable": false, "HourlyRate": 9830, "CostRate": 9362, "Hours": 4876, "Minutes":
-        9362, "Seconds": 9362, "Description": "-Fallback-scrubbed-LmXyZMoeoQIXeZXfBUIIAyf",
-        "domain": "-Fallback-scrubbed-iPf", "sparse": false, "Id": "4", "SyncToken":
-        "3074", "MetaData": {"CreateTime": "2026-01-20T10:58:34-08:00", "LastUpdatedTime":
-        "2021-02-16T11:54:02-08:00"}}, {"TxnDate": "2026-02-12", "NameOf": "-Fallback-scrubbed-fyfSzQFk",
-        "EmployeeRef": {"value": "4696", "name": "Fake-Jody Hobbs"}, "CustomerRef":
-        {"value": "9987", "name": "Fake-Julia Spears"}, "ItemRef": {"value": "7586",
-        "name": "Fake-Judy Morris"}, "TimeChargeId": 5971, "BillableStatus": "-Fallback-scrubbed-AbSwgvKO",
-        "Taxable": false, "HourlyRate": 9905, "CostRate": 9362, "Hours": 1271, "Minutes":
-        9362, "Seconds": 9362, "Description": "-Fallback-scrubbed-OuJNeXyIwuWmQ",
-        "domain": "-Fallback-scrubbed-iPf", "sparse": false, "Id": "3", "SyncToken":
-        "3074", "MetaData": {"CreateTime": "1993-09-18T03:10:35-08:00", "LastUpdatedTime":
-        "2021-02-16T11:53:15-08:00"}}, {"TxnDate": "2024-07-11", "NameOf": "-Fallback-scrubbed-fyfSzQFk",
-        "EmployeeRef": {"value": "4696", "name": "Fake-Jody Hobbs"}, "CustomerRef":
-        {"value": "9987", "name": "Fake-Julia Spears"}, "ItemRef": {"value": "907",
-        "name": "Fake-Angela Thomas"}, "BillableStatus": "-Fallback-scrubbed-qQGBIcofOqm",
-        "Taxable": false, "HourlyRate": 9362, "CostRate": 9362, "Hours": 9585, "Minutes":
-        9362, "Seconds": 9362, "Description": "-Fallback-scrubbed-IiOBkJoZo", "domain":
-        "-Fallback-scrubbed-iPf", "sparse": false, "Id": "2", "SyncToken": "3074",
-        "MetaData": {"CreateTime": "1976-05-31T01:26:55-08:00", "LastUpdatedTime":
-        "2021-02-16T11:47:12-08:00"}}, {"TxnDate": "2016-07-05", "NameOf": "-Fallback-scrubbed-fyfSzQFk",
-        "EmployeeRef": {"value": "9652", "name": "Fake-Gary Holmes"}, "CustomerRef":
-        {"value": "1306", "name": "Fake-Stephanie Cole"}, "ItemRef": {"value": "907",
-        "name": "Fake-Angela Thomas"}, "BillableStatus": "-Fallback-scrubbed-qQGBIcofOqm",
-        "Taxable": false, "HourlyRate": 9362, "CostRate": 9362, "Hours": 9585, "Minutes":
-        3861, "Seconds": 9362, "Description": "-Fallback-scrubbed-SrDvzntngBYEiEGNwkDWSGdUJyiAyuhgXyrpTVemvlMu",
-        "domain": "-Fallback-scrubbed-iPf", "sparse": false, "Id": "1", "SyncToken":
-        "3074", "MetaData": {"CreateTime": "1985-10-11T14:10:52-08:00", "LastUpdatedTime":
+      string: '{"QueryResponse": {"TimeActivity": [{"TxnDate": "1992-12-16", "NameOf":
+        "-Fallback-scrubbed-sMioSNqU", "EmployeeRef": {"value": "2135", "name": "Fake-Brian
+        Wilson"}, "CustomerRef": {"value": "73", "name": "Fake-Connor Cruz"}, "ItemRef":
+        {"value": "9915", "name": "Fake-Javier Combs"}, "TimeChargeId": 7309, "BillableStatus":
+        "-Fallback-scrubbed-pmXgrahFaERXw", "Taxable": false, "HourlyRate": 3144,
+        "CostRate": 8375, "Hours": 2431, "Minutes": 8375, "Seconds": 8375, "Description":
+        "-Fallback-scrubbed-hHEDJIpyHZHmtVd", "domain": "-Fallback-scrubbed-SVY",
+        "sparse": false, "Id": "5", "SyncToken": "6257", "MetaData": {"CreateTime":
+        "1980-08-07T02:10:27-08:00", "LastUpdatedTime": "2021-02-16T11:55:25-08:00"}},
+        {"TxnDate": "1992-12-16", "NameOf": "-Fallback-scrubbed-sMioSNqU", "EmployeeRef":
+        {"value": "2135", "name": "Fake-Brian Wilson"}, "CustomerRef": {"value": "73",
+        "name": "Fake-Connor Cruz"}, "ItemRef": {"value": "6296", "name": "Fake-Lisa
+        Myers"}, "TimeChargeId": 5243, "BillableStatus": "-Fallback-scrubbed-pmXgrahFaERXw",
+        "Taxable": false, "HourlyRate": 3144, "CostRate": 8375, "Hours": 6332, "Minutes":
+        8375, "Seconds": 8375, "Description": "-Fallback-scrubbed-SJOgkvSDdHRMPtrURIBrIwR",
+        "domain": "-Fallback-scrubbed-SVY", "sparse": false, "Id": "4", "SyncToken":
+        "6257", "MetaData": {"CreateTime": "1995-03-03T03:54:02-08:00", "LastUpdatedTime":
+        "2021-02-16T11:54:02-08:00"}}, {"TxnDate": "2008-04-18", "NameOf": "-Fallback-scrubbed-sMioSNqU",
+        "EmployeeRef": {"value": "5522", "name": "Fake-Vincent Hughes"}, "CustomerRef":
+        {"value": "6409", "name": "Fake-April Mays"}, "ItemRef": {"value": "760",
+        "name": "Fake-Gregory Young"}, "TimeChargeId": 7204, "BillableStatus": "-Fallback-scrubbed-dSdxhWis",
+        "Taxable": false, "HourlyRate": 5188, "CostRate": 8375, "Hours": 3981, "Minutes":
+        8375, "Seconds": 8375, "Description": "-Fallback-scrubbed-JtHqVBZyWjIul",
+        "domain": "-Fallback-scrubbed-SVY", "sparse": false, "Id": "3", "SyncToken":
+        "6257", "MetaData": {"CreateTime": "2016-06-05T15:55:32-08:00", "LastUpdatedTime":
+        "2021-02-16T11:53:15-08:00"}}, {"TxnDate": "1992-12-16", "NameOf": "-Fallback-scrubbed-sMioSNqU",
+        "EmployeeRef": {"value": "5522", "name": "Fake-Vincent Hughes"}, "CustomerRef":
+        {"value": "6409", "name": "Fake-April Mays"}, "ItemRef": {"value": "6220",
+        "name": "Fake-Jorge Duncan"}, "BillableStatus": "-Fallback-scrubbed-OrAztOKZQMW",
+        "Taxable": false, "HourlyRate": 8375, "CostRate": 8375, "Hours": 4422, "Minutes":
+        8375, "Seconds": 8375, "Description": "-Fallback-scrubbed-mhourahbr", "domain":
+        "-Fallback-scrubbed-SVY", "sparse": false, "Id": "2", "SyncToken": "6257",
+        "MetaData": {"CreateTime": "2008-11-26T16:09:10-08:00", "LastUpdatedTime":
+        "2021-02-16T11:47:12-08:00"}}, {"TxnDate": "2015-11-11", "NameOf": "-Fallback-scrubbed-sMioSNqU",
+        "EmployeeRef": {"value": "2135", "name": "Fake-Brian Wilson"}, "CustomerRef":
+        {"value": "5050", "name": "Fake-Hunter Kerr"}, "ItemRef": {"value": "6220",
+        "name": "Fake-Jorge Duncan"}, "BillableStatus": "-Fallback-scrubbed-OrAztOKZQMW",
+        "Taxable": false, "HourlyRate": 8375, "CostRate": 8375, "Hours": 4422, "Minutes":
+        7641, "Seconds": 8375, "Description": "-Fallback-scrubbed-ZkslezCnfuGGTifvJPlaeGmQLxJukJKYpYgIdjcyqSVt",
+        "domain": "-Fallback-scrubbed-SVY", "sparse": false, "Id": "1", "SyncToken":
+        "6257", "MetaData": {"CreateTime": "1975-11-23T23:58:43-08:00", "LastUpdatedTime":
         "2021-02-16T11:23:26-08:00"}}], "startPosition": 1, "maxResults": 5}, "time":
-        "2010-03-26T14:01:39.196-07:00"}'
+        "1997-06-09T19:30:36.196-07:00"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '3471'
+      - '3467'
       Content-Type:
       - application/json;charset=utf-8
       Date:
