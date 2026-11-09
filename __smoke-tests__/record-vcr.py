@@ -20,6 +20,7 @@ class QuickbooksTapTestRunner(VCRTapTestRunner):
         "LastUpdatedTime",
         "ColTitle",
         "ColType",
+        "type",
         "maxResults",
         "startPosition",
         "totalCount",
