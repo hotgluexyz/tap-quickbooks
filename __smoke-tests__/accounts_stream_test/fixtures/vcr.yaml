@@ -1,0 +1,973 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-iwtCqI",
+        "x_refresh_token_expires_in": 1789, "refresh_token": "ref***", "access_token":
+        "acc***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 11:56:05 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f155-7c7f4626073f23863f452dd9
+      x-amzn-trace-id:
+      - Root=1-6891f155-7c7f4626073f23863f452dd9
+      x-envoy-upstream-service-time:
+      - '108'
+      x-request-id:
+      - 1-6891f155-7c7f4626073f23863f452dd9
+      x-spanid:
+      - ad155c72-86da-f6f1-78db-3b07e8c70b1b
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Account++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Account": [{"Name": "Fake-Kurt Ward", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Kurt Ward", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-bLgUzGLQGEbqDyqO",
+        "AccountSubType": "-Fallback-scrubbed-QbSazuRtknauOwa", "CurrentBalance":
+        -1760900.65998168, "CurrentBalanceWithSubAccounts": -1760900.65998168, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "33", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1983-10-04T16:17:04-08:00", "LastUpdatedTime":
+        "2025-07-24T11:06:36-07:00"}}, {"Name": "Fake-Travis Thomas", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Travis Thomas", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-bLgUzGLQGEbqDyqO",
+        "AccountSubType": "-Fallback-scrubbed-QbSazuRtknauOwa", "CurrentBalance":
+        602848060563.776, "CurrentBalanceWithSubAccounts": 602848060563.776, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-nZm", "name": "Fake-Pamela Reeves"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "109", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1995-12-19T22:24:56-07:00", "LastUpdatedTime":
+        "2025-06-26T05:52:50-07:00"}}, {"Name": "Fake-Lisa White", "SubAccount": true,
+        "FullyQualifiedName": "Fake-Lisa White", "Active": false, "Classification":
+        "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WSBaAmrxSxIUEqmPlof",
+        "AccountSubType": "-Fallback-scrubbed-KoCJsbTwrsZxXJDFbE", "AcctNum": "422",
+        "CurrentBalance": -29691.594501179, "CurrentBalanceWithSubAccounts": -29691.594501179,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"},
+        "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "84", "SyncToken":
+        "3629", "MetaData": {"CreateTime": "1997-06-14T21:12:23-08:00", "LastUpdatedTime":
+        "2025-07-25T12:34:35-07:00"}}, {"Name": "Fake-Samantha Ramos", "SubAccount":
+        false, "ParentRef": {"value": "5529"}, "Description": "-Fallback-scrubbed-BTCicJonXWnZOEHlajULsBZQmsb",
+        "FullyQualifiedName": "-Fallback-scrubbed-PrwNdrrNzqyhBovcKbwHQATkqaBZYWdbfdt",
+        "Active": false, "Classification": "-Fallback-scrubbed-XYIpu", "AccountType":
+        "-Fallback-scrubbed-WSBaAmrxSxIUEqmPlof", "AccountSubType": "-Fallback-scrubbed-KoCJsbTwrsZxXJDFbE",
+        "AcctNum": "7417", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "1150040004",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "2023-11-26T06:06:01-07:00",
+        "LastUpdatedTime": "2025-07-08T06:21:35-07:00"}}, {"Name": "Fake-Natalie Jenkins",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Natalie Jenkins", "Active":
+        false, "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WSBaAmrxSxIUEqmPlof",
+        "AccountSubType": "-Fallback-scrubbed-KoCJsbTwrsZxXJDFbE", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-LES",
+        "name": "Fake-Scott Singh"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "105", "SyncToken": "2523", "MetaData": {"CreateTime": "1984-09-26T03:56:34-07:00",
+        "LastUpdatedTime": "2025-05-30T08:52:51-07:00"}}, {"Name": "Fake-Amanda Henderson",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Amanda Henderson", "Active":
+        false, "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WSBaAmrxSxIUEqmPlof",
+        "AccountSubType": "-Fallback-scrubbed-KoCJsbTwrsZxXJDFbE", "CurrentBalance":
+        8516950858.17817, "CurrentBalanceWithSubAccounts": 8516950858.17817, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-nZm", "name": "Fake-Pamela Reeves"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "101", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2017-11-09T20:42:52-07:00", "LastUpdatedTime":
+        "2025-06-20T13:09:17-07:00"}}, {"Name": "Fake-Charles Harrison", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Charles Harrison", "Active": false, "Classification":
+        "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WSBaAmrxSxIUEqmPlof",
+        "AccountSubType": "-Fallback-scrubbed-KoCJsbTwrsZxXJDFbE", "CurrentBalance":
+        -10869578.1483571, "CurrentBalanceWithSubAccounts": -10869578.1483571, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-Pqq", "name": "Fake-Victoria Lopez"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "98", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2022-09-14T06:42:56-07:00", "LastUpdatedTime":
+        "2025-06-12T10:10:46-07:00"}}, {"Name": "Fake-Natalie Garcia", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Natalie Garcia", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-zMipwULQJakOqsLTgvgZwH", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "7", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Timothy Reese",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Timothy Reese", "Active":
+        false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp", "AcctNum": "6387",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "1150040006", "SyncToken":
+        "2523", "MetaData": {"CreateTime": "1982-03-18T20:28:12-07:00", "LastUpdatedTime":
+        "2025-07-15T11:13:20-07:00"}}, {"Name": "Fake-Daniel Vincent", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Daniel Vincent", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-GLQeGvBnwDTWnaaawhWaxHk",
+        "AccountSubType": "-Fallback-scrubbed-pbsRTRisLcXxXCSo", "CurrentBalance":
+        2.94436730423317, "CurrentBalanceWithSubAccounts": 2.94436730423317, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "89", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1979-12-21T00:19:40-08:00", "LastUpdatedTime":
+        "2025-07-25T12:34:35-07:00"}}, {"Name": "Fake-Charles Odonnell", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Charles Odonnell", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-LTQK", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "55",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "1973-06-25T07:04:32-08:00",
+        "LastUpdatedTime": "2021-02-15T10:16:05-08:00"}}, {"Name": "Fake-Jessica Vasquez",
+        "SubAccount": false, "ParentRef": {"value": "4640"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-xAGIjNKPlYFAeeo", "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE",
+        "AccountType": "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-LTQK",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "56", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1999-12-01T14:13:47-08:00", "LastUpdatedTime":
+        "2021-02-15T10:16:05-08:00"}}, {"Name": "Fake-Dr. Joseph Peterson DDS", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Dr. Joseph Peterson DDS", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-ZyOmpInLcUh", "CurrentBalance": 7417,
+        "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "8", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Mary Allen",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Mary Allen", "Active": false,
+        "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-lwwMSMgxaYqSZYVb", "AcctNum": "4889",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "85", "SyncToken": "3629",
+        "MetaData": {"CreateTime": "2018-05-24T04:22:34-08:00", "LastUpdatedTime":
+        "2024-02-05T05:22:06-08:00"}}, {"Name": "Fake-Victoria Vazquez", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Victoria Vazquez", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-GLQeGvBnwDTWnaaawhWaxHk",
+        "AccountSubType": "-Fallback-scrubbed-pbsRTRisLcXxXCSo", "AcctNum": "8415",
+        "CurrentBalance": -6716320286.65079, "CurrentBalanceWithSubAccounts": -6716320286.65079,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"},
+        "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "90", "SyncToken":
+        "3629", "MetaData": {"CreateTime": "1979-12-21T00:19:40-08:00", "LastUpdatedTime":
+        "2024-04-22T20:07:19-07:00"}}, {"Name": "Fake-Danielle Pennington", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Danielle Pennington", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-GLQeGvBnwDTWnaaawhWaxHk",
+        "AccountSubType": "-Fallback-scrubbed-pbsRTRisLcXxXCSo", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "95", "SyncToken": "2523", "MetaData": {"CreateTime": "2006-08-21T11:18:59-07:00",
+        "LastUpdatedTime": "2025-04-09T15:26:55-07:00"}}, {"Name": "Fake-Betty Welch",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Betty Welch", "Active": false,
+        "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WcbR",
+        "AccountSubType": "Fake-Betty Welch", "CurrentBalance": 9.67290617089957,
+        "CurrentBalanceWithSubAccounts": 9.67290617089957, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD",
+        "sparse": true, "Id": "35", "SyncToken": "2523", "MetaData": {"CreateTime":
+        "1982-05-14T12:45:48-08:00", "LastUpdatedTime": "2025-06-30T06:52:26-07:00"}},
+        {"Name": "Fake-Adam Nunez", "SubAccount": true, "FullyQualifiedName": "Fake-Adam
+        Nunez", "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-IIquepmtLujwLuawpJzyZfOdIMJRL",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "9", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Travis Glass", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Travis Glass", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "Fake-Travis Glass", "AccountSubType":
+        "-Fallback-scrubbed-WbImkePYYTaGjKiuyNelh", "AcctNum": "4686", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "80", "SyncToken": "3629", "MetaData": {"CreateTime": "1986-08-13T10:22:34-08:00",
+        "LastUpdatedTime": "2022-09-09T12:29:55-07:00"}}, {"Name": "Fake-Mark Taylor",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Mark Taylor", "Active": false,
+        "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WSBaAmrxSxIUEqmPlof",
+        "AccountSubType": "-Fallback-scrubbed-KoCJsbTwrsZxXJDFbE", "AcctNum": "5668",
+        "CurrentBalance": -4545.30515390752, "CurrentBalanceWithSubAccounts": -4545.30515390752,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"},
+        "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "91", "SyncToken":
+        "2523", "MetaData": {"CreateTime": "1989-07-27T11:08:36-07:00", "LastUpdatedTime":
+        "2025-05-28T12:50:07-07:00"}}, {"Name": "Fake-Mia Blair", "SubAccount": true,
+        "FullyQualifiedName": "Fake-Mia Blair", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-SHkxNoLUiLvfq",
+        "AccountSubType": "Fake-Mia Blair", "AcctNum": "1027", "CurrentBalance": 7417,
+        "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "40", "SyncToken": "3629", "MetaData": {"CreateTime": "2015-01-21T10:38:51-08:00",
+        "LastUpdatedTime": "2023-03-03T11:46:53-08:00"}}, {"Name": "Fake-Andrew Harrington",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Andrew Harrington", "Active":
+        false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "82", "SyncToken": "2523", "MetaData": {"CreateTime": "2007-05-30T20:41:34-08:00",
+        "LastUpdatedTime": "2021-02-15T10:40:45-08:00"}}, {"Name": "Fake-Mr. David
+        Hawkins", "SubAccount": true, "FullyQualifiedName": "Fake-Mr. David Hawkins",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-wEPXLAMihlwrqGZtAmKkK",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "86", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2018-05-24T04:22:34-08:00", "LastUpdatedTime":
+        "2021-02-15T14:54:12-08:00"}}, {"Name": "Fake-Mr. Robert Hughes", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Mr. Robert Hughes", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-IIquepmtLujwLuawpJzyZfOdIMJRL", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "28", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Willie Grant",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Willie Grant", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-idBFUZZlDjegBXYSb", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "10", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Kevin Briggs",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Kevin Briggs", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-mShUJzHstmzVJit", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "29", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Richard Smith",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Richard Smith", "Active":
+        false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-SHkxNoLUiLvfq",
+        "AccountSubType": "-Fallback-scrubbed-RmZtbMXZeNHjMXpYUY", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "107", "SyncToken": "2523", "MetaData": {"CreateTime": "2019-03-23T16:52:57-07:00",
+        "LastUpdatedTime": "2025-05-30T09:17:05-07:00"}}, {"Name": "Fake-Raymond Pearson",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Raymond Pearson", "Active":
+        false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-lwwMSMgxaYqSZYVb", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "5", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Caitlyn Soto",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Caitlyn Soto", "Active": false,
+        "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WcbR",
+        "AccountSubType": "Fake-Betty Welch", "AcctNum": "8935", "CurrentBalance":
+        1541.48221614244, "CurrentBalanceWithSubAccounts": 1541.48221614244, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "1150040000", "SyncToken":
+        "3629", "MetaData": {"CreateTime": "1995-04-16T03:52:56-07:00", "LastUpdatedTime":
+        "2025-07-24T12:03:35-07:00"}}, {"Name": "Fake-Audrey Gaines", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Audrey Gaines", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "Fake-Audrey Gaines", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "11",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-15T10:17:24-08:00"}}, {"Name": "Fake-Robert Mathews",
+        "SubAccount": false, "ParentRef": {"value": "8907"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-TEmpErBKdNfRwfiLZlwQDurYJObTAo", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "Fake-Audrey Gaines", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "57",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "2017-09-13T06:29:51-08:00",
+        "LastUpdatedTime": "2021-02-15T10:17:24-08:00"}}, {"Name": "Fake-Brandon Coleman",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Brandon Coleman", "Active":
+        false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-wFSPZvExdiGv",
+        "AccountSubType": "-Fallback-scrubbed-jpnbpMgOaCitgz", "CurrentBalance": 7417,
+        "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "25", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Heidi Martinez",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Heidi Martinez", "Active":
+        false, "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-jlQaijXrEjIodhFxOEc",
+        "AccountSubType": "-Fallback-scrubbed-uibEapHIF", "CurrentBalance": -26152.7972359431,
+        "CurrentBalanceWithSubAccounts": -26152.7972359431, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD",
+        "sparse": true, "Id": "81", "SyncToken": "2523", "MetaData": {"CreateTime":
+        "1990-06-03T21:40:10-08:00", "LastUpdatedTime": "2025-07-25T12:34:35-07:00"}},
+        {"Name": "Fake-Patricia Terry", "SubAccount": true, "FullyQualifiedName":
+        "Fake-Patricia Terry", "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE",
+        "AccountType": "Fake-Travis Glass", "AccountSubType": "-Fallback-scrubbed-WbImkePYYTaGjKiuyNelh",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "93", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1975-03-21T19:08:08-08:00", "LastUpdatedTime":
+        "2023-02-10T23:12:36-08:00"}}, {"Name": "Fake-Frank Merritt", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Frank Merritt", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-IIquepmtLujwLuawpJzyZfOdIMJRL", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "58", "SyncToken": "2523", "MetaData": {"CreateTime": "2004-10-30T20:15:49-08:00",
+        "LastUpdatedTime": "2021-02-15T10:24:32-08:00"}}, {"Name": "Fake-Steven Sanders",
+        "SubAccount": false, "ParentRef": {"value": "9756"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-AiRtsgAjeFKXqphrdNwANluSNr", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-IIquepmtLujwLuawpJzyZfOdIMJRL", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "59", "SyncToken": "2523", "MetaData": {"CreateTime": "1971-01-24T11:47:53-08:00",
+        "LastUpdatedTime": "2021-02-15T10:19:26-08:00"}}, {"Name": "Fake-Theresa Tate",
+        "SubAccount": false, "ParentRef": {"value": "7709"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-KWkxLllvsmhYVNGdwWvyRLGmILQYhvyVovSvZFL", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-IIquepmtLujwLuawpJzyZfOdIMJRL", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "60", "SyncToken": "2523", "MetaData": {"CreateTime": "2005-06-17T00:53:28-08:00",
+        "LastUpdatedTime": "2021-02-15T10:19:07-08:00"}}, {"Name": "Fake-Elizabeth
+        Hunter", "SubAccount": false, "ParentRef": {"value": "7709"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-UHxKJpBqoyxSwSKZvLHVXNVgoaiclDfARIAmTumwIjUEjhmRvG", "Active":
+        false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-IIquepmtLujwLuawpJzyZfOdIMJRL", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "61", "SyncToken": "2523", "MetaData": {"CreateTime": "2020-02-07T23:20:34-08:00",
+        "LastUpdatedTime": "2021-02-15T10:19:26-08:00"}}, {"Name": "Fake-Kevin Briggs",
+        "SubAccount": false, "ParentRef": {"value": "9756"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-AmdLbhnLXBgEoPmoJzKTLUcbuZtSM", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-mShUJzHstmzVJit", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "62", "SyncToken": "2523", "MetaData": {"CreateTime": "1998-02-28T05:49:06-08:00",
+        "LastUpdatedTime": "2021-02-15T10:19:52-08:00"}}, {"Name": "Fake-Martin Gibson",
+        "SubAccount": false, "ParentRef": {"value": "9756"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-bQQOWzzokhipMIsKnZdvMRwTxj", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-jEaUmQAEGKswpawse", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "63", "SyncToken": "2523", "MetaData": {"CreateTime": "1991-08-03T22:34:53-08:00",
+        "LastUpdatedTime": "2021-02-15T10:23:30-08:00"}}, {"Name": "Fake-Keith Flores",
+        "SubAccount": false, "ParentRef": {"value": "3437"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-pTreudgCtTrwpayEAJBhtMjSQdNoXffTCAELlrlRNkX", "Active":
+        false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-jEaUmQAEGKswpawse", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "64", "SyncToken": "2523", "MetaData": {"CreateTime": "1980-04-08T21:24:07-08:00",
+        "LastUpdatedTime": "2021-02-15T10:22:18-08:00"}}, {"Name": "Fake-Cassandra
+        Castillo", "SubAccount": false, "ParentRef": {"value": "3437"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-NbNNLxSlgvstnrDILkJBhOrxaHdkKGCSNkawbIkeIYASKWssXAfkVIu",
+        "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-jEaUmQAEGKswpawse",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "65", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1983-07-28T17:32:24-08:00", "LastUpdatedTime":
+        "2021-02-15T10:22:40-08:00"}}, {"Name": "Fake-Crystal Rodriguez", "SubAccount":
+        false, "ParentRef": {"value": "3437"}, "FullyQualifiedName": "-Fallback-scrubbed-zvgKbWFJHXxVudPcDoKKKBRovoRhIRGaGKSBYNbQuo",
+        "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-jEaUmQAEGKswpawse",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "66", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2004-02-14T13:55:58-08:00", "LastUpdatedTime":
+        "2021-02-15T10:23:04-08:00"}}, {"Name": "Fake-Kevin Mitchell", "SubAccount":
+        false, "ParentRef": {"value": "3437"}, "FullyQualifiedName": "-Fallback-scrubbed-uiCjGPWhZqholFxENRusAFcnlryaqGdxfqjqXWsxjPnpuFUdUdyyaA",
+        "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-jEaUmQAEGKswpawse",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "67", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1979-11-01T22:23:08-08:00", "LastUpdatedTime":
+        "2021-02-15T10:23:30-08:00"}}, {"Name": "Fake-Duane Mcknight", "SubAccount":
+        false, "ParentRef": {"value": "9756"}, "FullyQualifiedName": "-Fallback-scrubbed-pgSQzvohblAVsVmvHLEL",
+        "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-IIquepmtLujwLuawpJzyZfOdIMJRL",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "68", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2002-05-21T16:03:19-08:00", "LastUpdatedTime":
+        "2021-02-15T10:24:32-08:00"}}, {"Name": "Fake-Evelyn Gibbs", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Evelyn Gibbs", "Active": false, "Classification":
+        "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "45", "SyncToken": "2523", "MetaData": {"CreateTime": "1999-04-05T06:45:44-08:00",
+        "LastUpdatedTime": "2021-02-15T10:08:54-08:00"}}, {"Name": "Fake-Martin Gibson",
+        "SubAccount": false, "ParentRef": {"value": "5412"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-qBBnPjFrjztbLBSINOUmilZinELIDBwrxU", "Active": false,
+        "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "46", "SyncToken": "2523", "MetaData": {"CreateTime": "1997-07-07T23:49:13-08:00",
+        "LastUpdatedTime": "2021-02-15T10:08:06-08:00"}}, {"Name": "Fake-Keith Flores",
+        "SubAccount": false, "ParentRef": {"value": "8516"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-PbvfFJzUoorTLzBQIHgxsgCyFHMymMRIEsBqBvVwKiPLDmlNJXV",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "47", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2016-03-22T20:30:14-08:00", "LastUpdatedTime":
+        "2021-02-15T10:06:54-08:00"}}, {"Name": "Fake-Nina Chan", "SubAccount": false,
+        "ParentRef": {"value": "8516"}, "FullyQualifiedName": "-Fallback-scrubbed-WVALZvZiKmHgTshgugMPMQdOIbbHhYiQxsoTfOzgnAZBIyxGTXcGUkNdqpyYwbQA",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "48", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1972-12-24T05:28:29-08:00", "LastUpdatedTime":
+        "2021-02-15T10:07:22-08:00"}}, {"Name": "Fake-Crystal Rodriguez", "SubAccount":
+        false, "ParentRef": {"value": "8516"}, "FullyQualifiedName": "-Fallback-scrubbed-nUempYaPdojkgnSolVpZtQOJICutZklbkKMRdVmRLwXjZKesBv",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp",
+        "AcctNum": "2455", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "49",
+        "SyncToken": "3629", "MetaData": {"CreateTime": "2010-10-19T17:56:39-08:00",
+        "LastUpdatedTime": "2022-09-09T12:08:05-07:00"}}, {"Name": "Fake-Kevin Mitchell",
+        "SubAccount": false, "ParentRef": {"value": "8516"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-jhudhXYNFMgEZYKvxEyhnYCPSDbebLnjEPcDQfJhUcRrEOxeemRsLeVHYqbVcc",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "50", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1988-04-08T03:29:13-08:00", "LastUpdatedTime":
+        "2021-02-15T10:08:06-08:00"}}, {"Name": "Fake-Shelly Jones", "SubAccount":
+        false, "ParentRef": {"value": "5412"}, "FullyQualifiedName": "-Fallback-scrubbed-JIitMkzmAHGvabAdyhkrgGtMCT",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "51", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1989-02-25T13:39:17-08:00", "LastUpdatedTime":
+        "2021-02-15T10:12:11-08:00"}}, {"Name": "Fake-Theresa Tate", "SubAccount":
+        false, "ParentRef": {"value": "5869"}, "FullyQualifiedName": "-Fallback-scrubbed-MnAIjiAYpzboavEiiQbOoECUzkfdeadPjFyVqWT",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "52", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2004-03-29T22:18:30-08:00", "LastUpdatedTime":
+        "2021-02-15T10:09:35-08:00"}}, {"Name": "Fake-Patricia Rose", "SubAccount":
+        false, "ParentRef": {"value": "5869"}, "FullyQualifiedName": "-Fallback-scrubbed-UpnWvVIuVWOOvHrMcHHCsWIBVjTMuESSayLMmpVRfXOBzCaJK",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "53", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2002-05-27T16:48:39-08:00", "LastUpdatedTime":
+        "2021-02-15T10:12:11-08:00"}}, {"Name": "Fake-Philip Evans", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Philip Evans", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-zvQMVYVISFZVeEJtyrLBD", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "12", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-15T10:26:24-08:00"}}, {"Name": "Fake-Veronica
+        Mccall", "SubAccount": false, "ParentRef": {"value": "9892"}, "Description":
+        "-Fallback-scrubbed-WpAXHtaTnVJICWlb", "FullyQualifiedName": "-Fallback-scrubbed-paEtolgObZJhXJesxTXgHFlDTdSdQdYnDUii",
+        "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-zvQMVYVISFZVeEJtyrLBD",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "69", "SyncToken": "3629",
+        "MetaData": {"CreateTime": "1976-08-04T07:54:41-08:00", "LastUpdatedTime":
+        "2025-06-04T07:20:17-07:00"}}, {"Name": "Fake-Michael Becker", "SubAccount":
+        false, "ParentRef": {"value": "9892"}, "FullyQualifiedName": "-Fallback-scrubbed-vXKbMeeeCwFgsiuYxoHkVxwiqjtmhnWYddPf",
+        "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-zvQMVYVISFZVeEJtyrLBD",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "70", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1996-04-24T17:13:31-08:00", "LastUpdatedTime":
+        "2021-02-15T10:25:30-08:00"}}, {"Name": "Fake-Susan Bennett", "SubAccount":
+        false, "ParentRef": {"value": "9892"}, "FullyQualifiedName": "-Fallback-scrubbed-xqMgLRlHOOWoDtzxSPbmXINPeLqUmLGE",
+        "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-zvQMVYVISFZVeEJtyrLBD",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "71", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2015-01-02T23:15:30-08:00", "LastUpdatedTime":
+        "2021-02-15T10:26:24-08:00"}}, {"Name": "Fake-Dale Willis", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Dale Willis", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-GLQeGvBnwDTWnaaawhWaxHk",
+        "AccountSubType": "-Fallback-scrubbed-gBNiXOBnSYCnTqJavJGtIGK", "CurrentBalance":
+        64643669190750.4, "CurrentBalanceWithSubAccounts": 64643669190750.4, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "43", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2014-06-16T14:24:14-08:00", "LastUpdatedTime":
+        "2021-02-15T10:03:25-08:00"}}, {"Name": "Fake-Patricia Rose", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Patricia Rose", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-jrANWLRrJroVPGzxY", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "72", "SyncToken": "2523", "MetaData": {"CreateTime": "1995-01-19T13:36:06-08:00",
+        "LastUpdatedTime": "2021-02-15T10:29:17-08:00"}}, {"Name": "Fake-Victoria
+        Garcia", "SubAccount": false, "ParentRef": {"value": "209"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-YkDSPkzbxYRXKdflkoExQElVXiHRcWdsZqKZkAq", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-jrANWLRrJroVPGzxY", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "73", "SyncToken": "2523", "MetaData": {"CreateTime": "1971-06-04T22:23:33-08:00",
+        "LastUpdatedTime": "2021-02-15T10:27:37-08:00"}}, {"Name": "Fake-Alex Thomas",
+        "SubAccount": false, "ParentRef": {"value": "209"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-NrBeckbRNLsVdcphUkOHSXzanrshVsAcVLvJNLd", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-jrANWLRrJroVPGzxY", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "74", "SyncToken": "2523", "MetaData": {"CreateTime": "2000-01-19T23:34:48-08:00",
+        "LastUpdatedTime": "2021-02-15T10:28:49-08:00"}}, {"Name": "Fake-Abigail Williamson",
+        "SubAccount": false, "ParentRef": {"value": "209"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-dAvVXkuxVJSHroDeoQiIyHmyqutsrPkfByaKArUv", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-jrANWLRrJroVPGzxY", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "75", "SyncToken": "2523", "MetaData": {"CreateTime": "2010-05-25T02:40:09-08:00",
+        "LastUpdatedTime": "2021-02-15T10:29:17-08:00"}}, {"Name": "Fake-Christopher
+        Duncan", "SubAccount": true, "FullyQualifiedName": "Fake-Christopher Duncan",
+        "Active": false, "Classification": "-Fallback-scrubbed-hdhJvcDtv", "AccountType":
+        "-Fallback-scrubbed-gCSFiLjkeZe", "AccountSubType": "-Fallback-scrubbed-jNcOfHJNsh",
+        "CurrentBalance": -79696.8524591501, "CurrentBalanceWithSubAccounts": -79696.8524591501,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"},
+        "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "41", "SyncToken":
+        "3629", "MetaData": {"CreateTime": "1984-09-26T07:21:31-08:00", "LastUpdatedTime":
+        "2025-07-24T11:06:36-07:00"}}, {"Name": "Fake-Ruben Russell DVM", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Ruben Russell DVM", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-bOIfVbJvtRbLyqcmwe", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "13", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Christine
+        Martinez", "SubAccount": true, "FullyQualifiedName": "Fake-Christine Martinez",
+        "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType":
+        "-Fallback-scrubbed-SHkxNoLUiLvfq", "AccountSubType": "-Fallback-scrubbed-dhWhZwmICNEqAYwlOoqjzQdtb",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "14", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Dawn Butler", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Dawn Butler", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-HXuNSHmxKZkuYuAuzTw",
+        "AccountSubType": "-Fallback-scrubbed-aOARCQEyVpPMDwjIYTXipSGA", "CurrentBalance":
+        -98612552385202.7, "CurrentBalanceWithSubAccounts": -98612552385202.7, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "44", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1991-01-24T12:22:08-08:00", "LastUpdatedTime":
+        "2021-02-15T10:04:24-08:00"}}, {"Name": "Fake-Barbara Hansen", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Barbara Hansen", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-GTnEcTwIktcVmZRJNclxbEAuFyqyReqJkgF",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "15", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Kimberly Black", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Kimberly Black", "Active": false, "Classification":
+        "-Fallback-scrubbed-OoogVh", "AccountType": "-Fallback-scrubbed-OoogVh", "AccountSubType":
+        "-Fallback-scrubbed-BEsKtVMLEVLoaBGOJWde", "CurrentBalance": 8267611.1472869,
+        "CurrentBalanceWithSubAccounts": 8267611.1472869, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD",
+        "sparse": true, "Id": "34", "SyncToken": "2523", "MetaData": {"CreateTime":
+        "1982-05-14T12:45:48-08:00", "LastUpdatedTime": "2025-07-28T12:55:56-07:00"}},
+        {"Name": "-Fallback-scrubbed-wFSPZvExdiGv", "SubAccount": true, "FullyQualifiedName":
+        "-Fallback-scrubbed-wFSPZvExdiGv", "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb",
+        "AccountType": "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp",
+        "AcctNum": "4693", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "83",
+        "SyncToken": "3629", "MetaData": {"CreateTime": "2008-08-22T07:05:02-08:00",
+        "LastUpdatedTime": "2024-02-05T05:42:53-08:00"}}, {"Name": "Fake-Cristian
+        Tucker", "SubAccount": true, "FullyQualifiedName": "Fake-Cristian Tucker",
+        "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-wFSPZvExdiGv", "AccountSubType": "-Fallback-scrubbed-cvpWtmpqdmVNomjQbZxeZhxo",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "26", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-John Jensen", "SubAccount":
+        true, "FullyQualifiedName": "Fake-John Jensen", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-GLQeGvBnwDTWnaaawhWaxHk",
+        "AccountSubType": "-Fallback-scrubbed-pbsRTRisLcXxXCSo", "CurrentBalance":
+        -83.1927071358074, "CurrentBalanceWithSubAccounts": -83.1927071358074, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "96", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2021-10-28T13:36:32-07:00", "LastUpdatedTime":
+        "2025-07-24T10:22:54-07:00"}}, {"Name": "Fake-Shelby Valentine", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Shelby Valentine", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-SHkxNoLUiLvfq",
+        "AccountSubType": "-Fallback-scrubbed-xPUlxqvxIHjUkiNUewHX", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "27", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-John Bates",
+        "SubAccount": true, "FullyQualifiedName": "Fake-John Bates", "Active": false,
+        "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-hExupNcKLHQldeFYIp", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "54", "SyncToken": "2523", "MetaData": {"CreateTime": "2007-11-12T18:18:09-08:00",
+        "LastUpdatedTime": "2021-02-15T10:14:56-08:00"}}, {"Name": "Fake-Juan Bennett",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Juan Bennett", "Active": false,
+        "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-jlQaijXrEjIodhFxOEc",
+        "AccountSubType": "-Fallback-scrubbed-JftTMmZqoRoFUGz", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "3", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Jennifer
+        Sharp", "SubAccount": true, "FullyQualifiedName": "Fake-Jennifer Sharp", "Active":
+        false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-zMipwULQJakOqsLTgvgZwH", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "16", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Shelly Lewis",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Shelly Lewis", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-jEaUmQAEGKswpawse", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "78", "SyncToken": "2523", "MetaData": {"CreateTime": "1979-03-27T11:14:48-08:00",
+        "LastUpdatedTime": "2021-02-15T10:36:03-08:00"}}, {"Name": "Fake-Daniel Day",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Daniel Day", "Active": false,
+        "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-JMcWvHZRgBZQUsHZAmAR", "AcctNum": "3848",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "92", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1986-07-31T01:15:24-07:00", "LastUpdatedTime":
+        "2022-06-26T20:56:32-07:00"}}, {"Name": "Fake-Jessica Porter", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Jessica Porter", "Active": false, "Classification":
+        "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-wEPXLAMihlwrqGZtAmKkK", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "6", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Jasmine Johnson",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Jasmine Johnson", "Active":
+        false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-KJIPzujNQpeLEFaZuBfBhh", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "17", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Tara Smith",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Tara Smith", "Active": false,
+        "Classification": "-Fallback-scrubbed-OoogVh", "AccountType": "-Fallback-scrubbed-OoogVh",
+        "AccountSubType": "-Fallback-scrubbed-uPatrNKaJSvTFyAd", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "2", "SyncToken": "2523", "MetaData": {"CreateTime": "2020-02-06T22:55:27-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}}, {"Name": "Fake-Don Harding",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Don Harding", "Active": false,
+        "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-JMcWvHZRgBZQUsHZAmAR", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "79", "SyncToken": "2523", "MetaData": {"CreateTime": "1979-03-27T11:14:48-08:00",
+        "LastUpdatedTime": "2021-02-15T10:36:03-08:00"}}, {"Name": "Fake-Michelle
+        Day", "SubAccount": true, "FullyQualifiedName": "Fake-Michelle Day", "Active":
+        false, "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WcbR",
+        "AccountSubType": "Fake-Michelle Day", "CurrentBalance": -87385.6430036615,
+        "CurrentBalanceWithSubAccounts": -87385.6430036615, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD",
+        "sparse": true, "Id": "36", "SyncToken": "2523", "MetaData": {"CreateTime":
+        "2023-02-27T12:26:32-08:00", "LastUpdatedTime": "2022-10-27T11:43:50-07:00"}},
+        {"Name": "Fake-Tina Cooper", "SubAccount": true, "FullyQualifiedName": "Fake-Tina
+        Cooper", "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb",
+        "AccountType": "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-lwwMSMgxaYqSZYVb",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "1", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2020-02-06T22:55:27-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:05-08:00"}}, {"Name": "Fake-Dan Brown", "SubAccount": true,
+        "FullyQualifiedName": "Fake-Dan Brown", "Active": false, "Classification":
+        "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-lwwMSMgxaYqSZYVb", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "94", "SyncToken": "2523", "MetaData": {"CreateTime": "2024-02-12T23:26:19-08:00",
+        "LastUpdatedTime": "2023-02-28T23:52:35-08:00"}}, {"Name": "Fake-Joshua Decker",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Joshua Decker", "Active":
+        false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-GTnEcTwIktcVmZRJNclxbEAuFyqyReqJkgF",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "19", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Rachael Kim", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Rachael Kim", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-jEaUmQAEGKswpawse", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "20", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Madison Thompson",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Madison Thompson", "Active":
+        false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-CAhtCxNVY", "CurrentBalance": 7417,
+        "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "21", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Denise Myers",
+        "SubAccount": true, "Description": "-Fallback-scrubbed-BRkKUvGDXpdMgsjUbUdwGuDu",
+        "FullyQualifiedName": "Fake-Denise Myers", "Active": false, "Classification":
+        "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-wFSPZvExdiGv",
+        "AccountSubType": "-Fallback-scrubbed-cvpWtmpqdmVNomjQbZxeZhxo", "AcctNum":
+        "-Fallback-scrubbed-uxYGOwIg", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "1150040003",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "2002-12-16T19:47:10-07:00",
+        "LastUpdatedTime": "2025-06-20T13:39:10-07:00"}}, {"Name": "Fake-Justin King",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Justin King", "Active": false,
+        "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "Fake-Justin King", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "22",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Angela Rodriguez",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Angela Rodriguez", "Active":
+        false, "Classification": "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-RCyqPeITqeM", "CurrentBalance": 7417,
+        "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "23", "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Michele Wilkins",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Michele Wilkins", "Active":
+        false, "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-vHQkiUwocIy",
+        "AccountSubType": "-Fallback-scrubbed-jKImbUzu", "AcctNum": "6568", "CurrentBalance":
+        1849.27570393059, "CurrentBalanceWithSubAccounts": 7.7466273476628, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "37", "SyncToken": "3629",
+        "MetaData": {"CreateTime": "2009-06-25T19:21:31-08:00", "LastUpdatedTime":
+        "2025-06-16T08:57:18-07:00"}}, {"Name": "Fake-Mia Blair", "SubAccount": false,
+        "ParentRef": {"value": "8597"}, "FullyQualifiedName": "-Fallback-scrubbed-hHuVktXCVkQmCSqAch",
+        "Active": false, "Classification": "-Fallback-scrubbed-XYIpu", "AccountType":
+        "-Fallback-scrubbed-vHQkiUwocIy", "AccountSubType": "-Fallback-scrubbed-wsEWPbBWDzbdFlQCPnsvmUw",
+        "AcctNum": "1066", "CurrentBalance": 76.250913276214, "CurrentBalanceWithSubAccounts":
+        76.250913276214, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name":
+        "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true,
+        "Id": "39", "SyncToken": "3629", "MetaData": {"CreateTime": "2015-01-21T10:38:51-08:00",
+        "LastUpdatedTime": "2023-03-15T09:55:48-07:00"}}, {"Name": "Fake-Scott Fleming",
+        "SubAccount": false, "ParentRef": {"value": "8597"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-QZpqOYNNeHitMsHLwNp", "Active": false, "Classification":
+        "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-vHQkiUwocIy",
+        "AccountSubType": "-Fallback-scrubbed-jKImbUzu", "CurrentBalance": 514.144013233065,
+        "CurrentBalanceWithSubAccounts": 514.144013233065, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD",
+        "sparse": true, "Id": "38", "SyncToken": "2523", "MetaData": {"CreateTime":
+        "2009-06-25T19:21:31-08:00", "LastUpdatedTime": "2023-03-15T09:55:48-07:00"}},
+        {"Name": "Fake-Thomas Larsen", "SubAccount": true, "FullyQualifiedName": "Fake-Thomas
+        Larsen", "Active": false, "Classification": "-Fallback-scrubbed-vHnlvdE",
+        "AccountType": "-Fallback-scrubbed-vHnlvdE", "AccountSubType": "-Fallback-scrubbed-JxGBdHCofwDqggaASPQOHOsiMIhGuuc",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "88", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1985-10-04T19:05:34-08:00", "LastUpdatedTime":
+        "2021-02-15T15:28:48-08:00"}}, {"Name": "Fake-James Macdonald", "SubAccount":
+        true, "FullyQualifiedName": "Fake-James Macdonald", "Active": false, "Classification":
+        "-Fallback-scrubbed-osbjCnb", "AccountType": "-Fallback-scrubbed-lxvNpu",
+        "AccountSubType": "-Fallback-scrubbed-qtELtgfGobmpcxOqmgIbrOmxkt", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "87", "SyncToken": "2523", "MetaData": {"CreateTime": "1980-06-07T10:40:58-08:00",
+        "LastUpdatedTime": "2021-02-15T15:08:16-08:00"}}, {"Name": "Fake-Brian Burton",
+        "SubAccount": true, "FullyQualifiedName": "Fake-Brian Burton", "Active": false,
+        "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-jlQaijXrEjIodhFxOEc",
+        "AccountSubType": "-Fallback-scrubbed-ZfeByWDCrTlRVfiTDR", "CurrentBalance":
+        29304.5797331643, "CurrentBalanceWithSubAccounts": 29304.5797331643, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "32", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2006-06-06T02:46:04-08:00", "LastUpdatedTime":
+        "2025-05-30T08:36:41-07:00"}}, {"Name": "Fake-Charles Berry", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Charles Berry", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "-Fallback-scrubbed-IIquepmtLujwLuawpJzyZfOdIMJRL", "CurrentBalance":
+        7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI",
+        "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse":
+        true, "Id": "31", "SyncToken": "2523", "MetaData": {"CreateTime": "2006-06-06T02:46:04-08:00",
+        "LastUpdatedTime": "2021-02-10T14:46:30-08:00"}}, {"Name": "Fake-Ms. Diane
+        Mccoy MD", "SubAccount": true, "FullyQualifiedName": "Fake-Ms. Diane Mccoy
+        MD", "Active": false, "Classification": "-Fallback-scrubbed-osbjCnb", "AccountType":
+        "-Fallback-scrubbed-lxvNpu", "AccountSubType": "-Fallback-scrubbed-lwwMSMgxaYqSZYVb",
+        "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts": 7417, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "30", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "2006-06-06T02:46:04-08:00", "LastUpdatedTime":
+        "2021-02-10T14:46:30-08:00"}}, {"Name": "Fake-Ashley Clark", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Ashley Clark", "Active": false, "Classification":
+        "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-jlQaijXrEjIodhFxOEc",
+        "AccountSubType": "-Fallback-scrubbed-pAzxRGkIhNpBaFaf", "CurrentBalance":
+        -625120.266574713, "CurrentBalanceWithSubAccounts": -625120.266574713, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain":
+        "-Fallback-scrubbed-APD", "sparse": true, "Id": "4", "SyncToken": "2523",
+        "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00", "LastUpdatedTime":
+        "2025-05-30T08:26:14-07:00"}}], "startPosition": 1, "maxResults": 100}, "time":
+        "1993-01-18T02:00:25.530-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '63508'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 11:56:07 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '48573'
+      intuit_tid:
+      - 1-6891f157-413313390d02f20c35d81424
+      x-amzn-trace-id:
+      - Root=1-6891f157-413313390d02f20c35d81424
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '548'
+      x-request-id:
+      - 1-6891f157-413313390d02f20c35d81424
+      x-spanid:
+      - 159d7f62-bab1-da86-1c60-1c57447c81d3
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Account++STARTPOSITION+101+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Account": [{"Name": "Fake-Ian Anthony", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Ian Anthony", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "Fake-Ian Anthony", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "24",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "1972-01-20T02:33:33-08:00",
+        "LastUpdatedTime": "2021-02-15T10:30:53-08:00"}}, {"Name": "Fake-Amanda Baldwin",
+        "SubAccount": false, "ParentRef": {"value": "4903"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-wUGVpzmkGDlHQqOaKkaUTCtmDi", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "Fake-Ian Anthony", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "76",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "2008-04-02T01:22:14-08:00",
+        "LastUpdatedTime": "2021-02-15T10:30:29-08:00"}}, {"Name": "Fake-Frederick
+        Sanchez", "SubAccount": false, "ParentRef": {"value": "4903"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-WAqGTNfcqiHyuplPIsZ", "Active": false, "Classification":
+        "-Fallback-scrubbed-vHnlvdE", "AccountType": "-Fallback-scrubbed-vHnlvdE",
+        "AccountSubType": "Fake-Ian Anthony", "CurrentBalance": 7417, "CurrentBalanceWithSubAccounts":
+        7417, "CurrencyRef": {"value": "-Fallback-scrubbed-VfI", "name": "Fake-Kylie
+        Goodwin"}, "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "77",
+        "SyncToken": "2523", "MetaData": {"CreateTime": "2000-10-19T05:34:18-08:00",
+        "LastUpdatedTime": "2021-02-15T10:30:53-08:00"}}, {"Name": "Fake-April King",
+        "SubAccount": true, "FullyQualifiedName": "Fake-April King", "Active": false,
+        "Classification": "-Fallback-scrubbed-XYIpu", "AccountType": "-Fallback-scrubbed-WcbR",
+        "AccountSubType": "Fake-Betty Welch", "CurrentBalance": 503519359.969083,
+        "CurrentBalanceWithSubAccounts": 503519359.969083, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-LES", "name": "Fake-Scott Singh"}, "domain": "-Fallback-scrubbed-APD",
+        "sparse": true, "Id": "1150040001", "SyncToken": "2523", "MetaData": {"CreateTime":
+        "1981-05-11T14:29:41-07:00", "LastUpdatedTime": "2025-05-30T09:07:41-07:00"}},
+        {"Name": "Fake-Kristina Smith", "SubAccount": true, "FullyQualifiedName":
+        "Fake-Kristina Smith", "Active": false, "Classification": "-Fallback-scrubbed-XYIpu",
+        "AccountType": "-Fallback-scrubbed-WcbR", "AccountSubType": "Fake-Betty Welch",
+        "CurrentBalance": -59491.8014089349, "CurrentBalanceWithSubAccounts": -59491.8014089349,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-nZm", "name": "Fake-Pamela Reeves"},
+        "domain": "-Fallback-scrubbed-APD", "sparse": true, "Id": "1150040002", "SyncToken":
+        "2523", "MetaData": {"CreateTime": "1992-09-05T10:01:12-07:00", "LastUpdatedTime":
+        "2025-05-30T09:17:05-07:00"}}, {"Name": "Fake-Brittany Watson MD", "SubAccount":
+        true, "FullyQualifiedName": "Fake-Brittany Watson MD", "Active": false, "Classification":
+        "-Fallback-scrubbed-hdhJvcDtv", "AccountType": "-Fallback-scrubbed-gCSFiLjkeZe",
+        "AccountSubType": "-Fallback-scrubbed-jNcOfHJNsh", "CurrentBalance": -125.99364243299,
+        "CurrentBalanceWithSubAccounts": -125.99364243299, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-VfI", "name": "Fake-Kylie Goodwin"}, "domain": "-Fallback-scrubbed-APD",
+        "sparse": true, "Id": "42", "SyncToken": "2523", "MetaData": {"CreateTime":
+        "2020-05-22T19:58:01-08:00", "LastUpdatedTime": "2025-04-18T06:30:13-07:00"}}],
+        "startPosition": 101, "maxResults": 6}, "time": "1981-03-31T19:08:49.431-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3803'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 11:56:09 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '2827'
+      intuit_tid:
+      - 1-6891f159-576787fb761418b672f0adcf
+      x-amzn-trace-id:
+      - Root=1-6891f159-576787fb761418b672f0adcf
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '462'
+      x-request-id:
+      - 1-6891f159-576787fb761418b672f0adcf
+      x-spanid:
+      - e4326f0c-06b2-5faa-3ff6-0199774a52af
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,6 @@
+{"type": "STATE", "value": {"current_stream": "ProfitAndLossReport"}}
+{"type": "SCHEMA", "stream": "ProfitAndLossReport", "schema": {"type": "object", "additionalProperties": false, "properties": {"Total": {"type": ["null", "number"]}, "Categories": {"type": ["null", "array"], "items": {"type": ["string", "null"]}}, "Account": {"type": ["string", "null"]}}}, "key_properties": []}
+{"type": "ACTIVATE_VERSION", "stream": "ProfitAndLossReport", "version": 1750204800000}
+{"type": "ACTIVATE_VERSION", "stream": "ProfitAndLossReport", "version": 1750204800000}
+{"type": "STATE", "value": {"current_stream": "ProfitAndLossReport", "bookmarks": {"ProfitAndLossReport": {"version": null}}}}
+{"type": "STATE", "value": {"current_stream": null, "bookmarks": {"ProfitAndLossReport": {"version": null}}}}

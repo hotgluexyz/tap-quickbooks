@@ -1,0 +1,6 @@
+{"type": "STATE", "value": {"current_stream": "ARAgingSummaryReport"}}
+{"type": "SCHEMA", "stream": "ARAgingSummaryReport", "schema": {"type": "object", "additionalProperties": false, "properties": {"Customer": {"type": ["string", "null"]}, "Current": {"type": ["null", "number"]}, "1-30": {"type": ["null", "number"]}, "31-60": {"type": ["null", "number"]}, "61-90": {"type": ["null", "number"]}, "91andover": {"type": ["null", "number"]}, "Total": {"type": ["null", "number"]}}}, "key_properties": []}
+{"type": "ACTIVATE_VERSION", "stream": "ARAgingSummaryReport", "version": 1794248113446}
+{"type": "ACTIVATE_VERSION", "stream": "ARAgingSummaryReport", "version": 1794248113447}
+{"type": "STATE", "value": {"current_stream": "ARAgingSummaryReport", "bookmarks": {"ARAgingSummaryReport": {"version": null}}}}
+{"type": "STATE", "value": {"current_stream": null, "bookmarks": {"ARAgingSummaryReport": {"version": null}}}}

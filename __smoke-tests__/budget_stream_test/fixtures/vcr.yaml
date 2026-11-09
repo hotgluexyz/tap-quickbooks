@@ -1,0 +1,109 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 3198, "token_type":
+        "-Fallback-scrubbed-sfLKPS", "refresh_token": "ref***", "access_token": "acc***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:20:27 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f70b-779a619754b448ac7d67c868
+      x-amzn-trace-id:
+      - Root=1-6891f70b-779a619754b448ac7d67c868
+      x-envoy-upstream-service-time:
+      - '138'
+      x-request-id:
+      - 1-6891f70b-779a619754b448ac7d67c868
+      x-spanid:
+      - 50a0888d-2082-82d5-23f7-35bd7bbbad7d
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Budget++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {}, "time": "1979-05-15T13:28:39.251-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:20:29 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '59'
+      intuit_tid:
+      - 1-6891f70d-388200a70e76daff4612a6fe
+      x-amzn-trace-id:
+      - Root=1-6891f70d-388200a70e76daff4612a6fe
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '178'
+      x-request-id:
+      - 1-6891f70d-388200a70e76daff4612a6fe
+      x-spanid:
+      - fbeaac4e-3821-3ef3-f809-0e3ce0fe4d33
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,10 @@
+{
+    "client_id": "CLI***",
+    "client_secret": "CLI***",
+    "refresh_token": "ref***",
+    "access_token": "acc***",
+    "start_date": "2005-01-01T00:00:00Z",
+    "select_fields_by_default": true,
+    "realmId": "462***",
+    "is_sandbox": true
+}

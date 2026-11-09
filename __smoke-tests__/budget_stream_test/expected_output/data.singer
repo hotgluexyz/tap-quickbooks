@@ -1,0 +1,6 @@
+{"type": "STATE", "value": {"current_stream": "Budget"}}
+{"type": "SCHEMA", "stream": "Budget", "schema": {"type": "object", "additionalProperties": false, "properties": {"Id": {"type": ["string", "null"]}, "Name": {"type": ["string", "null"]}, "BudgetType": {"type": ["string", "null"]}, "BudgetEntryType": {"type": ["string", "null"]}, "StartDate": {"type": ["string", "null"]}, "EndDate": {"type": ["string", "null"]}, "SyncToken": {"type": ["string", "null"]}, "MetaData": {"type": ["string", "null"]}, "Active": {"type": ["boolean", "null"]}, "BudgetDetail": {"type": ["null", "array"], "items": {"type": ["string", "null"]}}}}, "key_properties": []}
+{"type": "ACTIVATE_VERSION", "stream": "Budget", "version": 1794248117967}
+{"type": "ACTIVATE_VERSION", "stream": "Budget", "version": 1794248117967}
+{"type": "STATE", "value": {"current_stream": "Budget", "bookmarks": {"Budget": {"version": null}}}}
+{"type": "STATE", "value": {"current_stream": null, "bookmarks": {"Budget": {"version": null}}}}

@@ -1,0 +1,6 @@
+{"type": "STATE", "value": {"current_stream": "CashFlowReport"}}
+{"type": "SCHEMA", "stream": "CashFlowReport", "schema": {"type": "object", "additionalProperties": false, "properties": {"Total": {"type": ["null", "number"]}, "Account": {"type": ["string", "null"]}, "Categories": {"type": ["null", "array"], "items": {"type": ["string", "null"]}}}}, "key_properties": []}
+{"type": "ACTIVATE_VERSION", "stream": "CashFlowReport", "version": 1794248118789}
+{"type": "ACTIVATE_VERSION", "stream": "CashFlowReport", "version": 1794248118790}
+{"type": "STATE", "value": {"current_stream": "CashFlowReport", "bookmarks": {"CashFlowReport": {"version": null}}}}
+{"type": "STATE", "value": {"current_stream": null, "bookmarks": {"CashFlowReport": {"version": null}}}}

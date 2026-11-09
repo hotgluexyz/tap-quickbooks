@@ -1,0 +1,2281 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 4994, "refresh_token":
+        "ref***", "access_token": "acc***", "token_type": "-Fallback-scrubbed-ifRhNS"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:18:31 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f697-3c2d46be7f1da9e452988d04
+      x-amzn-trace-id:
+      - Root=1-6891f697-3c2d46be7f1da9e452988d04
+      x-envoy-upstream-service-time:
+      - '124'
+      x-request-id:
+      - 1-6891f697-3c2d46be7f1da9e452988d04
+      x-spanid:
+      - 72733df7-0c16-836c-37ef-310d34f679bb
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Bill++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Bill": [{"DueDate": "2016-09-29", "VendorAddr":
+        {"Id": "613", "Line1": "-Fallback-scrubbed-EgSnooAyJcYh", "City": "Fake-Gibsonton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode": "90640"},
+        "Balance": -9911.37511177312, "HomeBalance": -9911.37511177312, "domain":
+        "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "727", "SyncToken": "4869",
+        "MetaData": {"CreateTime": "2016-10-26T00:49:20-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2025-07-24T11:06:36-07:00"}, "DocNumber":
+        "-Fallback-scrubbed-PDUVibtyXjieYdXB", "TxnDate": "2016-09-29", "DepartmentRef":
+        {"value": "9891", "name": "Fake-James Simmons"}, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "LinkedTxn": [{"TxnId": "9845", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "6918", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "5691", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "1401",
+        "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "9997", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id": "14", "LineNum":
+        5758, "Description": "-Fallback-scrubbed-BoIDXXqdBFoEJ", "Amount": -254006491330.398,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name": "Fake-Stephen
+        Walter"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "4438", "name": "Fake-Jamie Miller"}, "ClassRef": {"value": "3189", "name":
+        "Fake-Ricky Morrison"}, "UnitPrice": 8467, "Qty": 8467, "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "15", "LineNum": 1392, "Description":
+        "-Fallback-scrubbed-XlUEpwCdFXFug", "Amount": -254006491330.398, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2767", "name": "Fake-Stephen Walter"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value": "3430", "name": "Fake-James
+        Flores"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky Morrison"}, "UnitPrice":
+        8467, "Qty": 8467, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id":
+        "16", "LineNum": 1044, "Description": "-Fallback-scrubbed-XqpmRagklfBwZDAJvAfQr",
+        "Amount": -254006491330.398, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name":
+        "Fake-Stephen Walter"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky
+        Morrison"}, "AccountRef": {"value": "5016", "name": "Fake-Henry Ferguson"},
+        "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "17", "LineNum": 4730, "Description":
+        "-Fallback-scrubbed-oUPROZzUMXCBigMQIlHgv", "Amount": -254006491330.398, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2767", "name": "Fake-Stephen Walter"}, "ClassRef":
+        {"value": "3189", "name": "Fake-Ricky Morrison"}, "AccountRef": {"value":
+        "6075", "name": "Fake-Linda Frazier"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "9638", "name": "Fake-Kristina Banks"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": 519383.85816993}, {"SalesTermRef":
+        {"value": "8315"}, "DueDate": "1978-07-25", "VendorAddr": {"Id": "655", "Line1":
+        "-Fallback-scrubbed-kROJPwinGmnJSNyT", "Line2": "-Fallback-scrubbed-wxBxOAzfONmr",
+        "Line3": "-Fallback-scrubbed-lHDgJEEEEQnv", "Line4": "-Fallback-scrubbed-zDwNaQsKIpR",
+        "Line5": "-Fallback-scrubbed-thwndSdQmrpIkzkEKIMJXbWdHHOlY"}, "Balance": 607.554694309464,
+        "HomeBalance": 607.554694309464, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "738", "SyncToken": "9891", "MetaData": {"CreateTime": "1971-10-09T00:13:55-07:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2025-07-07T06:59:26-07:00"},
+        "DocNumber": "6987", "TxnDate": "1982-05-22", "DepartmentRef": {"value": "4058",
+        "name": "Fake-Christopher Rojas"}, "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId":
+        "8085", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "1646",
+        "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}, {"TxnId": "4527", "TxnType":
+        "-Fallback-scrubbed-wlkfJwoTyeouWyW"}, {"TxnId": "6687", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"},
+        {"TxnId": "4346", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}], "Line":
+        [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-xMZtXxEBiGUdrgcEqK",
+        "Amount": -7655.53288905807, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"CustomerRef": {"value": "3976", "name": "Fake-Kayla
+        Gregory"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef":
+        {"value": "4438", "name": "Fake-Jamie Miller"}, "ClassRef": {"value": "7171",
+        "name": "Fake-Joseph Garza"}, "UnitPrice": 6070, "Qty": 5758, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}, {"Id": "2", "LineNum": 1392, "Description":
+        "-Fallback-scrubbed-xMZtXxEBiGUdrgcEqK", "Amount": -7655.53288905807, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "1093", "name": "Fake-Lance Johnson"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value": "3867", "name": "Fake-Michael
+        Franco"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky Morrison"}, "UnitPrice":
+        6070, "Qty": 5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}, "ProjectRef":
+        {"value": "1572"}}, {"Id": "3", "LineNum": 1044, "Description": "-Fallback-scrubbed-aqH",
+        "Amount": -254006491330.398, "LinkedTxn": [{"TxnId": "1646", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "3976", "name": "Fake-Kayla Gregory"}, "ClassRef":
+        {"value": "7171", "name": "Fake-Joseph Garza"}, "AccountRef": {"value": "9280",
+        "name": "Fake-Joseph Rocha"}, "BillableStatus": "-Fallback-scrubbed-CegMxWmQ",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-MSH"}}}, {"Id": "4", "LineNum":
+        4730, "Description": "-Fallback-scrubbed-hAG", "Amount": 3.25644895736338,
+        "LinkedTxn": [{"TxnId": "4527", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "3976", "name": "Fake-Kayla Gregory"}, "ClassRef":
+        {"value": "9027", "name": "Fake-Hannah Hardy"}, "AccountRef": {"value": "8318",
+        "name": "Fake-James Mcgee"}, "BillableStatus": "-Fallback-scrubbed-CegMxWmQ",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-MSH"}}}, {"Id": "5", "LineNum":
+        4116, "Description": "-Fallback-scrubbed-pqr", "Amount": -7.52277711468067,
+        "LinkedTxn": [{"TxnId": "6687", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "3976", "name": "Fake-Kayla Gregory"}, "ClassRef":
+        {"value": "3189", "name": "Fake-Ricky Morrison"}, "AccountRef": {"value":
+        "6983", "name": "Fake-Gina Kim"}, "BillableStatus": "-Fallback-scrubbed-CegMxWmQ",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id": "6", "LineNum":
+        6489, "Description": "-Fallback-scrubbed-pqr", "Amount": -7.52277711468067,
+        "LinkedTxn": [{"TxnId": "4346", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "1093", "name": "Fake-Lance Johnson"}, "ClassRef":
+        {"value": "3189", "name": "Fake-Ricky Morrison"}, "AccountRef": {"value":
+        "6983", "name": "Fake-Gina Kim"}, "BillableStatus": "-Fallback-scrubbed-CegMxWmQ",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}, "ProjectRef": {"value":
+        "1572"}}], "VendorRef": {"value": "2025", "name": "-Fallback-scrubbed-wxBxOAzfONmr"},
+        "APAccountRef": {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt":
+        830191.591693887}, {"DueDate": "2020-03-31", "VendorAddr": {"Id": "613", "Line1":
+        "-Fallback-scrubbed-EgSnooAyJcYh", "City": "Fake-Gibsonton", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-pf", "PostalCode": "90640"}, "Balance": 9716.67875101982,
+        "HomeBalance": 9716.67875101982, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "681", "SyncToken": "5892", "MetaData": {"CreateTime": "1990-12-26T15:41:42-07:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2025-06-19T07:46:36-07:00"},
+        "DocNumber": "-Fallback-scrubbed-FsLPNBqPARdyuIAX", "TxnDate": "1992-02-16",
+        "DepartmentRef": {"value": "9891", "name": "Fake-James Simmons"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "LinkedTxn": [{"TxnId": "4930", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "6933", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "6154", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "7048",
+        "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "1567", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "6725", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "6286", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "5686", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "1204",
+        "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id": "9", "LineNum":
+        5758, "Description": "-Fallback-scrubbed-BoIDXXqdBFoEJ", "Amount": -7125.36650705634,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name": "Fake-Stephen
+        Walter"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "4438", "name": "Fake-Jamie Miller"}, "ClassRef": {"value": "3189", "name":
+        "Fake-Ricky Morrison"}, "UnitPrice": 8467, "Qty": 4116, "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "10", "LineNum": 1392, "Description":
+        "-Fallback-scrubbed-XlUEpwCdFXFug", "Amount": 48.1432884242023, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2767", "name": "Fake-Stephen Walter"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value": "3430", "name": "Fake-James
+        Flores"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky Morrison"}, "UnitPrice":
+        6242, "Qty": 5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id":
+        "11", "LineNum": 1044, "Description": "-Fallback-scrubbed-XqpmRagklfBwZDAJvAfQr",
+        "Amount": -254006491330.398, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name":
+        "Fake-Stephen Walter"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky
+        Morrison"}, "AccountRef": {"value": "5016", "name": "Fake-Henry Ferguson"},
+        "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "12", "LineNum": 4730, "Description":
+        "-Fallback-scrubbed-oUPROZzUMXCBigMQIlHgv", "Amount": -6715323182.47621, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2767", "name": "Fake-Stephen Walter"}, "ClassRef":
+        {"value": "3189", "name": "Fake-Ricky Morrison"}, "AccountRef": {"value":
+        "6075", "name": "Fake-Linda Frazier"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "9638", "name": "Fake-Kristina Banks"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": 9.13183913383567}, {"DueDate":
+        "2020-03-31", "VendorAddr": {"Id": "613", "Line1": "-Fallback-scrubbed-EgSnooAyJcYh",
+        "City": "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "90640"}, "Balance": 9.13183913383567, "HomeBalance": 9.13183913383567,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "673", "SyncToken":
+        "6075", "MetaData": {"CreateTime": "1984-02-21T04:00:29-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2025-06-12T10:14:02-07:00"}, "DocNumber":
+        "-Fallback-scrubbed-pTNtoiSGTeEQELAo", "TxnDate": "1992-02-16", "DepartmentRef":
+        {"value": "9891", "name": "Fake-James Simmons"}, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "13", "LineNum": 5758, "Description": "-Fallback-scrubbed-BoIDXXqdBFoEJ",
+        "Amount": -7125.36650705634, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name": "Fake-Stephen
+        Walter"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "4438", "name": "Fake-Jamie Miller"}, "ClassRef": {"value": "3189", "name":
+        "Fake-Ricky Morrison"}, "UnitPrice": 8467, "Qty": 4116, "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "14", "LineNum": 1392, "Description":
+        "-Fallback-scrubbed-XlUEpwCdFXFug", "Amount": 48.1432884242023, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2767", "name": "Fake-Stephen Walter"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value": "3430", "name": "Fake-James
+        Flores"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky Morrison"}, "UnitPrice":
+        6242, "Qty": 5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id":
+        "15", "LineNum": 1044, "Description": "-Fallback-scrubbed-XqpmRagklfBwZDAJvAfQr",
+        "Amount": -254006491330.398, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name":
+        "Fake-Stephen Walter"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky
+        Morrison"}, "AccountRef": {"value": "5016", "name": "Fake-Henry Ferguson"},
+        "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "16", "LineNum": 4730, "Description":
+        "-Fallback-scrubbed-oUPROZzUMXCBigMQIlHgv", "Amount": -6715323182.47621, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2767", "name": "Fake-Stephen Walter"}, "ClassRef":
+        {"value": "3189", "name": "Fake-Ricky Morrison"}, "AccountRef": {"value":
+        "6075", "name": "Fake-Linda Frazier"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "9638", "name": "Fake-Kristina Banks"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": 9.13183913383567}, {"DueDate":
+        "2020-03-31", "VendorAddr": {"Id": "613", "Line1": "-Fallback-scrubbed-EgSnooAyJcYh",
+        "City": "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "90640"}, "Balance": 9.13183913383567, "HomeBalance": 9.13183913383567,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "680", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2001-09-07T18:08:45-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2025-06-12T09:54:57-07:00"}, "DocNumber":
+        "-Fallback-scrubbed-FTebUWpsMNFIgcqk", "TxnDate": "1992-02-16", "DepartmentRef":
+        {"value": "9891", "name": "Fake-James Simmons"}, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-BoIDXXqdBFoEJ",
+        "Amount": -7125.36650705634, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name": "Fake-Stephen
+        Walter"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "4438", "name": "Fake-Jamie Miller"}, "ClassRef": {"value": "3189", "name":
+        "Fake-Ricky Morrison"}, "UnitPrice": 8467, "Qty": 4116, "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "2", "LineNum": 1392, "Description": "-Fallback-scrubbed-XlUEpwCdFXFug",
+        "Amount": 48.1432884242023, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name": "Fake-Stephen
+        Walter"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "3430", "name": "Fake-James Flores"}, "ClassRef": {"value": "3189", "name":
+        "Fake-Ricky Morrison"}, "UnitPrice": 6242, "Qty": 5758, "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-AAX"}}}, {"Id": "3", "LineNum": 1044, "Description": "-Fallback-scrubbed-XqpmRagklfBwZDAJvAfQr",
+        "Amount": -254006491330.398, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name":
+        "Fake-Stephen Walter"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky
+        Morrison"}, "AccountRef": {"value": "5016", "name": "Fake-Henry Ferguson"},
+        "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "4", "LineNum": 4730, "Description": "-Fallback-scrubbed-oUPROZzUMXCBigMQIlHgv",
+        "Amount": -6715323182.47621, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name":
+        "Fake-Stephen Walter"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky
+        Morrison"}, "AccountRef": {"value": "6075", "name": "Fake-Linda Frazier"},
+        "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "9638", "name": "Fake-Kristina
+        Banks"}, "APAccountRef": {"value": "4201", "name": "Fake-Amanda Bartlett"},
+        "TotalAmt": 9.13183913383567}, {"DueDate": "1991-04-12", "Balance": 417.323178803816,
+        "HomeBalance": 417.323178803816, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "677", "SyncToken": "2130", "MetaData": {"CreateTime": "2015-02-26T20:23:24-07:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2025-06-12T08:09:26-07:00"},
+        "TxnDate": "1991-04-12", "DepartmentRef": {"value": "9891", "name": "Fake-James
+        Simmons"}, "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId": "4148", "TxnType":
+        "-Fallback-scrubbed-wlkfJwoTyeouWyW"}, {"TxnId": "2953", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-YQydbseRSEQcJHFV",
+        "Amount": -787483.464527287, "LinkedTxn": [{"TxnId": "4148", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "9475", "name": "Fake-Calvin White"}, "BillableStatus":
+        "-Fallback-scrubbed-CegMxWmQ", "ItemRef": {"value": "3430", "name": "Fake-James
+        Flores"}, "UnitPrice": 2984, "Qty": 4116, "TaxCodeRef": {"value": "-Fallback-scrubbed-MSH"}}},
+        {"Id": "2", "LineNum": 1392, "Amount": -6715323182.47621, "LinkedTxn": [{"TxnId":
+        "2953", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "9475", "name":
+        "Fake-Calvin White"}, "AccountRef": {"value": "9693", "name": "Fake-Micheal
+        Wall"}, "BillableStatus": "-Fallback-scrubbed-CegMxWmQ", "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-MSH"}}}, {"Id": "3", "LineNum": 1044, "Amount": 82678582.7949604,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7088", "name":
+        "Fake-Jeffrey Hansen"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": 417.323178803816}, {"DueDate":
+        "2004-07-09", "VendorAddr": {"Id": "45", "Line1": "-Fallback-scrubbed-EgSnooAyJcYh",
+        "City": "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "90640", "Lat": 79.1201975, "Long": "516.772640668421"}, "Balance":
+        89453153820.9106, "HomeBalance": 89453153820.9106, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "670", "SyncToken": "6886", "MetaData": {"CreateTime":
+        "2022-10-17T10:36:45-07:00", "LastModifiedByRef": {"value": "6576"}, "LastUpdatedTime":
+        "2025-06-12T05:53:25-07:00"}, "DocNumber": "-Fallback-scrubbed-sTimmWxqwMvJIKCw",
+        "TxnDate": "1992-02-16", "DepartmentRef": {"value": "9891", "name": "Fake-James
+        Simmons"}, "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId": "225", "TxnType":
+        "-Fallback-scrubbed-wlkfJwoTyeouWyW"}, {"TxnId": "7041", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-BoIDXXqdBFoEJ",
+        "Amount": -7125.36650705634, "LinkedTxn": [{"TxnId": "7041", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "9891", "name": "Fake-Lori Jackson"}, "BillableStatus":
+        "-Fallback-scrubbed-CegMxWmQ", "ItemRef": {"value": "4438", "name": "Fake-Jamie
+        Miller"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky Morrison"}, "UnitPrice":
+        8467, "Qty": 4116, "TaxCodeRef": {"value": "-Fallback-scrubbed-MSH"}}}, {"Id":
+        "2", "LineNum": 1392, "Description": "-Fallback-scrubbed-XlUEpwCdFXFug", "Amount":
+        48.1432884242023, "LinkedTxn": [{"TxnId": "225", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "1207", "name": "Fake-Jose Hunt"}, "BillableStatus":
+        "-Fallback-scrubbed-CegMxWmQ", "ItemRef": {"value": "3430", "name": "Fake-James
+        Flores"}, "ClassRef": {"value": "3189", "name": "Fake-Ricky Morrison"}, "UnitPrice":
+        6242, "Qty": 5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-MSH"}}}], "VendorRef":
+        {"value": "9638", "name": "Fake-Kristina Banks"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 89453153820.9106}, {"SalesTermRef":
+        {"value": "6075"}, "DueDate": "1973-03-14", "VendorAddr": {"Id": "596", "Line1":
+        "-Fallback-scrubbed-GovMRsCNkZRUwb", "Line2": "-Fallback-scrubbed-bHqzkKXzcPoOUPqEJQyGmtODFQ",
+        "Line3": "-Fallback-scrubbed-EpAsvEWnax", "Line4": "-Fallback-scrubbed-eSVuPnhYejoewhfOZaGoGc"},
+        "Balance": -3336346298.5309, "HomeBalance": -3336346298.5309, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "658", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "1975-10-02T16:46:21-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2025-06-09T08:48:13-07:00"}, "DocNumber": "8621", "TxnDate": "1973-03-14",
+        "DepartmentRef": {"value": "9891", "name": "Fake-James Simmons"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "PrivateNote": "-Fallback-scrubbed-CCSuhLPJulMsQL", "LinkedTxn": [{"TxnId":
+        "697", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}], "Line": [{"Id":
+        "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-wHJBeVuZ", "Amount":
+        -7125.36650705634, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"CustomerRef": {"value": "5558", "name": "Fake-Brittany
+        Hall"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "9475", "name": "-Fallback-scrubbed-wHJBeVuZ"}, "ClassRef": {"value": "7171",
+        "name": "Fake-Joseph Garza"}, "UnitPrice": 1271, "Qty": 5758, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}, {"Id": "2", "LineNum": 1392, "Amount":
+        -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"CustomerRef": {"value": "1093", "name": "Fake-Lance
+        Johnson"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef":
+        {"value": "6964", "name": "Fake-Jackson Davis"}, "ClassRef": {"value": "3189",
+        "name": "Fake-Ricky Morrison"}, "UnitPrice": 1434, "Qty": 1392, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}, "ProjectRef": {"value": "1572"}}, {"Id":
+        "3", "LineNum": 1044, "Description": "-Fallback-scrubbed-Cwm", "Amount": 4422533.31713913,
+        "LinkedTxn": [{"TxnId": "697", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "1093", "name": "Fake-Lance Johnson"}, "ClassRef":
+        {"value": "3189", "name": "Fake-Ricky Morrison"}, "AccountRef": {"value":
+        "9693", "name": "Fake-Micheal Wall"}, "BillableStatus": "-Fallback-scrubbed-CegMxWmQ",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}, "ProjectRef": {"value":
+        "1572"}}], "VendorRef": {"value": "5159", "name": "-Fallback-scrubbed-bHqzkKXzcPoOUPqEJQyGmtODFQ"},
+        "APAccountRef": {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt":
+        -3336346298.5309}, {"DueDate": "1978-11-17", "VendorAddr": {"Id": "589", "Line1":
+        "-Fallback-scrubbed-SIJsJyFnUltxiXO", "Line2": "-Fallback-scrubbed-uDbVDtMDBOtEnxw",
+        "Line3": "-Fallback-scrubbed-uIvCNvhmmQA", "Line4": "-Fallback-scrubbed-skIhBFZfFmHoCEyRXXNN"},
+        "Balance": 9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "655", "SyncToken": "9475", "MetaData": {"CreateTime":
+        "1984-05-17T17:06:18-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2025-06-04T14:11:03-07:00"}, "TxnDate": "1978-11-17", "DepartmentRef": {"value":
+        "6886", "name": "Fake-Roberta Reeves"}, "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId":
+        "4834", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "395",
+        "TxnType": "-Fallback-scrubbed-VpuTeKkLqSSth"}], "Line": [{"Id": "1", "LineNum":
+        5758, "Description": "-Fallback-scrubbed-oxwOuaAN", "Amount": 9525455548139.83,
+        "LinkedTxn": [{"TxnId": "395", "TxnType": "-Fallback-scrubbed-VpuTeKkLqSSth",
+        "TxnLineId": "9475"}], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "9652", "name":
+        "Fake-John Hernandez"}, "ClassRef": {"value": "7171", "name": "Fake-Joseph
+        Garza"}, "AccountRef": {"value": "9693", "name": "Fake-Micheal Wall"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5498", "name": "-Fallback-scrubbed-uDbVDtMDBOtEnxw"},
+        "APAccountRef": {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt":
+        9525455548139.83}, {"SalesTermRef": {"value": "6075"}, "DueDate": "1978-11-17",
+        "VendorAddr": {"Id": "583", "Line1": "-Fallback-scrubbed-GovMRsCNkZRUwb",
+        "Line2": "-Fallback-scrubbed-bHqzkKXzcPoOUPqEJQyGmtODFQ", "Line3": "-Fallback-scrubbed-EpAsvEWnax",
+        "Line4": "-Fallback-scrubbed-eSVuPnhYejoewhfOZaGoGc"}, "Balance": 9213, "HomeBalance":
+        9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "651", "SyncToken":
+        "9475", "MetaData": {"CreateTime": "1996-10-20T16:33:46-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2025-06-04T13:51:14-07:00"}, "DocNumber":
+        "6231", "TxnDate": "1978-11-17", "DepartmentRef": {"value": "6886", "name":
+        "Fake-Roberta Reeves"}, "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId":
+        "9724", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id":
+        "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-wHJBeVuZ", "Amount":
+        -7125.36650705634, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "9475", "name": "-Fallback-scrubbed-wHJBeVuZ"}, "UnitPrice":
+        1271, "Qty": 5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id":
+        "2", "LineNum": 1392, "Amount": -5.32206502774172, "LinkedTxn": [], "DetailType":
+        "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "6964", "name": "Fake-Jackson Davis"}, "UnitPrice": 1434, "Qty": 1392, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "5159", "name":
+        "-Fallback-scrubbed-bHqzkKXzcPoOUPqEJQyGmtODFQ"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 2838.38403453101}, {"SalesTermRef":
+        {"value": "7488"}, "DueDate": "2004-07-12", "VendorAddr": {"Id": "496", "Line1":
+        "-Fallback-scrubbed-SIJsJyFnUltxiXO", "Line2": "-Fallback-scrubbed-uDbVDtMDBOtEnxw",
+        "Line3": "-Fallback-scrubbed-uIvCNvhmmQA", "Line4": "-Fallback-scrubbed-skIhBFZfFmHoCEyRXXNN"},
+        "Balance": 9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "619", "SyncToken": "7488", "MetaData": {"CreateTime":
+        "1970-09-02T21:28:14-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2025-05-14T12:22:19-07:00"}, "TxnDate": "2022-10-30", "DepartmentRef": {"value":
+        "9891", "name": "Fake-James Simmons"}, "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId":
+        "3973", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id":
+        "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-sQgfZodnVRRIZSksKPXuAvy",
+        "Amount": 351924781237.978, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "1093", "name":
+        "Fake-Lance Johnson"}, "AccountRef": {"value": "5016", "name": "Fake-Henry
+        Ferguson"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}, "ProjectRef": {"value": "1572"}}], "VendorRef":
+        {"value": "5498", "name": "-Fallback-scrubbed-uDbVDtMDBOtEnxw"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 351924781237.978},
+        {"DueDate": "1991-06-14", "VendorAddr": {"Id": "493", "Line1": "Fake-Teresa
+        Webster"}, "Balance": 9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "605", "SyncToken": "6983", "MetaData": {"CreateTime":
+        "2023-12-12T03:56:50-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2025-05-14T11:07:07-07:00"}, "DocNumber": "-Fallback-scrubbed-ClbmxTiPuBo",
+        "TxnDate": "2001-07-02", "DepartmentRef": {"value": "9891", "name": "Fake-James
+        Simmons"}, "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId": "9826", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "8416", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "5354", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "2365", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}, {"TxnId": "7958",
+        "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}, {"TxnId": "8827", "TxnType":
+        "-Fallback-scrubbed-wlkfJwoTyeouWyW"}], "Line": [{"Id": "1", "LineNum": 5758,
+        "Description": "-Fallback-scrubbed-YQydbseRSEQcJHFV", "Amount": -787483.464527287,
+        "LinkedTxn": [{"TxnId": "2365", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2767", "name": "Fake-Stephen Walter"}, "BillableStatus":
+        "-Fallback-scrubbed-CegMxWmQ", "ItemRef": {"value": "3430", "name": "Fake-James
+        Flores"}, "UnitPrice": 2984, "Qty": 4116, "TaxCodeRef": {"value": "-Fallback-scrubbed-MSH"}}},
+        {"Id": "2", "LineNum": 1392, "Amount": -6715323182.47621, "LinkedTxn": [{"TxnId":
+        "7958", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "2767", "name":
+        "Fake-Stephen Walter"}, "AccountRef": {"value": "9693", "name": "Fake-Micheal
+        Wall"}, "BillableStatus": "-Fallback-scrubbed-ycCMlMawRXWuH", "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}, {"Id": "3", "LineNum": 1044, "Amount":
+        82678582.7949604, "LinkedTxn": [{"TxnId": "8827", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "1093", "name": "Fake-Lance Johnson"}, "AccountRef":
+        {"value": "7088", "name": "Fake-Jeffrey Hansen"}, "BillableStatus": "-Fallback-scrubbed-CegMxWmQ",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-MSH"}}, "ProjectRef": {"value":
+        "1572"}}], "VendorRef": {"value": "9280", "name": "Fake-Teresa Webster"},
+        "APAccountRef": {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt":
+        417.323178803816}, {"SalesTermRef": {"value": "9475"}, "DueDate": "2005-11-03",
+        "VendorAddr": {"Id": "487", "Line1": "Fake-Teresa Webster"}, "Balance": 9213,
+        "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false,
+        "Id": "602", "SyncToken": "8318", "MetaData": {"CreateTime": "1970-12-19T07:03:47-07:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2025-05-08T10:48:27-07:00"},
+        "DocNumber": "-Fallback-scrubbed-gViXErC", "TxnDate": "2005-11-03", "DepartmentRef":
+        {"value": "9891", "name": "Fake-James Simmons"}, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "LinkedTxn": [{"TxnId": "4399", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "545", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "8245", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "8202",
+        "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}], "Line": [{"Id": "1", "LineNum":
+        5758, "Description": "-Fallback-scrubbed-YQydbseRSEQcJHFV", "Amount": -787483.464527287,
+        "LinkedTxn": [{"TxnId": "8202", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2767", "name": "Fake-Stephen Walter"}, "BillableStatus":
+        "-Fallback-scrubbed-CegMxWmQ", "ItemRef": {"value": "3430", "name": "Fake-James
+        Flores"}, "UnitPrice": 2984, "Qty": 4116, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "9280", "name": "Fake-Teresa Webster"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -787483.464527287},
+        {"SalesTermRef": {"value": "8315"}, "DueDate": "1981-11-17", "Balance": 9213,
+        "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false,
+        "Id": "584", "SyncToken": "8764", "MetaData": {"CreateTime": "1979-05-21T10:56:16-07:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2025-05-08T10:32:07-07:00"},
+        "DocNumber": "-Fallback-scrubbed-tbEaJde", "TxnDate": "1974-01-24", "DepartmentRef":
+        {"value": "9891", "name": "Fake-James Simmons"}, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "LinkedTxn": [{"TxnId": "5681", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "4954", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "1128", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "7842",
+        "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "3514", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "7233", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "9704", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "8061", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "9282",
+        "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "7013", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "8022", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "8174", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "9538", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "5135",
+        "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "3027", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "4963", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"},
+        {"TxnId": "7466", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId":
+        "5078", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id":
+        "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-YQydbseRSEQcJHFV",
+        "Amount": -1.45649972764109, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "3430", "name": "Fake-James Flores"}, "UnitPrice": 9721,
+        "Qty": 4116, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef":
+        {"value": "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -1.45649972764109}, {"DueDate":
+        "1983-04-09", "Balance": 666308160.20127, "HomeBalance": 666308160.20127,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "190", "SyncToken":
+        "7488", "MetaData": {"CreateTime": "2006-09-25T11:37:34-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2025-05-01T06:25:53-07:00"}, "TxnDate":
+        "1983-04-09", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        666308160.20127, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "6075", "name":
+        "Fake-Linda Frazier"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": 666308160.20127}, {"DueDate":
+        "1993-10-03", "VendorAddr": {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA",
+        "City": "Fake-Port Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance":
+        4.69443275386486, "HomeBalance": 4.69443275386486, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "566", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "1994-04-02T17:31:29-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2024-03-15T12:15:24-07:00"}, "TxnDate": "2008-09-25", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-YQydbseRSEQcJHFV",
+        "Amount": 4.69443275386486, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "4438", "name": "Fake-Jamie Miller"}, "UnitPrice": 4116,
+        "Qty": 4116, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef":
+        {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": 4.69443275386486}, {"DueDate":
+        "1993-10-03", "Balance": -1.45649972764109, "HomeBalance": -1.45649972764109,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "565", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1995-06-08T19:35:14-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2024-03-15T12:15:23-07:00"}, "TxnDate":
+        "2008-09-25", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-YQydbseRSEQcJHFV", "Amount": -1.45649972764109, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "3430", "name": "Fake-James Flores"}, "UnitPrice": 9721, "Qty": 4116, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "9280", "name":
+        "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201", "name": "Fake-Amanda
+        Bartlett"}, "TotalAmt": -1.45649972764109}, {"DueDate": "1993-10-03", "Balance":
+        -1.45649972764109, "HomeBalance": -1.45649972764109, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "563", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "2024-05-24T09:39:46-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2024-03-15T07:23:24-07:00"}, "TxnDate": "2008-09-25", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-YQydbseRSEQcJHFV",
+        "Amount": -1.45649972764109, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "3430", "name": "Fake-James Flores"}, "UnitPrice": 9721,
+        "Qty": 4116, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef":
+        {"value": "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -1.45649972764109}, {"DueDate":
+        "1993-10-03", "Balance": -1.45649972764109, "HomeBalance": -1.45649972764109,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "562", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2023-03-09T21:17:49-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2024-03-14T21:30:36-07:00"}, "TxnDate":
+        "1972-06-27", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-YQydbseRSEQcJHFV", "Amount": -1.45649972764109, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "3430", "name": "Fake-James Flores"}, "UnitPrice": 9721, "Qty": 4116, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "9280", "name":
+        "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201", "name": "Fake-Amanda
+        Bartlett"}, "TotalAmt": -1.45649972764109}, {"DueDate": "1993-10-03", "Balance":
+        -5.32206502774172, "HomeBalance": -5.32206502774172, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "561", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "1979-06-04T10:53:28-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2024-03-14T21:07:44-07:00"}, "TxnDate": "1972-06-27", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-YQydbseRSEQcJHFV",
+        "Amount": -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "3430", "name": "Fake-James Flores"}, "UnitPrice": 8467,
+        "Qty": 4730, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef":
+        {"value": "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172}, {"SalesTermRef":
+        {"value": "6886"}, "DueDate": "1985-08-27", "VendorAddr": {"Id": "33", "Line1":
+        "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port Christopherborough",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode": "74004",
+        "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "541", "SyncToken": "2130", "MetaData": {"CreateTime": "2006-10-02T10:51:54-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:21-08:00"},
+        "TxnDate": "1978-01-05", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1985-08-27", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "540", "SyncToken": "2130", "MetaData": {"CreateTime": "2006-10-02T10:51:54-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:21-08:00"},
+        "TxnDate": "1978-01-05", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2025-06-01", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "539", "SyncToken": "2130", "MetaData": {"CreateTime": "2006-10-02T10:51:54-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:21-08:00"},
+        "TxnDate": "1996-12-14", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2025-06-01", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "538", "SyncToken": "2130", "MetaData": {"CreateTime": "2006-10-02T10:51:54-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:21-08:00"},
+        "TxnDate": "1996-12-14", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1996-12-14", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "537", "SyncToken": "2130", "MetaData": {"CreateTime": "2006-10-02T10:51:54-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:21-08:00"},
+        "TxnDate": "2013-02-24", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1996-12-14", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "536", "SyncToken": "2130", "MetaData": {"CreateTime": "1970-05-13T21:37:30-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:20-08:00"},
+        "TxnDate": "2013-02-24", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2010-04-02", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "535", "SyncToken": "2130", "MetaData": {"CreateTime": "1970-05-13T21:37:30-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:20-08:00"},
+        "TxnDate": "2003-01-24", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2010-04-02", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "534", "SyncToken": "2130", "MetaData": {"CreateTime": "1970-05-13T21:37:30-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:20-08:00"},
+        "TxnDate": "2003-01-24", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1973-07-10", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "533", "SyncToken": "2130", "MetaData": {"CreateTime": "1970-05-13T21:37:30-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:20-08:00"},
+        "TxnDate": "2011-04-27", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1973-07-10", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "532", "SyncToken": "2130", "MetaData": {"CreateTime": "1970-05-13T21:37:30-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:20-08:00"},
+        "TxnDate": "2011-04-27", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2011-04-27", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "531", "SyncToken": "2130", "MetaData": {"CreateTime": "2016-11-13T20:17:12-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:19-08:00"},
+        "TxnDate": "1992-10-06", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2011-04-27", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "530", "SyncToken": "2130", "MetaData": {"CreateTime": "2016-11-13T20:17:12-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:19-08:00"},
+        "TxnDate": "1992-10-06", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1979-01-14", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "529", "SyncToken": "2130", "MetaData": {"CreateTime": "2016-11-13T20:17:12-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:19-08:00"},
+        "TxnDate": "2021-10-23", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1979-01-14", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "528", "SyncToken": "2130", "MetaData": {"CreateTime": "2016-11-13T20:17:12-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:19-08:00"},
+        "TxnDate": "2021-10-23", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2021-10-23", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "527", "SyncToken": "2130", "MetaData": {"CreateTime": "2016-11-13T20:17:12-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:19-08:00"},
+        "TxnDate": "1995-09-20", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2021-10-23", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "526", "SyncToken": "2130", "MetaData": {"CreateTime": "2016-11-13T20:17:12-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:19-08:00"},
+        "TxnDate": "1995-09-20", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1979-03-08", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "525", "SyncToken": "2130", "MetaData": {"CreateTime": "2008-04-04T04:19:46-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:18-08:00"},
+        "TxnDate": "2006-01-11", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1979-03-08", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "524", "SyncToken": "2130", "MetaData": {"CreateTime": "2008-04-04T04:19:46-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:18-08:00"},
+        "TxnDate": "2006-01-11", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2007-11-07", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "523", "SyncToken": "2130", "MetaData": {"CreateTime": "2008-04-04T04:19:46-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:18-08:00"},
+        "TxnDate": "2015-11-20", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2007-11-07", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "522", "SyncToken": "2130", "MetaData": {"CreateTime": "2008-04-04T04:19:46-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:18-08:00"},
+        "TxnDate": "2015-11-20", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2025-03-10", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "521", "SyncToken": "2130", "MetaData": {"CreateTime": "2020-06-13T00:22:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:17-08:00"},
+        "TxnDate": "2009-04-09", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2025-03-10", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "520", "SyncToken": "2130", "MetaData": {"CreateTime": "2020-06-13T00:22:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:17-08:00"},
+        "TxnDate": "2009-04-09", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1971-05-13", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "519", "SyncToken": "2130", "MetaData": {"CreateTime": "2020-06-13T00:22:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:17-08:00"},
+        "TxnDate": "1993-07-04", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1971-05-13", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "518", "SyncToken": "2130", "MetaData": {"CreateTime": "2020-06-13T00:22:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:17-08:00"},
+        "TxnDate": "1993-07-04", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1993-07-04", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "517", "SyncToken": "2130", "MetaData": {"CreateTime": "2020-06-13T00:22:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:17-08:00"},
+        "TxnDate": "2014-01-25", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1993-07-04", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "516", "SyncToken": "2130", "MetaData": {"CreateTime": "2020-06-13T00:22:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:17-08:00"},
+        "TxnDate": "2014-01-25", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2016-10-27", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "515", "SyncToken": "2130", "MetaData": {"CreateTime": "2000-06-04T07:12:03-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:16-08:00"},
+        "TxnDate": "2011-11-10", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2016-10-27", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "514", "SyncToken": "2130", "MetaData": {"CreateTime": "2000-06-04T07:12:03-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:16-08:00"},
+        "TxnDate": "2011-11-10", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2011-11-10", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "513", "SyncToken": "2130", "MetaData": {"CreateTime": "2000-06-04T07:12:03-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:16-08:00"},
+        "TxnDate": "2000-02-13", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2011-11-10", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "512", "SyncToken": "2130", "MetaData": {"CreateTime": "2000-06-04T07:12:03-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:16-08:00"},
+        "TxnDate": "2000-02-13", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2014-05-21", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "511", "SyncToken": "2130", "MetaData": {"CreateTime": "2000-06-04T07:12:03-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:16-08:00"},
+        "TxnDate": "1987-10-15", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2014-05-21", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "510", "SyncToken": "2130", "MetaData": {"CreateTime": "1988-12-09T11:52:27-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:15-08:00"},
+        "TxnDate": "1987-10-15", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1994-07-16", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "509", "SyncToken": "2130", "MetaData": {"CreateTime": "1988-12-09T11:52:27-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:15-08:00"},
+        "TxnDate": "1979-05-05", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1994-07-16", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "508", "SyncToken": "2130", "MetaData": {"CreateTime": "1988-12-09T11:52:27-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:15-08:00"},
+        "TxnDate": "1979-05-05", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1979-05-05", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "507", "SyncToken": "2130", "MetaData": {"CreateTime": "1988-12-09T11:52:27-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:15-08:00"},
+        "TxnDate": "1973-08-13", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1979-05-05", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "506", "SyncToken": "2130", "MetaData": {"CreateTime": "1988-12-09T11:52:27-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:15-08:00"},
+        "TxnDate": "1973-08-13", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1998-06-25", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "505", "SyncToken": "2130", "MetaData": {"CreateTime": "2004-01-10T23:02:02-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:14-08:00"},
+        "TxnDate": "2000-09-29", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1998-06-25", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "504", "SyncToken": "2130", "MetaData": {"CreateTime": "2004-01-10T23:02:02-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:14-08:00"},
+        "TxnDate": "2000-09-29", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2000-09-29", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "503", "SyncToken": "2130", "MetaData": {"CreateTime": "2004-01-10T23:02:02-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:14-08:00"},
+        "TxnDate": "1980-10-10", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2000-09-29", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "502", "SyncToken": "2130", "MetaData": {"CreateTime": "2004-01-10T23:02:02-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:14-08:00"},
+        "TxnDate": "1980-10-10", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2024-11-27", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "501", "SyncToken": "2130", "MetaData": {"CreateTime": "2004-01-10T23:02:02-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:14-08:00"},
+        "TxnDate": "2009-02-21", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2024-11-27", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "500", "SyncToken": "2130", "MetaData": {"CreateTime": "2004-01-10T23:02:02-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:14-08:00"},
+        "TxnDate": "2009-02-21", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1970-07-07", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "499", "SyncToken": "2130", "MetaData": {"CreateTime": "2022-03-14T05:15:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:13-08:00"},
+        "TxnDate": "2016-04-13", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1970-07-07", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "498", "SyncToken": "2130", "MetaData": {"CreateTime": "2022-03-14T05:15:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:13-08:00"},
+        "TxnDate": "2016-04-13", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1982-02-13", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "497", "SyncToken": "2130", "MetaData": {"CreateTime": "2022-03-14T05:15:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:13-08:00"},
+        "TxnDate": "1984-02-25", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1982-02-13", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "496", "SyncToken": "2130", "MetaData": {"CreateTime": "2022-03-14T05:15:09-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:13-08:00"},
+        "TxnDate": "1984-02-25", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1991-06-19", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "495", "SyncToken": "2130", "MetaData": {"CreateTime": "2001-09-30T13:22:56-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:12-08:00"},
+        "TxnDate": "1975-08-16", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1991-06-19", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "494", "SyncToken": "2130", "MetaData": {"CreateTime": "2001-09-30T13:22:56-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:12-08:00"},
+        "TxnDate": "1975-08-16", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1975-08-16", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "493", "SyncToken": "2130", "MetaData": {"CreateTime": "2001-09-30T13:22:56-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:12-08:00"},
+        "TxnDate": "1995-12-22", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1975-08-16", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "492", "SyncToken": "2130", "MetaData": {"CreateTime": "2001-09-30T13:22:56-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:12-08:00"},
+        "TxnDate": "1995-12-22", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1979-01-06", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "491", "SyncToken": "2130", "MetaData": {"CreateTime": "2001-09-30T13:22:56-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:12-08:00"},
+        "TxnDate": "1984-06-15", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1979-01-06", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "490", "SyncToken": "2130", "MetaData": {"CreateTime": "2001-09-30T13:22:56-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:12-08:00"},
+        "TxnDate": "1984-06-15", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1984-06-15", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "489", "SyncToken": "2130", "MetaData": {"CreateTime": "1995-05-23T01:37:15-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:11-08:00"},
+        "TxnDate": "1983-02-01", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1984-06-15", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "488", "SyncToken": "2130", "MetaData": {"CreateTime": "1995-05-23T01:37:15-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:11-08:00"},
+        "TxnDate": "1983-02-01", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1977-11-09", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "487", "SyncToken": "2130", "MetaData": {"CreateTime": "1995-05-23T01:37:15-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:11-08:00"},
+        "TxnDate": "2024-10-05", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1977-11-09", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "486", "SyncToken": "2130", "MetaData": {"CreateTime": "1995-05-23T01:37:15-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:11-08:00"},
+        "TxnDate": "2024-10-05", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1999-06-08", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "485", "SyncToken": "2130", "MetaData": {"CreateTime": "1995-05-23T01:37:15-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:11-08:00"},
+        "TxnDate": "1984-08-17", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1999-06-08", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "484", "SyncToken": "2130", "MetaData": {"CreateTime": "1997-07-23T22:20:44-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:10-08:00"},
+        "TxnDate": "1984-08-17", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1984-08-17", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "483", "SyncToken": "2130", "MetaData": {"CreateTime": "1997-07-23T22:20:44-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:10-08:00"},
+        "TxnDate": "1992-12-31", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1984-08-17", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "482", "SyncToken": "2130", "MetaData": {"CreateTime": "1997-07-23T22:20:44-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:10-08:00"},
+        "TxnDate": "1992-12-31", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1974-06-15", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "481", "SyncToken": "2130", "MetaData": {"CreateTime": "1997-07-23T22:20:44-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:10-08:00"},
+        "TxnDate": "1983-05-25", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1974-06-15", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "480", "SyncToken": "2130", "MetaData": {"CreateTime": "1997-07-23T22:20:44-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:10-08:00"},
+        "TxnDate": "1983-05-25", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1983-05-25", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "479", "SyncToken": "2130", "MetaData": {"CreateTime": "1992-04-22T13:03:45-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:09-08:00"},
+        "TxnDate": "1982-11-18", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1983-05-25", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "478", "SyncToken": "2130", "MetaData": {"CreateTime": "1992-04-22T13:03:45-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:09-08:00"},
+        "TxnDate": "1982-11-18", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1973-08-31", "VendorAddr":
+        {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 393234152.23987,
+        "HomeBalance": 393234152.23987, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "477", "SyncToken": "2130", "MetaData": {"CreateTime": "1992-04-22T13:03:45-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:09-08:00"},
+        "TxnDate": "2002-12-01", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp", "Amount":
+        393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "7488"}, "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1973-08-31", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 78278717706865.3,
+        "HomeBalance": 78278717706865.3, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "476", "SyncToken": "2130", "MetaData": {"CreateTime": "1992-04-22T13:03:45-08:00",
+        "LastModifiedByRef": {"value": "2130"}, "LastUpdatedTime": "2023-11-23T08:34:09-08:00"},
+        "TxnDate": "2002-12-01", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount":
+        78278717706865.3, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "RecurDataRef": {"value":
+        "6886"}, "VendorRef": {"value": "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3},
+        {"DueDate": "2026-10-03", "VendorAddr": {"Id": "32", "Line1": "-Fallback-scrubbed-EpAsvEWnax",
+        "City": "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "90640", "Lat": 8.5544825, "Long": "599519197.112208"}, "Balance":
+        2838.38403453101, "HomeBalance": 2838.38403453101, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "474", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "1997-09-17T17:22:36-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2023-09-29T16:08:29-07:00"}, "TxnDate": "2007-03-20", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount": -7125.36650705634, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "9475", "name": "-Fallback-scrubbed-wHJBeVuZ"}, "UnitPrice": 1271, "Qty":
+        5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id": "2", "LineNum":
+        1392, "Amount": -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "6964", "name": "Fake-Jackson Davis"}, "UnitPrice": 1434,
+        "Qty": 1392, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef":
+        {"value": "5159", "name": "-Fallback-scrubbed-bHqzkKXzcPoOUPqEJQyGmtODFQ"},
+        "APAccountRef": {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt":
+        2838.38403453101}, {"DueDate": "2026-10-03", "VendorAddr": {"Id": "32", "Line1":
+        "-Fallback-scrubbed-EpAsvEWnax", "City": "Fake-Gibsonton", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-pf", "PostalCode": "90640", "Lat": 8.5544825, "Long":
+        "599519197.112208"}, "Balance": 2838.38403453101, "HomeBalance": 2838.38403453101,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "473", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2014-04-05T19:37:57-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-09-29T14:41:38-07:00"}, "TxnDate":
+        "2007-03-20", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        -7125.36650705634, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "9891", "name": "Fake-Mary Haley"}, "UnitPrice": 1271,
+        "Qty": 5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id": "2",
+        "LineNum": 1392, "Amount": -5.32206502774172, "LinkedTxn": [], "DetailType":
+        "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "6964", "name": "Fake-Jackson Davis"}, "UnitPrice": 1434, "Qty": 1392, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "5159", "name":
+        "-Fallback-scrubbed-bHqzkKXzcPoOUPqEJQyGmtODFQ"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 2838.38403453101}, {"DueDate":
+        "1998-04-10", "Balance": 48.1432884242023, "HomeBalance": 48.1432884242023,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "472", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2009-01-14T16:13:23-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-09-21T07:40:21-07:00"}, "TxnDate":
+        "2017-01-04", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        82678582.7949604, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "6964", "name": "Fake-Jackson Davis"}, "UnitPrice": 1434,
+        "Qty": 5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id": "2",
+        "LineNum": 1392, "Amount": -7125.36650705634, "LinkedTxn": [], "DetailType":
+        "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "3430", "name": "Fake-James Flores"}, "UnitPrice": 1271, "Qty": 5758, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "5834", "name":
+        "Fake-Daniel Goodman"}, "APAccountRef": {"value": "4201", "name": "Fake-Amanda
+        Bartlett"}, "TotalAmt": 48.1432884242023}, {"DueDate": "1980-02-08", "Balance":
+        -7125.36650705634, "HomeBalance": -7125.36650705634, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "346", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "2001-02-20T18:55:19-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2023-05-01T14:05:44-07:00"}, "TxnDate": "2021-10-23", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-cUbKdMFOkmBxbCyKahnIPMwApAcVM",
+        "Amount": -7125.36650705634, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"ClassRef": {"value": "9027", "name": "Fake-Hannah
+        Hardy"}, "AccountRef": {"value": "9125", "name": "Fake-Rachel David"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -7125.36650705634},
+        {"DueDate": "1980-02-08", "Balance": -7125.36650705634, "HomeBalance": -7125.36650705634,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "345", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1999-07-25T09:16:18-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-05-01T14:05:43-07:00"}, "TxnDate":
+        "2021-10-23", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-cUbKdMFOkmBxbCyKahnIPMwApAcVM", "Amount": -7125.36650705634,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"ClassRef": {"value": "9027", "name": "Fake-Hannah
+        Hardy"}, "AccountRef": {"value": "9125", "name": "Fake-Rachel David"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -7125.36650705634},
+        {"DueDate": "1980-02-08", "Balance": -7125.36650705634, "HomeBalance": -7125.36650705634,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "344", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1979-01-01T10:25:54-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-05-01T13:56:49-07:00"}, "TxnDate":
+        "2021-10-23", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-cUbKdMFOkmBxbCyKahnIPMwApAcVM", "Amount": -7125.36650705634,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"ClassRef": {"value": "9027", "name": "Fake-Hannah
+        Hardy"}, "AccountRef": {"value": "9125", "name": "Fake-Rachel David"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -7125.36650705634},
+        {"DueDate": "1980-02-08", "Balance": -7125.36650705634, "HomeBalance": -7125.36650705634,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "342", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2026-03-13T01:44:23-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-04-21T13:26:03-07:00"}, "TxnDate":
+        "1980-08-17", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-cUbKdMFOkmBxbCyKahnIPMwApAcVM", "Amount": -7125.36650705634,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"ClassRef": {"value": "9027", "name": "Fake-Hannah
+        Hardy"}, "AccountRef": {"value": "9125", "name": "Fake-Rachel David"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -7125.36650705634},
+        {"DueDate": "1993-10-03", "Balance": -790004.783283071, "HomeBalance": -790004.783283071,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "337", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1970-10-03T18:43:09-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-04-06T14:46:06-07:00"}, "TxnDate":
+        "2024-07-13", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-YQydbseRSEQcJHFV", "Amount": -5.32206502774172, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "6075", "name": "Fake-Linda Frazier"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}},
+        {"Id": "2", "LineNum": 1392, "Description": "-Fallback-scrubbed-kishXRkTtMBiZzVpi",
+        "Amount": -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "5521", "name": "Fake-Victor Freeman"}, "UnitPrice":
+        8467, "Qty": 4730, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef":
+        {"value": "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -790004.783283071}, {"DueDate":
+        "2013-01-23", "Balance": -790004.783283071, "HomeBalance": -790004.783283071,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "329", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2023-08-07T20:20:22-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-27T07:01:20-07:00"}, "TxnDate":
+        "1988-09-04", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-ekXfaRcfbbfTYEghkHUY", "Amount": -790004.783283071, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "1921", "name": "Fake-Erik Terrell"}, "UnitPrice": 1434, "Qty": 4730, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "9280", "name":
+        "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201", "name": "Fake-Amanda
+        Bartlett"}, "TotalAmt": -790004.783283071}, {"DueDate": "2013-01-23", "Balance":
+        -5.32206502774172, "HomeBalance": -5.32206502774172, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "328", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "1971-01-24T20:11:10-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2023-03-26T21:32:56-07:00"}, "TxnDate": "1991-05-25", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-ekXfaRcfbbfTYEghkHUY",
+        "Amount": -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "1921", "name": "Fake-Erik Terrell"}, "UnitPrice": 8467,
+        "Qty": 4730, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef":
+        {"value": "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172}, {"DueDate":
+        "1991-05-25", "Balance": -5.32206502774172, "HomeBalance": -5.32206502774172,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "327", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2024-01-24T22:42:18-07:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-26T21:18:43-07:00"}, "TxnDate":
+        "1991-05-25", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-ekXfaRcfbbfTYEghkHUY", "Amount": -5.32206502774172, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "ItemRef": {"value":
+        "1921", "name": "Fake-Erik Terrell"}, "UnitPrice": 8467, "Qty": 4730, "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "9280", "name":
+        "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201", "name": "Fake-Amanda
+        Bartlett"}, "TotalAmt": -5.32206502774172}, {"DueDate": "1982-06-17", "Balance":
+        -5.32206502774172, "HomeBalance": -5.32206502774172, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "326", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "2019-02-18T04:33:49-07:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2023-03-26T21:07:22-07:00"}, "TxnDate": "1991-05-25", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-YQydbseRSEQcJHFV",
+        "Amount": -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "6075", "name":
+        "Fake-Linda Frazier"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172}, {"DueDate":
+        "1991-11-17", "Balance": -7125.36650705634, "HomeBalance": -7125.36650705634,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "245", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2026-07-04T21:32:34-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-08T15:46:23-08:00"}, "TxnDate":
+        "1991-11-17", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-cUbKdMFOkmBxbCyKahnIPMwApAcVM", "Amount": -7125.36650705634,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "9125", "name":
+        "Fake-Rachel David"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": -7125.36650705634}, {"DueDate":
+        "1991-11-17", "Balance": -5.32206502774172, "HomeBalance": -5.32206502774172,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "244", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1991-02-19T23:27:43-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-08T15:42:16-08:00"}, "TxnDate":
+        "1991-11-17", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Description":
+        "-Fallback-scrubbed-cUbKdMFOkmBxbCyKahnIPMwApAcVM", "Amount": -5.32206502774172,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "9125", "name":
+        "Fake-Rachel David"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172}], "startPosition":
+        1, "maxResults": 100, "totalCount": 100}, "time": "2005-10-15T17:38:54.101-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '147018'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:18:33 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '111266'
+      intuit_tid:
+      - 1-6891f698-096468d86bd363db782ddb12
+      x-amzn-trace-id:
+      - Root=1-6891f698-096468d86bd363db782ddb12
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '646'
+      x-request-id:
+      - 1-6891f698-096468d86bd363db782ddb12
+      x-spanid:
+      - 93eb418e-5d0e-cbd7-0684-b96d28e93c37
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Bill++STARTPOSITION+101+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Bill": [{"DueDate": "1991-11-17", "Balance": -5.32206502774172,
+        "HomeBalance": -5.32206502774172, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "243", "SyncToken": "2130", "MetaData": {"CreateTime": "1987-06-28T05:50:44-08:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2023-03-08T15:37:30-08:00"},
+        "TxnDate": "1991-11-17", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Amount": -5.32206502774172, "LinkedTxn": [], "DetailType":
+        "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "9125", "name": "Fake-Rachel David"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172},
+        {"DueDate": "1980-02-08", "Balance": -5.32206502774172, "HomeBalance": -5.32206502774172,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "236", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2021-06-01T09:13:22-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-06T11:28:23-08:00"}, "TxnDate":
+        "1980-02-08", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "9125", "name":
+        "Fake-Rachel David"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172}, {"DueDate":
+        "1980-02-08", "Balance": -5.32206502774172, "HomeBalance": -5.32206502774172,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "235", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2014-07-10T16:51:28-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-06T11:27:39-08:00"}, "TxnDate":
+        "1980-02-08", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "9125", "name":
+        "Fake-Rachel David"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172}, {"DueDate":
+        "1980-02-08", "Balance": -5.32206502774172, "HomeBalance": -5.32206502774172,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "234", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1980-03-10T16:47:47-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-06T11:20:51-08:00"}, "TxnDate":
+        "1980-02-08", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "9125", "name":
+        "Fake-Rachel David"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "5834", "name": "Fake-Daniel Goodman"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172}, {"DueDate":
+        "1980-02-08", "Balance": -5.32206502774172, "HomeBalance": -5.32206502774172,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "233", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "2021-07-11T05:23:04-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-06T11:15:48-08:00"}, "TxnDate":
+        "1980-02-08", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "3430", "name":
+        "Fake-Troy Brooks"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value": "5834", "name":
+        "Fake-Daniel Goodman"}, "APAccountRef": {"value": "4201", "name": "Fake-Amanda
+        Bartlett"}, "TotalAmt": -5.32206502774172}, {"DueDate": "1991-05-25", "Balance":
+        -5.32206502774172, "HomeBalance": -5.32206502774172, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "227", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "2025-05-22T18:46:26-08:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2023-03-01T12:56:13-08:00"}, "TxnDate": "2006-01-11", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount": -5.32206502774172, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "6075", "name": "Fake-Linda Frazier"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "9280", "name": "Fake-Teresa Webster"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172},
+        {"DueDate": "1970-01-31", "Balance": -5.32206502774172, "HomeBalance": -5.32206502774172,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "226", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1990-12-27T07:10:35-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-03-01T12:31:58-08:00"}, "TxnDate":
+        "2006-01-11", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        -5.32206502774172, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "6075", "name":
+        "Fake-Linda Frazier"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": -5.32206502774172}, {"DueDate":
+        "1970-01-31", "Balance": 666308160.20127, "HomeBalance": 666308160.20127,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "192", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1983-10-15T23:12:51-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-02-09T23:38:21-08:00"}, "TxnDate":
+        "1996-10-02", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        666308160.20127, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "4438", "name": "Fake-Jamie Miller"}, "UnitPrice": 4116,
+        "Qty": 1434, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef":
+        {"value": "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 666308160.20127}, {"DueDate":
+        "1983-04-09", "Balance": 666308160.20127, "HomeBalance": 666308160.20127,
+        "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "191", "SyncToken":
+        "2130", "MetaData": {"CreateTime": "1970-09-18T17:00:28-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2023-02-08T08:32:37-08:00"}, "TxnDate":
+        "1983-04-09", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount":
+        666308160.20127, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "6075", "name":
+        "Fake-Linda Frazier"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "9280", "name": "Fake-Teresa Webster"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": 666308160.20127}, {"DueDate":
+        "1983-05-16", "VendorAddr": {"Id": "40", "Line1": "-Fallback-scrubbed-ZHNfStqyuwAgrcuCT",
+        "City": "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "74004", "Lat": 25.6292275, "Long": "9208176.30711853"}, "Balance":
+        1444190922387.52, "HomeBalance": 1444190922387.52, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "126", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "2010-03-26T11:46:38-08:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2021-02-18T13:10:36-08:00"}, "TxnDate": "1983-05-16", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-NoYwfecQNNRYV",
+        "Amount": -790004.783283071, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "8154", "name": "Fake-John Ross"}, "UnitPrice": 8467,
+        "Qty": 2761, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}, {"Id": "2",
+        "LineNum": 1392, "Description": "-Fallback-scrubbed-xXlsAfYgEkrun", "Amount":
+        -84.103256912797, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-DjzCDiqtBhJaWfUMoWlrCleaXd",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "ItemRef": {"value": "8315", "name": "-Fallback-scrubbed-xXlsAfYgEkrun"},
+        "UnitPrice": 7631, "Qty": 5758, "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5946", "name": "Fake-Stacy Hunter"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 1444190922387.52},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1972-08-28", "VendorAddr":
+        {"Id": "40", "Line1": "-Fallback-scrubbed-ZHNfStqyuwAgrcuCT", "City": "Fake-Gibsonton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode": "74004",
+        "Lat": 25.6292275, "Long": "9208176.30711853"}, "Balance": 9213, "HomeBalance":
+        9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "25", "SyncToken":
+        "9475", "MetaData": {"CreateTime": "2001-11-09T02:19:27-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2021-02-18T12:56:17-08:00"}, "TxnDate":
+        "1999-01-23", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId": "9652", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}, {"TxnId": "2929", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "Line": [{"Id": "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-ninNWH",
+        "Amount": 6.95063606835976, "LinkedTxn": [{"TxnId": "2929", "TxnType": "-Fallback-scrubbed-wlkfJwoTyeouWyW"}],
+        "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "2929", "name": "Fake-Joseph Johnson"}, "AccountRef":
+        {"value": "4899", "name": "Fake-Emma Brown"}, "BillableStatus": "-Fallback-scrubbed-ycCMlMawRXWuH",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "5946", "name": "Fake-Stacy Hunter"}, "APAccountRef": {"value": "4201", "name":
+        "Fake-Amanda Bartlett"}, "TotalAmt": 6.95063606835976}, {"SalesTermRef": {"value":
+        "9475"}, "DueDate": "2022-05-26", "VendorAddr": {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA",
+        "City": "Fake-Port Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance":
+        9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false,
+        "Id": "105", "SyncToken": "9475", "MetaData": {"CreateTime": "1988-12-24T01:35:31-08:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2021-02-18T12:55:23-08:00"},
+        "TxnDate": "2022-05-26", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId":
+        "3736", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id":
+        "1", "LineNum": 5758, "Amount": -987739588.196863, "LinkedTxn": [], "DetailType":
+        "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "7462", "name": "Fake-Alejandra Mcintosh"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "3844", "name": "Fake-James Chen"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -987739588.196863},
+        {"DueDate": "1983-05-16", "VendorAddr": {"Id": "43", "Line1": "-Fallback-scrubbed-IchVHSNFmurH",
+        "City": "Fake-Lake Emily", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "29881", "Lat": -58.224144, "Long": "753.217596834786"}, "Balance":
+        8473375290474.65, "HomeBalance": 8473375290474.65, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "108", "SyncToken": "2130", "MetaData": {"CreateTime":
+        "1999-04-22T06:57:21-08:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2021-02-18T12:36:59-08:00"}, "TxnDate": "1983-05-16", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "Line": [{"Id": "1", "LineNum": 5758, "Amount": 8473375290474.65, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5016", "name": "Fake-Henry Ferguson"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "606", "name": "Fake-Danielle Mckee"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 8473375290474.65},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2001-10-10", "VendorAddr":
+        {"Id": "36", "Line1": "-Fallback-scrubbed-wBfirHKAZPt", "City": "Fake-Christianton",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-Ca", "PostalCode": "55522",
+        "Lat": -27.4084075, "Long": "41901616018279.5"}, "Balance": 9213, "HomeBalance":
+        9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "24", "SyncToken":
+        "9475", "MetaData": {"CreateTime": "2021-01-19T19:40:31-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2021-02-17T13:43:08-08:00"}, "TxnDate":
+        "2015-04-23", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId": "1902", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id": "1", "LineNum": 5758,
+        "Description": "-Fallback-scrubbed-LAjBMbxBsUErdf", "Amount": 78278717706865.3,
+        "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2406", "name":
+        "Fake-Denise Burns"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "2230", "name": "Fake-Erin Armstrong"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": 78278717706865.3}, {"SalesTermRef":
+        {"value": "6886"}, "DueDate": "1997-12-26", "VendorAddr": {"Id": "43", "Line1":
+        "-Fallback-scrubbed-IchVHSNFmurH", "City": "Fake-Lake Emily", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-pf", "PostalCode": "29881", "Lat": -58.224144, "Long":
+        "753.217596834786"}, "Balance": 9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "90", "SyncToken": "9475", "MetaData": {"CreateTime":
+        "2023-02-08T06:52:58-08:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2021-02-17T13:19:24-08:00"}, "TxnDate": "2012-01-31", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "PrivateNote": "-Fallback-scrubbed-jxZBHjyLwxziJRCBZbrovsDpXZNdFw",
+        "LinkedTxn": [{"TxnId": "366", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}],
+        "Line": [{"Id": "1", "LineNum": 5758, "Amount": -673874.745257107, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "1357", "name": "Fake-Lori James"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "606", "name": "Fake-Danielle Mckee"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -673874.745257107},
+        {"DueDate": "1971-12-18", "VendorAddr": {"Id": "613", "Line1": "-Fallback-scrubbed-EgSnooAyJcYh",
+        "City": "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "90640"}, "Balance": 9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs",
+        "sparse": false, "Id": "3", "SyncToken": "9475", "MetaData": {"CreateTime":
+        "1977-04-09T11:47:19-08:00", "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime":
+        "2021-02-17T13:06:58-08:00"}, "TxnDate": "1971-12-18", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SoG", "name": "Fake-Brittany Michael"}, "ExchangeRate":
+        5758, "PrivateNote": "-Fallback-scrubbed-UYcStLDnCkPikot", "LinkedTxn": [{"TxnId":
+        "5981", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id":
+        "1", "LineNum": 5758, "Amount": 949439564.516769, "LinkedTxn": [], "DetailType":
+        "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5738", "name": "Fake-Mary Brown"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "9638", "name": "Fake-Kristina Banks"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 949439564.516769},
+        {"DueDate": "2019-03-03", "VendorAddr": {"Id": "37", "Line1": "-Fallback-scrubbed-nozndrWkXmi",
+        "City": "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance":
+        9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false,
+        "Id": "2", "SyncToken": "9475", "MetaData": {"CreateTime": "2001-08-31T18:42:36-08:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2021-02-17T13:01:57-08:00"},
+        "TxnDate": "2019-03-03", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "PrivateNote": "-Fallback-scrubbed-UYcStLDnCkPikot",
+        "LinkedTxn": [{"TxnId": "1132", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}],
+        "Line": [{"Id": "1", "LineNum": 5758, "Amount": -99914092509668.1, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5738", "name": "Fake-Mary Brown"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "6928", "name": "Fake-Melinda Foster"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": -99914092509668.1},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "1971-12-18", "VendorAddr":
+        {"Id": "42", "Line1": "-Fallback-scrubbed-yDEYSpVaQO", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 5339137728.67312,
+        "HomeBalance": 5339137728.67312, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "78", "SyncToken": "2130", "MetaData": {"CreateTime": "2010-05-23T06:05:41-08:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2021-02-17T13:00:36-08:00"},
+        "TxnDate": "1996-04-15", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Amount": 5339137728.67312, "LinkedTxn": [], "DetailType":
+        "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "4349", "name": "Fake-David Stafford"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5214", "name": "Fake-William Kelly"}, "APAccountRef":
+        {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 5339137728.67312},
+        {"SalesTermRef": {"value": "6886"}, "DueDate": "2001-10-10", "VendorAddr":
+        {"Id": "42", "Line1": "-Fallback-scrubbed-yDEYSpVaQO", "City": "Fake-Port
+        Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 9213, "HomeBalance":
+        9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "35", "SyncToken":
+        "9475", "MetaData": {"CreateTime": "2022-01-18T03:12:35-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2021-02-17T12:57:18-08:00"}, "TxnDate":
+        "2015-04-23", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId": "7462", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id": "1", "LineNum": 5758,
+        "Amount": 6851.49167776541, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "4349", "name":
+        "Fake-David Stafford"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "5214", "name": "Fake-William Kelly"}, "APAccountRef": {"value": "4201", "name":
+        "Fake-Amanda Bartlett"}, "TotalAmt": 6851.49167776541}, {"SalesTermRef": {"value":
+        "6886"}, "DueDate": "2001-10-10", "VendorAddr": {"Id": "33", "Line1": "-Fallback-scrubbed-mMDrSgBLTkA",
+        "City": "Fake-Port Christopherborough", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "74004", "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance":
+        9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false,
+        "Id": "21", "SyncToken": "9475", "MetaData": {"CreateTime": "1985-02-06T14:23:17-08:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2021-02-16T11:44:29-08:00"},
+        "TxnDate": "2015-04-23", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId":
+        "514", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id":
+        "1", "LineNum": 5758, "Description": "-Fallback-scrubbed-LkBVhWRAQejnZXFJSp",
+        "Amount": 393234152.23987, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7462", "name":
+        "Fake-Alejandra Mcintosh"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "3844", "name": "Fake-James Chen"}, "APAccountRef": {"value": "4201", "name":
+        "Fake-Amanda Bartlett"}, "TotalAmt": 393234152.23987}, {"SalesTermRef": {"value":
+        "6886"}, "DueDate": "1980-09-11", "Balance": -682141277508.14, "HomeBalance":
+        -682141277508.14, "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id":
+        "44", "SyncToken": "2130", "MetaData": {"CreateTime": "1983-07-20T13:39:48-08:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2021-02-16T11:31:42-08:00"},
+        "TxnDate": "1983-10-24", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Description": "-Fallback-scrubbed-pGsZQBlRSkIDKBWeaUNv",
+        "Amount": -682141277508.14, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "3321", "name":
+        "Fake-Jasmine Hall"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "6964", "name": "Fake-Christopher Haley"}, "APAccountRef": {"value": "4201",
+        "name": "Fake-Amanda Bartlett"}, "TotalAmt": -682141277508.14}, {"SalesTermRef":
+        {"value": "7488"}, "DueDate": "1980-11-22", "VendorAddr": {"Id": "31", "Line1":
+        "-Fallback-scrubbed-uIvCNvhmmQA", "City": "Fake-Port Christopherborough",
+        "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode": "74004",
+        "Lat": 65.9362305, "Long": "39070696910.625"}, "Balance": 9213, "HomeBalance":
+        9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false, "Id": "18", "SyncToken":
+        "9475", "MetaData": {"CreateTime": "1971-03-14T01:59:13-08:00", "LastModifiedByRef":
+        {"value": "6135"}, "LastUpdatedTime": "2021-02-16T11:13:46-08:00"}, "TxnDate":
+        "2021-11-12", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG", "name": "Fake-Brittany
+        Michael"}, "ExchangeRate": 5758, "LinkedTxn": [{"TxnId": "5155", "TxnType":
+        "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}], "Line": [{"Id": "1", "LineNum": 5758,
+        "Amount": 351924781237.978, "LinkedTxn": [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "5016", "name":
+        "Fake-Henry Ferguson"}, "BillableStatus": "-Fallback-scrubbed-emAOadbbJgD",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}], "VendorRef": {"value":
+        "5498", "name": "-Fallback-scrubbed-uDbVDtMDBOtEnxw"}, "APAccountRef": {"value":
+        "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt": 351924781237.978}, {"DueDate":
+        "2015-03-02", "VendorAddr": {"Id": "32", "Line1": "-Fallback-scrubbed-EpAsvEWnax",
+        "City": "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf",
+        "PostalCode": "90640", "Lat": 8.5544825, "Long": "599519197.112208"}, "Balance":
+        9213, "HomeBalance": 9213, "domain": "-Fallback-scrubbed-ZKs", "sparse": false,
+        "Id": "1", "SyncToken": "9475", "MetaData": {"CreateTime": "2017-05-09T16:01:00-08:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2021-02-15T15:28:48-08:00"},
+        "TxnDate": "2015-03-02", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "PrivateNote": "-Fallback-scrubbed-UYcStLDnCkPikot",
+        "LinkedTxn": [{"TxnId": "1649", "TxnType": "-Fallback-scrubbed-BwdsSxlzhKJNsGPd"}],
+        "Line": [{"Id": "1", "LineNum": 5758, "Amount": -363.42304720238, "LinkedTxn":
+        [], "DetailType": "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5738", "name": "Fake-Mary Brown"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5159", "name": "-Fallback-scrubbed-bHqzkKXzcPoOUPqEJQyGmtODFQ"},
+        "APAccountRef": {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt":
+        -363.42304720238}, {"SalesTermRef": {"value": "8315"}, "DueDate": "1991-06-06",
+        "VendorAddr": {"Id": "32", "Line1": "-Fallback-scrubbed-EpAsvEWnax", "City":
+        "Fake-Gibsonton", "CountrySubDivisionCode": "-Fallback-scrubbed-pf", "PostalCode":
+        "90640", "Lat": 8.5544825, "Long": "599519197.112208"}, "Balance": -2788348.55501091,
+        "HomeBalance": -2788348.55501091, "domain": "-Fallback-scrubbed-ZKs", "sparse":
+        false, "Id": "19", "SyncToken": "2130", "MetaData": {"CreateTime": "1999-03-10T00:08:13-08:00",
+        "LastModifiedByRef": {"value": "6135"}, "LastUpdatedTime": "2021-02-15T15:24:48-08:00"},
+        "TxnDate": "2015-03-02", "CurrencyRef": {"value": "-Fallback-scrubbed-SoG",
+        "name": "Fake-Brittany Michael"}, "ExchangeRate": 5758, "Line": [{"Id": "1",
+        "LineNum": 5758, "Amount": -2788348.55501091, "LinkedTxn": [], "DetailType":
+        "-Fallback-scrubbed-dmvXePpscpjcywYmIwgrrTLZKAceN", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "8154", "name": "Fake-Carl Moore"}, "BillableStatus":
+        "-Fallback-scrubbed-emAOadbbJgD", "TaxCodeRef": {"value": "-Fallback-scrubbed-AAX"}}}],
+        "VendorRef": {"value": "5159", "name": "-Fallback-scrubbed-bHqzkKXzcPoOUPqEJQyGmtODFQ"},
+        "APAccountRef": {"value": "4201", "name": "Fake-Amanda Bartlett"}, "TotalAmt":
+        -2788348.55501091}], "startPosition": 101, "maxResults": 24, "totalCount":
+        24}, "time": "1996-04-22T20:57:34.956-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '28537'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:18:35 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '22063'
+      intuit_tid:
+      - 1-6891f69a-5190df1067677bef3a72725e
+      x-amzn-trace-id:
+      - Root=1-6891f69a-5190df1067677bef3a72725e
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '323'
+      x-request-id:
+      - 1-6891f69a-5190df1067677bef3a72725e
+      x-spanid:
+      - 469d5ffc-73b4-c09a-7bab-ceab3d945cdf
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,6 @@
+{"type": "STATE", "value": {"current_stream": "DailyCashFlowReport"}}
+{"type": "SCHEMA", "stream": "DailyCashFlowReport", "schema": {"type": "object", "additionalProperties": false, "properties": {"Total": {"type": ["null", "number"]}, "Account": {"type": ["string", "null"]}, "Categories": {"type": ["null", "array"], "items": {"type": ["string", "null"]}}, "DailyTotal": {"type": ["null", "array"], "items": {"type": ["string", "null"]}}}}, "key_properties": []}
+{"type": "ACTIVATE_VERSION", "stream": "DailyCashFlowReport", "version": 1750256999287}
+{"type": "ACTIVATE_VERSION", "stream": "DailyCashFlowReport", "version": 1750256999287}
+{"type": "STATE", "value": {"current_stream": "DailyCashFlowReport", "bookmarks": {"DailyCashFlowReport": {"version": null}}}}
+{"type": "STATE", "value": {"current_stream": null, "bookmarks": {"DailyCashFlowReport": {"version": null}}}}

@@ -1,0 +1,726 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-qMuFML",
+        "access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
+        1093}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 13:10:58 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-689202e2-6d6c14091d66ccc32fff1ffb
+      x-amzn-trace-id:
+      - Root=1-689202e2-6d6c14091d66ccc32fff1ffb
+      x-envoy-upstream-service-time:
+      - '113'
+      x-request-id:
+      - 1-689202e2-6d6c14091d66ccc32fff1ffb
+      x-spanid:
+      - 2ae25012-5038-9c15-efbc-00995886c2df
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Purchase++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Purchase": [{"AccountRef": {"value": "2204", "name":
+        "Fake-Jessica Morgan"}, "PaymentMethodRef": {"value": "2840"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "5124", "name": "Fake-Brandi
+        Mills", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 6228808494622.6,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "622", "SyncToken": "4044", "MetaData": {"CreateTime": "1987-02-24T08:56:45-07:00",
+        "LastUpdatedTime": "2025-05-21T12:24:56-07:00"}, "TxnDate": "2013-01-28",
+        "DepartmentRef": {"value": "5106", "name": "Fake-Janice Wright"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"}, "ExchangeRate":
+        8189, "Line": [{"Id": "1", "Description": "9172", "Amount": 9940913152.74103,
+        "DetailType": "-Fallback-scrubbed-nmHqnsfdkxfDkUwgDTAoKZqVGe", "ItemBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "4857", "name": "Fake-Morgan Barnes"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "ItemRef": {"value": "4574", "name": "Fake-Matthew
+        Dixon"}, "ClassRef": {"value": "1679", "name": "Fake-Diane Alvarez"}, "UnitPrice":
+        592, "Qty": 8189, "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}, "ProjectRef":
+        {"value": "4642"}}, {"Id": "2", "Description": "-Fallback-scrubbed-nyl", "Amount":
+        9940913152.74103, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"CustomerRef": {"value": "4857", "name":
+        "Fake-Morgan Barnes"}, "ClassRef": {"value": "1679", "name": "Fake-Diane Alvarez"},
+        "AccountRef": {"value": "8726", "name": "Fake-Benjamin Lopez"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}},
+        "ProjectRef": {"value": "4642"}}]}, {"AccountRef": {"value": "2204", "name":
+        "Fake-Jessica Morgan"}, "PaymentType": "-Fallback-scrubbed-zVeI", "EntityRef":
+        {"value": "1805", "name": "Fake-Kelly Richardson", "type": "-Fallback-scrubbed-prBBPV"},
+        "TotalAmt": 85986564.3693075, "PurchaseEx": {"any": [{"name": "Fake-Robin
+        Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "577", "SyncToken": "4044", "MetaData": {"CreateTime": "1986-07-21T10:41:27-07:00",
+        "LastUpdatedTime": "2025-04-09T15:22:41-07:00"}, "TxnDate": "2003-01-27",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Description": "-Fallback-scrubbed-UdjeBmMpEZsv",
+        "Amount": 85986564.3693075, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "5346", "name":
+        "Fake-Jennifer Archer"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value":
+        "2204", "name": "Fake-Jessica Morgan"}, "PaymentType": "-Fallback-scrubbed-zVeI",
+        "TotalAmt": -58878.9762679892, "PurchaseEx": {"any": [{"name": "Fake-Robin
+        Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "168", "SyncToken": "4044", "MetaData": {"CreateTime": "1988-07-25T05:50:59-08:00",
+        "LastUpdatedTime": "2022-02-14T13:54:34-08:00"}, "TxnDate": "1982-11-03",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -58878.9762679892, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "8726", "name": "Fake-Benjamin Lopez"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "TotalAmt": -58878.9762679892, "PurchaseEx": {"any":
+        [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "162", "SyncToken": "4044", "MetaData": {"CreateTime": "2019-04-23T02:00:49-08:00",
+        "LastUpdatedTime": "2022-02-14T13:04:38-08:00"}, "TxnDate": "1982-11-03",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -58878.9762679892, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "8726", "name": "Fake-Benjamin Lopez"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "TotalAmt": -58878.9762679892, "PurchaseEx": {"any":
+        [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "161", "SyncToken": "4044", "MetaData": {"CreateTime": "2002-01-12T07:39:46-08:00",
+        "LastUpdatedTime": "2022-02-14T13:04:37-08:00"}, "TxnDate": "1982-11-03",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -58878.9762679892, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "8726", "name": "Fake-Benjamin Lopez"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "TotalAmt": -58878.9762679892, "PurchaseEx": {"any":
+        [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "160", "SyncToken": "4044", "MetaData": {"CreateTime": "2006-11-19T00:44:15-08:00",
+        "LastUpdatedTime": "2022-02-14T12:59:48-08:00"}, "TxnDate": "1982-11-03",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -58878.9762679892, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "8726", "name": "Fake-Benjamin Lopez"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "Credit": true, "TotalAmt": -2522266928.6123,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2840"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "144", "SyncToken": "4044", "MetaData": {"CreateTime": "2001-10-12T16:58:03-07:00",
+        "LastUpdatedTime": "2021-03-15T14:04:25-07:00"}, "TxnDate": "1990-08-26",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -2522266928.6123, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "2547", "name": "Fake-Riley Turner"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "7473", "name": "Fake-Barry
+        Stanley", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt":
+        -2.61149095572544, "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType":
+        "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP", "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx",
+        "value": {"Name": "Fake-Karl Rogers", "Value": "2840"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "143", "SyncToken": "4044", "MetaData": {"CreateTime": "2022-07-16T19:05:39-08:00",
+        "LastUpdatedTime": "2021-03-04T14:45:20-08:00"}, "TxnDate": "2023-10-24",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -2.61149095572544, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "7425", "name": "Fake-Joseph Guerrero"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "5535", "name": "Fake-Harold
+        Spencer", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt":
+        142258.198733658, "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType":
+        "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP", "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx",
+        "value": {"Name": "Fake-Karl Rogers", "Value": "2840"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "142", "SyncToken": "4044", "MetaData": {"CreateTime": "2004-09-22T19:29:16-08:00",
+        "LastUpdatedTime": "2021-03-04T14:37:54-08:00"}, "TxnDate": "1988-11-17",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 142258.198733658, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "2547", "name": "Fake-Riley Turner"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "5535", "name": "Fake-Harold
+        Spencer", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt":
+        142258.198733658, "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType":
+        "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP", "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx",
+        "value": {"Name": "Fake-Karl Rogers", "Value": "2840"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "141", "SyncToken": "4044", "MetaData": {"CreateTime": "1983-01-11T06:39:13-08:00",
+        "LastUpdatedTime": "2021-03-04T14:37:27-08:00"}, "TxnDate": "1979-10-31",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 142258.198733658, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "2547", "name": "Fake-Riley Turner"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "5346", "name": "Fake-Melissa
+        Hill", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt": 86.7448846959532,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2840"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "140", "SyncToken": "4044", "MetaData": {"CreateTime": "2018-05-19T21:10:30-08:00",
+        "LastUpdatedTime": "2021-03-04T14:36:37-08:00"}, "TxnDate": "1979-10-31",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "PrivateNote": "-Fallback-scrubbed-uOpkCYsZPFtFWTRtOkNTNZmcR",
+        "Line": [{"Id": "1", "Amount": 86.7448846959532, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "3458", "name":
+        "Fake-Clinton Ward"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value":
+        "7473", "name": "Fake-Eric Zhang"}, "PaymentType": "-Fallback-scrubbed-jscuQHZywA",
+        "Credit": false, "TotalAmt": 455551417085.915, "PurchaseEx": {"any": [{"name":
+        "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "8760"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "139", "SyncToken": "4044", "MetaData": {"CreateTime": "1994-06-14T12:20:54-08:00",
+        "LastUpdatedTime": "2021-03-04T14:35:37-08:00"}, "TxnDate": "2023-09-24",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "PrivateNote": "-Fallback-scrubbed-EZBETtDmPOWEzyO",
+        "Line": [{"Id": "1", "Amount": 455551417085.915, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2204", "name":
+        "Fake-Jessica Morgan"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value":
+        "2204", "name": "Fake-Jessica Morgan"}, "PaymentType": "-Fallback-scrubbed-EjoSs",
+        "EntityRef": {"value": "5535", "name": "Fake-Harold Spencer", "type": "-Fallback-scrubbed-prBBPV"},
+        "TotalAmt": 142258.198733658, "PrintStatus": "-Fallback-scrubbed-fVldWY",
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "769"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "138", "SyncToken": "4044", "MetaData": {"CreateTime": "1970-08-22T12:47:45-08:00",
+        "LastUpdatedTime": "2021-03-04T14:33:29-08:00"}, "DocNumber": "-Fallback-scrubbed-xhpYy",
+        "TxnDate": "2013-04-09", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW",
+        "name": "Fake-Jill Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount":
+        142258.198733658, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2547", "name":
+        "Fake-Riley Turner"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value":
+        "2204", "name": "Fake-Jessica Morgan"}, "PaymentType": "-Fallback-scrubbed-zVeI",
+        "EntityRef": {"value": "5346", "name": "Fake-Melissa Hill", "type": "-Fallback-scrubbed-prBBPV"},
+        "TotalAmt": 3.44357666194681, "PurchaseEx": {"any": [{"name": "Fake-Robin
+        Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "4304"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "137", "SyncToken": "4044", "MetaData": {"CreateTime": "1980-07-19T07:22:21-08:00",
+        "LastUpdatedTime": "2021-03-04T14:32:16-08:00"}, "TxnDate": "2015-02-19",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 3.44357666194681, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "3458", "name": "Fake-Clinton Ward"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "5535", "name": "Fake-Harold
+        Spencer", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 142258.198733658,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "4304"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "136", "SyncToken": "4044", "MetaData": {"CreateTime": "1998-05-12T10:07:09-08:00",
+        "LastUpdatedTime": "2021-03-04T14:31:50-08:00"}, "TxnDate": "1972-07-13",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 142258.198733658, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "2547", "name": "Fake-Riley Turner"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "5346", "name": "Fake-Melissa
+        Hill", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 5.5818237390432,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "4304"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "135", "SyncToken": "2840", "MetaData": {"CreateTime": "2002-09-24T16:50:46-08:00",
+        "LastUpdatedTime": "2021-03-04T14:30:32-08:00"}, "TxnDate": "1972-07-13",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 5.5818237390432, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "3458", "name": "Fake-Clinton Ward"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "1357", "name": "Fake-Sarah
+        Mccall", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 6145.9417972449,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "4304"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "134", "SyncToken": "4044", "MetaData": {"CreateTime": "1972-01-18T17:55:25-08:00",
+        "LastUpdatedTime": "2021-03-04T14:21:49-08:00"}, "TxnDate": "2007-10-04",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 6145.9417972449, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "2598", "name": "Fake-Sandra Cruz"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-EjoSs", "EntityRef": {"value": "7266", "name": "Fake-Francis
+        Love", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": -23853348199.2675,
+        "PrintStatus": "-Fallback-scrubbed-fVldWY", "PurchaseEx": {"any": [{"name":
+        "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "769"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "133", "SyncToken": "4044", "MetaData": {"CreateTime": "1999-06-27T20:40:24-08:00",
+        "LastUpdatedTime": "2021-03-04T14:17:55-08:00"}, "DocNumber": "8370", "TxnDate":
+        "2017-09-15", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -23853348199.2675,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "849", "name": "Fake-Diana Mcdaniel"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "7266", "name": "Fake-Francis
+        Love", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 1051658427.38748,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "4304"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "132", "SyncToken": "4044", "MetaData": {"CreateTime": "1982-03-04T01:26:28-08:00",
+        "LastUpdatedTime": "2021-03-04T14:15:18-08:00"}, "TxnDate": "2017-09-15",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 1051658427.38748, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5346", "name": "Fake-Jennifer Archer"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "7266", "name": "Fake-Francis
+        Love", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 985595774.214444,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "4304"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "131", "SyncToken": "4044", "MetaData": {"CreateTime": "2010-05-14T08:14:16-08:00",
+        "LastUpdatedTime": "2021-03-04T14:14:16-08:00"}, "TxnDate": "1992-12-11",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 985595774.214444, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5346", "name": "Fake-Jennifer Archer"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "9696", "name": "Fake-Mark
+        Henderson DDS", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 6007128.865194,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "127", "SyncToken": "4044", "MetaData": {"CreateTime": "2023-09-25T12:09:03-08:00",
+        "LastUpdatedTime": "2021-02-18T13:11:56-08:00"}, "DocNumber": "8690", "TxnDate":
+        "2018-11-26", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Description": "-Fallback-scrubbed-lLrkxDx",
+        "Amount": 6007128.865194, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "9269", "name":
+        "Fake-Brian Johnson"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value":
+        "7473", "name": "Fake-Eric Zhang"}, "PaymentType": "-Fallback-scrubbed-jscuQHZywA",
+        "EntityRef": {"value": "7266", "name": "Fake-Francis Love", "type": "-Fallback-scrubbed-prBBPV"},
+        "Credit": true, "TotalAmt": -323362537590.587, "PurchaseEx": {"any": [{"name":
+        "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "122", "SyncToken": "4044", "MetaData": {"CreateTime": "1993-06-22T01:23:00-08:00",
+        "LastUpdatedTime": "2021-02-18T13:03:14-08:00"}, "DocNumber": "2840", "TxnDate":
+        "2018-11-26", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -323362537590.587,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5346", "name": "Fake-Jennifer Archer"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-EjoSs", "EntityRef": {"value": "7473", "name": "Fake-Barry
+        Stanley", "type": "-Fallback-scrubbed-prBBPV"}, "RemitToAddr": {"Id": "37",
+        "Line1": "-Fallback-scrubbed-pCwSVacutKN", "City": "Fake-Port Kelly", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-OI", "PostalCode": "63667", "Lat": -65.149355, "Long":
+        "950845810686.95"}, "TotalAmt": 2610805910375.78, "PrintStatus": "-Fallback-scrubbed-fVldWY",
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "769"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "115", "SyncToken": "4044", "MetaData": {"CreateTime": "1980-09-11T01:02:06-08:00",
+        "LastUpdatedTime": "2021-02-18T12:51:46-08:00"}, "DocNumber": "9748", "TxnDate":
+        "2018-11-26", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Description": "-Fallback-scrubbed-JwgsUaiaZKUKF",
+        "Amount": 880353047697.498, "DetailType": "-Fallback-scrubbed-nmHqnsfdkxfDkUwgDTAoKZqVGe",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "ItemRef": {"value": "6315", "name": "-Fallback-scrubbed-JwgsUaiaZKUKF"},
+        "UnitPrice": 3128, "Qty": 8189, "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}},
+        {"Id": "2", "Description": "-Fallback-scrubbed-FIaXVRNyFwdLdqR", "Amount":
+        -20882780.793606, "DetailType": "-Fallback-scrubbed-nmHqnsfdkxfDkUwgDTAoKZqVGe",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "ItemRef": {"value": "8596", "name": "-Fallback-scrubbed-FIaXVRNyFwdLdqR"},
+        "UnitPrice": 122419643250.79, "Qty": 5922, "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}},
+        {"Id": "3", "Description": "-Fallback-scrubbed-pXKFXaBgnTKDLdW", "Amount":
+        -503.662887436161, "DetailType": "-Fallback-scrubbed-nmHqnsfdkxfDkUwgDTAoKZqVGe",
+        "ItemBasedExpenseLineDetail": {"BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "ItemRef": {"value": "6795", "name": "-Fallback-scrubbed-pXKFXaBgnTKDLdW"},
+        "UnitPrice": -1.5747445526138, "Qty": 9077, "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}},
+        {"Id": "4", "Description": "-Fallback-scrubbed-awOetarsDQHQT", "Amount": -52180774.4282887,
+        "DetailType": "-Fallback-scrubbed-nmHqnsfdkxfDkUwgDTAoKZqVGe", "ItemBasedExpenseLineDetail":
+        {"BillableStatus": "-Fallback-scrubbed-GwuTVogQhan", "ItemRef": {"value":
+        "8760", "name": "Fake-Christopher Ball"}, "UnitPrice": 5174, "Qty": 7162,
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value":
+        "2204", "name": "Fake-Jessica Morgan"}, "PaymentType": "-Fallback-scrubbed-EjoSs",
+        "EntityRef": {"value": "6871", "name": "Fake-Kimberly Saunders", "type": "-Fallback-scrubbed-prBBPV"},
+        "RemitToAddr": {"Id": "31", "Line1": "-Fallback-scrubbed-CJKqpeOqFOj", "City":
+        "Fake-Lake Veronicaborough", "CountrySubDivisionCode": "-Fallback-scrubbed-OI",
+        "PostalCode": "63667", "Lat": -65.149355, "Long": "950845810686.95"}, "TotalAmt":
+        518936668.15618, "PrintStatus": "-Fallback-scrubbed-fVldWY", "PurchaseEx":
+        {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "769"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "109", "SyncToken": "4044", "MetaData": {"CreateTime": "1987-10-01T19:24:22-08:00",
+        "LastUpdatedTime": "2021-02-18T12:39:12-08:00"}, "DocNumber": "9269", "TxnDate":
+        "1981-10-30", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 518936668.15618,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "8370", "name": "Fake-Donna Mcfarland"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "558", "name": "Fake-Krystal
+        Allen", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 71001356107904.5,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "107", "SyncToken": "4044", "MetaData": {"CreateTime": "2004-04-25T07:10:58-08:00",
+        "LastUpdatedTime": "2021-02-18T12:36:23-08:00"}, "DocNumber": "9269", "TxnDate":
+        "1974-11-13", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 71001356107904.5,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5521", "name": "Fake-Roy Gillespie"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "1357", "name": "Fake-Sarah
+        Mccall", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt":
+        85.9411416544073, "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType":
+        "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP", "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx",
+        "value": {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "88", "SyncToken": "2840", "MetaData": {"CreateTime": "2010-02-26T13:45:03-08:00",
+        "LastUpdatedTime": "2021-02-17T13:17:13-08:00"}, "DocNumber": "1323", "TxnDate":
+        "1990-05-27", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 85.9411416544073,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "558", "name": "Fake-Sandra Cruz"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "1357", "name": "Fake-Sarah
+        Mccall", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 6277122375971.35,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "87", "SyncToken": "2840", "MetaData": {"CreateTime": "1984-04-20T23:51:01-08:00",
+        "LastUpdatedTime": "2021-02-17T13:17:06-08:00"}, "DocNumber": "7689", "TxnDate":
+        "1971-07-07", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 6277122375971.35,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "3359", "name": "Fake-Louis Thompson"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "1357", "name": "Fake-Sarah
+        Mccall", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 996679.288405063,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "89", "SyncToken": "2840", "MetaData": {"CreateTime": "2025-04-07T13:25:10-08:00",
+        "LastUpdatedTime": "2021-02-17T13:16:55-08:00"}, "DocNumber": "5998", "TxnDate":
+        "1992-12-11", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 996679.288405063,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "3359", "name": "Fake-Louis Thompson"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-zVeI", "EntityRef": {"value": "1357", "name": "Fake-Sarah
+        Mccall", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": -17.6063571971984,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "86", "SyncToken": "2840", "MetaData": {"CreateTime": "2018-09-14T21:04:48-08:00",
+        "LastUpdatedTime": "2021-02-17T13:13:55-08:00"}, "DocNumber": "688", "TxnDate":
+        "1981-10-30", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Description": "-Fallback-scrubbed-EFHHIBMYvlubdXcDGWtKiSk",
+        "Amount": -17.6063571971984, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "2598", "name":
+        "Fake-Sandra Cruz"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value": "7473",
+        "name": "Fake-Eric Zhang"}, "PaymentType": "-Fallback-scrubbed-jscuQHZywA",
+        "EntityRef": {"value": "1357", "name": "Fake-Sarah Mccall", "type": "-Fallback-scrubbed-prBBPV"},
+        "Credit": true, "TotalAmt": 550989503.882526, "PurchaseEx": {"any": [{"name":
+        "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "85", "SyncToken": "4044", "MetaData": {"CreateTime": "2023-09-14T09:10:22-08:00",
+        "LastUpdatedTime": "2021-02-17T13:12:01-08:00"}, "DocNumber": "769", "TxnDate":
+        "1989-03-13", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 550989503.882526,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "2598", "name": "Fake-Sandra Cruz"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "1357", "name": "Fake-Sarah
+        Mccall", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt":
+        -975798620878.259, "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType":
+        "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP", "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx",
+        "value": {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "56", "SyncToken": "2840", "MetaData": {"CreateTime": "1970-05-14T14:19:15-08:00",
+        "LastUpdatedTime": "2021-02-17T13:10:58-08:00"}, "DocNumber": "1357", "TxnDate":
+        "1993-09-12", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -975798620878.259,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "2598", "name": "Fake-Sandra Cruz"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-EjoSs", "EntityRef": {"value": "1208", "name": "Fake-Todd
+        Richardson", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 9940913152.74103,
+        "PrintStatus": "-Fallback-scrubbed-fVldWY", "PurchaseEx": {"any": [{"name":
+        "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "769"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "84", "SyncToken": "4044", "MetaData": {"CreateTime": "1975-12-18T12:51:42-08:00",
+        "LastUpdatedTime": "2021-02-17T13:09:46-08:00"}, "TxnDate": "1972-07-13",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Description": "-Fallback-scrubbed-IPyBdIrLrY",
+        "Amount": 9940913152.74103, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "583", "name": "Fake-William
+        Alvarez"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef":
+        {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value": "2204",
+        "name": "Fake-Jessica Morgan"}, "PaymentType": "-Fallback-scrubbed-zVeI",
+        "EntityRef": {"value": "7473", "name": "Fake-Barry Stanley", "type": "-Fallback-scrubbed-prBBPV"},
+        "TotalAmt": 8694113854364.76, "PurchaseEx": {"any": [{"name": "Fake-Robin
+        Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "83", "SyncToken": "4044", "MetaData": {"CreateTime": "1992-07-19T03:14:40-08:00",
+        "LastUpdatedTime": "2021-02-17T13:08:20-08:00"}, "DocNumber": "3458", "TxnDate":
+        "1993-09-12", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 8694113854364.76,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "3159", "name": "Fake-Martha Lewis"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "7473", "name": "Fake-Barry
+        Stanley", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt":
+        -69.8207849772873, "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType":
+        "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP", "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx",
+        "value": {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "81", "SyncToken": "4044", "MetaData": {"CreateTime": "1983-03-19T18:07:30-08:00",
+        "LastUpdatedTime": "2021-02-17T13:04:57-08:00"}, "DocNumber": "2840", "TxnDate":
+        "2009-05-27", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -69.8207849772873,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"CustomerRef": {"value": "559", "name": "Fake-Chelsea Blevins"}, "AccountRef":
+        {"value": "7425", "name": "Fake-Joseph Guerrero"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value":
+        "2204", "name": "Fake-Jessica Morgan"}, "PaymentType": "-Fallback-scrubbed-zVeI",
+        "EntityRef": {"value": "7473", "name": "Fake-Barry Stanley", "type": "-Fallback-scrubbed-prBBPV"},
+        "TotalAmt": 73180.4999591545, "PurchaseEx": {"any": [{"name": "Fake-Robin
+        Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "80", "SyncToken": "4044", "MetaData": {"CreateTime": "1985-07-02T04:00:02-08:00",
+        "LastUpdatedTime": "2021-02-17T13:03:08-08:00"}, "DocNumber": "6012", "TxnDate":
+        "1983-11-15", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 73180.4999591545,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "558", "name": "Fake-Sandra Cruz"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "7266", "name": "Fake-Francis
+        Love", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt": 82493820334.6187,
+        "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "59", "SyncToken": "4044", "MetaData": {"CreateTime": "1997-06-22T11:39:59-08:00",
+        "LastUpdatedTime": "2021-02-16T15:16:13-08:00"}, "DocNumber": "2840", "TxnDate":
+        "1997-01-11", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 82493820334.6187,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5346", "name": "Fake-Jennifer Archer"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-EjoSs", "EntityRef": {"value": "7266", "name": "Fake-Francis
+        Love", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": 234750197096.49,
+        "PrintStatus": "-Fallback-scrubbed-fVldWY", "PurchaseEx": {"any": [{"name":
+        "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "769"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "58", "SyncToken": "4044", "MetaData": {"CreateTime": "1975-01-20T09:25:50-08:00",
+        "LastUpdatedTime": "2021-02-16T15:15:00-08:00"}, "DocNumber": "6315", "TxnDate":
+        "2026-08-01", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": 234750197096.49,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5346", "name": "Fake-Jennifer Archer"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "2204", "name": "Fake-Jessica Morgan"}, "PaymentType":
+        "-Fallback-scrubbed-EjoSs", "EntityRef": {"value": "7266", "name": "Fake-Francis
+        Love", "type": "-Fallback-scrubbed-prBBPV"}, "TotalAmt": -1565252.31518735,
+        "PrintStatus": "-Fallback-scrubbed-fVldWY", "PurchaseEx": {"any": [{"name":
+        "Fake-Robin Banks", "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "769"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "57", "SyncToken": "4044", "MetaData": {"CreateTime": "1997-11-11T05:10:09-08:00",
+        "LastUpdatedTime": "2021-02-16T15:14:27-08:00"}, "DocNumber": "5106", "TxnDate":
+        "1999-12-30", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -1565252.31518735,
+        "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "5346", "name": "Fake-Jennifer Archer"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "2979", "name": "Fake-Megan
+        Savage", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt":
+        -631.400762426911, "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType":
+        "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP", "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx",
+        "value": {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "55", "SyncToken": "2840", "MetaData": {"CreateTime": "1992-01-18T06:12:26-08:00",
+        "LastUpdatedTime": "2021-02-16T14:22:40-08:00"}, "TxnDate": "2013-04-09",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill Pacheco"},
+        "ExchangeRate": 8189, "Line": [{"Id": "1", "Amount": -631.400762426911, "DetailType":
+        "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK", "AccountBasedExpenseLineDetail":
+        {"AccountRef": {"value": "8726", "name": "Fake-Benjamin Lopez"}, "BillableStatus":
+        "-Fallback-scrubbed-GwuTVogQhan", "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]},
+        {"AccountRef": {"value": "7473", "name": "Fake-Eric Zhang"}, "PaymentType":
+        "-Fallback-scrubbed-jscuQHZywA", "EntityRef": {"value": "6625", "name": "Fake-Derek
+        Sanchez", "type": "-Fallback-scrubbed-prBBPV"}, "Credit": true, "TotalAmt":
+        26749548.6198471, "PurchaseEx": {"any": [{"name": "Fake-Robin Banks", "declaredType":
+        "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP", "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx",
+        "value": {"Name": "Fake-Karl Rogers", "Value": "2526"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "51", "SyncToken": "4044", "MetaData": {"CreateTime": "1998-02-26T04:21:02-08:00",
+        "LastUpdatedTime": "2021-02-16T11:45:45-08:00"}, "DocNumber": "2840", "TxnDate":
+        "2013-04-09", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Description": "-Fallback-scrubbed-HsBwUqNTidUGkGBcaZCAjAGYKAk",
+        "Amount": 26749548.6198471, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "5360", "name":
+        "Fake-Briana Myers"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}, {"AccountRef": {"value":
+        "2204", "name": "Fake-Jessica Morgan"}, "PaymentType": "-Fallback-scrubbed-EjoSs",
+        "EntityRef": {"value": "4574", "name": "Fake-Christopher Harrington", "type":
+        "-Fallback-scrubbed-prBBPV"}, "TotalAmt": -28048317495024.1, "PrintStatus":
+        "-Fallback-scrubbed-fVldWY", "PurchaseEx": {"any": [{"name": "Fake-Robin Banks",
+        "declaredType": "-Fallback-scrubbed-hyRNjEWPbmSFEWpxsYyeKjTmaRauGxGJrVtehP",
+        "scope": "-Fallback-scrubbed-xLEuAAFhIPuVXfCTtuAJyChcpPOjQocHKMTLNx", "value":
+        {"Name": "Fake-Karl Rogers", "Value": "769"}, "nil": true, "globalScope":
+        false, "typeSubstituted": true}]}, "domain": "-Fallback-scrubbed-gqJ", "sparse":
+        true, "Id": "36", "SyncToken": "4044", "MetaData": {"CreateTime": "1980-12-23T07:46:56-08:00",
+        "LastUpdatedTime": "2021-02-16T11:12:45-08:00"}, "DocNumber": "6612", "TxnDate":
+        "1993-09-12", "CurrencyRef": {"value": "-Fallback-scrubbed-MdW", "name": "Fake-Jill
+        Pacheco"}, "ExchangeRate": 8189, "Line": [{"Id": "1", "Description": "-Fallback-scrubbed-XPfMLyaFnlpbBHY",
+        "Amount": -28048317495024.1, "DetailType": "-Fallback-scrubbed-iJUAnkmLxAdKWCePMmuLDXypUKWHK",
+        "AccountBasedExpenseLineDetail": {"AccountRef": {"value": "7689", "name":
+        "Fake-Kimberly Evans"}, "BillableStatus": "-Fallback-scrubbed-GwuTVogQhan",
+        "TaxCodeRef": {"value": "-Fallback-scrubbed-hVR"}}}]}], "startPosition": 1,
+        "maxResults": 41}, "time": "1999-11-21T05:26:27.841-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52529'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 13:11:01 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '40304'
+      intuit_tid:
+      - 1-689202e4-0479318803e760a4544b38ad
+      x-amzn-trace-id:
+      - Root=1-689202e4-0479318803e760a4544b38ad
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '1011'
+      x-request-id:
+      - 1-689202e4-0479318803e760a4544b38ad
+      x-spanid:
+      - 17f81779-6388-2250-50fd-0100a52f82f6
+    status:
+      code: 200
+      message: OK
+version: 1
