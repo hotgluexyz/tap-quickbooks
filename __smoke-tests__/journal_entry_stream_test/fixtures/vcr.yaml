@@ -1,0 +1,1034 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "refresh_token": "ref***", "access_token":
+        "acc***", "token_type": "-Fallback-scrubbed-bIgkON", "x_refresh_token_expires_in":
+        1905}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:56:15 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891ff6f-33d738880dc8724b10a513f7
+      x-amzn-trace-id:
+      - Root=1-6891ff6f-33d738880dc8724b10a513f7
+      x-envoy-upstream-service-time:
+      - '116'
+      x-request-id:
+      - 1-6891ff6f-33d738880dc8724b10a513f7
+      x-spanid:
+      - 3c7bacce-accb-11c2-71b1-56fd3b3dc335
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+JournalEntry++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"JournalEntry": [{"Adjustment": true, "TotalAmt":
+        2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse":
+        true, "Id": "791", "SyncToken": "7222", "MetaData": {"CreateTime": "1992-12-22T11:05:51-07:00",
+        "LastUpdatedTime": "2025-07-28T12:55:56-07:00"}, "DocNumber": "-Fallback-scrubbed-cAcFEJZwSKoRmvHNuwCmj",
+        "TxnDate": "2021-09-06", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-qYuxxNIzkxuJ",
+        "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-jAOOstP", "Amount":
+        9347752810.31762, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "8189", "name": "Fake-Joshua
+        Rojas"}, "ClassRef": {"value": "3388", "name": "Fake-Amanda Suarez"}, "DepartmentRef":
+        {"value": "5266", "name": "Fake-Teresa Armstrong"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-jAOOstP", "Amount": 9347752810.31762, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "5756", "name": "Fake-Katelyn
+        Brown"}, "ClassRef": {"value": "9510", "name": "Fake-Lori Young"}, "DepartmentRef":
+        {"value": "5266", "name": "Fake-Teresa Armstrong"}}}], "TxnTaxDetail": {}},
+        {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "790", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "2025-12-03T00:50:02-07:00", "LastUpdatedTime": "2025-07-28T12:44:37-07:00"},
+        "DocNumber": "-Fallback-scrubbed-zqfbAggJcZuyzMEZvHrbb", "TxnDate": "2021-09-06",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-rOZSXVnFWOOW",
+        "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-XGmMMcIT", "Amount":
+        9347752810.31762, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "6238", "name": "Fake-Drew Petty"}, "ClassRef": {"value": "3388",
+        "name": "Fake-Amanda Suarez"}, "DepartmentRef": {"value": "5266", "name":
+        "Fake-Teresa Armstrong"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-UidkStl",
+        "Amount": 9347752810.31762, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "5266", "name": "Fake-Bobby
+        Salazar"}, "ClassRef": {"value": "3388", "name": "Fake-Amanda Suarez"}, "DepartmentRef":
+        {"value": "5266", "name": "Fake-Teresa Armstrong"}}}], "TxnTaxDetail": {}},
+        {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "782", "SyncToken": "8393", "MetaData": {"CreateTime":
+        "2016-05-14T06:07:15-07:00", "LastUpdatedTime": "2025-07-23T08:27:14-07:00"},
+        "DocNumber": "-Fallback-scrubbed-KmjlRmhUqzZBIzCAaqfCH", "TxnDate": "2026-05-18",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-ZtvPHCIDCy",
+        "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-TOwyEhwFpyNwuThIs",
+        "Amount": 355.365233878752, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "2578", "name": "Fake-Samantha
+        Walters"}, "ClassRef": {"value": "3388", "name": "Fake-Amanda Suarez"}, "DepartmentRef":
+        {"value": "5266", "name": "Fake-Teresa Armstrong"}}}, {"Id": "2", "Description":
+        "-Fallback-scrubbed-TOwyEhwFpyNwuThIs", "Amount": 355.365233878752, "DetailType":
+        "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail": {"PostingType":
+        "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "9336", "name": "Fake-Michelle Mendoza"}}, "AccountRef":
+        {"value": "9332", "name": "Fake-Tammy Moore"}, "ClassRef": {"value": "3388",
+        "name": "Fake-Amanda Suarez"}, "DepartmentRef": {"value": "5266", "name":
+        "Fake-Teresa Armstrong"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt":
+        2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse":
+        true, "Id": "781", "SyncToken": "7222", "MetaData": {"CreateTime": "1993-11-20T19:16:39-07:00",
+        "LastUpdatedTime": "2025-07-15T11:14:00-07:00"}, "DocNumber": "-Fallback-scrubbed-QFLDIqncGGwFOjd",
+        "TxnDate": "2000-09-17", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Amount": 355.365233878752, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "9024", "name": "Fake-Christopher Dudley"}}}, {"Id": "1", "Amount":
+        355.365233878752, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef":
+        {"value": "9024", "name": "Fake-Christopher Dudley"}}}], "TxnTaxDetail": {}},
+        {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "780", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "2001-12-26T22:51:05-07:00", "LastUpdatedTime": "2025-07-15T11:13:48-07:00"},
+        "DocNumber": "-Fallback-scrubbed-DYjmuyPzbJSHtLi", "TxnDate": "2000-09-17",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0", "Amount": 355.365233878752,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef": {"value": "9024",
+        "name": "Fake-Christopher Dudley"}}}, {"Id": "1", "Amount": 355.365233878752,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef": {"value": "9024",
+        "name": "Fake-Christopher Dudley"}}}], "TxnTaxDetail": {}}, {"Adjustment":
+        true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "779", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "1974-02-16T03:33:23-07:00", "LastUpdatedTime": "2025-07-15T11:06:10-07:00"},
+        "DocNumber": "-Fallback-scrubbed-HBMZtxrwkvKZaLs", "TxnDate": "2000-09-17",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0", "Amount": 355.365233878752,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef": {"value": "7540",
+        "name": "Fake-Laura Fuentes"}}}, {"Id": "1", "Amount": -602715.40682498, "DetailType":
+        "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail": {"PostingType":
+        "-Fallback-scrubbed-jdAqUI", "AccountRef": {"value": "7540", "name": "Fake-Laura
+        Fuentes"}}}, {"Id": "2", "Amount": 9.40173914149116, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "7540", "name": "Fake-Laura Fuentes"}}}], "TxnTaxDetail": {}}, {"Adjustment":
+        true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "776", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "1979-01-08T22:06:25-07:00", "LastUpdatedTime": "2025-06-30T06:52:26-07:00"},
+        "DocNumber": "-Fallback-scrubbed-mzJWcCvxhUFinit", "TxnDate": "1974-02-06",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0", "Amount": 9347752810.31762,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef": {"value": "3600",
+        "name": "Fake-Sharon Lin"}}}, {"Id": "1", "Amount": 9347752810.31762, "DetailType":
+        "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail": {"PostingType":
+        "-Fallback-scrubbed-jdAqUI", "AccountRef": {"value": "7375", "name": "Fake-Dustin
+        Black"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "775", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "2008-01-14T02:04:39-07:00", "LastUpdatedTime":
+        "2025-06-30T06:16:07-07:00"}, "DocNumber": "-Fallback-scrubbed-wrKWSPoerZ",
+        "TxnDate": "1974-02-06", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-phJrTnNjUgTnkpP",
+        "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-JoHfRgNniKWRVPACUvSd",
+        "Amount": 9347752810.31762, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "3600", "name": "Fake-Sharon Lin"}, "ClassRef": {"value": "4830",
+        "name": "Fake-Franklin Thomas"}, "DepartmentRef": {"value": "6879", "name":
+        "Fake-Nicole Ward"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-ZsatoBpolHjbBdXakrHl",
+        "Amount": 9347752810.31762, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef":
+        {"value": "7375", "name": "Fake-Dustin Black"}, "ClassRef": {"value": "4830",
+        "name": "Fake-Franklin Thomas"}, "DepartmentRef": {"value": "6879", "name":
+        "Fake-Nicole Ward"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt":
+        2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse":
+        true, "Id": "771", "SyncToken": "8393", "MetaData": {"CreateTime": "1984-05-05T03:59:00-07:00",
+        "LastUpdatedTime": "2025-06-27T12:20:46-07:00"}, "DocNumber": "-Fallback-scrubbed-bQjYVSpfcdjbKN",
+        "TxnDate": "2026-10-08", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-OFVZWaPqnwTatLBvInONxff", "Amount": 9347752810.31762,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "9336", "name": "Fake-Michelle Mendoza"}}, "AccountRef":
+        {"value": "3600", "name": "Fake-Sharon Lin"}, "ClassRef": {"value": "3388",
+        "name": "Fake-Amanda Suarez"}, "DepartmentRef": {"value": "5266", "name":
+        "Fake-Teresa Armstrong"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-OFVZWaPqnwTatLBvInONxff",
+        "Amount": 9347752810.31762, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "7375", "name": "Fake-Dustin
+        Black"}, "ClassRef": {"value": "3388", "name": "Fake-Amanda Suarez"}, "DepartmentRef":
+        {"value": "5266", "name": "Fake-Teresa Armstrong"}}}], "TxnTaxDetail": {}},
+        {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "772", "SyncToken": "6238", "MetaData": {"CreateTime":
+        "1975-01-03T01:33:51-07:00", "LastUpdatedTime": "2025-06-27T12:20:25-07:00"},
+        "DocNumber": "-Fallback-scrubbed-oWiZVDzIhwUQxW", "TxnDate": "2026-10-08",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-ESWRTtvZJFKedXRVNUQsNFmkJDzlDVLUpnW",
+        "Amount": 355.365233878752, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley
+        Henry"}, "ClassRef": {"value": "3388", "name": "Fake-Amanda Suarez"}, "DepartmentRef":
+        {"value": "6551", "name": "Fake-Barbara Bradley"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-ESWRTtvZJFKedXRVNUQsNFmkJDzlDVLUpnW", "Amount": 355.365233878752,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "3241", "name": "Fake-Richard Ross"}}, "AccountRef":
+        {"value": "7375", "name": "Fake-Dustin Black"}, "ClassRef": {"value": "3388",
+        "name": "Fake-Amanda Suarez"}, "DepartmentRef": {"value": "6551", "name":
+        "Fake-Barbara Bradley"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt":
+        2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse":
+        true, "Id": "769", "SyncToken": "7222", "MetaData": {"CreateTime": "1971-02-07T17:16:51-07:00",
+        "LastUpdatedTime": "2025-06-26T15:04:56-07:00"}, "DocNumber": "-Fallback-scrubbed-vvBqiuVFrMvKAz",
+        "TxnDate": "1987-07-03", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-dHqfsCTuRWAgSTx",
+        "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-IBDNWYJCptKorlbccFQW",
+        "Amount": 9347752810.31762, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "2578", "name": "Fake-Samantha
+        Walters"}, "ClassRef": {"value": "4830", "name": "Fake-Franklin Thomas"},
+        "DepartmentRef": {"value": "6879", "name": "Fake-Nicole Ward"}}}, {"Id": "1",
+        "Description": "-Fallback-scrubbed-kxCUnsgJOcZhRXVYpKIb", "Amount": 9347752810.31762,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-wCBEEh",
+        "EntityRef": {"value": "8405", "name": "Fake-Hannah Walker"}}, "AccountRef":
+        {"value": "9416", "name": "Fake-Christopher Young"}, "ClassRef": {"value":
+        "4830", "name": "Fake-Franklin Thomas"}, "DepartmentRef": {"value": "6879",
+        "name": "Fake-Nicole Ward"}}}], "TxnTaxDetail": {}}, {"Adjustment": true,
+        "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "760", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "1977-03-08T15:48:34-07:00", "LastUpdatedTime": "2025-06-25T11:52:13-07:00"},
+        "DocNumber": "-Fallback-scrubbed-LUQPzGePoQrQui", "TxnDate": "1987-07-03",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-dHqfsCTuRWAgSTx",
+        "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-IBDNWYJCptKorlbccFQW",
+        "Amount": 313596.885305093, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "2578", "name": "Fake-Samantha
+        Walters"}, "ClassRef": {"value": "4830", "name": "Fake-Franklin Thomas"},
+        "DepartmentRef": {"value": "6879", "name": "Fake-Nicole Ward"}}}, {"Id": "1",
+        "Description": "-Fallback-scrubbed-kxCUnsgJOcZhRXVYpKIb", "Amount": 313596.885305093,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-wCBEEh",
+        "EntityRef": {"value": "8405", "name": "Fake-Hannah Walker"}}, "AccountRef":
+        {"value": "6968", "name": "Fake-Edward Bernard"}, "ClassRef": {"value": "4830",
+        "name": "Fake-Franklin Thomas"}, "DepartmentRef": {"value": "6879", "name":
+        "Fake-Nicole Ward"}}}, {"Id": "2", "Description": "-Fallback-scrubbed-JoHfRgNniKWRVPACUvSd",
+        "Amount": 47828764011.2591, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "8393", "name":
+        "Fake-Cheryl Leonard"}}, "AccountRef": {"value": "2578", "name": "Fake-Samantha
+        Walters"}, "ClassRef": {"value": "4830", "name": "Fake-Franklin Thomas"},
+        "DepartmentRef": {"value": "6879", "name": "Fake-Nicole Ward"}}}, {"Id": "3",
+        "Description": "-Fallback-scrubbed-ZsatoBpolHjbBdXakrHl", "Amount": 47828764011.2591,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-wCBEEh",
+        "EntityRef": {"value": "9502", "name": "Fake-Nathan Moore"}}, "AccountRef":
+        {"value": "6968", "name": "Fake-Edward Bernard"}, "ClassRef": {"value": "4830",
+        "name": "Fake-Franklin Thomas"}, "DepartmentRef": {"value": "6879", "name":
+        "Fake-Nicole Ward"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt":
+        2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse":
+        true, "Id": "759", "SyncToken": "7222", "MetaData": {"CreateTime": "1985-10-18T17:52:48-07:00",
+        "LastUpdatedTime": "2025-06-25T11:43:22-07:00"}, "DocNumber": "-Fallback-scrubbed-zYRACluYjczvTD",
+        "TxnDate": "1987-07-03", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-dHqfsCTuRWAgSTx",
+        "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-IBDNWYJCptKorlbccFQW",
+        "Amount": 313596.885305093, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "2578", "name": "Fake-Samantha
+        Walters"}, "ClassRef": {"value": "4830", "name": "Fake-Franklin Thomas"},
+        "DepartmentRef": {"value": "6879", "name": "Fake-Nicole Ward"}}}, {"Id": "1",
+        "Description": "-Fallback-scrubbed-kxCUnsgJOcZhRXVYpKIb", "Amount": 313596.885305093,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-wCBEEh",
+        "EntityRef": {"value": "8405", "name": "Fake-Hannah Walker"}}, "AccountRef":
+        {"value": "6968", "name": "Fake-Edward Bernard"}, "ClassRef": {"value": "4830",
+        "name": "Fake-Franklin Thomas"}, "DepartmentRef": {"value": "6879", "name":
+        "Fake-Nicole Ward"}}}, {"Id": "2", "Description": "-Fallback-scrubbed-JoHfRgNniKWRVPACUvSd",
+        "Amount": 47828764011.2591, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "8393", "name":
+        "Fake-Cheryl Leonard"}}, "AccountRef": {"value": "2578", "name": "Fake-Samantha
+        Walters"}, "ClassRef": {"value": "4830", "name": "Fake-Franklin Thomas"},
+        "DepartmentRef": {"value": "6879", "name": "Fake-Nicole Ward"}}}, {"Id": "3",
+        "Description": "-Fallback-scrubbed-ZsatoBpolHjbBdXakrHl", "Amount": 47828764011.2591,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-wCBEEh",
+        "EntityRef": {"value": "9502", "name": "Fake-Nathan Moore"}}, "AccountRef":
+        {"value": "6968", "name": "Fake-Edward Bernard"}, "ClassRef": {"value": "4830",
+        "name": "Fake-Franklin Thomas"}, "DepartmentRef": {"value": "6879", "name":
+        "Fake-Nicole Ward"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt":
+        2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse":
+        true, "Id": "170", "SyncToken": "6238", "MetaData": {"CreateTime": "2014-02-15T11:20:51-07:00",
+        "LastUpdatedTime": "2025-06-10T08:37:10-07:00"}, "DocNumber": "-Fallback-scrubbed-EExlfeNPWrEIKPFfzeLF",
+        "TxnDate": "2020-09-29", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "LinkedTxn": [{"TxnId":
+        "9363", "TxnType": "-Fallback-scrubbed-hDZeGYH"}, {"TxnId": "1019", "TxnType":
+        "-Fallback-scrubbed-hDZeGYH"}], "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK",
+        "Amount": 6.85017757618872, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "7381", "name": "Fake-Randall
+        Anderson"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK",
+        "Amount": 6.85017757618872, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "2234", "name": "Fake-Kurt
+        Padilla"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776,
+        "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true,
+        "Id": "171", "SyncToken": "8393", "MetaData": {"CreateTime": "1979-07-16T07:53:19-07:00",
+        "LastUpdatedTime": "2025-05-28T12:50:07-07:00"}, "DocNumber": "-Fallback-scrubbed-EExlfeNPWrEIKPFfzeLF",
+        "TxnDate": "2020-09-29", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "LinkedTxn": [{"TxnId":
+        "340", "TxnType": "-Fallback-scrubbed-hDZeGYH"}], "Line": [{"Id": "0", "Description":
+        "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK", "Amount": 40207.2327912964,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "9336", "name": "Fake-Michelle Mendoza"}}, "AccountRef":
+        {"value": "7381", "name": "Fake-Randall Anderson"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK", "Amount": 40207.2327912964,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "9336", "name": "Fake-Michelle Mendoza"}}, "AccountRef":
+        {"value": "2234", "name": "Fake-Kurt Padilla"}}}], "TxnTaxDetail": {}}, {"Adjustment":
+        true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "582", "SyncToken": "6238", "MetaData": {"CreateTime":
+        "2006-01-28T09:12:53-07:00", "LastUpdatedTime": "2025-04-09T15:56:17-07:00"},
+        "DocNumber": "-Fallback-scrubbed-phXIDuy", "TxnDate": "1974-02-21", "CurrencyRef":
+        {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria Arias"}, "ExchangeRate":
+        9682, "LinkedTxn": [{"TxnId": "3315", "TxnType": "-Fallback-scrubbed-hDZeGYH"}],
+        "Line": [{"Id": "0", "Amount": 40207.2327912964, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "8393", "name":
+        "Fake-Cheryl Leonard"}}, "AccountRef": {"value": "2578", "name": "Fake-Samantha
+        Walters"}}}, {"Id": "1", "Amount": 40207.2327912964, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "8393", "name":
+        "Fake-Cheryl Leonard"}}, "AccountRef": {"value": "9332", "name": "Fake-Tammy
+        Moore"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "169", "SyncToken":
+        "8393", "MetaData": {"CreateTime": "1989-01-15T10:03:31-07:00", "LastUpdatedTime":
+        "2025-04-09T15:29:07-07:00"}, "DocNumber": "-Fallback-scrubbed-xJGGiJvqOCwPlpqHZ",
+        "TxnDate": "2013-08-26", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "LinkedTxn": [{"TxnId":
+        "8403", "TxnType": "-Fallback-scrubbed-hDZeGYH"}], "Line": [{"Id": "0", "Amount":
+        40207.2327912964, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "8393", "name":
+        "Fake-Cheryl Leonard"}}, "AccountRef": {"value": "2578", "name": "Fake-Samantha
+        Walters"}}}, {"Id": "1", "Amount": 40207.2327912964, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "8393", "name":
+        "Fake-Cheryl Leonard"}}, "AccountRef": {"value": "9332", "name": "Fake-Tammy
+        Moore"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "557", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "1987-05-13T13:22:34-08:00", "LastUpdatedTime":
+        "2024-02-05T08:38:09-08:00"}, "DocNumber": "-Fallback-scrubbed-UsGNQxJ", "TxnDate":
+        "2002-11-04", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-xosPvVAejtmaKnYagsxnTcyscGVwufwsMMi",
+        "Amount": 11004.1245218319, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "6914", "name": "Fake-Jonathan Vargas"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-VEYhBirmwxhZXkqSUHMyGsNHfhiQgpeXYRULTkaRlsiMN", "Amount":
+        -0.46953497171352, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef":
+        {"value": "63", "name": "Fake-Brittany Reeves"}}}, {"Id": "2", "Description":
+        "-Fallback-scrubbed-aRuOxjZDqbqW", "Amount": -7285155197333.34, "DetailType":
+        "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail": {"PostingType":
+        "-Fallback-scrubbed-jdAqUI", "AccountRef": {"value": "63", "name": "Fake-Brittany
+        Reeves"}}}, {"Id": "3", "Description": "-Fallback-scrubbed-peOiKuUEzFsodjCbYwQPUzOrIA",
+        "Amount": 7085931405536.94, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef":
+        {"value": "2301", "name": "Fake-Jennifer Barron"}}}, {"Id": "4", "Description":
+        "-Fallback-scrubbed-jylOuriyPtsdOBHHfxvdfWSwrRhF", "Amount": 839.23398757632,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef": {"value": "2301",
+        "name": "Fake-Jennifer Barron"}}}], "TxnTaxDetail": {}}, {"Adjustment": true,
+        "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "555", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "1998-01-24T07:40:10-08:00", "LastUpdatedTime": "2024-02-05T05:46:22-08:00"},
+        "DocNumber": "-Fallback-scrubbed-haPyRBUMlFUy", "TxnDate": "2002-11-04", "CurrencyRef":
+        {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria Arias"}, "ExchangeRate":
+        9682, "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-xosPvVAejtmaKnYagsxnTcyscGVwufwsMMi",
+        "Amount": 11004.1245218319, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef":
+        {"value": "6914", "name": "Fake-Jonathan Vargas"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-VEYhBirmwxhZXkqSUHMyGsNHfhiQgpeXYRULTkaRlsiMN", "Amount":
+        -0.46953497171352, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "63", "name": "Fake-Brittany Reeves"}}}, {"Id": "2", "Description":
+        "-Fallback-scrubbed-aRuOxjZDqbqW", "Amount": -7285155197333.34, "DetailType":
+        "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail": {"PostingType":
+        "-Fallback-scrubbed-GaMZa", "AccountRef": {"value": "63", "name": "Fake-Brittany
+        Reeves"}}}, {"Id": "3", "Description": "-Fallback-scrubbed-peOiKuUEzFsodjCbYwQPUzOrIA",
+        "Amount": 7085931405536.94, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "2301", "name": "Fake-Jennifer Barron"}}}, {"Id": "4", "Description":
+        "-Fallback-scrubbed-jylOuriyPtsdOBHHfxvdfWSwrRhF", "Amount": 839.23398757632,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef": {"value": "2301",
+        "name": "Fake-Jennifer Barron"}}}], "TxnTaxDetail": {}}, {"Adjustment": true,
+        "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "554", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "1975-02-17T22:04:10-08:00", "LastUpdatedTime": "2023-12-15T09:25:15-08:00"},
+        "DocNumber": "-Fallback-scrubbed-ymTIQZJGUPCvtOI", "TxnDate": "1987-12-14",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK",
+        "Amount": 6.85017757618872, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "7381", "name": "Fake-Randall
+        Anderson"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK",
+        "Amount": 6.85017757618872, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "2234", "name": "Fake-Kurt
+        Padilla"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776,
+        "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true,
+        "Id": "553", "SyncToken": "7222", "MetaData": {"CreateTime": "2014-01-29T18:18:15-08:00",
+        "LastUpdatedTime": "2023-12-15T08:17:08-08:00"}, "DocNumber": "-Fallback-scrubbed-KfHhRNLo",
+        "TxnDate": "1987-12-14", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK",
+        "Amount": 6.85017757618872, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "7381", "name": "Fake-Randall
+        Anderson"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK",
+        "Amount": 6.85017757618872, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "2234", "name": "Fake-Kurt
+        Padilla"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776,
+        "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true,
+        "Id": "551", "SyncToken": "7222", "MetaData": {"CreateTime": "1985-02-20T08:38:37-08:00",
+        "LastUpdatedTime": "2023-12-07T21:09:21-08:00"}, "DocNumber": "-Fallback-scrubbed-qovDrFshWgmoPtFbL",
+        "TxnDate": "2001-01-14", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-cSUw", "Amount": 47828764011.2591, "DetailType":
+        "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail": {"PostingType":
+        "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-wCBEEh",
+        "EntityRef": {"value": "670", "name": "Fake-Elizabeth Rodriguez"}}, "AccountRef":
+        {"value": "3787", "name": "Fake-Kelsey Davis"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-cSUw", "Amount": 47828764011.2591, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-wCBEEh", "EntityRef": {"value": "670", "name":
+        "Fake-Elizabeth Rodriguez"}}, "AccountRef": {"value": "6968", "name": "Fake-Edward
+        Bernard"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776,
+        "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true,
+        "Id": "542", "SyncToken": "7222", "MetaData": {"CreateTime": "1970-10-03T23:18:20-08:00",
+        "LastUpdatedTime": "2023-11-24T11:34:32-08:00"}, "DocNumber": "-Fallback-scrubbed-NZldQJlth",
+        "TxnDate": "1983-09-26", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-binMJONWTMaR", "Amount": -369.657259012028,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "9336", "name": "Fake-Michelle Mendoza"}}, "AccountRef":
+        {"value": "7381", "name": "Fake-Randall Anderson"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-gDfLQcYoIeirp", "Amount": -369.657259012028, "DetailType":
+        "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail": {"PostingType":
+        "-Fallback-scrubbed-jdAqUI", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "9336", "name": "Fake-Michelle Mendoza"}}, "AccountRef":
+        {"value": "2234", "name": "Fake-Kurt Padilla"}}}], "TxnTaxDetail": {}}, {"Adjustment":
+        true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "417", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "1994-01-19T23:22:15-07:00", "LastUpdatedTime": "2023-08-02T21:11:46-07:00"},
+        "DocNumber": "-Fallback-scrubbed-QGIFfUyhxmeLM", "TxnDate": "1999-06-17",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-wCBEEh", "EntityRef": {"value": "9416", "name":
+        "Fake-Arthur Graves"}}, "AccountRef": {"value": "5768", "name": "Fake-Jodi
+        Burns"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "5768", "name": "Fake-Jodi
+        Burns"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "339", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "2023-10-07T15:46:00-07:00", "LastUpdatedTime":
+        "2023-04-10T10:46:12-07:00"}, "DocNumber": "-Fallback-scrubbed-QfzNXIZfETLcvEANb",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-wCBEEh", "EntityRef": {"value": "9416", "name":
+        "Fake-Arthur Graves"}}, "AccountRef": {"value": "5768", "name": "Fake-Jodi
+        Burns"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "5768", "name": "Fake-Jodi
+        Burns"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "338", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "1985-05-24T17:22:54-07:00", "LastUpdatedTime":
+        "2023-04-10T10:42:28-07:00"}, "DocNumber": "-Fallback-scrubbed-smjbefbbBonJFV",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-wCBEEh", "EntityRef": {"value": "9416", "name":
+        "Fake-Arthur Graves"}}, "AccountRef": {"value": "5768", "name": "Fake-Jodi
+        Burns"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "5768", "name": "Fake-Jodi
+        Burns"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "317", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "2005-06-27T18:34:11-07:00", "LastUpdatedTime":
+        "2023-03-21T14:04:54-07:00"}, "DocNumber": "-Fallback-scrubbed-smjbefbbBonJFV",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-wCBEEh", "EntityRef": {"value": "9416", "name":
+        "Fake-Arthur Graves"}}, "AccountRef": {"value": "5768", "name": "Fake-Jodi
+        Burns"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "5768", "name": "Fake-Jodi
+        Burns"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "316", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "2008-04-11T08:39:53-07:00", "LastUpdatedTime":
+        "2023-03-21T12:32:05-07:00"}, "DocNumber": "-Fallback-scrubbed-sKjEMahbNIymOk",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -10363.6371524716, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "7375", "name": "Fake-Dustin Black"}}},
+        {"Id": "1", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -10363.6371524716, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8393", "name": "Fake-Melissa
+        Fisher"}}}, {"Id": "2", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -6589110266320.28, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "3", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -6589110266320.28, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "4", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": 251765264495.723, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "5", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -462.45336663035, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "6", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -1007775204174.86, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "7", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -54170222.1416296, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "8", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -54170222.1416296, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}}],
+        "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "315", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "2008-04-11T08:39:53-07:00", "LastUpdatedTime":
+        "2023-03-21T12:32:05-07:00"}, "DocNumber": "-Fallback-scrubbed-smjbefbbBonJFV",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-wCBEEh", "EntityRef": {"value": "7009", "name":
+        "Fake-Michael Wallace"}}, "AccountRef": {"value": "5266", "name": "Fake-Bobby
+        Salazar"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8393", "name": "Fake-Melissa
+        Fisher"}}}, {"Id": "2", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 24.4611364661293, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley
+        Henry"}}}, {"Id": "3", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 24.4611364661293, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "6914", "name": "Fake-Jonathan
+        Vargas"}}}, {"Id": "4", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 71624469.1381797, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley
+        Henry"}}}, {"Id": "5", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": -58834565344.313, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "6", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": -511167787.209905, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "7", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 795.85633447317, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "8", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 795.85633447317, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776,
+        "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true,
+        "Id": "314", "SyncToken": "7222", "MetaData": {"CreateTime": "1992-03-16T19:28:56-07:00",
+        "LastUpdatedTime": "2023-03-21T12:26:31-07:00"}, "DocNumber": "-Fallback-scrubbed-sKjEMahbNIymOk",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -10363.6371524716, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "7375", "name": "Fake-Dustin Black"}}},
+        {"Id": "1", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -10363.6371524716, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8393", "name": "Fake-Melissa
+        Fisher"}}}, {"Id": "2", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -6589110266320.28, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "3", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -6589110266320.28, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "4", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": 251765264495.723, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "5", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -462.45336663035, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "6", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -1007775204174.86, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "7", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -54170222.1416296, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "8", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -54170222.1416296, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}}],
+        "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "313", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "2022-01-07T21:24:34-07:00", "LastUpdatedTime":
+        "2023-03-21T12:26:30-07:00"}, "DocNumber": "-Fallback-scrubbed-smjbefbbBonJFV",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "5266", "name": "Fake-Bobby Salazar"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS", "Amount":
+        648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8393", "name": "Fake-Melissa
+        Fisher"}}}, {"Id": "2", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 24.4611364661293, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley
+        Henry"}}}, {"Id": "3", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 24.4611364661293, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "6914", "name": "Fake-Jonathan
+        Vargas"}}}, {"Id": "4", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 71624469.1381797, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley
+        Henry"}}}, {"Id": "5", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": -58834565344.313, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "6", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": -511167787.209905, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "7", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 795.85633447317, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "8", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 795.85633447317, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776,
+        "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true,
+        "Id": "312", "SyncToken": "7222", "MetaData": {"CreateTime": "2024-02-17T08:35:47-07:00",
+        "LastUpdatedTime": "2023-03-21T12:10:03-07:00"}, "DocNumber": "-Fallback-scrubbed-sKjEMahbNIymOk",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -10363.6371524716, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "7375", "name": "Fake-Dustin Black"}}},
+        {"Id": "1", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -10363.6371524716, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8393", "name": "Fake-Melissa
+        Fisher"}}}, {"Id": "2", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -6589110266320.28, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "3", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -6589110266320.28, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "4", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": 251765264495.723, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley Henry"}}},
+        {"Id": "5", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -462.45336663035, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "6", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -1007775204174.86, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "7", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -54170222.1416296, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}},
+        {"Id": "8", "Description": "-Fallback-scrubbed-YiEJnCabgRqraSADorQdDLjAuLxhlHmHGxtXEHUuusdHdzDKDZ",
+        "Amount": -54170222.1416296, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "7381", "name":
+        "Fake-John Bird"}}, "AccountRef": {"value": "9994", "name": "Fake-David Carpenter"}}}],
+        "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "311", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "2024-02-17T08:35:47-07:00", "LastUpdatedTime":
+        "2023-03-21T12:10:03-07:00"}, "DocNumber": "-Fallback-scrubbed-smjbefbbBonJFV",
+        "TxnDate": "2016-07-18", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "5266", "name": "Fake-Bobby
+        Salazar"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 648.855733437235, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8393", "name": "Fake-Melissa
+        Fisher"}}}, {"Id": "2", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 24.4611364661293, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley
+        Henry"}}}, {"Id": "3", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 24.4611364661293, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "6914", "name": "Fake-Jonathan
+        Vargas"}}}, {"Id": "4", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 71624469.1381797, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "8861", "name": "Fake-Ashley
+        Henry"}}}, {"Id": "5", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": -58834565344.313, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "6", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": -511167787.209905, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "7", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 795.85633447317, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}, {"Id": "8", "Description": "-Fallback-scrubbed-jETgNXGELXTVeFMxmNUSvsQwhhbXQPgpRtODJAenroaGFIFtbS",
+        "Amount": 795.85633447317, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2234", "name":
+        "Fake-Monica Harvey"}}, "AccountRef": {"value": "9994", "name": "Fake-David
+        Carpenter"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776,
+        "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true,
+        "Id": "229", "SyncToken": "8393", "MetaData": {"CreateTime": "2022-06-14T21:41:27-08:00",
+        "LastUpdatedTime": "2023-03-17T14:23:35-07:00"}, "DocNumber": "-Fallback-scrubbed-iwfneUMKvKztXTNUbMWN",
+        "TxnDate": "1984-03-11", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-bbiOLjVJxmy", "Amount": 40207.2327912964,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "2578", "name": "Fake-Jessica Garcia"}}, "AccountRef":
+        {"value": "6539", "name": "Fake-Scott Fischer"}, "DepartmentRef": {"value":
+        "8393", "name": "Fake-Mary Dickerson"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-nmYZHdbKQzYwMhdlHVlkf",
+        "Amount": 40207.2327912964, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2578", "name":
+        "Fake-Jessica Garcia"}}, "AccountRef": {"value": "6490", "name": "Fake-Jasmine
+        Adams"}, "DepartmentRef": {"value": "8393", "name": "Fake-Mary Dickerson"}}}],
+        "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "230", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "1975-07-04T01:31:53-08:00", "LastUpdatedTime":
+        "2023-03-03T12:48:19-08:00"}, "DocNumber": "8148", "TxnDate": "1984-03-11",
+        "CurrencyRef": {"value": "-Fallback-scrubbed-FVu", "name": "Fake-Victoria
+        Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-zlmLvWxhRtLpzUBsjKYdijaKtiogEWxCyBkbKs",
+        "Amount": 355.365233878752, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2578", "name":
+        "Fake-Jessica Garcia"}}, "AccountRef": {"value": "6539", "name": "Fake-Scott
+        Fischer"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-RtSGuVeEJaVahsNLtXQlVBwmydhigVAJAiplSqOMZVQnaA",
+        "Amount": 355.365233878752, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "2578", "name":
+        "Fake-Jessica Garcia"}}, "AccountRef": {"value": "6490", "name": "Fake-Jasmine
+        Adams"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "187", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "1994-04-02T21:51:42-08:00", "LastUpdatedTime":
+        "2023-02-07T12:54:29-08:00"}, "DocNumber": "-Fallback-scrubbed-EExlfeNPWrEIKPFfzeLF",
+        "TxnDate": "1972-03-08", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK",
+        "Amount": 6.85017757618872, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "7381", "name": "Fake-Randall
+        Anderson"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-ZAXtXmQeHQUnzcfTlLMoUNrrCQvWoWcmXobxbK",
+        "Amount": 6.85017757618872, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9336", "name":
+        "Fake-Michelle Mendoza"}}, "AccountRef": {"value": "2234", "name": "Fake-Kurt
+        Padilla"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776,
+        "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true,
+        "Id": "177", "SyncToken": "7222", "MetaData": {"CreateTime": "2000-07-29T11:38:42-07:00",
+        "LastUpdatedTime": "2022-10-27T12:28:52-07:00"}, "DocNumber": "-Fallback-scrubbed-jmiTmMCYtDmcc",
+        "TxnDate": "2026-08-19", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "Line": [{"Id": "0",
+        "Description": "-Fallback-scrubbed-nCRFzYMUVodQU", "Amount": 2791.1320208083,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity": {"Type": "-Fallback-scrubbed-RrnFaWOH",
+        "EntityRef": {"value": "9994", "name": "Fake-Andrew Jones"}}, "AccountRef":
+        {"value": "6961", "name": "Fake-Kylie Vaughn"}, "DepartmentRef": {"value":
+        "8393", "name": "Fake-Mary Dickerson"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-MgXIClFEB",
+        "Amount": 2791.1320208083, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9994", "name":
+        "Fake-Andrew Jones"}}, "AccountRef": {"value": "6961", "name": "Fake-Kylie
+        Vaughn"}, "DepartmentRef": {"value": "8393", "name": "Fake-Mary Dickerson"}}},
+        {"Id": "2", "Description": "-Fallback-scrubbed-MgoowwgCrdDxMFisNY", "Amount":
+        -5355.74100742806, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9994", "name":
+        "Fake-Andrew Jones"}}, "AccountRef": {"value": "6961", "name": "Fake-Kylie
+        Vaughn"}}}, {"Id": "3", "Description": "-Fallback-scrubbed-PFdmdCpkVqugxxaq",
+        "Amount": -5355.74100742806, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9994", "name":
+        "Fake-Andrew Jones"}}, "AccountRef": {"value": "6961", "name": "Fake-Kylie
+        Vaughn"}, "DepartmentRef": {"value": "8393", "name": "Fake-Mary Dickerson"}}},
+        {"Id": "4", "Description": "-Fallback-scrubbed-ROrkmwQSFArsMZQWGN", "Amount":
+        -5355.74100742806, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9994", "name":
+        "Fake-Andrew Jones"}}, "AccountRef": {"value": "6961", "name": "Fake-Kylie
+        Vaughn"}, "DepartmentRef": {"value": "8393", "name": "Fake-Mary Dickerson"}}},
+        {"Id": "5", "Description": "-Fallback-scrubbed-MgoowwgCrdDxMFisNY", "Amount":
+        -5355.74100742806, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9994", "name":
+        "Fake-Andrew Jones"}}, "AccountRef": {"value": "6961", "name": "Fake-Kylie
+        Vaughn"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "176", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "1991-11-28T06:01:49-07:00", "LastUpdatedTime":
+        "2022-10-27T11:43:50-07:00"}, "DocNumber": "-Fallback-scrubbed-iwfneUMKvKztXTNUbMWN",
+        "TxnDate": "2002-09-29", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-GShZdocWlYH",
+        "Line": [{"Id": "0", "Amount": 66606.5397076133, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "9994", "name":
+        "Fake-Andrew Jones"}}, "AccountRef": {"value": "3364", "name": "Fake-Peter
+        Ortiz"}, "DepartmentRef": {"value": "8393", "name": "Fake-Mary Dickerson"}}},
+        {"Id": "1", "Amount": 66606.5397076133, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "Entity":
+        {"Type": "-Fallback-scrubbed-RrnFaWOH", "EntityRef": {"value": "6238", "name":
+        "Fake-Gregory Mccoy"}}, "AccountRef": {"value": "7381", "name": "Fake-Randall
+        Anderson"}, "DepartmentRef": {"value": "8393", "name": "Fake-Mary Dickerson"}}}],
+        "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "8", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "2008-03-03T04:24:11-08:00", "LastUpdatedTime":
+        "2021-02-15T10:04:24-08:00"}, "TxnDate": "2022-03-14", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-FVu", "name": "Fake-Victoria Arias"}, "ExchangeRate":
+        9682, "PrivateNote": "-Fallback-scrubbed-FFXeJEWerdtKPTn", "Line": [{"Id":
+        "0", "Description": "-Fallback-scrubbed-FFXeJEWerdtKPTn", "Amount": 325196207785.1,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef": {"value": "3607",
+        "name": "Fake-Kayla Watkins"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-FFXeJEWerdtKPTn",
+        "Amount": 325196207785.1, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef":
+        {"value": "8189", "name": "Fake-Joshua Rojas"}}}], "TxnTaxDetail": {}}, {"Adjustment":
+        true, "TotalAmt": 2776, "HomeTotalAmt": 2776, "domain": "-Fallback-scrubbed-nsu",
+        "sparse": true, "Id": "7", "SyncToken": "7222", "MetaData": {"CreateTime":
+        "2021-08-12T18:40:14-08:00", "LastUpdatedTime": "2021-02-15T10:03:25-08:00"},
+        "TxnDate": "2022-03-14", "CurrencyRef": {"value": "-Fallback-scrubbed-FVu",
+        "name": "Fake-Victoria Arias"}, "ExchangeRate": 9682, "PrivateNote": "-Fallback-scrubbed-FFXeJEWerdtKPTn",
+        "Line": [{"Id": "0", "Description": "-Fallback-scrubbed-FFXeJEWerdtKPTn",
+        "Amount": -14255535431493.6, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef":
+        {"value": "1752", "name": "Fake-Geoffrey Baker"}}}, {"Id": "1", "Description":
+        "-Fallback-scrubbed-FFXeJEWerdtKPTn", "Amount": -14255535431493.6, "DetailType":
+        "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail": {"PostingType":
+        "-Fallback-scrubbed-GaMZa", "AccountRef": {"value": "8189", "name": "Fake-Joshua
+        Rojas"}}}], "TxnTaxDetail": {}}, {"Adjustment": true, "TotalAmt": 2776, "HomeTotalAmt":
+        2776, "domain": "-Fallback-scrubbed-nsu", "sparse": true, "Id": "6", "SyncToken":
+        "7222", "MetaData": {"CreateTime": "1983-08-28T10:29:03-08:00", "LastUpdatedTime":
+        "2021-02-14T12:11:06-08:00"}, "TxnDate": "1982-06-18", "CurrencyRef": {"value":
+        "-Fallback-scrubbed-FVu", "name": "Fake-Victoria Arias"}, "ExchangeRate":
+        9682, "PrivateNote": "-Fallback-scrubbed-FFXeJEWerdtKPTn", "Line": [{"Id":
+        "0", "Description": "-Fallback-scrubbed-FFXeJEWerdtKPTn", "Amount": 63701441368775.0,
+        "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz", "JournalEntryLineDetail":
+        {"PostingType": "-Fallback-scrubbed-GaMZa", "AccountRef": {"value": "7799",
+        "name": "Fake-David Gonzalez"}}}, {"Id": "1", "Description": "-Fallback-scrubbed-FFXeJEWerdtKPTn",
+        "Amount": 63701441368775.0, "DetailType": "-Fallback-scrubbed-ieLAWznDllINmFtHnjpevz",
+        "JournalEntryLineDetail": {"PostingType": "-Fallback-scrubbed-jdAqUI", "AccountRef":
+        {"value": "8189", "name": "Fake-Joshua Rojas"}}}], "TxnTaxDetail": {}}], "startPosition":
+        1, "maxResults": 41, "totalCount": 41}, "time": "1970-02-14T07:11:14.934-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '77548'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:56:18 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '57666'
+      intuit_tid:
+      - 1-6891ff71-589ecfd227f369700b1068d0
+      x-amzn-trace-id:
+      - Root=1-6891ff71-589ecfd227f369700b1068d0
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '265'
+      x-request-id:
+      - 1-6891ff71-589ecfd227f369700b1068d0
+      x-spanid:
+      - 9a3d59da-6deb-1e9c-222b-49bb3fb88096
+    status:
+      code: 200
+      message: OK
+version: 1

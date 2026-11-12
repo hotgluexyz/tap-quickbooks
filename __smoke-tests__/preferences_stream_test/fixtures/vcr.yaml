@@ -1,0 +1,175 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "access_token": "acc***", "token_type": "-Fallback-scrubbed-YoXVNc",
+        "refresh_token": "ref***", "x_refresh_token_expires_in": 8426}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 13:06:57 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-689201f1-68fe77f46bdf7e145d736087
+      x-amzn-trace-id:
+      - Root=1-689201f1-68fe77f46bdf7e145d736087
+      x-envoy-upstream-service-time:
+      - '122'
+      x-request-id:
+      - 1-689201f1-68fe77f46bdf7e145d736087
+      x-spanid:
+      - 6561ef1f-fb95-1c37-0f91-131f10decdc3
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Preferences++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Preferences": [{"AccountingInfoPrefs": {"UseAccountNumbers":
+        false, "TrackDepartments": false, "DepartmentTerminology": "-Fallback-scrubbed-qGHZqesnAZ",
+        "ClassTrackingPerTxn": true, "ClassTrackingPerTxnLine": false, "FirstMonthOfFiscalYear":
+        "-Fallback-scrubbed-DYZgXfV", "TaxYearMonth": "-Fallback-scrubbed-DYZgXfV",
+        "TaxForm": "7780", "CustomerTerminology": "-Fallback-scrubbed-iOUPIJtkF"},
+        "ProductAndServicesPrefs": {"ForSales": false, "ForPurchase": false, "QuantityWithPriceAndRate":
+        false, "QuantityOnHand": false, "RevenueRecognition": true, "RevenueRecognitionFrequency":
+        "-Fallback-scrubbed-sTZCPWl"}, "SalesFormsPrefs": {"UsingProgressInvoicing":
+        true, "CustomField": [{"CustomField": [{"Name": "Fake-Gerald Houston", "Type":
+        "-Fallback-scrubbed-bCaQTNKNsaJ", "BooleanValue": true}, {"Name": "Fake-Helen
+        Brown", "Type": "-Fallback-scrubbed-bCaQTNKNsaJ", "BooleanValue": false},
+        {"Name": "Fake-Tonya Ho", "Type": "-Fallback-scrubbed-bCaQTNKNsaJ", "BooleanValue":
+        false}]}, {"CustomField": [{"Name": "Fake-Sharon Jackson", "Type": "-Fallback-scrubbed-ybCqZPYCmc",
+        "StringValue": "-Fallback-scrubbed-REhiFFrjue"}, {"Name": "Fake-Angela Hebert",
+        "Type": "-Fallback-scrubbed-ybCqZPYCmc", "StringValue": "-Fallback-scrubbed-qGHZqesnAZ"}]}],
+        "CustomTxnNumbers": false, "EmailCopyToCompany": true, "AllowDeposit": false,
+        "AllowDiscount": false, "DefaultDiscountAccount": "9740", "AllowEstimates":
+        false, "ETransactionEnabledStatus": "-Fallback-scrubbed-xJwDrOAVRSiGX", "ETransactionAttachPDF":
+        true, "ETransactionPaymentEnabled": true, "IPNSupportEnabled": true, "AllowServiceDate":
+        false, "AllowShipping": false, "DefaultShippingAccount": "4400", "DefaultTerms":
+        {"value": "4800"}, "AutoApplyCredit": true, "AutoApplyPayments": false, "UsingPriceLevels":
+        true, "DefaultCustomerMessage": "-Fallback-scrubbed-QXViBPiXfyQbQQDXbxlMRilHrxldqaGVcLNBzdLnUvcGcSTja"},
+        "EmailMessagesPrefs": {"InvoiceMessage": {"Subject": "-Fallback-scrubbed-SAwnvZNTBiSNxuQVcMTUZvYFBWqbUVECpIGehMHvaHinfCPeOszD",
+        "Message": "-Fallback-scrubbed-vuvcixFaGUFYoAhuxyToezQHsUgviisvwmAzhJSzyulMtKGFeBeVLEydnOEkzkJzyagjJTcuYycFVyRUHrfDbMkxrVcXRIraYPKgwnUCIZHIIElyoXqmFzpsJUHbHXZnditicrHwsXqgPhDEHXvKUcroobPChYxHavlJFuRkgscKsSOQRDSprKUgIkZ"},
+        "EstimateMessage": {"Subject": "-Fallback-scrubbed-OzKqPnlaDzitIjdjFqlGIkGINNQTiVRdiIduFcfetlVmkhPkkBBXF",
+        "Message": "-Fallback-scrubbed-SUWwjkfeQeascAzKddTUsxPxANradAiTAoerwHsDxUJbTlKjOGtwCGfRWSkiSgDCBEMJgaxpYYTvYXxKoJAeTZDokmEdLxhsgAmnaYmStBZKXcdYIiHxZnTuDWyFbUgGFeHhRLwciXngciBpzoJdWUVNebhzeYzzgHYapsglYaZCXL"},
+        "SalesReceiptMessage": {"Subject": "-Fallback-scrubbed-QKVUHtTgVkqxhitzBQDyUsGLEdRDtjzhLVKfPlHkJJZDvEsuzffinLsJYE",
+        "Message": "-Fallback-scrubbed-fANBirtmRRwYeTgelirbGGKAewzLTcaYgcPWrAJMcUBCRLDOAeEAdyAjzpROjQwCdgnNntFdyLtpTTrleIiJaKmoSKBBrtwAFHqzgqaXGYCOggsYJgRLtaAYQiFFdPjtxhGTfawpNnJva"},
+        "StatementMessage": {"Subject": "-Fallback-scrubbed-UaslbwFrJXOgcTXWFDmMdvNmEbGnQdAGRLwvbvtaSceErIbpFeVbwp",
+        "Message": "-Fallback-scrubbed-ajrjvcOUsIjvSVEnrRuAwBSKEjsmIKUAADqynKISkWeMYxxobNaqnTyHQoYGKkFDkptKPRwnUpaQirOieJVQLsIxZeyKYUmwnrvEQCbCQclmxIOAZwYLwBgfZfOYxsRrZFFMHtnShaWyIWUUffqnRMPhBJQpDIazDaBLxmuhQQSISfRTenhMbgGOYunWt"}},
+        "VendorAndPurchasesPrefs": {"TrackingByCustomer": false, "BillableExpenseTracking":
+        false, "POCustomField": [{"CustomField": [{"Name": "Fake-Michael Rodriguez",
+        "Type": "-Fallback-scrubbed-bCaQTNKNsaJ", "BooleanValue": false}, {"Name":
+        "Fake-Andrea Duran", "Type": "-Fallback-scrubbed-bCaQTNKNsaJ", "BooleanValue":
+        false}, {"Name": "Fake-Leah Nguyen", "Type": "-Fallback-scrubbed-bCaQTNKNsaJ",
+        "BooleanValue": true}]}, {"CustomField": [{"Name": "Fake-Kayla Lowe", "Type":
+        "-Fallback-scrubbed-ybCqZPYCmc", "StringValue": "-Fallback-scrubbed-qGHZqesnAZ"},
+        {"Name": "Fake-Lauren Knight", "Type": "-Fallback-scrubbed-ybCqZPYCmc", "StringValue":
+        "-Fallback-scrubbed-REhiFFrjue"}]}]}, "TimeTrackingPrefs": {"UseServices":
+        false, "DefaultTimeItem": {"value": "8763"}, "BillCustomers": false, "ShowBillRateToAll":
+        true, "WorkWeekStartDate": "-Fallback-scrubbed-ijbUxe", "MarkTimeEntriesBillable":
+        false}, "TaxPrefs": {"UsingSalesTax": false, "PartnerTaxEnabled": false, "TaxGroupCodeRef":
+        {"value": "3596"}}, "CurrencyPrefs": {"MultiCurrencyEnabled": false, "HomeCurrency":
+        {"value": "-Fallback-scrubbed-yhl"}}, "ReportPrefs": {"ReportBasis": "-Fallback-scrubbed-kbwqNoK",
+        "CalcAgingReportFromTxnDate": true}, "OtherPrefs": {"NameValue": [{"Name":
+        "Fake-Austin Guerrero", "Value": "-Fallback-scrubbed-QXViBPiXfyQbQQDXbxlMRilHrxldqaGVcLNBzdLnUvcGcSTja"},
+        {"Name": "Fake-Heather Murphy", "Value": "5710"}, {"Name": "Fake-Wanda Lamb",
+        "Value": "false"}, {"Name": "Fake-Jennifer Bonilla", "Value": "9574"}, {"Name":
+        "Fake-Andrew Byrd", "Value": "3544"}, {"Name": "Fake-Matthew Clark", "Value":
+        "7531"}, {"Name": "Fake-Monique Ferrell", "Value": "637"}, {"Name": "Fake-Adam
+        Wright", "Value": "false"}, {"Name": "Fake-Aaron Gilbert", "Value": "false"},
+        {"Name": "Fake-Terry Henderson", "Value": "false"}, {"Name": "Fake-David Ware",
+        "Value": "false"}, {"Name": "Fake-Monica Hansen", "Value": "false"}, {"Name":
+        "Fake-Marc Sanchez", "Value": "false"}, {"Name": "Fake-Jon Lynch Jr.", "Value":
+        "false"}, {"Name": "Fake-Kayla Rice", "Value": "false"}, {"Name": "Fake-Michael
+        Davis", "Value": "-Fallback-scrubbed-bmAVfoIvrfGWhKnOwXHabxidUxqcyGPBvmYw"},
+        {"Name": "Fake-Michael Sanchez", "Value": "-Fallback-scrubbed-RKOPelmFCldVbdGgry"},
+        {"Name": "Fake-Julia Davenport", "Value": "-Fallback-scrubbed-AocEBZiCcLqilvoG"},
+        {"Name": "Fake-Nicholas Benson Jr.", "Value": "-Fallback-scrubbed-VBmXE"},
+        {"Name": "Fake-Jeffrey Jones", "Value": "false"}, {"Name": "Fake-Manuel Ferguson",
+        "Value": "false"}, {"Name": "Fake-Jackson Lewis", "Value": "false"}, {"Name":
+        "Fake-Kimberly Knight", "Value": "2125"}, {"Name": "Fake-Linda Young", "Value":
+        "false"}, {"Name": "Fake-Brittney Powers", "Value": "false"}, {"Name": "Fake-Sarah
+        Howard", "Value": "false"}, {"Name": "Fake-John Wells", "Value": "false"}]},
+        "domain": "-Fallback-scrubbed-XrH", "sparse": true, "Id": "1", "SyncToken":
+        "4134", "MetaData": {"CreateTime": "2023-09-01T04:49:03-07:00", "LastUpdatedTime":
+        "2025-06-20T13:05:15-07:00"}}], "maxResults": 1}, "time": "1979-11-04T14:15:23.317-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '6201'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 13:06:59 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '5412'
+      intuit_tid:
+      - 1-689201f2-07f90a186a4f66e1794cb52e
+      x-amzn-trace-id:
+      - Root=1-689201f2-07f90a186a4f66e1794cb52e
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '767'
+      x-request-id:
+      - 1-689201f2-07f90a186a4f66e1794cb52e
+      x-spanid:
+      - e84aa624-7762-67c7-746e-5990c2d47557
+    status:
+      code: 200
+      message: OK
+version: 1

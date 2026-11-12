@@ -1,0 +1,211 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 6631, "token_type":
+        "-Fallback-scrubbed-kmUArQ", "refresh_token": "ref***", "access_token": "acc***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 13:15:14 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-689203e2-049328e4605c6bf674768515
+      x-amzn-trace-id:
+      - Root=1-689203e2-049328e4605c6bf674768515
+      x-envoy-upstream-service-time:
+      - '115'
+      x-request-id:
+      - 1-689203e2-049328e4605c6bf674768515
+      x-spanid:
+      - 65170d38-3fe4-7442-2af6-0db687b4dd1a
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+TaxRate++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"TaxRate": [{"Name": "Fake-Ryan Oliver", "Description":
+        "Fake-Ryan Oliver", "Active": true, "RateValue": 5454, "AgencyRef": {"value":
+        "1477"}, "TaxReturnLineRef": {"value": "4706"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ",
+        "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc",
+        "sparse": false, "Id": "16", "SyncToken": "5043", "MetaData": {"CreateTime":
+        "2019-07-16T12:55:44-07:00", "LastUpdatedTime": "2023-08-24T15:32:19-07:00"}},
+        {"Name": "Fake-Lindsey Trujillo", "Description": "Fake-Lindsey Trujillo",
+        "Active": true, "RateValue": 890950.900472917, "AgencyRef": {"value": "1477"},
+        "TaxReturnLineRef": {"value": "4706"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ",
+        "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc",
+        "sparse": false, "Id": "17", "SyncToken": "5043", "MetaData": {"CreateTime":
+        "2019-07-16T12:55:44-07:00", "LastUpdatedTime": "2023-08-24T15:32:19-07:00"}},
+        {"Name": "Fake-Austin Mcgee", "Description": "Fake-Austin Mcgee", "Active":
+        true, "RateValue": -834690884.378454, "AgencyRef": {"value": "1477"}, "TaxReturnLineRef":
+        {"value": "4706"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ", "DisplayType":
+        "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc", "sparse":
+        false, "Id": "15", "SyncToken": "5043", "MetaData": {"CreateTime": "2019-07-16T12:55:44-07:00",
+        "LastUpdatedTime": "2023-08-24T15:32:19-07:00"}}, {"Name": "Fake-Joseph Thomas",
+        "Description": "Fake-Joseph Thomas", "Active": true, "RateValue": 57030.7625782902,
+        "AgencyRef": {"value": "8918"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ",
+        "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc",
+        "sparse": false, "Id": "1", "SyncToken": "5043", "MetaData": {"CreateTime":
+        "1974-08-01T16:01:28-08:00", "LastUpdatedTime": "2021-02-17T12:17:04-08:00"}},
+        {"Name": "Fake-Richard Huang", "Description": "Fake-Richard Huang", "Active":
+        true, "RateValue": 824, "AgencyRef": {"value": "8918"}, "SpecialTaxType":
+        "-Fallback-scrubbed-SnqQ", "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain":
+        "-Fallback-scrubbed-bfc", "sparse": false, "Id": "3", "SyncToken": "8918",
+        "MetaData": {"CreateTime": "1974-08-01T16:01:28-08:00", "LastUpdatedTime":
+        "2023-08-24T15:32:18-07:00"}}, {"Name": "Fake-Eugene Taylor", "Description":
+        "Fake-Eugene Taylor", "Active": true, "RateValue": -4898156722442.72, "AgencyRef":
+        {"value": "1477"}, "TaxReturnLineRef": {"value": "4706"}, "SpecialTaxType":
+        "-Fallback-scrubbed-SnqQ", "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain":
+        "-Fallback-scrubbed-bfc", "sparse": false, "Id": "18", "SyncToken": "5043",
+        "MetaData": {"CreateTime": "2019-07-16T12:55:44-07:00", "LastUpdatedTime":
+        "2023-08-24T15:32:19-07:00"}}, {"Name": "Fake-Christina Snyder", "Description":
+        "Fake-Christina Snyder", "Active": true, "RateValue": 7079, "AgencyRef": {"value":
+        "8918"}, "TaxReturnLineRef": {"value": "8546"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ",
+        "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc",
+        "sparse": false, "Id": "12", "SyncToken": "8918", "MetaData": {"CreateTime":
+        "1981-10-14T05:39:51-07:00", "LastUpdatedTime": "2023-08-24T15:32:18-07:00"}},
+        {"Name": "Fake-Jennifer Hill", "Description": "Fake-Jennifer Hill", "Active":
+        true, "RateValue": 1176, "AgencyRef": {"value": "8918"}, "TaxReturnLineRef":
+        {"value": "8546"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ", "DisplayType":
+        "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc", "sparse":
+        false, "Id": "4", "SyncToken": "8918", "MetaData": {"CreateTime": "2000-03-06T16:03:34-07:00",
+        "LastUpdatedTime": "2023-08-24T15:32:18-07:00"}}, {"Name": "Fake-Sarah Taylor",
+        "Description": "Fake-Sarah Taylor", "Active": true, "RateValue": 1176, "AgencyRef":
+        {"value": "8918"}, "TaxReturnLineRef": {"value": "8546"}, "SpecialTaxType":
+        "-Fallback-scrubbed-SnqQ", "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain":
+        "-Fallback-scrubbed-bfc", "sparse": false, "Id": "11", "SyncToken": "8918",
+        "MetaData": {"CreateTime": "1998-01-07T10:48:28-07:00", "LastUpdatedTime":
+        "2023-08-24T15:32:18-07:00"}}, {"Name": "Fake-James Perry", "Description":
+        "Fake-James Perry", "Active": true, "RateValue": 1176, "AgencyRef": {"value":
+        "8918"}, "TaxReturnLineRef": {"value": "8546"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ",
+        "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc",
+        "sparse": false, "Id": "6", "SyncToken": "8918", "MetaData": {"CreateTime":
+        "1991-03-10T23:24:30-07:00", "LastUpdatedTime": "2023-08-24T15:32:18-07:00"}},
+        {"Name": "Fake-Chelsea Barker", "Description": "Fake-Chelsea Barker", "Active":
+        true, "RateValue": 1176, "AgencyRef": {"value": "8918"}, "TaxReturnLineRef":
+        {"value": "8546"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ", "DisplayType":
+        "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc", "sparse":
+        false, "Id": "9", "SyncToken": "8918", "MetaData": {"CreateTime": "1998-01-28T12:36:05-07:00",
+        "LastUpdatedTime": "2023-08-24T15:32:18-07:00"}}, {"Name": "Fake-Jacqueline
+        Bailey", "Description": "Fake-Jacqueline Bailey", "Active": true, "RateValue":
+        4491, "AgencyRef": {"value": "8918"}, "TaxReturnLineRef": {"value": "8546"},
+        "SpecialTaxType": "-Fallback-scrubbed-SnqQ", "DisplayType": "-Fallback-scrubbed-niEOVcAQ",
+        "domain": "-Fallback-scrubbed-bfc", "sparse": false, "Id": "5", "SyncToken":
+        "8918", "MetaData": {"CreateTime": "1972-04-25T17:43:52-07:00", "LastUpdatedTime":
+        "2023-08-24T15:32:18-07:00"}}, {"Name": "Fake-Lisa Valenzuela", "Description":
+        "Fake-Lisa Valenzuela", "Active": true, "RateValue": 4491, "AgencyRef": {"value":
+        "8918"}, "TaxReturnLineRef": {"value": "8546"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ",
+        "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc",
+        "sparse": false, "Id": "7", "SyncToken": "8918", "MetaData": {"CreateTime":
+        "1974-08-20T22:47:23-07:00", "LastUpdatedTime": "2023-08-24T15:32:18-07:00"}},
+        {"Name": "Fake-Edward Hall", "Description": "Fake-Edward Hall", "Active":
+        true, "RateValue": 4491, "AgencyRef": {"value": "8918"}, "TaxReturnLineRef":
+        {"value": "8546"}, "SpecialTaxType": "-Fallback-scrubbed-SnqQ", "DisplayType":
+        "-Fallback-scrubbed-niEOVcAQ", "domain": "-Fallback-scrubbed-bfc", "sparse":
+        false, "Id": "8", "SyncToken": "8918", "MetaData": {"CreateTime": "1991-05-07T01:24:03-07:00",
+        "LastUpdatedTime": "2023-08-24T15:32:18-07:00"}}, {"Name": "Fake-Brenda Sanders",
+        "Description": "Fake-Brenda Sanders", "Active": true, "RateValue": 4491, "AgencyRef":
+        {"value": "8918"}, "TaxReturnLineRef": {"value": "8546"}, "SpecialTaxType":
+        "-Fallback-scrubbed-SnqQ", "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain":
+        "-Fallback-scrubbed-bfc", "sparse": false, "Id": "10", "SyncToken": "3718",
+        "MetaData": {"CreateTime": "2023-03-05T21:01:16-07:00", "LastUpdatedTime":
+        "2023-08-24T15:51:47-07:00"}}, {"Name": "Fake-Elizabeth Johnson", "Description":
+        "Fake-Elizabeth Johnson", "Active": true, "RateValue": 2063, "AgencyRef":
+        {"value": "508"}, "SpecialTaxType": "-Fallback-scrubbed-ZWnlXXkRa", "DisplayType":
+        "-Fallback-scrubbed-rrmKOWMkhJjVaEfDYnxzmP", "domain": "-Fallback-scrubbed-bfc",
+        "sparse": false, "Id": "14", "SyncToken": "5043", "MetaData": {"CreateTime":
+        "2019-07-16T12:55:44-07:00", "LastUpdatedTime": "2023-08-24T15:32:19-07:00"}},
+        {"Name": "Fake-Mark Davis", "Description": "Fake-Mark Davis", "Active": true,
+        "RateValue": 2063, "AgencyRef": {"value": "508"}, "SpecialTaxType": "-Fallback-scrubbed-ZWnlXXkRa",
+        "DisplayType": "-Fallback-scrubbed-rrmKOWMkhJjVaEfDYnxzmP", "domain": "-Fallback-scrubbed-bfc",
+        "sparse": false, "Id": "13", "SyncToken": "5043", "MetaData": {"CreateTime":
+        "2019-07-16T12:55:44-07:00", "LastUpdatedTime": "2023-08-24T15:32:19-07:00"}},
+        {"Name": "Fake-Cameron Garcia", "Description": "Fake-Cameron Garcia", "Active":
+        true, "RateValue": 4491, "AgencyRef": {"value": "8918"}, "SpecialTaxType":
+        "-Fallback-scrubbed-SnqQ", "DisplayType": "-Fallback-scrubbed-niEOVcAQ", "domain":
+        "-Fallback-scrubbed-bfc", "sparse": false, "Id": "2", "SyncToken": "5043",
+        "MetaData": {"CreateTime": "1974-08-01T16:01:28-08:00", "LastUpdatedTime":
+        "2021-02-17T12:17:04-08:00"}}], "startPosition": 1, "maxResults": 18, "totalCount":
+        18}, "time": "1976-08-29T20:51:33.687-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '8252'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 13:15:16 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '6513'
+      intuit_tid:
+      - 1-689203e4-2b3085dd4dc39e96498c4c89
+      x-amzn-trace-id:
+      - Root=1-689203e4-2b3085dd4dc39e96498c4c89
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '150'
+      x-request-id:
+      - 1-689203e4-2b3085dd4dc39e96498c4c89
+      x-spanid:
+      - dab9ce11-ffc5-798a-284b-388deb51159e
+    status:
+      code: 200
+      message: OK
+version: 1
