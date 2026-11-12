@@ -1,0 +1,319 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 2077, "refresh_token":
+        "ref***", "access_token": "acc***", "token_type": "-Fallback-scrubbed-NeusfE"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:29:46 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f93a-75a206ce253ec31073a6ede7
+      x-amzn-trace-id:
+      - Root=1-6891f93a-75a206ce253ec31073a6ede7
+      x-envoy-upstream-service-time:
+      - '98'
+      x-request-id:
+      - 1-6891f93a-75a206ce253ec31073a6ede7
+      x-spanid:
+      - e5aad26d-2e1d-a9ff-5ffd-3f999fc5127d
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+CreditMemo++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"CreditMemo": [{"RemainingCredit": 35.3829680282607,
+        "domain": "-Fallback-scrubbed-yfJ", "sparse": false, "Id": "707", "SyncToken":
+        "7353", "MetaData": {"CreateTime": "1981-01-13T01:57:58-07:00", "LastUpdatedTime":
+        "2025-06-16T10:02:12-07:00"}, "CustomField": [{"DefinitionId": "2015", "Name":
+        "Fake-Mark Rodriguez", "Type": "-Fallback-scrubbed-uuSYJocVok"}, {"DefinitionId":
+        "9522", "Name": "Fake-Lori Thomas", "Type": "-Fallback-scrubbed-uuSYJocVok"}],
+        "DocNumber": "-Fallback-scrubbed-cVTLFuwQEZoLeci", "TxnDate": "2025-11-28",
+        "DepartmentRef": {"value": "7353", "name": "Fake-Teresa Campbell"}, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-abX", "name": "Fake-Karen Miller"}, "ExchangeRate":
+        1517, "Line": [{"Id": "1", "LineNum": 1517, "Description": "-Fallback-scrubbed-FVYLZLIJLeDtMeLxQqDbNZMGZvoaaVQdLm",
+        "Amount": -91202987824.3267, "DetailType": "-Fallback-scrubbed-QfnopwsVntZAbbLfgQM",
+        "SalesItemLineDetail": {"ServiceDate": "1998-07-18", "ItemRef": {"value":
+        "8994", "name": "Fake-Stefanie Kim"}, "UnitPrice": 1981, "Qty": 1517, "ItemAccountRef":
+        {"value": "6470", "name": "Fake-Michael Brooks"}, "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-gtq"}, "TaxClassificationRef": {"value": "-Fallback-scrubbed-RURIenFDCdTqNFsnonSnkELf"}}},
+        {"Id": "2", "LineNum": 71, "Description": "-Fallback-scrubbed-EorkNRaJgWIpvXkjIr",
+        "Amount": 35.3829680282607, "DetailType": "-Fallback-scrubbed-QfnopwsVntZAbbLfgQM",
+        "SalesItemLineDetail": {"ServiceDate": "1986-01-31", "ItemRef": {"value":
+        "2379", "name": "Fake-Brandon Miller"}, "UnitPrice": 5991, "Qty": 1517, "ItemAccountRef":
+        {"value": "9675", "name": "Fake-Allison Fletcher"}, "TaxCodeRef": {"value":
+        "-Fallback-scrubbed-TMG"}, "TaxClassificationRef": {}}}, {"Amount": -0.79847436285746,
+        "DetailType": "-Fallback-scrubbed-jezNMpKuUypvbZGvUT", "SubTotalLineDetail":
+        {}}], "TxnTaxDetail": {"TxnTaxCodeRef": {"value": "6496"}, "TotalTax": 2788,
+        "TaxLine": [{"Amount": 2788, "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi",
+        "TaxLineDetail": {"TaxRateRef": {"value": "5268"}, "PercentBased": false,
+        "TaxPercent": 2788, "NetAmountTaxable": 2788}}]}, "CustomerRef": {"value":
+        "5354", "name": "Fake-David Greene"}, "CustomerMemo": {"value": "-Fallback-scrubbed-vUUqxFlOuvzNozjFxMvPKWmlbwqDddRNAbcbnYSqiCXkDyLid"},
+        "BillAddr": {"Id": "634", "Line1": "-Fallback-scrubbed-sDuQHwGlioMoO", "Line2":
+        "Fake-David Greene", "Line3": "-Fallback-scrubbed-zaYl", "Line4": "-Fallback-scrubbed-AeCrDuYFym",
+        "Line5": "-Fallback-scrubbed-iFMopuZuJidptVBrGjUXLaQfFRODqX"}, "ShipAddr":
+        {"Id": "635", "Line1": "-Fallback-scrubbed-sDuQHwGlioMoO", "Line2": "Fake-David
+        Greene", "Line3": "-Fallback-scrubbed-zaYl", "Line4": "-Fallback-scrubbed-AeCrDuYFym",
+        "Line5": "-Fallback-scrubbed-iFMopuZuJidptVBrGjUXLaQfFRODqX"}, "FreeFormAddress":
+        false, "ShipFromAddr": {"Id": "636", "Line1": "-Fallback-scrubbed-QuYUDrXhpfagZIv",
+        "Line2": "-Fallback-scrubbed-ezNIYLDhvNRPYhCQKFd"}, "TotalAmt": -0.79847436285746,
+        "HomeTotalAmt": -0.79847436285746, "ApplyTaxAfterDiscount": false, "PrintStatus":
+        "-Fallback-scrubbed-zkmwgz", "EmailStatus": "-Fallback-scrubbed-CHrebqytK",
+        "BillEmail": {"Address": "Fake-688 Lawson Tunnel"}, "Balance": 35.3829680282607,
+        "HomeBalance": 35.3829680282607, "DeliveryInfo": {"DeliveryType": "-Fallback-scrubbed-iNoiw",
+        "DeliveryTime": "2026-01-29T13:23:13-07:00"}, "TaxExemptionRef": {"value":
+        "8994", "name": "Fake-Walter Boyer"}}, {"RemainingCredit": 2788, "domain":
+        "-Fallback-scrubbed-yfJ", "sparse": false, "Id": "579", "SyncToken": "9522",
+        "MetaData": {"CreateTime": "1987-07-26T05:27:42-07:00", "LastUpdatedTime":
+        "2025-04-09T15:40:15-07:00"}, "CustomField": [{"DefinitionId": "2015", "Name":
+        "Fake-Mark Rodriguez", "Type": "-Fallback-scrubbed-uuSYJocVok"}, {"DefinitionId":
+        "9522", "Name": "Fake-Lori Thomas", "Type": "-Fallback-scrubbed-uuSYJocVok"}],
+        "DocNumber": "-Fallback-scrubbed-OnvzagMQ", "TxnDate": "2016-06-07", "CurrencyRef":
+        {"value": "-Fallback-scrubbed-abX", "name": "Fake-Karen Miller"}, "ExchangeRate":
+        1517, "Line": [{"Id": "1", "LineNum": 1517, "Description": "-Fallback-scrubbed-EorkNRaJgWIpvXkjIr",
+        "Amount": -991602.24654093, "DetailType": "-Fallback-scrubbed-QfnopwsVntZAbbLfgQM",
+        "SalesItemLineDetail": {"ItemRef": {"value": "2379", "name": "Fake-Brandon
+        Miller"}, "UnitPrice": 3120, "Qty": 1517, "ItemAccountRef": {"value": "9675",
+        "name": "Fake-Allison Fletcher"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-TMG"},
+        "TaxClassificationRef": {}}}, {"Amount": -991602.24654093, "DetailType": "-Fallback-scrubbed-jezNMpKuUypvbZGvUT",
+        "SubTotalLineDetail": {}}], "TxnTaxDetail": {"TxnTaxCodeRef": {"value": "5309"},
+        "TotalTax": 2788, "TaxLine": [{"Amount": 2788, "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi",
+        "TaxLineDetail": {"TaxRateRef": {"value": "8898"}, "PercentBased": false,
+        "TaxPercent": 1517, "NetAmountTaxable": 2788}}, {"Amount": 2788, "DetailType":
+        "-Fallback-scrubbed-VVxpkCuCqPRTi", "TaxLineDetail": {"TaxRateRef": {"value":
+        "4860"}, "PercentBased": false, "TaxPercent": -2507.79839374473, "NetAmountTaxable":
+        2788}}, {"Amount": 2788, "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi",
+        "TaxLineDetail": {"TaxRateRef": {"value": "9921"}, "PercentBased": false,
+        "TaxPercent": -539028264698.732, "NetAmountTaxable": 2788}}, {"Amount": 2788,
+        "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi", "TaxLineDetail": {"TaxRateRef":
+        {"value": "5309"}, "PercentBased": false, "TaxPercent": 44.9617709456734,
+        "NetAmountTaxable": 2788}}]}, "CustomerRef": {"value": "2015", "name": "Fake-Courtney
+        Welch"}, "CustomerMemo": {"value": "-Fallback-scrubbed-vUUqxFlOuvzNozjFxMvPKWmlbwqDddRNAbcbnYSqiCXkDyLid"},
+        "BillAddr": {"Id": "481", "Line1": "-Fallback-scrubbed-vuJyrrpJBiddOG", "Line2":
+        "Fake-Courtney Welch", "Line3": "-Fallback-scrubbed-LhLneTqHsavUgg", "Line4":
+        "-Fallback-scrubbed-GczUUJraOSfdYCDMQUR"}, "ShipAddr": {"Id": "482", "Line1":
+        "-Fallback-scrubbed-vuJyrrpJBiddOG", "Line2": "Fake-Courtney Welch", "Line3":
+        "-Fallback-scrubbed-LhLneTqHsavUgg", "Line4": "-Fallback-scrubbed-GczUUJraOSfdYCDMQUR"},
+        "FreeFormAddress": false, "ShipFromAddr": {"Id": "483", "Line1": "-Fallback-scrubbed-QuYUDrXhpfagZIv",
+        "Line2": "-Fallback-scrubbed-ezNIYLDhvNRPYhCQKFd"}, "TotalAmt": -991602.24654093,
+        "HomeTotalAmt": -991602.24654093, "ApplyTaxAfterDiscount": false, "PrintStatus":
+        "-Fallback-scrubbed-IErxPdRuSGK", "EmailStatus": "-Fallback-scrubbed-CHrebqytK",
+        "BillEmail": {"Address": "Fake-9375 Barbara Cove Suite 417"}, "Balance": 2788,
+        "HomeBalance": 2788, "DeliveryInfo": {"DeliveryType": "-Fallback-scrubbed-iNoiw",
+        "DeliveryTime": "1984-12-13T12:14:12-07:00"}, "TaxExemptionRef": {}}, {"RemainingCredit":
+        2788, "domain": "-Fallback-scrubbed-yfJ", "sparse": false, "Id": "575", "SyncToken":
+        "2015", "MetaData": {"CreateTime": "2001-08-24T06:14:31-07:00", "LastUpdatedTime":
+        "2025-04-02T15:14:49-07:00"}, "CustomField": [{"DefinitionId": "2015", "Name":
+        "Fake-Mark Rodriguez", "Type": "-Fallback-scrubbed-uuSYJocVok"}, {"DefinitionId":
+        "9522", "Name": "Fake-Lori Thomas", "Type": "-Fallback-scrubbed-uuSYJocVok"}],
+        "DocNumber": "-Fallback-scrubbed-NSuFoSeX", "TxnDate": "2019-05-14", "CurrencyRef":
+        {"value": "-Fallback-scrubbed-abX", "name": "Fake-Karen Miller"}, "ExchangeRate":
+        1517, "Line": [{"Id": "1", "LineNum": 1517, "Description": "-Fallback-scrubbed-EorkNRaJgWIpvXkjIr",
+        "Amount": 35.3829680282607, "DetailType": "-Fallback-scrubbed-QfnopwsVntZAbbLfgQM",
+        "SalesItemLineDetail": {"ItemRef": {"value": "2379", "name": "Fake-Brandon
+        Miller"}, "UnitPrice": 5991, "Qty": 1517, "ItemAccountRef": {"value": "9675",
+        "name": "Fake-Allison Fletcher"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-TMG"},
+        "TaxClassificationRef": {}}}, {"Amount": 35.3829680282607, "DetailType": "-Fallback-scrubbed-jezNMpKuUypvbZGvUT",
+        "SubTotalLineDetail": {}}], "TxnTaxDetail": {"TxnTaxCodeRef": {"value": "5309"},
+        "TotalTax": 2788, "TaxLine": [{"Amount": 2788, "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi",
+        "TaxLineDetail": {"TaxRateRef": {"value": "8898"}, "PercentBased": false,
+        "TaxPercent": 1517, "NetAmountTaxable": 2788}}, {"Amount": 2788, "DetailType":
+        "-Fallback-scrubbed-VVxpkCuCqPRTi", "TaxLineDetail": {"TaxRateRef": {"value":
+        "4860"}, "PercentBased": false, "TaxPercent": -2507.79839374473, "NetAmountTaxable":
+        2788}}, {"Amount": 2788, "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi",
+        "TaxLineDetail": {"TaxRateRef": {"value": "9921"}, "PercentBased": false,
+        "TaxPercent": -539028264698.732, "NetAmountTaxable": 2788}}, {"Amount": 2788,
+        "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi", "TaxLineDetail": {"TaxRateRef":
+        {"value": "5309"}, "PercentBased": false, "TaxPercent": 44.9617709456734,
+        "NetAmountTaxable": 2788}}]}, "CustomerRef": {"value": "2015", "name": "Fake-Courtney
+        Welch"}, "CustomerMemo": {"value": "-Fallback-scrubbed-vUUqxFlOuvzNozjFxMvPKWmlbwqDddRNAbcbnYSqiCXkDyLid"},
+        "BillAddr": {"Id": "478", "Line1": "-Fallback-scrubbed-vuJyrrpJBiddOG", "Line2":
+        "Fake-Courtney Welch", "Line3": "-Fallback-scrubbed-LhLneTqHsavUgg", "Line4":
+        "-Fallback-scrubbed-GczUUJraOSfdYCDMQUR"}, "ShipAddr": {"Id": "479", "Line1":
+        "-Fallback-scrubbed-vuJyrrpJBiddOG", "Line2": "Fake-Courtney Welch", "Line3":
+        "-Fallback-scrubbed-LhLneTqHsavUgg", "Line4": "-Fallback-scrubbed-GczUUJraOSfdYCDMQUR"},
+        "FreeFormAddress": false, "ShipFromAddr": {"Id": "480", "Line1": "-Fallback-scrubbed-QuYUDrXhpfagZIv",
+        "Line2": "-Fallback-scrubbed-ezNIYLDhvNRPYhCQKFd"}, "TotalAmt": 35.3829680282607,
+        "HomeTotalAmt": 35.3829680282607, "ApplyTaxAfterDiscount": false, "PrintStatus":
+        "-Fallback-scrubbed-IErxPdRuSGK", "EmailStatus": "-Fallback-scrubbed-CHrebqytK",
+        "BillEmail": {"Address": "Fake-9375 Barbara Cove Suite 417"}, "Balance": 2788,
+        "HomeBalance": 2788, "DeliveryInfo": {"DeliveryType": "-Fallback-scrubbed-iNoiw",
+        "DeliveryTime": "1976-08-27T11:13:17-07:00"}, "TaxExemptionRef": {}}, {"RemainingCredit":
+        2788, "domain": "-Fallback-scrubbed-yfJ", "sparse": false, "Id": "572", "SyncToken":
+        "2015", "MetaData": {"CreateTime": "1989-03-18T22:27:30-07:00", "LastUpdatedTime":
+        "2025-04-02T15:11:56-07:00"}, "CustomField": [{"DefinitionId": "2015", "Name":
+        "Fake-Mark Rodriguez", "Type": "-Fallback-scrubbed-uuSYJocVok"}, {"DefinitionId":
+        "9522", "Name": "Fake-Lori Thomas", "Type": "-Fallback-scrubbed-uuSYJocVok"}],
+        "DocNumber": "-Fallback-scrubbed-mdRUQWtb", "TxnDate": "2019-05-14", "CurrencyRef":
+        {"value": "-Fallback-scrubbed-abX", "name": "Fake-Karen Miller"}, "ExchangeRate":
+        1517, "Line": [{"Id": "1", "LineNum": 1517, "Description": "-Fallback-scrubbed-EorkNRaJgWIpvXkjIr",
+        "Amount": 35.3829680282607, "DetailType": "-Fallback-scrubbed-QfnopwsVntZAbbLfgQM",
+        "SalesItemLineDetail": {"ItemRef": {"value": "2379", "name": "Fake-Brandon
+        Miller"}, "UnitPrice": 5991, "Qty": 1517, "ItemAccountRef": {"value": "9675",
+        "name": "Fake-Allison Fletcher"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-TMG"},
+        "TaxClassificationRef": {}}}, {"Amount": 35.3829680282607, "DetailType": "-Fallback-scrubbed-jezNMpKuUypvbZGvUT",
+        "SubTotalLineDetail": {}}], "TxnTaxDetail": {"TxnTaxCodeRef": {"value": "5309"},
+        "TotalTax": 2788, "TaxLine": [{"Amount": 2788, "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi",
+        "TaxLineDetail": {"TaxRateRef": {"value": "8898"}, "PercentBased": false,
+        "TaxPercent": 1517, "NetAmountTaxable": 2788}}, {"Amount": 2788, "DetailType":
+        "-Fallback-scrubbed-VVxpkCuCqPRTi", "TaxLineDetail": {"TaxRateRef": {"value":
+        "4860"}, "PercentBased": false, "TaxPercent": -2507.79839374473, "NetAmountTaxable":
+        2788}}, {"Amount": 2788, "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi",
+        "TaxLineDetail": {"TaxRateRef": {"value": "9921"}, "PercentBased": false,
+        "TaxPercent": -539028264698.732, "NetAmountTaxable": 2788}}, {"Amount": 2788,
+        "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi", "TaxLineDetail": {"TaxRateRef":
+        {"value": "5309"}, "PercentBased": false, "TaxPercent": 44.9617709456734,
+        "NetAmountTaxable": 2788}}]}, "CustomerRef": {"value": "2015", "name": "Fake-Courtney
+        Welch"}, "CustomerMemo": {"value": "-Fallback-scrubbed-vUUqxFlOuvzNozjFxMvPKWmlbwqDddRNAbcbnYSqiCXkDyLid"},
+        "BillAddr": {"Id": "475", "Line1": "-Fallback-scrubbed-vuJyrrpJBiddOG", "Line2":
+        "Fake-Courtney Welch", "Line3": "-Fallback-scrubbed-LhLneTqHsavUgg", "Line4":
+        "-Fallback-scrubbed-GczUUJraOSfdYCDMQUR"}, "ShipAddr": {"Id": "476", "Line1":
+        "-Fallback-scrubbed-vuJyrrpJBiddOG", "Line2": "Fake-Courtney Welch", "Line3":
+        "-Fallback-scrubbed-LhLneTqHsavUgg", "Line4": "-Fallback-scrubbed-GczUUJraOSfdYCDMQUR"},
+        "FreeFormAddress": false, "ShipFromAddr": {"Id": "477", "Line1": "-Fallback-scrubbed-QuYUDrXhpfagZIv",
+        "Line2": "-Fallback-scrubbed-ezNIYLDhvNRPYhCQKFd"}, "TotalAmt": 35.3829680282607,
+        "HomeTotalAmt": 35.3829680282607, "ApplyTaxAfterDiscount": false, "PrintStatus":
+        "-Fallback-scrubbed-IErxPdRuSGK", "EmailStatus": "-Fallback-scrubbed-CHrebqytK",
+        "BillEmail": {"Address": "Fake-9375 Barbara Cove Suite 417"}, "Balance": 2788,
+        "HomeBalance": 2788, "DeliveryInfo": {"DeliveryType": "-Fallback-scrubbed-iNoiw",
+        "DeliveryTime": "1989-05-14T08:15:09-07:00"}, "TaxExemptionRef": {}}, {"RemainingCredit":
+        2788, "domain": "-Fallback-scrubbed-yfJ", "sparse": false, "Id": "569", "SyncToken":
+        "2015", "MetaData": {"CreateTime": "1988-10-15T06:18:46-07:00", "LastUpdatedTime":
+        "2025-04-02T14:43:23-07:00"}, "CustomField": [{"DefinitionId": "2015", "Name":
+        "Fake-Mark Rodriguez", "Type": "-Fallback-scrubbed-uuSYJocVok"}, {"DefinitionId":
+        "9522", "Name": "Fake-Lori Thomas", "Type": "-Fallback-scrubbed-uuSYJocVok"}],
+        "DocNumber": "-Fallback-scrubbed-iNOYHEVS", "TxnDate": "2019-05-14", "CurrencyRef":
+        {"value": "-Fallback-scrubbed-abX", "name": "Fake-Karen Miller"}, "ExchangeRate":
+        1517, "Line": [{"Id": "1", "LineNum": 1517, "Description": "-Fallback-scrubbed-EorkNRaJgWIpvXkjIr",
+        "Amount": 35.3829680282607, "DetailType": "-Fallback-scrubbed-QfnopwsVntZAbbLfgQM",
+        "SalesItemLineDetail": {"ItemRef": {"value": "2379", "name": "Fake-Brandon
+        Miller"}, "UnitPrice": 5991, "Qty": 1517, "ItemAccountRef": {"value": "9675",
+        "name": "Fake-Allison Fletcher"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-TMG"},
+        "TaxClassificationRef": {}}}, {"Amount": 35.3829680282607, "DetailType": "-Fallback-scrubbed-jezNMpKuUypvbZGvUT",
+        "SubTotalLineDetail": {}}], "TxnTaxDetail": {"TxnTaxCodeRef": {"value": "8994"},
+        "TotalTax": 2788, "TaxLine": [{"Amount": 2788, "DetailType": "-Fallback-scrubbed-VVxpkCuCqPRTi",
+        "TaxLineDetail": {"TaxRateRef": {"value": "9522"}, "PercentBased": false,
+        "TaxPercent": 71, "NetAmountTaxable": 2788}}, {"Amount": 2788, "DetailType":
+        "-Fallback-scrubbed-VVxpkCuCqPRTi", "TaxLineDetail": {"TaxRateRef": {"value":
+        "2015"}, "PercentBased": false, "TaxPercent": -65835503048.3832, "NetAmountTaxable":
+        2788}}]}, "CustomerRef": {"value": "9811", "name": "Fake-Kevin Castillo"},
+        "CustomerMemo": {"value": "-Fallback-scrubbed-vUUqxFlOuvzNozjFxMvPKWmlbwqDddRNAbcbnYSqiCXkDyLid"},
+        "BillAddr": {"Id": "471", "Line1": "Fake-Kevin Castillo"}, "ShipAddr": {"Id":
+        "472", "Line1": "Fake-Kevin Castillo"}, "FreeFormAddress": false, "ShipFromAddr":
+        {"Id": "473", "Line1": "-Fallback-scrubbed-QuYUDrXhpfagZIv", "Line2": "-Fallback-scrubbed-ezNIYLDhvNRPYhCQKFd"},
+        "TotalAmt": 35.3829680282607, "HomeTotalAmt": 35.3829680282607, "ApplyTaxAfterDiscount":
+        false, "PrintStatus": "-Fallback-scrubbed-IErxPdRuSGK", "EmailStatus": "-Fallback-scrubbed-CHrebqytK",
+        "BillEmail": {"Address": "Fake-9385 Jamie Valleys"}, "Balance": 2788, "HomeBalance":
+        2788, "DeliveryInfo": {"DeliveryType": "-Fallback-scrubbed-iNoiw", "DeliveryTime":
+        "1997-08-22T17:50:19-07:00"}, "TaxExemptionRef": {}}, {"RemainingCredit":
+        2788, "domain": "-Fallback-scrubbed-yfJ", "sparse": false, "Id": "73", "SyncToken":
+        "2015", "MetaData": {"CreateTime": "2000-10-19T16:15:47-08:00", "LastUpdatedTime":
+        "2021-02-17T12:51:28-08:00"}, "CustomField": [{"DefinitionId": "2015", "Name":
+        "Fake-Mark Rodriguez", "Type": "-Fallback-scrubbed-uuSYJocVok"}, {"DefinitionId":
+        "9522", "Name": "Fake-Lori Thomas", "Type": "-Fallback-scrubbed-uuSYJocVok"}],
+        "DocNumber": "7765", "TxnDate": "2007-09-01", "CurrencyRef": {"value": "-Fallback-scrubbed-abX",
+        "name": "Fake-Karen Miller"}, "ExchangeRate": 1517, "Line": [{"Id": "1", "LineNum":
+        1517, "Description": "-Fallback-scrubbed-sglkVyrCiscGTvijZMgGK", "Amount":
+        -91202987824.3267, "DetailType": "-Fallback-scrubbed-QfnopwsVntZAbbLfgQM",
+        "SalesItemLineDetail": {"ItemRef": {"value": "1257", "name": "Fake-Mary Smith"},
+        "UnitPrice": 1981, "Qty": 1517, "ItemAccountRef": {"value": "6257", "name":
+        "-Fallback-scrubbed-sglkVyrCiscGTvijZMgGK"}, "TaxCodeRef": {"value": "-Fallback-scrubbed-TMG"},
+        "TaxClassificationRef": {}}}, {"Amount": -91202987824.3267, "DetailType":
+        "-Fallback-scrubbed-jezNMpKuUypvbZGvUT", "SubTotalLineDetail": {}}], "TxnTaxDetail":
+        {"TotalTax": 2788}, "CustomerRef": {"value": "2015", "name": "Fake-Courtney
+        Welch"}, "CustomerMemo": {"value": "-Fallback-scrubbed-vUUqxFlOuvzNozjFxMvPKWmlbwqDddRNAbcbnYSqiCXkDyLid"},
+        "BillAddr": {"Id": "79", "Line1": "-Fallback-scrubbed-vuJyrrpJBiddOG", "Line2":
+        "Fake-Courtney Welch", "Line3": "-Fallback-scrubbed-LhLneTqHsavUgg", "Line4":
+        "-Fallback-scrubbed-GczUUJraOSfdYCDMQUR", "Lat": -49.3331775, "Long": -49.3331775},
+        "ShipAddr": {"Id": "2", "Line1": "-Fallback-scrubbed-LhLneTqHsavUgg", "City":
+        "Fake-Port Diane", "CountrySubDivisionCode": "-Fallback-scrubbed-gt", "PostalCode":
+        "02917", "Lat": -49.3331775, "Long": -49.3331775}, "FreeFormAddress": false,
+        "TotalAmt": -91202987824.3267, "HomeTotalAmt": -91202987824.3267, "ApplyTaxAfterDiscount":
+        false, "PrintStatus": "-Fallback-scrubbed-IErxPdRuSGK", "EmailStatus": "-Fallback-scrubbed-zkmwgz",
+        "BillEmail": {"Address": "Fake-9375 Barbara Cove Suite 417"}, "Balance": 2788,
+        "HomeBalance": 2788, "TaxExemptionRef": {}}], "startPosition": 1, "maxResults":
+        6}, "time": "2003-01-08T06:50:36.097-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '17654'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:29:48 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '12901'
+      intuit_tid:
+      - 1-6891f93b-27680be44c11e3f163219463
+      x-amzn-trace-id:
+      - Root=1-6891f93b-27680be44c11e3f163219463
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '513'
+      x-request-id:
+      - 1-6891f93b-27680be44c11e3f163219463
+      x-spanid:
+      - a869f12e-3fae-63a8-36e4-ffc71319333e
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,968 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-knZijW",
+        "x_refresh_token_expires_in": 1551, "refresh_token": "ref***", "access_token":
+        "acc***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 11:56:05 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f155-7c7f4626073f23863f452dd9
+      x-amzn-trace-id:
+      - Root=1-6891f155-7c7f4626073f23863f452dd9
+      x-envoy-upstream-service-time:
+      - '108'
+      x-request-id:
+      - 1-6891f155-7c7f4626073f23863f452dd9
+      x-spanid:
+      - ad155c72-86da-f6f1-78db-3b07e8c70b1b
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Account++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Account": [{"Name": "Fake-Antonio West", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Antonio West", "Active": false, "Classification":
+        "-Fallback-scrubbed-YHYnVZqUe", "AccountType": "-Fallback-scrubbed-POhduaxavqPOkjuv",
+        "AccountSubType": "-Fallback-scrubbed-sSgWQHoZOmtAsDV", "CurrentBalance":
+        -406312307521.496, "CurrentBalanceWithSubAccounts": -406312307521.496, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "33", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2024-06-25T15:57:15-08:00", "LastUpdatedTime":
+        "2025-07-24T11:06:36-07:00"}}, {"Name": "Fake-Brian Rollins", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Brian Rollins", "Active": false, "Classification":
+        "-Fallback-scrubbed-YHYnVZqUe", "AccountType": "-Fallback-scrubbed-POhduaxavqPOkjuv",
+        "AccountSubType": "-Fallback-scrubbed-sSgWQHoZOmtAsDV", "CurrentBalance":
+        86801.9543758651, "CurrentBalanceWithSubAccounts": 86801.9543758651, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-kEJ", "name": "Fake-Antonio Cruz"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "109", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1992-06-24T02:51:10-07:00", "LastUpdatedTime":
+        "2025-06-26T05:52:50-07:00"}}, {"Name": "Fake-Nathan Harris", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Nathan Harris", "Active": false, "Classification":
+        "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-DcjiHSKUyUjHePslkUD",
+        "AccountSubType": "-Fallback-scrubbed-MfVrKabcMypxdRxSLw", "AcctNum": "9857",
+        "CurrentBalance": 30.9225189883294, "CurrentBalanceWithSubAccounts": 30.9225189883294,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"},
+        "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "84", "SyncToken":
+        "2103", "MetaData": {"CreateTime": "1983-07-02T17:14:30-08:00", "LastUpdatedTime":
+        "2025-07-25T12:34:35-07:00"}}, {"Name": "Fake-Shawn Hahn", "SubAccount": false,
+        "ParentRef": {"value": "8694"}, "Description": "-Fallback-scrubbed-LUpHZquasrLSUzUjXxfOWdutBhv",
+        "FullyQualifiedName": "-Fallback-scrubbed-tKiKBUJRmvMEthOBbnJeOtTqVLpdwIEqnQV",
+        "Active": false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType":
+        "-Fallback-scrubbed-DcjiHSKUyUjHePslkUD", "AccountSubType": "-Fallback-scrubbed-MfVrKabcMypxdRxSLw",
+        "AcctNum": "4136", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "1150040004",
+        "SyncToken": "1917", "MetaData": {"CreateTime": "2011-02-27T18:28:04-07:00",
+        "LastUpdatedTime": "2025-07-08T06:21:35-07:00"}}, {"Name": "Fake-Andrew Hernandez",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Andrew Hernandez", "Active":
+        false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-DcjiHSKUyUjHePslkUD",
+        "AccountSubType": "-Fallback-scrubbed-MfVrKabcMypxdRxSLw", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-TZR",
+        "name": "Fake-Paul Robinson"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "105", "SyncToken": "1917", "MetaData": {"CreateTime": "2006-09-22T11:10:03-07:00",
+        "LastUpdatedTime": "2025-05-30T08:52:51-07:00"}}, {"Name": "Fake-Benjamin
+        Jones", "SubAccount": false, "FullyQualifiedName": "Fake-Benjamin Jones",
+        "Active": false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType":
+        "-Fallback-scrubbed-DcjiHSKUyUjHePslkUD", "AccountSubType": "-Fallback-scrubbed-MfVrKabcMypxdRxSLw",
+        "CurrentBalance": 61982.9618859385, "CurrentBalanceWithSubAccounts": 61982.9618859385,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-kEJ", "name": "Fake-Antonio Cruz"},
+        "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "101", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "2022-01-26T05:45:37-07:00", "LastUpdatedTime":
+        "2025-06-20T13:09:17-07:00"}}, {"Name": "Fake-Vanessa Baker", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Vanessa Baker", "Active": false, "Classification":
+        "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-DcjiHSKUyUjHePslkUD",
+        "AccountSubType": "-Fallback-scrubbed-MfVrKabcMypxdRxSLw", "CurrentBalance":
+        -7731577879.8264, "CurrentBalanceWithSubAccounts": -7731577879.8264, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-hDj", "name": "Fake-Theresa Warner"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "98", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2009-08-30T22:19:22-07:00", "LastUpdatedTime":
+        "2025-06-12T10:10:46-07:00"}}, {"Name": "Fake-Joseph Cole", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Joseph Cole", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-fQQxBOoHzXxSbIqLYxFBUq", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "7", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Julia Macdonald",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Julia Macdonald", "Active":
+        false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH", "AcctNum": "9013",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "1150040006", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "2015-12-17T10:00:26-07:00", "LastUpdatedTime":
+        "2025-07-15T11:13:20-07:00"}}, {"Name": "Fake-Steven Perry", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Steven Perry", "Active": false, "Classification":
+        "-Fallback-scrubbed-YHYnVZqUe", "AccountType": "-Fallback-scrubbed-QFSsPDQpARggQUXhPfSbZTt",
+        "AccountSubType": "-Fallback-scrubbed-kTZiMRZqZZPBmRzk", "CurrentBalance":
+        -3739.84818483824, "CurrentBalanceWithSubAccounts": -3739.84818483824, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "89", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2023-06-18T15:29:54-08:00", "LastUpdatedTime":
+        "2025-07-25T12:34:35-07:00"}}, {"Name": "Fake-Anthony Williams", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Anthony Williams", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-KRmP", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "55", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1999-04-08T00:36:07-08:00", "LastUpdatedTime":
+        "2021-02-15T10:16:05-08:00"}}, {"Name": "Fake-Richard Cook", "SubAccount":
+        false, "ParentRef": {"value": "5627"}, "FullyQualifiedName": "-Fallback-scrubbed-LcVSqmmPZSUhtGu",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-KRmP",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "56", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1995-10-10T23:34:02-08:00", "LastUpdatedTime":
+        "2021-02-15T10:16:05-08:00"}}, {"Name": "Fake-Adam Garrett", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Adam Garrett", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-aCnxRtUmRSu", "CurrentBalance": 3878,
+        "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "8", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Alicia Lewis",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Alicia Lewis", "Active":
+        false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-YnzwHNmUNVljMcde", "AcctNum": "930",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "85", "SyncToken": "2103",
+        "MetaData": {"CreateTime": "2013-09-07T18:16:15-08:00", "LastUpdatedTime":
+        "2024-02-05T05:22:06-08:00"}}, {"Name": "Fake-Joseph Adams", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Joseph Adams", "Active": false, "Classification":
+        "-Fallback-scrubbed-YHYnVZqUe", "AccountType": "-Fallback-scrubbed-QFSsPDQpARggQUXhPfSbZTt",
+        "AccountSubType": "-Fallback-scrubbed-kTZiMRZqZZPBmRzk", "AcctNum": "5669",
+        "CurrentBalance": -5593462619755.31, "CurrentBalanceWithSubAccounts": -5593462619755.31,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"},
+        "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "90", "SyncToken":
+        "2103", "MetaData": {"CreateTime": "2023-06-18T15:29:54-08:00", "LastUpdatedTime":
+        "2024-04-22T20:07:19-07:00"}}, {"Name": "Fake-Stephen Johnson", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Stephen Johnson", "Active": false, "Classification":
+        "-Fallback-scrubbed-YHYnVZqUe", "AccountType": "-Fallback-scrubbed-QFSsPDQpARggQUXhPfSbZTt",
+        "AccountSubType": "-Fallback-scrubbed-kTZiMRZqZZPBmRzk", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "95", "SyncToken": "1917", "MetaData": {"CreateTime": "2005-09-21T04:26:00-07:00",
+        "LastUpdatedTime": "2025-04-09T15:26:55-07:00"}}, {"Name": "Fake-Dawn Gonzalez",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Dawn Gonzalez", "Active":
+        false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-hXJV",
+        "AccountSubType": "Fake-Dawn Gonzalez", "CurrentBalance": -684893.322813942,
+        "CurrentBalanceWithSubAccounts": -684893.322813942, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ",
+        "sparse": false, "Id": "35", "SyncToken": "1917", "MetaData": {"CreateTime":
+        "1985-07-20T19:43:39-08:00", "LastUpdatedTime": "2025-06-30T06:52:26-07:00"}},
+        {"Name": "Fake-Brittany Schwartz", "SubAccount": false, "FullyQualifiedName":
+        "Fake-Brittany Schwartz", "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv",
+        "AccountType": "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-NsCcpfeAdlebDUestslBRDXnNiiJI",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "9", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Timothy Schneider", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Timothy Schneider", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "Fake-Timothy Schneider", "AccountSubType":
+        "-Fallback-scrubbed-QDBRHrGNBPAbHtropnGej", "AcctNum": "4934", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "80", "SyncToken": "2103", "MetaData": {"CreateTime": "1970-08-16T12:00:07-08:00",
+        "LastUpdatedTime": "2022-09-09T12:29:55-07:00"}}, {"Name": "Fake-Jesse Butler",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Jesse Butler", "Active":
+        false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-DcjiHSKUyUjHePslkUD",
+        "AccountSubType": "-Fallback-scrubbed-MfVrKabcMypxdRxSLw", "AcctNum": "2437",
+        "CurrentBalance": -8643508134283.38, "CurrentBalanceWithSubAccounts": -8643508134283.38,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"},
+        "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "91", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1992-07-28T22:31:37-07:00", "LastUpdatedTime":
+        "2025-05-28T12:50:07-07:00"}}, {"Name": "Fake-Martha Perez", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Martha Perez", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-JvvAsiwGnzZTy",
+        "AccountSubType": "Fake-Martha Perez", "AcctNum": "4723", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "40", "SyncToken": "2103", "MetaData": {"CreateTime": "1986-09-19T14:48:10-08:00",
+        "LastUpdatedTime": "2023-03-03T11:46:53-08:00"}}, {"Name": "Fake-Mikayla Weaver",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Mikayla Weaver", "Active":
+        false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "82", "SyncToken": "1917", "MetaData": {"CreateTime": "2026-04-24T02:30:32-08:00",
+        "LastUpdatedTime": "2021-02-15T10:40:45-08:00"}}, {"Name": "Fake-Allen Soto",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Allen Soto", "Active": false,
+        "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-opWgHEdutbdhiVhgnjyDM", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "86", "SyncToken": "1917", "MetaData": {"CreateTime": "2013-09-07T18:16:15-08:00",
+        "LastUpdatedTime": "2021-02-15T14:54:12-08:00"}}, {"Name": "Fake-Charles Matthews",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Charles Matthews", "Active":
+        false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-NsCcpfeAdlebDUestslBRDXnNiiJI", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "28", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Christopher
+        Prince", "SubAccount": false, "FullyQualifiedName": "Fake-Christopher Prince",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-fiozXplkuuZIGyMWS",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "10", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Teresa Paul", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Teresa Paul", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-rzMbiMPEyMYdwSZ", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "29", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Catherine
+        Cruz", "SubAccount": false, "FullyQualifiedName": "Fake-Catherine Cruz", "Active":
+        false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-JvvAsiwGnzZTy",
+        "AccountSubType": "-Fallback-scrubbed-PBWliKkPlZOFjjBOUM", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "107", "SyncToken": "1917", "MetaData": {"CreateTime": "1970-05-04T05:45:20-07:00",
+        "LastUpdatedTime": "2025-05-30T09:17:05-07:00"}}, {"Name": "Fake-Steven Hale",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Steven Hale", "Active": false,
+        "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-YnzwHNmUNVljMcde", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "5", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Christopher
+        Moore", "SubAccount": false, "FullyQualifiedName": "Fake-Christopher Moore",
+        "Active": false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType":
+        "-Fallback-scrubbed-hXJV", "AccountSubType": "Fake-Dawn Gonzalez", "AcctNum":
+        "7017", "CurrentBalance": -41549.677328912, "CurrentBalanceWithSubAccounts":
+        -41549.677328912, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name":
+        "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false,
+        "Id": "1150040000", "SyncToken": "2103", "MetaData": {"CreateTime": "2022-02-07T00:31:08-07:00",
+        "LastUpdatedTime": "2025-07-24T12:03:35-07:00"}}, {"Name": "Fake-Chelsea Walker",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Chelsea Walker", "Active":
+        false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "Fake-Chelsea Walker", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "11", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2021-02-15T10:17:24-08:00"}}, {"Name": "Fake-Yvette Lopez", "SubAccount":
+        false, "ParentRef": {"value": "4624"}, "FullyQualifiedName": "-Fallback-scrubbed-XOpVJfLwDxkbkFzvRSlRBVMOBhgouC",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "Fake-Chelsea Walker", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "57", "SyncToken": "1917", "MetaData": {"CreateTime": "2017-05-22T09:15:27-08:00",
+        "LastUpdatedTime": "2021-02-15T10:17:24-08:00"}}, {"Name": "Fake-Joseph Cooper",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Joseph Cooper", "Active":
+        false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-FZWIoGZTUaAv",
+        "AccountSubType": "-Fallback-scrubbed-AXkFNuOPKBqayi", "CurrentBalance": 3878,
+        "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "25", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Linda Welch",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Linda Welch", "Active": false,
+        "Classification": "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-eaBNmDTSEseqAMxAWYb",
+        "AccountSubType": "-Fallback-scrubbed-GymcAIPUE", "CurrentBalance": 9747435002259.2,
+        "CurrentBalanceWithSubAccounts": 9747435002259.2, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ",
+        "sparse": false, "Id": "81", "SyncToken": "1917", "MetaData": {"CreateTime":
+        "2019-11-08T15:49:08-08:00", "LastUpdatedTime": "2025-07-25T12:34:35-07:00"}},
+        {"Name": "Fake-Andrew Cline", "SubAccount": false, "FullyQualifiedName": "Fake-Andrew
+        Cline", "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "Fake-Timothy Schneider", "AccountSubType": "-Fallback-scrubbed-QDBRHrGNBPAbHtropnGej",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "93", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1986-07-25T03:18:06-08:00", "LastUpdatedTime":
+        "2023-02-10T23:12:36-08:00"}}, {"Name": "Fake-Christopher Freeman", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Christopher Freeman", "Active": false,
+        "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-NsCcpfeAdlebDUestslBRDXnNiiJI", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "58", "SyncToken": "1917", "MetaData": {"CreateTime": "2009-04-15T07:38:33-08:00",
+        "LastUpdatedTime": "2021-02-15T10:24:32-08:00"}}, {"Name": "Fake-Hector Underwood",
+        "SubAccount": false, "ParentRef": {"value": "9043"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-kDMgEWUNSPoncbrWbnyXFGymLd", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-NsCcpfeAdlebDUestslBRDXnNiiJI", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "59", "SyncToken": "1917", "MetaData": {"CreateTime": "2024-05-20T15:56:56-08:00",
+        "LastUpdatedTime": "2021-02-15T10:19:26-08:00"}}, {"Name": "Fake-Christian
+        Dunn", "SubAccount": false, "ParentRef": {"value": "1316"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-VsUbjylFRvmsOMoUyrKzbMhyOUAzyGuZCrQFVim", "Active": false,
+        "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-NsCcpfeAdlebDUestslBRDXnNiiJI", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "60", "SyncToken": "1917", "MetaData": {"CreateTime": "2004-07-13T09:36:44-08:00",
+        "LastUpdatedTime": "2021-02-15T10:19:07-08:00"}}, {"Name": "Fake-Scott Myers",
+        "SubAccount": false, "ParentRef": {"value": "1316"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-QZqpTKadxTIpmPTPMbTRASVOCQnzSmxIswDfLrJkOUOABEFlnm", "Active":
+        false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-NsCcpfeAdlebDUestslBRDXnNiiJI", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "61", "SyncToken": "1917", "MetaData": {"CreateTime": "1970-02-01T02:59:58-08:00",
+        "LastUpdatedTime": "2021-02-15T10:19:26-08:00"}}, {"Name": "Fake-Teresa Paul",
+        "SubAccount": false, "ParentRef": {"value": "9043"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-ZdxstIQEKNWezAXddkDqrHOZEEqeo", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-rzMbiMPEyMYdwSZ", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "62", "SyncToken": "1917", "MetaData": {"CreateTime": "1993-05-06T05:08:28-08:00",
+        "LastUpdatedTime": "2021-02-15T10:19:52-08:00"}}, {"Name": "Fake-Brittany
+        Richards", "SubAccount": false, "ParentRef": {"value": "9043"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-DFKdnksjrlUkGmQDSiBHkCdWTb", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-rznMylYXZbRnRoAlF", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "63", "SyncToken": "1917", "MetaData": {"CreateTime": "1990-06-25T00:21:29-08:00",
+        "LastUpdatedTime": "2021-02-15T10:23:30-08:00"}}, {"Name": "Fake-Christina
+        Diaz", "SubAccount": false, "ParentRef": {"value": "4750"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-aFgqAJgWdvgFYWvGWkBriWJtoVZCrNyfwLcrCAgRMse", "Active":
+        false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-rznMylYXZbRnRoAlF", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "64", "SyncToken": "1917", "MetaData": {"CreateTime": "2006-07-19T01:11:37-08:00",
+        "LastUpdatedTime": "2021-02-15T10:22:18-08:00"}}, {"Name": "Fake-Cheryl Collins",
+        "SubAccount": false, "ParentRef": {"value": "4750"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-zIIQyOLHEkjSkvpRyHMQtetNKUJFWhUFHzmdetIAIBZThXtfIffXrKC",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-rznMylYXZbRnRoAlF",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "65", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1996-08-17T11:48:52-08:00", "LastUpdatedTime":
+        "2021-02-15T10:22:40-08:00"}}, {"Name": "Fake-Michael Weiss", "SubAccount":
+        false, "ParentRef": {"value": "4750"}, "FullyQualifiedName": "-Fallback-scrubbed-YoQeudWNQbrCwmEEMIVCtPBXWbCvQtmBnfkaiYEiSe",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-rznMylYXZbRnRoAlF",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "66", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2019-07-15T13:25:53-08:00", "LastUpdatedTime":
+        "2021-02-15T10:23:04-08:00"}}, {"Name": "Fake-Jennifer Cole", "SubAccount":
+        false, "ParentRef": {"value": "4750"}, "FullyQualifiedName": "-Fallback-scrubbed-eIeOVUQDfCaqkavLIDwRHyMguBLLwnDrnotdWGhpitGJnYGdzVwZqm",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-rznMylYXZbRnRoAlF",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "67", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1985-05-11T20:53:47-08:00", "LastUpdatedTime":
+        "2021-02-15T10:23:30-08:00"}}, {"Name": "Fake-Christopher Martin", "SubAccount":
+        false, "ParentRef": {"value": "9043"}, "FullyQualifiedName": "-Fallback-scrubbed-ZKnAgnWmNJYUlNBztfKN",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-NsCcpfeAdlebDUestslBRDXnNiiJI",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "68", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2022-03-27T20:58:55-08:00", "LastUpdatedTime":
+        "2021-02-15T10:24:32-08:00"}}, {"Name": "Fake-Toni Foster", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Toni Foster", "Active": false, "Classification":
+        "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "45", "SyncToken": "1917", "MetaData": {"CreateTime": "1985-01-20T08:25:00-08:00",
+        "LastUpdatedTime": "2021-02-15T10:08:54-08:00"}}, {"Name": "Fake-Brittany
+        Richards", "SubAccount": false, "ParentRef": {"value": "2403"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-KsEwwWKanPgCUAZiImravduFPzafuoJTLU", "Active": false,
+        "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "46", "SyncToken": "1917", "MetaData": {"CreateTime": "1982-04-14T03:29:40-08:00",
+        "LastUpdatedTime": "2021-02-15T10:08:06-08:00"}}, {"Name": "Fake-Christina
+        Diaz", "SubAccount": false, "ParentRef": {"value": "9448"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-bHRdbXSoHtObIJJiLigxICkrKwEjNYJSwEAvNEGusEUKSmAwopx",
+        "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType":
+        "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "47", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2023-03-17T23:39:20-08:00", "LastUpdatedTime":
+        "2021-02-15T10:06:54-08:00"}}, {"Name": "Fake-Trevor Martin", "SubAccount":
+        false, "ParentRef": {"value": "9448"}, "FullyQualifiedName": "-Fallback-scrubbed-MRLWMzxnnoWHLkQLCRoWgebAPXbTowsnKFYrjwoSFErRNlUdzGZwzYJczJmWxGcR",
+        "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType":
+        "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "48", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2003-04-14T22:48:15-08:00", "LastUpdatedTime":
+        "2021-02-15T10:07:22-08:00"}}, {"Name": "Fake-Michael Weiss", "SubAccount":
+        false, "ParentRef": {"value": "9448"}, "FullyQualifiedName": "-Fallback-scrubbed-fzUoakyZYhjTXIypAmQetaJuPYxrJAublDCZXXGoIulfqZFDxJ",
+        "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType":
+        "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "AcctNum": "247", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "49", "SyncToken":
+        "2103", "MetaData": {"CreateTime": "2025-05-03T05:38:16-08:00", "LastUpdatedTime":
+        "2022-09-09T12:08:05-07:00"}}, {"Name": "Fake-Jennifer Cole", "SubAccount":
+        false, "ParentRef": {"value": "9448"}, "FullyQualifiedName": "-Fallback-scrubbed-lgDiqwnFAXQrJlXcyMCmfNhKXtCQhYvXbOxENEFbYMmNTwMuHiOHpTCZACTmwS",
+        "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType":
+        "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "50", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1997-10-07T13:54:24-08:00", "LastUpdatedTime":
+        "2021-02-15T10:08:06-08:00"}}, {"Name": "Fake-Christian Johnson", "SubAccount":
+        false, "ParentRef": {"value": "2403"}, "FullyQualifiedName": "-Fallback-scrubbed-SLqneQULkMbDHcINdoITDKVtxV",
+        "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType":
+        "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "51", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1977-04-19T07:10:30-08:00", "LastUpdatedTime":
+        "2021-02-15T10:12:11-08:00"}}, {"Name": "Fake-Christian Dunn", "SubAccount":
+        false, "ParentRef": {"value": "5328"}, "FullyQualifiedName": "-Fallback-scrubbed-KzRcFUzaMlZFEROzQrOOudPogtPLssxWHCKuaQZ",
+        "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType":
+        "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "52", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1990-04-04T06:05:05-08:00", "LastUpdatedTime":
+        "2021-02-15T10:09:35-08:00"}}, {"Name": "Fake-Scott Gonzalez", "SubAccount":
+        false, "ParentRef": {"value": "5328"}, "FullyQualifiedName": "-Fallback-scrubbed-DsaONTxvIuPNiWykDamHXtupcGGueKKEuccDefmSVOJbtNTqa",
+        "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType":
+        "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "53", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1997-11-19T18:48:40-08:00", "LastUpdatedTime":
+        "2021-02-15T10:12:11-08:00"}}, {"Name": "Fake-Michelle Potts", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Michelle Potts", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-LLACKrqTlcGfJikoJqzaQ", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "12", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-15T10:26:24-08:00"}}, {"Name": "Fake-Kristen Figueroa",
+        "SubAccount": false, "ParentRef": {"value": "1196"}, "Description": "-Fallback-scrubbed-obsGDEXAZELPKeis",
+        "FullyQualifiedName": "-Fallback-scrubbed-OTjkRHFMuuWXolZEdTsoUmJehcaeFVEpsNBp",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-LLACKrqTlcGfJikoJqzaQ",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "69", "SyncToken": "2103",
+        "MetaData": {"CreateTime": "1983-04-30T00:43:35-08:00", "LastUpdatedTime":
+        "2025-06-04T07:20:17-07:00"}}, {"Name": "Fake-Zachary Johnson", "SubAccount":
+        false, "ParentRef": {"value": "1196"}, "FullyQualifiedName": "-Fallback-scrubbed-PCWiEzZRvSTnrZoOgRghjbFIpKgXRTqCBcQo",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-LLACKrqTlcGfJikoJqzaQ",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "70", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1974-02-06T10:42:26-08:00", "LastUpdatedTime":
+        "2021-02-15T10:25:30-08:00"}}, {"Name": "Fake-Charlene Harrison", "SubAccount":
+        false, "ParentRef": {"value": "1196"}, "FullyQualifiedName": "-Fallback-scrubbed-uzyQnLnRcJwuHOmhmUebAVDQjsZXuEAC",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-LLACKrqTlcGfJikoJqzaQ",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "71", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1981-08-27T10:27:13-08:00", "LastUpdatedTime":
+        "2021-02-15T10:26:24-08:00"}}, {"Name": "Fake-Jonathan Nichols", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Jonathan Nichols", "Active": false, "Classification":
+        "-Fallback-scrubbed-YHYnVZqUe", "AccountType": "-Fallback-scrubbed-QFSsPDQpARggQUXhPfSbZTt",
+        "AccountSubType": "-Fallback-scrubbed-dyaqLovoqINCWIvxBBBqmdI", "CurrentBalance":
+        3652681984.62277, "CurrentBalanceWithSubAccounts": 3652681984.62277, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "43", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2001-12-05T17:27:46-08:00", "LastUpdatedTime":
+        "2021-02-15T10:03:25-08:00"}}, {"Name": "Fake-Scott Gonzalez", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Scott Gonzalez", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-iAzXciEKFdpsmUnjv", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "72", "SyncToken": "1917", "MetaData": {"CreateTime": "2003-01-19T07:32:49-08:00",
+        "LastUpdatedTime": "2021-02-15T10:29:17-08:00"}}, {"Name": "Fake-Russell Woods",
+        "SubAccount": false, "ParentRef": {"value": "6549"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-kmDhxudpysFigCjHMoWhcybYnAVjXwYrHtDurPQ", "Active": false,
+        "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-iAzXciEKFdpsmUnjv", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "73", "SyncToken": "1917", "MetaData": {"CreateTime": "1976-10-29T22:57:10-08:00",
+        "LastUpdatedTime": "2021-02-15T10:27:37-08:00"}}, {"Name": "Fake-John Gray",
+        "SubAccount": false, "ParentRef": {"value": "6549"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-jqAnPmTqLrnxTIcbXDsZJKLOcnMYLBhOcuqMxkO", "Active": false,
+        "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-iAzXciEKFdpsmUnjv", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "74", "SyncToken": "1917", "MetaData": {"CreateTime": "2002-01-18T08:38:41-08:00",
+        "LastUpdatedTime": "2021-02-15T10:28:49-08:00"}}, {"Name": "Fake-Mrs. Angelica
+        Lewis MD", "SubAccount": false, "ParentRef": {"value": "6549"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-CbegsPRhjorIKvnxLafMOHMUqyGpflNZQTPFlejN", "Active": false,
+        "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-iAzXciEKFdpsmUnjv", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "75", "SyncToken": "1917", "MetaData": {"CreateTime": "2026-06-09T10:49:03-08:00",
+        "LastUpdatedTime": "2021-02-15T10:29:17-08:00"}}, {"Name": "Fake-Jason Montgomery",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Jason Montgomery", "Active":
+        false, "Classification": "-Fallback-scrubbed-YHYnVZqUe", "AccountType": "-Fallback-scrubbed-luzRGoTmEKm",
+        "AccountSubType": "-Fallback-scrubbed-UebumjfoWu", "CurrentBalance": 384993.323511602,
+        "CurrentBalanceWithSubAccounts": 384993.323511602, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ",
+        "sparse": false, "Id": "41", "SyncToken": "2103", "MetaData": {"CreateTime":
+        "2023-08-23T17:41:09-08:00", "LastUpdatedTime": "2025-07-24T11:06:36-07:00"}},
+        {"Name": "Fake-Charles Hansen", "SubAccount": false, "FullyQualifiedName":
+        "Fake-Charles Hansen", "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv",
+        "AccountType": "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-jUxwGcrVCVobVgGzHr",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "13", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Edward Johnson", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Edward Johnson", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-JvvAsiwGnzZTy",
+        "AccountSubType": "-Fallback-scrubbed-lpzxHJkCdmKlXghOlAnKNLuFP", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "14", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Wendy Porter",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Wendy Porter", "Active":
+        false, "Classification": "-Fallback-scrubbed-YHYnVZqUe", "AccountType": "-Fallback-scrubbed-ysJfnPKlffCoftSEoPK",
+        "AccountSubType": "-Fallback-scrubbed-INFpczdwQoIlrioRiEqEMmYV", "CurrentBalance":
+        -52594285.10169, "CurrentBalanceWithSubAccounts": -52594285.10169, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "44", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2026-05-05T16:45:50-08:00", "LastUpdatedTime":
+        "2021-02-15T10:04:24-08:00"}}, {"Name": "Fake-Meghan Kelly", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Meghan Kelly", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-bHhOcYXknEeOlpWAeyLHFqyIyxvbaRhQxQj",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "15", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-William Lutz", "SubAccount":
+        false, "FullyQualifiedName": "Fake-William Lutz", "Active": false, "Classification":
+        "-Fallback-scrubbed-cMbyNk", "AccountType": "-Fallback-scrubbed-cMbyNk", "AccountSubType":
+        "-Fallback-scrubbed-uLLBAAHbbPRsbzsNeaiF", "CurrentBalance": -3497936626625.77,
+        "CurrentBalanceWithSubAccounts": -3497936626625.77, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ",
+        "sparse": false, "Id": "34", "SyncToken": "1917", "MetaData": {"CreateTime":
+        "1985-07-20T19:43:39-08:00", "LastUpdatedTime": "2025-07-28T12:55:56-07:00"}},
+        {"Name": "-Fallback-scrubbed-FZWIoGZTUaAv", "SubAccount": false, "FullyQualifiedName":
+        "-Fallback-scrubbed-FZWIoGZTUaAv", "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg",
+        "AccountType": "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "AcctNum": "8771", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "83", "SyncToken":
+        "2103", "MetaData": {"CreateTime": "2004-08-23T13:43:40-08:00", "LastUpdatedTime":
+        "2024-02-05T05:42:53-08:00"}}, {"Name": "Fake-Kimberly Rodriguez", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Kimberly Rodriguez", "Active": false, "Classification":
+        "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-FZWIoGZTUaAv",
+        "AccountSubType": "-Fallback-scrubbed-XDXVinfsqmyhvLzqqAOXbYEF", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "26", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Danielle
+        Smith", "SubAccount": false, "FullyQualifiedName": "Fake-Danielle Smith",
+        "Active": false, "Classification": "-Fallback-scrubbed-YHYnVZqUe", "AccountType":
+        "-Fallback-scrubbed-QFSsPDQpARggQUXhPfSbZTt", "AccountSubType": "-Fallback-scrubbed-kTZiMRZqZZPBmRzk",
+        "CurrentBalance": 8693.13115265584, "CurrentBalanceWithSubAccounts": 8693.13115265584,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"},
+        "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "96", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1983-01-08T02:19:13-07:00", "LastUpdatedTime":
+        "2025-07-24T10:22:54-07:00"}}, {"Name": "Fake-Arthur Johnson", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Arthur Johnson", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-JvvAsiwGnzZTy",
+        "AccountSubType": "-Fallback-scrubbed-XobctqfBwfEYawTPYLIp", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "27", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Patricia
+        Lopez", "SubAccount": false, "FullyQualifiedName": "Fake-Patricia Lopez",
+        "Active": false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType":
+        "-Fallback-scrubbed-jRaEiy", "AccountSubType": "-Fallback-scrubbed-lOLMFnvHdDVSPQmRuH",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "54", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1983-02-22T01:38:56-08:00", "LastUpdatedTime":
+        "2021-02-15T10:14:56-08:00"}}, {"Name": "Fake-Joseph Pierce", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Joseph Pierce", "Active": false, "Classification":
+        "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-eaBNmDTSEseqAMxAWYb",
+        "AccountSubType": "-Fallback-scrubbed-ZEZIHvqpebvarGN", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "3", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Andrew Johnson",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Andrew Johnson", "Active":
+        false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-fQQxBOoHzXxSbIqLYxFBUq", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "16", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Amanda Moore",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Amanda Moore", "Active":
+        false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-rznMylYXZbRnRoAlF", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "78", "SyncToken": "1917", "MetaData": {"CreateTime": "1974-02-05T14:41:32-08:00",
+        "LastUpdatedTime": "2021-02-15T10:36:03-08:00"}}, {"Name": "Fake-Kevin Jackson",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Kevin Jackson", "Active":
+        false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-SKTKBYPmwzdjDdsRPlZm", "AcctNum": "8924",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "92", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1976-11-08T01:15:12-07:00", "LastUpdatedTime":
+        "2022-06-26T20:56:32-07:00"}}, {"Name": "Fake-Christian Parker", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Christian Parker", "Active": false, "Classification":
+        "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-opWgHEdutbdhiVhgnjyDM", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "6", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Sara Mercer",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Sara Mercer", "Active": false,
+        "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-JKIJSgoRttKVsuSMnDsGwW", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "17", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Leslie Gardner",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Leslie Gardner", "Active":
+        false, "Classification": "-Fallback-scrubbed-cMbyNk", "AccountType": "-Fallback-scrubbed-cMbyNk",
+        "AccountSubType": "-Fallback-scrubbed-xzIxVTgCEbvbfbIC", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "2", "SyncToken": "1917", "MetaData": {"CreateTime": "2010-11-25T06:41:47-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}}, {"Name": "Fake-Corey Rodriguez",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Corey Rodriguez", "Active":
+        false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-SKTKBYPmwzdjDdsRPlZm", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "79", "SyncToken": "1917", "MetaData": {"CreateTime": "1974-02-05T14:41:32-08:00",
+        "LastUpdatedTime": "2021-02-15T10:36:03-08:00"}}, {"Name": "Fake-Jonathan
+        Glenn", "SubAccount": false, "FullyQualifiedName": "Fake-Jonathan Glenn",
+        "Active": false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType":
+        "-Fallback-scrubbed-hXJV", "AccountSubType": "Fake-Jonathan Glenn", "CurrentBalance":
+        7463865.54160158, "CurrentBalanceWithSubAccounts": 7463865.54160158, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "36", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2012-05-21T09:12:16-08:00", "LastUpdatedTime":
+        "2022-10-27T11:43:50-07:00"}}, {"Name": "Fake-Matthew Ball", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Matthew Ball", "Active": false, "Classification":
+        "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-YnzwHNmUNVljMcde", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "1", "SyncToken": "1917", "MetaData": {"CreateTime": "2010-11-25T06:41:47-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}}, {"Name": "Fake-Michael Holmes",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Michael Holmes", "Active":
+        false, "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-YnzwHNmUNVljMcde", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "94", "SyncToken": "1917", "MetaData": {"CreateTime": "1990-05-06T23:00:57-08:00",
+        "LastUpdatedTime": "2023-02-28T23:52:35-08:00"}}, {"Name": "Fake-Kelly Tran",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Kelly Tran", "Active": false,
+        "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-bHhOcYXknEeOlpWAeyLHFqyIyxvbaRhQxQj",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "19", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Lisa Martinez", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Lisa Martinez", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-rznMylYXZbRnRoAlF", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "20", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Andrew Decker",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Andrew Decker", "Active":
+        false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-nXbuhGVRi", "CurrentBalance": 3878,
+        "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "21", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-John King",
+        "SubAccount": false, "Description": "-Fallback-scrubbed-SnoDZiKreRPYMUZyPwgPLsDZ",
+        "FullyQualifiedName": "Fake-John King", "Active": false, "Classification":
+        "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-FZWIoGZTUaAv",
+        "AccountSubType": "-Fallback-scrubbed-XDXVinfsqmyhvLzqqAOXbYEF", "AcctNum":
+        "-Fallback-scrubbed-IEDwQFEc", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "1150040003",
+        "SyncToken": "1917", "MetaData": {"CreateTime": "1980-12-23T09:51:25-07:00",
+        "LastUpdatedTime": "2025-06-20T13:39:10-07:00"}}, {"Name": "Fake-Sean Hester",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Sean Hester", "Active": false,
+        "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "Fake-Sean Hester", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "22", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Cory Wheeler", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Cory Wheeler", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-eWLMOYbKPxp", "CurrentBalance": 3878,
+        "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "23", "SyncToken": "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00",
+        "LastUpdatedTime": "2021-02-10T14:42:07-08:00"}}, {"Name": "Fake-Melissa Barker",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Melissa Barker", "Active":
+        false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-uRtgwXiWnXB",
+        "AccountSubType": "-Fallback-scrubbed-dDsuaWlv", "AcctNum": "8088", "CurrentBalance":
+        -6898371.16514255, "CurrentBalanceWithSubAccounts": -8544157084216.71, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "37", "SyncToken": "2103",
+        "MetaData": {"CreateTime": "1976-05-14T01:18:38-08:00", "LastUpdatedTime":
+        "2025-06-16T08:57:18-07:00"}}, {"Name": "Fake-Martha Perez", "SubAccount":
+        false, "ParentRef": {"value": "4070"}, "FullyQualifiedName": "-Fallback-scrubbed-LeGsRnSykQUnfWQnPA",
+        "Active": false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType":
+        "-Fallback-scrubbed-uRtgwXiWnXB", "AccountSubType": "-Fallback-scrubbed-hUSwPOsmdlnwVtuFxDuBJEF",
+        "AcctNum": "5247", "CurrentBalance": -202977.611695289, "CurrentBalanceWithSubAccounts":
+        -202977.611695289, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name":
+        "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false,
+        "Id": "39", "SyncToken": "2103", "MetaData": {"CreateTime": "1986-09-19T14:48:10-08:00",
+        "LastUpdatedTime": "2023-03-15T09:55:48-07:00"}}, {"Name": "Fake-Jack Anderson",
+        "SubAccount": false, "ParentRef": {"value": "4070"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-YyWZMbeyYdtlBcRCSHs", "Active": false, "Classification":
+        "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-uRtgwXiWnXB",
+        "AccountSubType": "-Fallback-scrubbed-dDsuaWlv", "CurrentBalance": 486303703.469308,
+        "CurrentBalanceWithSubAccounts": 486303703.469308, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ",
+        "sparse": false, "Id": "38", "SyncToken": "1917", "MetaData": {"CreateTime":
+        "1976-05-14T01:18:38-08:00", "LastUpdatedTime": "2023-03-15T09:55:48-07:00"}},
+        {"Name": "Fake-Jacqueline Ramirez", "SubAccount": false, "FullyQualifiedName":
+        "Fake-Jacqueline Ramirez", "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv",
+        "AccountType": "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "-Fallback-scrubbed-kENkIMfroHcXZGWkWHpDDHiOUcSJjIT",
+        "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "88", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "1971-03-06T16:02:06-08:00", "LastUpdatedTime":
+        "2021-02-15T15:28:48-08:00"}}, {"Name": "Fake-Cory Hutchinson", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Cory Hutchinson", "Active": false, "Classification":
+        "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-EavffrEusRxrozztFpgdIcaidX", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "87", "SyncToken": "1917", "MetaData": {"CreateTime": "1973-05-16T17:43:29-08:00",
+        "LastUpdatedTime": "2021-02-15T15:08:16-08:00"}}, {"Name": "Fake-Sara Collins",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Sara Collins", "Active":
+        false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-eaBNmDTSEseqAMxAWYb",
+        "AccountSubType": "-Fallback-scrubbed-UXIsGEWwHNjqPvUAXn", "CurrentBalance":
+        33.1658885226047, "CurrentBalanceWithSubAccounts": 33.1658885226047, "CurrencyRef":
+        {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"}, "domain":
+        "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "32", "SyncToken": "1917",
+        "MetaData": {"CreateTime": "2011-09-28T01:22:28-08:00", "LastUpdatedTime":
+        "2025-05-30T08:36:41-07:00"}}, {"Name": "Fake-Jeffrey Whitaker", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Jeffrey Whitaker", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "-Fallback-scrubbed-NsCcpfeAdlebDUestslBRDXnNiiJI", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "31", "SyncToken": "1917", "MetaData": {"CreateTime": "2011-09-28T01:22:28-08:00",
+        "LastUpdatedTime": "2021-02-10T14:46:30-08:00"}}, {"Name": "Fake-Amy Boyle",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Amy Boyle", "Active": false,
+        "Classification": "-Fallback-scrubbed-NQzikXg", "AccountType": "-Fallback-scrubbed-jRaEiy",
+        "AccountSubType": "-Fallback-scrubbed-YnzwHNmUNVljMcde", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "30", "SyncToken": "1917", "MetaData": {"CreateTime": "2011-09-28T01:22:28-08:00",
+        "LastUpdatedTime": "2021-02-10T14:46:30-08:00"}}, {"Name": "Fake-Virginia
+        Burke", "SubAccount": false, "FullyQualifiedName": "Fake-Virginia Burke",
+        "Active": false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType":
+        "-Fallback-scrubbed-eaBNmDTSEseqAMxAWYb", "AccountSubType": "-Fallback-scrubbed-vYSWSogvSXeJgAMh",
+        "CurrentBalance": 131.554797991311, "CurrentBalanceWithSubAccounts": 131.554797991311,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"},
+        "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "4", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2025-05-30T08:26:14-07:00"}}], "startPosition": 1, "maxResults": 100}, "time":
+        "2013-05-13T02:12:23.530-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '63627'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 11:56:07 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '48573'
+      intuit_tid:
+      - 1-6891f157-413313390d02f20c35d81424
+      x-amzn-trace-id:
+      - Root=1-6891f157-413313390d02f20c35d81424
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '548'
+      x-request-id:
+      - 1-6891f157-413313390d02f20c35d81424
+      x-spanid:
+      - 159d7f62-bab1-da86-1c60-1c57447c81d3
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Account++STARTPOSITION+101+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Account": [{"Name": "Fake-David Williams", "SubAccount":
+        false, "FullyQualifiedName": "Fake-David Williams", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "Fake-David Williams", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "24", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1995-11-28T12:46:14-08:00", "LastUpdatedTime":
+        "2021-02-15T10:30:53-08:00"}}, {"Name": "Fake-Jeffrey Hays", "SubAccount":
+        false, "ParentRef": {"value": "4895"}, "FullyQualifiedName": "-Fallback-scrubbed-tSgEjMJSHMbAfBUXcljxbyGUcV",
+        "Active": false, "Classification": "-Fallback-scrubbed-uLCcTHv", "AccountType":
+        "-Fallback-scrubbed-uLCcTHv", "AccountSubType": "Fake-David Williams", "CurrentBalance":
+        3878, "CurrentBalanceWithSubAccounts": 3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC",
+        "name": "Fake-Candice Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse":
+        false, "Id": "76", "SyncToken": "1917", "MetaData": {"CreateTime": "1974-05-25T19:36:13-08:00",
+        "LastUpdatedTime": "2021-02-15T10:30:29-08:00"}}, {"Name": "Fake-Cynthia Smith",
+        "SubAccount": false, "ParentRef": {"value": "4895"}, "FullyQualifiedName":
+        "-Fallback-scrubbed-BtnIFZNteBMlGOxvkxY", "Active": false, "Classification":
+        "-Fallback-scrubbed-uLCcTHv", "AccountType": "-Fallback-scrubbed-uLCcTHv",
+        "AccountSubType": "Fake-David Williams", "CurrentBalance": 3878, "CurrentBalanceWithSubAccounts":
+        3878, "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice
+        Moss"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "77", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1994-10-16T11:49:34-08:00", "LastUpdatedTime":
+        "2021-02-15T10:30:53-08:00"}}, {"Name": "Fake-Valerie Dyer", "SubAccount":
+        false, "FullyQualifiedName": "Fake-Valerie Dyer", "Active": false, "Classification":
+        "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-hXJV", "AccountSubType":
+        "Fake-Dawn Gonzalez", "CurrentBalance": -34.8166004525724, "CurrentBalanceWithSubAccounts":
+        -34.8166004525724, "CurrencyRef": {"value": "-Fallback-scrubbed-TZR", "name":
+        "Fake-Paul Robinson"}, "domain": "-Fallback-scrubbed-YXQ", "sparse": false,
+        "Id": "1150040001", "SyncToken": "1917", "MetaData": {"CreateTime": "1981-01-30T00:02:09-07:00",
+        "LastUpdatedTime": "2025-05-30T09:07:41-07:00"}}, {"Name": "Fake-Clayton Jones",
+        "SubAccount": false, "FullyQualifiedName": "Fake-Clayton Jones", "Active":
+        false, "Classification": "-Fallback-scrubbed-DjMzM", "AccountType": "-Fallback-scrubbed-hXJV",
+        "AccountSubType": "Fake-Dawn Gonzalez", "CurrentBalance": 621341.874710909,
+        "CurrentBalanceWithSubAccounts": 621341.874710909, "CurrencyRef": {"value":
+        "-Fallback-scrubbed-kEJ", "name": "Fake-Antonio Cruz"}, "domain": "-Fallback-scrubbed-YXQ",
+        "sparse": false, "Id": "1150040002", "SyncToken": "1917", "MetaData": {"CreateTime":
+        "1990-02-07T11:25:39-07:00", "LastUpdatedTime": "2025-05-30T09:17:05-07:00"}},
+        {"Name": "Fake-Donald Lucas", "SubAccount": false, "FullyQualifiedName": "Fake-Donald
+        Lucas", "Active": false, "Classification": "-Fallback-scrubbed-YHYnVZqUe",
+        "AccountType": "-Fallback-scrubbed-luzRGoTmEKm", "AccountSubType": "-Fallback-scrubbed-UebumjfoWu",
+        "CurrentBalance": 8055182004.48375, "CurrentBalanceWithSubAccounts": 8055182004.48375,
+        "CurrencyRef": {"value": "-Fallback-scrubbed-SFC", "name": "Fake-Candice Moss"},
+        "domain": "-Fallback-scrubbed-YXQ", "sparse": false, "Id": "42", "SyncToken":
+        "1917", "MetaData": {"CreateTime": "1983-10-21T02:05:23-08:00", "LastUpdatedTime":
+        "2025-04-18T06:30:13-07:00"}}], "startPosition": 101, "maxResults": 6}, "time":
+        "1985-12-19T18:53:06.431-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3813'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 11:56:09 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '2827'
+      intuit_tid:
+      - 1-6891f159-576787fb761418b672f0adcf
+      x-amzn-trace-id:
+      - Root=1-6891f159-576787fb761418b672f0adcf
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '462'
+      x-request-id:
+      - 1-6891f159-576787fb761418b672f0adcf
+      x-spanid:
+      - e4326f0c-06b2-5faa-3ff6-0199774a52af
+    status:
+      code: 200
+      message: OK
+version: 1

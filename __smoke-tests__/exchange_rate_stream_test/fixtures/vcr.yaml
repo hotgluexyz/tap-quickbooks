@@ -1,0 +1,2032 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "access_token": "acc***", "token_type": "-Fallback-scrubbed-mvIPPl",
+        "refresh_token": "ref***", "x_refresh_token_expires_in": 3919}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 04 Aug 2025 14:48:24 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6890c838-43792cf23f664e5e39df9ef9
+      x-amzn-trace-id:
+      - Root=1-6890c838-43792cf23f664e5e39df9ef9
+      x-envoy-upstream-service-time:
+      - '108'
+      x-request-id:
+      - 1-6890c838-43792cf23f664e5e39df9ef9
+      x-spanid:
+      - 673f1de3-82c4-2bfc-ab9b-f865af5d57b7
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+ExchangeRate+WHERE+MetaData.LastUpdatedTime+%3E++%272025-08-01T00%3A00%3A00Z%27++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"ExchangeRate": [{"SourceCurrencyCode": "-Fallback-scrubbed-GhU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 4052, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GhU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4052, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GhU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4052, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GhU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4052, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-iro", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 61521625902.155, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-iro",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -81071753642.69, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-iro", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -4753279353.31972, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-iro",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 9979519.79501605,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T05:02:29-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-iro", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 56713576.6617652, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-UiR",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7831396636.34101,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UiR", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -215196067298.44, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-UiR",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 736.51128114032, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UiR", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 736.51128114032, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-UiR",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 983630.333911993,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Hlv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -4015730022819.12, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Hlv",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -61588655835609.2,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Hlv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -3016603609.30685, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Hlv",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 993.420054142096,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Hlv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -61588655835609.2, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-FIG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 40736652023.32, "AsOfDate":
+        "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-FIG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -18398805.7943608, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T05:02:29-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-FIG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -52991.9395202395,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-FIG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -89436480718630.6, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-FIG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 9.8765277033858, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hxr", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 447.27263290187, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hxr",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -96.408513766286,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hxr", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -41674820749.5979, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hxr",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -300.915152769305,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hxr", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -300.915152769305, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-aeu",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -36592.993323849,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-aeu", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -36592.993323849, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-aeu",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -36592.993323849,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T05:02:49-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-aeu", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4001974556.6954, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-aeu",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 57415.2106082699,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UDN", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 94.3633676579255, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-UDN",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 94.3633676579255,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UDN", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 94.3633676579255, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-UDN",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 94.3633676579255,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-zep", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 9.18456557547294, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-zep",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6034282758.41709,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-zep", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 437357717.490951, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-zep",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 9.18456557547294,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-zep", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -78905353529391.0, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-COq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -475127378634.98,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-COq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -475127378634.98, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-COq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 2041636212.36747,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-COq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -5311971788459.89, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-COq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -5311971788459.89,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HaQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 8128.6870341745, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HaQ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -8798127965558.64,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HaQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -95642754005.903, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T17:02:44-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HaQ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -95642754005.903,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HaQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2584021834357.38, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-zoT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -3947517286.92315,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-zoT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 483.532831498363, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-zoT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 984695704.89029, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T05:02:29-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-zoT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -34922711.4239051, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-zoT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 98916767.82693, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GJN", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4353681076.65816, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GJN",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -822.502399988409,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GJN", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -9.75177216438522, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GJN",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -822.502399988409,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Zru", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -14672368442562.8, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Zru",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -14672368442562.8,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Zru", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -14672368442562.8, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T13:03:49-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Zru",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -14672368442562.8,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-RfH", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 30532124034.312, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-RfH",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2593996680.56072,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T17:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-RfH", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2593996680.56072, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-RfH",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2593996680.56072,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-RfH", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2593996680.56072, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-iHE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 32839129523.3841,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-iHE", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 40177.7319536132, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-iHE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 6.3247718373835, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T05:02:29-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-iHE", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 165428.45742383, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T17:02:34-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LXf",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 49334150026264.1,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-LXf", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 49334150026264.1, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LXf",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 49334150026264.1,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-LXf", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 49334150026264.1, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-uHU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 4154334304.85804,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-uHU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4154334304.85804, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-uHU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 228728114.271811,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-uHU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 19477764.228275, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wBQ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 48043.951538602, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-wBQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6799574693.8654, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wBQ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 19136813.5604968,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-wBQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 48043.951538602, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-dMy",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 232835.53146433, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-dMy", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 8522662533873.95, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-dMy",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -64750277.6947433,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-dMy", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -64750277.6947433, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VgZ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 4154334304.85804,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VgZ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -788965858070.541, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T05:02:29-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VgZ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 934.943324334236,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VgZ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 38.358651922564, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VgZ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -363.76118546693,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-rSV", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4993462.99327852, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-rSV",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -8903692438354.2,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-rSV", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -12777063.2243092, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-rSV",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 4993462.99327852,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}}],
+        "startPosition": 1, "maxResults": 100, "totalCount": 100}, "time": "2022-07-05T09:35:15.878-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '21302'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 04 Aug 2025 14:48:25 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '15585'
+      intuit_tid:
+      - 1-6890c839-695db6b55bda24dd19735dac
+      x-amzn-trace-id:
+      - Root=1-6890c839-695db6b55bda24dd19735dac
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '91'
+      x-request-id:
+      - 1-6890c839-695db6b55bda24dd19735dac
+      x-spanid:
+      - b6caa38d-8a3f-6871-31f4-f6d8e0e427c1
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+ExchangeRate+WHERE+MetaData.LastUpdatedTime+%3E++%272025-08-01T00%3A00%3A00Z%27++STARTPOSITION+101+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"ExchangeRate": [{"SourceCurrencyCode": "-Fallback-scrubbed-rSV",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6735585.14691863,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-jKD", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4157979.42823266, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-jKD",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -72826.7928632585,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-jKD", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 665.552181972478, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-jKD",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -72826.7928632585,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UGG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4052, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UGG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4052, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UGG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4052, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UGG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4052, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Ina", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -4562874531103.6, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Ina",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 575151728.6545, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Ina", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -458973655.482618, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Ina",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -458973655.482618,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Cad", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -99343.120255554, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Cad",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 84.3328113317206,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Cad", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -4.598226753909, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Cad",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -4.598226753909, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-xaP", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -4212547024.57647, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-xaP",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -430101105.931538,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-xaP", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3267499804.77963, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-xaP",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -430101105.931538,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-xaP", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -51.6405854212657, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-DVC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 493353443990.883,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-DVC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 493353443990.883, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-DVC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -61938564.2647414,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-DVC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -892638756740.922, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GNO",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -753.508614498043,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GNO", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 8408412252.59119, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GNO",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3.96949255550637,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GNO", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3.96949255550637, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HpJ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2405181175136.19,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HpJ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2405181175136.19, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HpJ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6446478631.8478,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HpJ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -490968619.29245, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Hgi",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 461069954.530363,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Hgi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 461069954.530363, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Hgi",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 461069954.530363,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Hgi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 461069954.530363, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qfe",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -78049327298072.8,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qfe", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 2336.5442613547, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qfe",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 32934711.7946787,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qfe", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7384904916.90995, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qfe",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -78049327298072.8,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GWY", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -90114.8479323057, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GWY",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -90114.8479323057,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T13:03:49-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GWY", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -90114.8479323057, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GWY",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -97999082.5727044,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T17:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GWY", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -90114.8479323057, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GNA",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 1731257881445.31,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GNA", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 1731257881445.31, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GNA",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3038.82183605499,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GNA", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3038.82183605499, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T17:02:34-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LqC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 217213591265.124,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-LqC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 16297.861533968, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LqC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 4.39973331840699,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-LqC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 48414.8371764414, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LqC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 48414.8371764414,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-yTd", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 6547254.74022144, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-yTd",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 24.645279716834, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-yTd", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -9.387755957847, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-yTd",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -9.387755957847, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-PIH", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 809.514153105983, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-PIH",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 586192.573518201,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-PIH", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -59.9957795996668, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-PIH",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 809.514153105983,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Hno", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 7.50705121246987, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Hno",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 7.50705121246987,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Hno", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -37132970.893691, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Hno",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 55.7687789789055,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Hno", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 18942763367116.2, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-krk",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 257.914806560563,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-krk", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -90136719076162.6, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-krk",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 4.86386475868555,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-krk", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -90136719076162.6, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vUe",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6295.44162002515,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vUe", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7688.38608560092, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vUe",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -5025767018.67, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vUe", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 289363828492.5, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vUe",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -5025767018.67, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-roG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4038.15219369743, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-roG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 461.5094764759, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-roG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 870652047093.83, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-roG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 870652047093.83, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-tEE", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -41734864482.3792, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-tEE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 2059.66563029662,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-tEE", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 44571654481.8493, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-tEE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -41734864482.3792,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vic", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -3055562.3176837, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vic",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -36.794028460299,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vic", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -1663134263.92778, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vic",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 43164678.2207523,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vic", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -1663134263.92778, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T17:02:44-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-SQb",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -1850814713284.33,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-SQb", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -1850814713284.33, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-SQb",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -1850814713284.33,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-SQb", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -1850814713284.33, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-iwD",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -27287.767658612,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-iwD", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 9509068006.11705, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-iwD",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 9509068006.11705,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-iwD", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -5.42165434708528, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}], "startPosition": 101, "maxResults": 100, "totalCount":
+        100}, "time": "1979-03-23T22:43:35.535-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '21307'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 04 Aug 2025 14:48:27 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '15593'
+      intuit_tid:
+      - 1-6890c83b-1a174fba285353e05aca5d8a
+      x-amzn-trace-id:
+      - Root=1-6890c83b-1a174fba285353e05aca5d8a
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '102'
+      x-request-id:
+      - 1-6890c83b-1a174fba285353e05aca5d8a
+      x-spanid:
+      - 47238b45-721b-da42-913a-2ccaa81e0f62
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+ExchangeRate+WHERE+MetaData.LastUpdatedTime+%3E++%272025-08-01T00%3A00%3A00Z%27++STARTPOSITION+201+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"ExchangeRate": [{"SourceCurrencyCode": "-Fallback-scrubbed-BbC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3.70062613903591,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-BbC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3.70062613903591, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-BbC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 10560.7593372267,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T17:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-BbC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3.70062613903591, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-BbC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3.70062613903591,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ffc", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -5742819.38274601, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ffc",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -5742819.38274601,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ffc", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 34569843704209.4, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T17:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ffc",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -5742819.38274601,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ffc", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -5742819.38274601, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-BmS",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -56417.8317439, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-BmS", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -56417.8317439, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-BmS",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -56417.8317439, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-BmS", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -56417.8317439, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-evq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -4309062122.96688,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-evq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -4309062122.96688, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-evq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -9227.94793220165,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-evq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -3670.259058112, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HDm",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2455.4352380269,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HDm", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2455.4352380269, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HDm",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -441697413365.14,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T17:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HDm", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2455.4352380269, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HDm",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2455.4352380269,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MJX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 661297767054.79, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MJX",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 661297767054.79, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MJX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 661297767054.79, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MJX",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 661297767054.79, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-buj", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 518804501.684545, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-buj",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 518804501.684545,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-buj", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 518804501.684545, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-buj",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 2801825.67669901,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-mTR", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -611.6201011262, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-mTR",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 2.72156292623002,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-mTR", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 8093.10077812072, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-mTR",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 8093.10077812072,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-JDb", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2624200252651.72, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-JDb",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2624200252651.72,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-JDb", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -426164.454254809, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-JDb",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 30058197.3904383,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-FXb", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 84164544.6514879, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-FXb",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 874552.92860109, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-FXb", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 874552.92860109, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-FXb",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -926.50622383971,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qRW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 29453799806.6186, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qRW",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -39738438.756037,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qRW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 29453799806.6186, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qRW",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 10798917.8317677,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ivC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6581545310.91445, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ivC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 4472792873020.86,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ivC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 18216814160947.0, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ivC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 2013.24886569272,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ivC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 2013.24886569272, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T17:02:44-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Lpq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2671644532.1588,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Lpq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2671644532.1588, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Lpq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2671644532.1588,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Lpq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2671644532.1588, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-rXC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -393673370.66135,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-rXC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -393673370.66135, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T09:02:51-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-rXC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6213476.83545505,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T13:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-rXC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 401313458745.81, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-oLT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 984981229.733252,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-oLT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -546.922331781929, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-oLT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 94287.6925365681,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-oLT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 984981229.733252, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ROf",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 57145464996165.9,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ROf", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 57145464996165.9, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ROf",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 57145464996165.9,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ROf", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 57145464996165.9, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Ajt",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 9145.46343540027,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Ajt", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 406074870.791248, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Ajt",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 551.970526741592,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T17:02:34-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Ajt", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 160185779939.93, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Ajt",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 160185779939.93, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UIW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 255561565308.158, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-UIW",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6665042.85510271,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-UIW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -16160.9567316081, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-UIW",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 255561565308.158,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qtT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 626907.727756915, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qtT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 626907.727756915,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qtT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 626907.727756915, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qtT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 626907.727756915,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-XTd", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -201723107.11051, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-XTd",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -16943816766714.1,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-XTd", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3203333849.88375, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-XTd",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -16943816766714.1,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-mpC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -701483.527601822, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-mpC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -701483.527601822,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-mpC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -807105545.704435, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-mpC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -701483.527601822,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-QHq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3357.1166154704, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-QHq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3357.1166154704, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-QHq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3357.1166154704, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-QHq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3357.1166154704, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T13:03:49-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-OPk", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 9.51279351195723, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-OPk",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 9.51279351195723,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T09:02:51-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-OPk", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6021196.33973759, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-OPk",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -5444.37792042487,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-OPk", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -899.337299775246, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VSM",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -801968.729747915,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VSM", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 6.72579738168288, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T17:02:44-07:00"}}], "startPosition": 201, "maxResults": 100, "totalCount":
+        100}, "time": "1973-02-06T23:06:56.369-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '21340'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 04 Aug 2025 14:48:29 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '15618'
+      intuit_tid:
+      - 1-6890c83d-32ec8f3f38812fc149f24d1a
+      x-amzn-trace-id:
+      - Root=1-6890c83d-32ec8f3f38812fc149f24d1a
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '110'
+      x-request-id:
+      - 1-6890c83d-32ec8f3f38812fc149f24d1a
+      x-spanid:
+      - 3b323336-a03b-ae09-92b4-ff55743cc2db
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+ExchangeRate+WHERE+MetaData.LastUpdatedTime+%3E++%272025-08-01T00%3A00%3A00Z%27++STARTPOSITION+301+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"ExchangeRate": [{"SourceCurrencyCode": "-Fallback-scrubbed-VSM",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -83683109127550.3,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VSM", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 6.72579738168288, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VSM",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 6.72579738168288,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GEi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 781807816487.7, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GEi",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 796.946956823332,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GEi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 781807816487.7, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GEi",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3663677912.96798,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-uqX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -806978250.45451, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-uqX",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -806978250.45451,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-uqX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 413265962477.732, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-uqX",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -849.7762905496, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GbL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -543.83182549174, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GbL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -97906997.229657,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GbL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -543.83182549174, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GbL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -543.83182549174,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-TTy", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -405730346707.52, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-TTy",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -405730346707.52,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-TTy", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -405730346707.52, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-TTy",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -405730346707.52,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-xEI", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 239219165.299332, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-xEI",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -344510.37775783,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-xEI", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -57869533.195012, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-xEI",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -344510.37775783,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-oKL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 7.99058960816833, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-oKL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -3444.69836415361,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-oKL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -84455845776.8187, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-oKL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -84455845776.8187,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-kNw", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5619475557117.7, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-kNw",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 78825.4565790223,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-kNw", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 1.91850485615652, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-kNw",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 5619475557117.7, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-QGh", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 562565126.690061, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-QGh",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 562565126.690061,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-QGh", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 9027625593888.63, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-QGh",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -57.6169075386177,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-lZz", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -9151617815294.8, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-lZz",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 396042868139.65, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-lZz", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -9151617815294.8, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-lZz",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -32152.9438714162,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Jol", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -5827545.31095417, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Jol",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 760.424516774611,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Jol", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 760.424516774611, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Jol",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -216396.426129384,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MCa", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -3063511.1013997, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MCa",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -3063511.1013997,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MCa", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -98.6302902081472, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MCa",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -9075106474.88203,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-NNS", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -761.695184932541, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-NNS",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 614139708695.3, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-NNS", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -65603.3261118234, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T17:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-NNS",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -761.695184932541,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-NNS", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -761.695184932541, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-mRr",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -8179488093.34268,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-mRr", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -8179488093.34268, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-mRr",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -8179488093.34268,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-mRr", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -8179488093.34268, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-lpn",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 40616.6487859752,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-lpn", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 40616.6487859752, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-lpn",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 40616.6487859752,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-lpn", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 40616.6487859752, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-JnM",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -694375748.2789, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-JnM", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -8620031222867.74, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-JnM",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -8.111071485, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-JnM", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -8620031222867.74, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hdG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 933316193.283748,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hdG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 933316193.283748, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hdG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -378946064729.918,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hdG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -9432339.84532316, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hdG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 933316193.283748,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GTl", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -3397.43847371837, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GTl",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -3397.43847371837,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GTl", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -3397.43847371837, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GTl",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -3397.43847371837,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Clk", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -89448398.9008945, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Clk",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -89448398.9008945,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Clk", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -4.90144680402671, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Clk",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -281152250.404137,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VKZ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7090874219.79209, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T17:02:44-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VKZ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 5688762187.88162,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VKZ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 0.63359710754987, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VKZ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -9060320744.54008,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VKZ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7090874219.79209, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VST",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3199.2757408562, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VST", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 8.13644737324776, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VST",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 8.13644737324776,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-VST", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -122798557.217328, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-VST",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -9793567447037.21,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-uoW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5619475557117.7, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-uoW",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 1.91850485615652,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-uoW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5619475557117.7, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-uoW",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 78825.4565790223,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-LgL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -9843.5549579813, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LgL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -845.241565521027,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-LgL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -90.7486117305235, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T13:03:49-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LgL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -90.7486117305235,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hVh", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -723.666145291198, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hVh",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 8992931472694.4, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hVh", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 32.270931395948, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hVh",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -723.666145291198,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-dvi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 40877.4860194532, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}], "startPosition": 301, "maxResults": 100, "totalCount":
+        100}, "time": "2012-08-12T17:53:28.150-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '21358'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 04 Aug 2025 14:48:31 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '15621'
+      intuit_tid:
+      - 1-6890c83f-7f0db3ca5ddd7ee7697c9bcc
+      x-amzn-trace-id:
+      - Root=1-6890c83f-7f0db3ca5ddd7ee7697c9bcc
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '103'
+      x-request-id:
+      - 1-6890c83f-7f0db3ca5ddd7ee7697c9bcc
+      x-spanid:
+      - aa54d34a-4be0-f60d-8195-a4c178abafcd
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+ExchangeRate+WHERE+MetaData.LastUpdatedTime+%3E++%272025-08-01T00%3A00%3A00Z%27++STARTPOSITION+401+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"ExchangeRate": [{"SourceCurrencyCode": "-Fallback-scrubbed-dvi",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -68512551562.7169,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-dvi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 2576344003018.25, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T17:02:44-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-dvi",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 2576344003018.25,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-dvi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -19178261291.412, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-TAJ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2415742.83582065,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-TAJ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -607490.984863875, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-TAJ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -607490.984863875,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-TAJ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 53813285744631.4, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-KfE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -1672402224583.24,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-KfE", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 330187381.126328, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T05:02:29-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-KfE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 8813414385252.69,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-KfE", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -714868544991.5, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-KfE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -524632302.410501,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Nnx", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -77555180934.14, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Nnx",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -75.3625309873807,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Nnx", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -183.668781400237, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Nnx",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -183.668781400237,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Nnx", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -81445038203.8131, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ZXR",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 510310098.646359,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ZXR", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5739482995463.14, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ZXR",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 5739482995463.14,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ZXR", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 48935157902.8599, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ZXR",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3061810355348.95,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-WZh", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -17889.4808100037, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-WZh",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 4041062.3089493, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-WZh", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4041062.3089493, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-WZh",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 6166598.6637479, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Foz", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -45335348.8273694, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Foz",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -3762780300652.6,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Foz", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -3762780300652.6, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Foz",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -5227371979371.83,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HuG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 344.258804551179, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HuG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -25739.932404483,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HuG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 13591313.6930766, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-HuG",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 13591313.6930766,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-HuG", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 9507723722769.8, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-fxv",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -8513.90960613617,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-fxv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 878.166538294257, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-fxv",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3906.98463110724,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-fxv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3906.98463110724, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-TKF",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 35075848220.2824,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-TKF", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6907692.23608637, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-TKF",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 66094405815.1356,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-TKF", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -1.28940999198965, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-TKF",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 66094405815.1356,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-KfV", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 44891902.8372949, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-KfV",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 44891902.8372949,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-KfV", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6.74896737560615, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-KfV",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 78.7961765112207,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-akB", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 969.785889771149, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-akB",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 88375.4900916705,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-akB", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 969.785889771149, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-akB",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 3.30854896939368,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ltW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 10191446758.6, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ltW",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 41.5748240713657,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ltW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 506616790.323675, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ltW",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 506616790.323675,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ltW", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -155.454024381633, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wCC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 535661365379.0, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-wCC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -49039779.851326, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wCC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -154212675.400468,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-wCC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -154212675.400468, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wCC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -22.4280557226249,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-CFO", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -51145156.533173, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T05:02:29-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-CFO",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 98593173307.1269,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-CFO", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 85988796.7889533, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-CFO",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -679781.19532005,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qWv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 9187.16003208557, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qWv",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 87738733392162.0,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qWv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -90434760.4893063, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qWv",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 87738733392162.0,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-SKP", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -613769670479.806, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-SKP",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 6345520905665.7, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-SKP", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 862474.701615304, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T13:02:44-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-SKP",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -8044341002180.3,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-SKP", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 6345520905665.7, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-frL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2089.28478575895,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-frL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2089.28478575895, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-frL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -2089.28478575895,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-frL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -2089.28478575895, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qOn",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 636.444604111777,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qOn", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -75.4413862265945, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qOn",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 451036.429109625,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qOn", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -75.4413862265945, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qOn",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 57.8775902335788,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vGw", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 1028267.53198572, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vGw",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 1028267.53198572,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vGw", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 1028267.53198572, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vGw",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 1028267.53198572,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-prB", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 61543556.8039912, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-prB",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -1174.53637130304,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-prB", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -67.245204072006, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-prB",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -1174.53637130304,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-prB", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -420344447.424469, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ZhK",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 690901296415.681,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ZhK", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 690901296415.681, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ZhK",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 690901296415.681,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ZhK", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 690901296415.681, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T13:03:49-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-gNM",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -353310289.878349,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-gNM", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 2967869463628.54, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}], "startPosition": 401, "maxResults": 100, "totalCount":
+        100}, "time": "1974-02-22T21:36:28.086-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '21358'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 04 Aug 2025 14:48:33 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '15613'
+      intuit_tid:
+      - 1-6890c841-718fadb24b29701e3aa0db0d
+      x-amzn-trace-id:
+      - Root=1-6890c841-718fadb24b29701e3aa0db0d
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '101'
+      x-request-id:
+      - 1-6890c841-718fadb24b29701e3aa0db0d
+      x-spanid:
+      - ba12921d-7e13-7f99-32f4-d5f1f3de96a0
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+ExchangeRate+WHERE+MetaData.LastUpdatedTime+%3E++%272025-08-01T00%3A00%3A00Z%27++STARTPOSITION+501+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"ExchangeRate": [{"SourceCurrencyCode": "-Fallback-scrubbed-gNM",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -353310289.878349,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-gNM", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -815466850259.565, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Gne",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 2121815.1064675, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Gne", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 2121815.1064675, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Gne",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -13342539.7688466,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Gne", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -52247867.5379514, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-drQ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 800023.174743844,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-drQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 800023.174743844, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-drQ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 800023.174743844,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-drQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 800023.174743844, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Vch",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 81586.3312426636,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Vch", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 9.39477737020378, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Vch",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 81586.3312426636,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Vch", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -9.89251147092034, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-scd",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -91052385751.9491,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-scd", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 7.51083189696207, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-scd",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -91052385751.9491,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-scd", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -55.7177939778505, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-scd",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -13446.503759927,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-KOl", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -541328888.853006, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-KOl",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -541328888.853006,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-KOl", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 53363.9687344697, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-KOl",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -541328888.853006,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-KOl", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -541328888.853006, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wum",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6.14712098590858,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-wum", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6.14712098590858, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wum",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6.14712098590858,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-wum", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6.14712098590858, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hED",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -64.3501674836813,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hED", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -0.90260241039179, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hED",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 21.7610764777973,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hED", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -35238356267794.4, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hED",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -35238356267794.4,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ccv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 619.377840650541, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ccv",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -1.21321867681355,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ccv", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -36.4546199855395, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ccv",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -36.4546199855395,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GDN", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 8412427052.28543, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GDN",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 529235227.237576,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GDN", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 8678.75509904411, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-GDN",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 8678.75509904411,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T17:02:44-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-GDN", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5438695301669.1, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Uhu",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 24738.1832200269,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Uhu", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 1059143.32527734, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Uhu",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 1059143.32527734,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Uhu", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 50494514.8851432, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T17:02:34-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-xsU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -67168794764.256,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-xsU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -382.638691674679, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-xsU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -750773.508936652,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-xsU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -750773.508936652, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-NNi",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -83770155279.8113,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-NNi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -83770155279.8113, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-NNi",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -93806.54172888, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-NNi", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -32080055867.9113, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ozs",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 66848.1995677286,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ozs", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5952.569313263, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ozs",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 5952.569313263, "AsOfDate":
+        "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ozs", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5952.569313263, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qUU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 89592127176881.9,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qUU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 87.514258470274, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qUU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 87.514258470274, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-qUU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 87.514258470274, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-qUU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 87.514258470274, "AsOfDate":
+        "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hNT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -84439514333.8841, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hNT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -84439514333.8841,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hNT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -84439514333.8841, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-hNT",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -84439514333.8841,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-hNT", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -84439514333.8841, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MmC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6239505239491.35,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MmC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -896360636109.525, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MmC",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -34780.208401004,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MmC", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6239505239491.35, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-cEq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 60277.4241860506,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-cEq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 60277.4241860506, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-cEq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 60277.4241860506,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-cEq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 60277.4241860506, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Rgo",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7.98880249957335,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Rgo", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7.98880249957335, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Rgo",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 39769.4513291186,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Rgo", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5434194.97391349, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ckP",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 109698177483.758,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ckP", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -162237605.603243, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ckP",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -4828355193.54269,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-ckP", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -4828355193.54269, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-ckP",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -829.251553785056,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-LEI", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -669573061.268915, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LEI",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -669573061.268915,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-LEI", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -669573061.268915, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-LEI",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -669573061.268915,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-AXU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6239505239491.35, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-AXU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -6239505239491.35,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-AXU", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -34780.208401004, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-AXU",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -896360636109.525,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-PKX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 2422.10188342578, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-PKX",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 20135155407592.8,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-PKX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -6115556.3601253, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-PKX",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 20135155407592.8,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Usu", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7873549.84682669, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Usu",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7873549.84682669,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Usu", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7873549.84682669, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}], "startPosition": 501, "maxResults": 100, "totalCount":
+        100}, "time": "1975-07-14T00:03:36.777-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '21377'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 04 Aug 2025 14:48:34 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '15619'
+      intuit_tid:
+      - 1-6890c842-3ac216543c98f4be765c6468
+      x-amzn-trace-id:
+      - Root=1-6890c842-3ac216543c98f4be765c6468
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '89'
+      x-request-id:
+      - 1-6890c842-3ac216543c98f4be765c6468
+      x-spanid:
+      - b981cd08-fbd4-378f-f1e4-9b01fdcce0a0
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+ExchangeRate+WHERE+MetaData.LastUpdatedTime+%3E++%272025-08-01T00%3A00%3A00Z%27++STARTPOSITION+601+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"ExchangeRate": [{"SourceCurrencyCode": "-Fallback-scrubbed-Usu",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7873549.84682669,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-rMm", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3795238.38167566, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-rMm",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 42731913.4526743,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-rMm", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 42731913.4526743, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-rMm",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 164218068.19439, "AsOfDate":
+        "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MnE", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -29956.679727277, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MnE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -9633832582193.3,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MnE", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 909492261.20079, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MnE",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 909492261.20079, "AsOfDate":
+        "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vfX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -63520.6491646726, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vfX",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 981807555.863231,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T05:02:47-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vfX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -63520.6491646726, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-vfX",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7322635.67315405,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-vfX", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 16748500.621338, "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime":
+        "2025-07-31T21:02:52-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-WtQ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7259130793.1722,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-WtQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 3308570.45068619, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-WtQ",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7259130793.1722,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-WtQ", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 530.126857701978, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MFF",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -812195.765709287,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MFF", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -812195.765709287, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MFF",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 465906371.147156,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T21:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MFF", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 5927336303053.65, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Dqz",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 608.560747945811,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Dqz", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 608.560747945811, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Dqz",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -88425745.9634907,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Dqz", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 608.560747945811, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T21:02:33-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Dqz",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 608.560747945811,
+        "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime": "2025-08-03T01:02:46-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-rPL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 51090098666.5124, "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime":
+        "2025-08-01T01:02:53-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-rPL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 51090098666.5124,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-rPL", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 51090098666.5124, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-rPL",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": 51090098666.5124,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MJF", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7651317073154.21, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MJF",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -87059364.9027777,
+        "AsOfDate": "2018-06-08", "MetaData": {"LastUpdatedTime": "2025-07-31T21:02:52-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MJF", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7651317073154.21, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T01:02:39-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-MJF",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7651317073154.21,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-MJF", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -7651317073154.21, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Kgl",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -722208823618.983,
+        "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime": "2025-08-04T01:02:39-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Kgl", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -722208823618.983, "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime":
+        "2025-08-02T01:02:37-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-Kgl",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -722208823618.983,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T01:02:53-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-Kgl", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -722208823618.983, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T01:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wOq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7232551511.51156,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-wOq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 4980393.23019361, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-wOq",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -7232551511.51156,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-wOq", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 46155.9369092566, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-oPo",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -57878374.435841,
+        "AsOfDate": "2025-11-20", "MetaData": {"LastUpdatedTime": "2025-08-01T21:02:33-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-oPo", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": 9128673054.67258, "AsOfDate": "2004-07-05", "MetaData": {"LastUpdatedTime":
+        "2025-08-03T21:02:46-07:00"}}, {"SourceCurrencyCode": "-Fallback-scrubbed-oPo",
+        "TargetCurrencyCode": "-Fallback-scrubbed-GhU", "Rate": -57878374.435841,
+        "AsOfDate": "2000-02-28", "MetaData": {"LastUpdatedTime": "2025-08-02T01:02:37-07:00"}},
+        {"SourceCurrencyCode": "-Fallback-scrubbed-oPo", "TargetCurrencyCode": "-Fallback-scrubbed-GhU",
+        "Rate": -23.4254780752022, "AsOfDate": "1998-03-01", "MetaData": {"LastUpdatedTime":
+        "2025-08-04T05:02:47-07:00"}}], "startPosition": 601, "maxResults": 48, "totalCount":
+        48}, "time": "1992-04-11T06:57:01.655-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '10327'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 04 Aug 2025 14:48:36 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '7563'
+      intuit_tid:
+      - 1-6890c844-724be5680019ba3710ff442f
+      x-amzn-trace-id:
+      - Root=1-6890c844-724be5680019ba3710ff442f
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '197'
+      x-request-id:
+      - 1-6890c844-724be5680019ba3710ff442f
+      x-spanid:
+      - 65b12e87-6c74-8a31-8eea-5133533c87fe
+    status:
+      code: 200
+      message: OK
+version: 1

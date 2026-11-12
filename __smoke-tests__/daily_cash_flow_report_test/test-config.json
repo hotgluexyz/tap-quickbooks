@@ -1,0 +1,4 @@
+{
+  "filter_query_parameters": ["start_date", "end_date"],
+  "freeze_time": "2025-06-18T14:29:59.287169Z"
+}

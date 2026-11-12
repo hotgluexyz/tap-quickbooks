@@ -1,0 +1,123 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "access_token": "acc***", "refresh_token":
+        "ref***", "token_type": "-Fallback-scrubbed-PmlrYO", "x_refresh_token_expires_in":
+        3980}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:48:37 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891fda4-021a5bb3583ae2c51e2d35c3
+      x-amzn-trace-id:
+      - Root=1-6891fda4-021a5bb3583ae2c51e2d35c3
+      x-envoy-upstream-service-time:
+      - '123'
+      x-request-id:
+      - 1-6891fda4-021a5bb3583ae2c51e2d35c3
+      x-spanid:
+      - dd4b1b8e-b0ae-6845-bd4a-6a7907db6d40
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Employee++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Employee": [{"BillableTime": true, "domain": "-Fallback-scrubbed-nSC",
+        "sparse": true, "Id": "55", "SyncToken": "8418", "MetaData": {"CreateTime":
+        "1999-06-20T17:30:29-08:00", "LastUpdatedTime": "2021-02-16T11:21:48-08:00"},
+        "GivenName": "-Fallback-scrubbed-iZlbb", "FamilyName": "-Fallback-scrubbed-DTtSC",
+        "DisplayName": "Fake-Adriana Elliott MD", "PrintOnCheckName": "Fake-Adriana
+        Elliott MD", "Active": false, "V4IDPseudonym": "-Fallback-scrubbed-AZQsWGPsiwrODrnhkVUlxWwracFUWskjcQWvtP"},
+        {"BillableTime": true, "HiredDate": "1972-12-25", "domain": "-Fallback-scrubbed-nSC",
+        "sparse": true, "Id": "54", "SyncToken": "5151", "MetaData": {"CreateTime":
+        "2002-11-01T07:53:54-08:00", "LastUpdatedTime": "2021-02-16T11:46:26-08:00"},
+        "GivenName": "-Fallback-scrubbed-lBRb", "FamilyName": "-Fallback-scrubbed-RmrCUzI",
+        "DisplayName": "Fake-Gregory Lamb", "PrintOnCheckName": "Fake-Gregory Lamb",
+        "Active": false, "V4IDPseudonym": "-Fallback-scrubbed-iTtrwldUOjaTIJRFocSgGJbIzbzWoDwZhGzDFg",
+        "PrimaryPhone": {"FreeFormNumber": "-Fallback-scrubbed-BLVcNEuJWvuAXO"}}],
+        "startPosition": 1, "maxResults": 2}, "time": "1983-11-29T00:12:30.967-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1162'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:48:39 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '887'
+      intuit_tid:
+      - 1-6891fda6-6053a5e249093a93026d3ba8
+      x-amzn-trace-id:
+      - Root=1-6891fda6-6053a5e249093a93026d3ba8
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '595'
+      x-request-id:
+      - 1-6891fda6-6053a5e249093a93026d3ba8
+      x-spanid:
+      - 6c0e469e-b047-40e3-c627-d3edf83a0e3d
+    status:
+      code: 200
+      message: OK
+version: 1

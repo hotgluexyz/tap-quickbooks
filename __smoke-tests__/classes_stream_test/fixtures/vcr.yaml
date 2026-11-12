@@ -1,0 +1,139 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-VUvFKl",
+        "access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
+        7435}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:24:59 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f81b-415d8410137b86b306ab8796
+      x-amzn-trace-id:
+      - Root=1-6891f81b-415d8410137b86b306ab8796
+      x-envoy-upstream-service-time:
+      - '104'
+      x-request-id:
+      - 1-6891f81b-415d8410137b86b306ab8796
+      x-spanid:
+      - a0f454de-7ae1-63c1-aa21-b8b580c2ade2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Class++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Class": [{"Name": "Fake-Michelle Guerra", "SubClass":
+        true, "ParentRef": {"value": "4580"}, "FullyQualifiedName": "-Fallback-scrubbed-kSppZxJOmSDtQGqwtWExcB",
+        "Active": true, "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id":
+        "5000000000000275722", "SyncToken": "7316", "MetaData": {"CreateTime": "1980-02-10T10:20:49-07:00",
+        "LastUpdatedTime": "2023-03-15T09:56:55-07:00"}}, {"Name": "Fake-John Vance",
+        "SubClass": true, "FullyQualifiedName": "Fake-John Vance", "Active": true,
+        "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "5000000000000275721",
+        "SyncToken": "7316", "MetaData": {"CreateTime": "2020-03-14T21:56:47-07:00",
+        "LastUpdatedTime": "2023-03-15T09:56:46-07:00"}}, {"Name": "Fake-Jackson Smith",
+        "SubClass": true, "FullyQualifiedName": "Fake-Jackson Smith", "Active": true,
+        "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "572500", "SyncToken":
+        "7316", "MetaData": {"CreateTime": "1980-03-29T06:14:54-07:00", "LastUpdatedTime":
+        "2025-06-24T06:26:09-07:00"}}, {"Name": "Fake-Taylor Knight", "SubClass":
+        true, "ParentRef": {"value": "923"}, "FullyQualifiedName": "-Fallback-scrubbed-ffgBgUexoieiaGEyUstAZ",
+        "Active": true, "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id":
+        "572501", "SyncToken": "7316", "MetaData": {"CreateTime": "2026-01-22T12:16:51-07:00",
+        "LastUpdatedTime": "2025-06-24T06:26:09-07:00"}}, {"Name": "Fake-Maria Turner",
+        "SubClass": true, "FullyQualifiedName": "Fake-Maria Turner", "Active": true,
+        "domain": "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "572503", "SyncToken":
+        "7316", "MetaData": {"CreateTime": "1997-06-21T07:50:45-07:00", "LastUpdatedTime":
+        "2025-06-24T06:30:56-07:00"}}, {"Name": "Fake-David Thompson", "SubClass":
+        true, "FullyQualifiedName": "Fake-David Thompson", "Active": true, "domain":
+        "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "572502", "SyncToken": "7316",
+        "MetaData": {"CreateTime": "2025-11-10T16:59:46-07:00", "LastUpdatedTime":
+        "2025-06-24T06:30:12-07:00"}}, {"Name": "Fake-Nicole Nguyen", "SubClass":
+        true, "FullyQualifiedName": "Fake-Nicole Nguyen", "Active": true, "domain":
+        "-Fallback-scrubbed-Wvr", "sparse": true, "Id": "5000000000000275720", "SyncToken":
+        "7316", "MetaData": {"CreateTime": "2023-09-19T17:19:31-07:00", "LastUpdatedTime":
+        "2023-03-15T09:56:55-07:00"}}], "startPosition": 1, "maxResults": 7, "totalCount":
+        7}, "time": "1974-10-25T08:59:44.117-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2396'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:25:01 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '1973'
+      intuit_tid:
+      - 1-6891f81d-306793cb307bf4fc74b7336f
+      x-amzn-trace-id:
+      - Root=1-6891f81d-306793cb307bf4fc74b7336f
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '176'
+      x-request-id:
+      - 1-6891f81d-306793cb307bf4fc74b7336f
+      x-spanid:
+      - 89d4c489-c8f7-63f8-cc75-a17e8a15a023
+    status:
+      code: 200
+      message: OK
+version: 1
