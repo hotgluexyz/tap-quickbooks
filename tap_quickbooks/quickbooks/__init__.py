@@ -225,6 +225,7 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
         "properties": {
             "TxnId": string_type,
             "TxnType": string_type,
+            "TxnLineId": string_type,
         }
     }
 
@@ -261,6 +262,41 @@ def field_to_property_schema(field, mdata):  # pylint:disable=too-many-branches
                     }
                 }
             }
+        }
+    }
+
+    qb_types["deposit_line"] = {
+        "type": object_type["type"],
+        "properties": {
+            "Id": string_type,
+            "LineNum": number_type,
+            "DetailType": string_type,
+            "Description": string_type,
+            "Amount": number_type,
+            "DepositLineDetail": {
+                "type": object_type["type"],
+                "properties": {
+                    "PaymentMethodRef": qb_types["ref_type"],
+                    "AccountRef": qb_types["ref_type"],
+                    "ClassRef": qb_types["ref_type"],
+                    "CheckNum": string_type,
+                    "TaxCodeRef": qb_types["ref_type"],
+                    "TaxApplicableOn": string_type,
+                    "TxnType": string_type,
+                    "Entity": {
+                        "type": object_type["type"],
+                        "properties": {
+                            "type": string_type,
+                            "value": string_type,
+                            "name": string_type,
+                        },
+                    },
+                }
+            },
+            "LinkedTxn": {
+                "type": ["null", "array"],
+                "items": qb_types["LinkedTxn"],
+            },
         }
     }
 
