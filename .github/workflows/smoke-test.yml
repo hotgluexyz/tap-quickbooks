@@ -26,8 +26,6 @@ jobs:
       - name: Run scrubbed smoke tests
         run: |
           uv venv .venv
-          uv pip install hotglue-smoke-test
-          uv pip install --no-deps .
-          uv pip install "pipelinewise-singer-python==1.2.0" "hotglue-singer-sdk>=1.0.50,<2.0.0" "hotglue-etl-exceptions==0.1.0" jsonpath-ng "attrs==20.2.0" "pytz==2020.5"
+          uv pip install . hotglue-smoke-test
           source .venv/bin/activate
           hotglue-smoke-test run
