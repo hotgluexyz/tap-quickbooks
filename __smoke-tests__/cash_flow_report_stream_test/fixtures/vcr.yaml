@@ -1,0 +1,180 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
+        6123, "token_type": "-Fallback-scrubbed-tPMyGT", "expires_in": "360***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:23:35 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f7c7-165fb4917b30820f2df24ce7
+      x-amzn-trace-id:
+      - Root=1-6891f7c7-165fb4917b30820f2df24ce7
+      x-envoy-upstream-service-time:
+      - '127'
+      x-request-id:
+      - 1-6891f7c7-165fb4917b30820f2df24ce7
+      x-spanid:
+      - 407aa012-b6f0-8c49-809d-d83848a598c4
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/CashFlow?accounting_method=Accrual&minorversion=40&start_date=2005-01-01
+  response:
+    body:
+      string: '{"Header": {"Time": "2000-07-23T23:33:38-07:00", "ReportName": "-Fallback-scrubbed-kGhdInRk",
+        "StartPeriod": "1977-10-21", "EndPeriod": "2016-01-23", "SummarizeColumnsBy":
+        "-Fallback-scrubbed-IJaSZ", "Currency": "-Fallback-scrubbed-cCn", "Option":
+        [{"Name": "Fake-Jason Dunn", "Value": "true"}]}, "Columns": {"Column": [{"ColTitle":
+        "", "ColType": "Account"}, {"ColTitle": "Total", "ColType": "Money", "MetaData":
+        [{"Name": "Fake-Manuel Glass", "Value": "-Fallback-scrubbed-Sebzr"}]}]}, "Rows":
+        {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-NdlTKHbuulqyfewShJzb"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-LmlWiobUdU"},
+        {"value": "9550406401.80923"}], "type": "-Fallback-scrubbed-NKKF", "group":
+        "-Fallback-scrubbed-jpcvhjoWZ"}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-hRkcrkiueLZpOULXYudXxMdjSlCfbSsizWpDaYlSIUZdAFnZemeRWkFkQdhPJjjMLJqmerU"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-mVdpEmkFevkjDnoIzLTItujLNZNnZu",
+        "id": "84"}, {"value": "-11727953907871.8"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-QytabtfEqxotChdctgnlG", "id": "91"},
+        {"value": "7462048908030.45"}], "type": "-Fallback-scrubbed-NKKF"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-wgHytTujpRxBXuToSQsVRrsWkxRuDCK", "id": "101"},
+        {"value": "-88440107837.2444"}], "type": "-Fallback-scrubbed-NKKF"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-wgtPhOZOKjBdRWgmVKMBjgYMMbSmrFP", "id": "98"},
+        {"value": "386579753981.646"}], "type": "-Fallback-scrubbed-NKKF"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-NpxAqDpvsjOwFmC", "id": "81"}, {"value": "4483718474565.42"}],
+        "type": "-Fallback-scrubbed-NKKF"}, {"ColData": [{"value": "-Fallback-scrubbed-lsveqoWhmpEOZtaRvvd",
+        "id": "32"}, {"value": "376800.214556174"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-FeOzGFnrdFFXXmGbJVHsyps", "id":
+        "39"}, {"value": "84962006218.225"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-jeGCJnCWBbEpDInjsWreUV", "id":
+        "33"}, {"value": "-7559.79018675934"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-xKcdkbDNiTGfVceaBLjAzoVtZfLG",
+        "id": "109"}, {"value": "-9.8650508168954"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-aCfTFmyvHx", "id": "41"}, {"value":
+        "8792670982.78266"}], "type": "-Fallback-scrubbed-NKKF"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-OZQh", "id": "42"}, {"value": "69865.2870935707"}], "type":
+        "-Fallback-scrubbed-NKKF"}, {"ColData": [{"value": "-Fallback-scrubbed-yCcbpQwVijHukUSXaMyrHZsVjdHhNMXGPl",
+        "id": "90"}, {"value": "3826.62793564701"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-ETDslZOJAUcGurXJECkMGMWsiPYuFwyj",
+        "id": "89"}, {"value": "-5047.36124130213"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-oMFHQHsAxyBSFVTmgspJwfJhfmhZThiCrXypIRaxoMJwKuyDGAhGqUZYJaC",
+        "id": "95"}, {"value": "311.227810199793"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-glBUNqgPrVtd", "id": "43"}, {"value":
+        "5715054023048.57"}], "type": "-Fallback-scrubbed-NKKF"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-vuRHHputGrutWfRqCuzKebvEvPo", "id": "96"}, {"value": "-9.33764565774769"}],
+        "type": "-Fallback-scrubbed-NKKF"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-WIIDqkrpDyljFIpvBpsFcVQntqYXDLlYxQfdGIYQdLiXtmsEejXsRBOnTMUoUnafmBhnVSTIDGXVp"},
+        {"value": "611014.672226627"}]}, "type": "-Fallback-scrubbed-LIYPfkh", "group":
+        "-Fallback-scrubbed-XTHKJMvFvcdVtjIjHVLB"}]}, "Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-aOkHtGkQngtvlkqlEYrCBmNogotLwNLqNWxwNZJlr"}, {"value":
+        "-12986969.9624922"}]}, "type": "-Fallback-scrubbed-LIYPfkh", "group": "-Fallback-scrubbed-OaqmOVdYOjYjpGlQzmc"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-GtxqOCzQKSuDqJyGSIiv"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-uxrSthjHnn",
+        "id": "37"}, {"value": "-9.87240097549659"}], "type": "-Fallback-scrubbed-NKKF"},
+        {"ColData": [{"value": "-Fallback-scrubbed-IzJTUsTQfjEqlrSPpLt", "id": "38"},
+        {"value": "58924391620600.0"}], "type": "-Fallback-scrubbed-NKKF"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-BszLZUaLFGETuyniYFSjRuTJrNqwyKxirphKsLZzp"},
+        {"value": "1.74803027033261"}]}, "type": "-Fallback-scrubbed-LIYPfkh", "group":
+        "-Fallback-scrubbed-ERqTVUgvSkkWjSoHNyy"}, {"Header": {"ColData": [{"value":
+        "-Fallback-scrubbed-ToKmsUvvgBJpNgcIjyxK"}, {"value": ""}]}, "Rows": {"Row":
+        [{"ColData": [{"value": "-Fallback-scrubbed-RfLcJaIRmVFGF", "id": "44"}, {"value":
+        "-133.421297104023"}], "type": "-Fallback-scrubbed-NKKF"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-CAKGYgvfCoZEfikJDWvYqu", "id": "34"}, {"value": "-3.5444773806181"}],
+        "type": "-Fallback-scrubbed-NKKF"}, {"ColData": [{"value": "-Fallback-scrubbed-hjbfsrFYYlsYIBhlC",
+        "id": "2"}, {"value": "-2.27304342257954"}], "type": "-Fallback-scrubbed-NKKF"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-aLUsxPmdPIGCpKeHdwbVqJMUdkNDtBeuDvsetlbeD"},
+        {"value": "7830872.6000565"}]}, "type": "-Fallback-scrubbed-LIYPfkh", "group":
+        "-Fallback-scrubbed-ZNucXqZZvASHNFyTJZF"}, {"Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-SAadUSUXugeqGHIKAKsSNtJIJDRR"}, {"value": "5.587188035752"}]},
+        "type": "-Fallback-scrubbed-LIYPfkh", "group": "-Fallback-scrubbed-FEtghSibDrcK"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-kvXBNPhZlpHXXdELXoMdP"},
+        {"value": "5.587188035752"}]}, "type": "-Fallback-scrubbed-LIYPfkh", "group":
+        "-Fallback-scrubbed-juYcfxLntH"}]}}'
+    headers:
+      Cache-Control:
+      - max-age=0, no-cache, no-store, must-revalidate, private
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5650'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:23:37 GMT
+      Expires:
+      - '0'
+      QBO-Version:
+      - '2056.104'
+      Service-Time:
+      - total=284, db=73
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '3737'
+      intuit_tid:
+      - 1-6891f7c9-53fa8a6a657ec541392fb3dc
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6891f7c9-53fa8a6a657ec541392fb3dc
+      x-envoy-upstream-service-time:
+      - '303'
+      x-request-id:
+      - 1-6891f7c9-53fa8a6a657ec541392fb3dc
+      x-spanid:
+      - bc4bc6ee-0da4-c5f3-7e1a-8931b99fa403
+    status:
+      code: 200
+      message: OK
+version: 1

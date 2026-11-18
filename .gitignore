@@ -115,6 +115,9 @@ celerybeat.pid
 
 # Environments
 .env
+.venv/
+__smoke-tests__/**/test_runtime/
+__smoke-tests__/unsanitized_*_test/
 .venv
 env/
 venv/

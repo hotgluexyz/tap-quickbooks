@@ -1,0 +1,137 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 6885, "token_type":
+        "-Fallback-scrubbed-MbDVeO", "refresh_token": "ref***", "access_token": "acc***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:26:46 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891f886-5dfd75d867bd010b68b98179
+      x-amzn-trace-id:
+      - Root=1-6891f886-5dfd75d867bd010b68b98179
+      x-envoy-upstream-service-time:
+      - '124'
+      x-request-id:
+      - 1-6891f886-5dfd75d867bd010b68b98179
+      x-spanid:
+      - a04249da-5674-4869-72f4-3746a4c9e339
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+CompanyInfo++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"CompanyInfo": [{"CompanyName": "Fake-Wu LLC", "LegalName":
+        "Fake-Wu LLC", "CompanyAddr": {"Id": "1", "Line1": "-Fallback-scrubbed-UCDmopPYahmzWa",
+        "City": "Fake-South Davidmouth", "Country": "-Fallback-scrubbed-cID", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-Wg", "PostalCode": "67333"}, "CustomerCommunicationAddr":
+        {"Id": "606", "Line1": "-Fallback-scrubbed-UCDmopPYahmzWa", "City": "Fake-South
+        Davidmouth", "Country": "-Fallback-scrubbed-cID", "CountrySubDivisionCode":
+        "-Fallback-scrubbed-Wg", "PostalCode": "67333"}, "LegalAddr": {"Id": "1",
+        "Line1": "-Fallback-scrubbed-UCDmopPYahmzWa", "City": "Fake-South Davidmouth",
+        "Country": "-Fallback-scrubbed-cID", "CountrySubDivisionCode": "-Fallback-scrubbed-Wg",
+        "PostalCode": "67333"}, "CustomerCommunicationEmailAddr": {"Address": "Fake-6315
+        Oneill Rapid"}, "PrimaryPhone": {"FreeFormNumber": "5788"}, "CompanyStartDate":
+        "2024-01-31", "FiscalYearStartMonth": "-Fallback-scrubbed-xyBJkTl", "Country":
+        "-Fallback-scrubbed-XR", "Email": {"Address": "Fake-6315 Oneill Rapid"}, "WebAddr":
+        {"URI": "-Fallback-scrubbed-gTxGdJEwumLwLNwcMLNSXqSCQagB"}, "SupportedLanguages":
+        "-Fallback-scrubbed-FY", "DefaultTimeZone": "-Fallback-scrubbed-BHvaxnGeOJLocyMQdNm",
+        "NameValue": [{"Name": "Fake-Michael Smith", "Value": "true"}, {"Name": "Fake-Brian
+        Rodriguez", "Value": "true"}, {"Name": "Fake-Austin Johnson", "Value": "true"},
+        {"Name": "Fake-Joel Green", "Value": "-Fallback-scrubbed-MkrhBKeHKWXIIVZsblGhPVzgvTolZhfenElF"},
+        {"Name": "Fake-Jennifer Smith", "Value": "-Fallback-scrubbed-LnLUj"}, {"Name":
+        "Fake-Michael Hernandez", "Value": "6263"}, {"Name": "Fake-Tara Montgomery",
+        "Value": "-Fallback-scrubbed-AwCWEXyFze"}, {"Name": "Fake-Sara Kelley", "Value":
+        "-Fallback-scrubbed-YRdILNiOJjPvyejmRSEqHw"}, {"Name": "Fake-Miguel Juarez",
+        "Value": "true"}, {"Name": "Fake-Earl Blankenship", "Value": "true"}, {"Name":
+        "Fake-Shawn Walker", "Value": "-Fallback-scrubbed-sMHNLOzPviVgsKiWzYmc"},
+        {"Name": "Fake-Ryan Schmidt", "Value": "true"}, {"Name": "Fake-Amanda Mccarty",
+        "Value": "2011-01-12T14:07:01-07:00"}], "domain": "-Fallback-scrubbed-Vhq",
+        "sparse": true, "Id": "1", "SyncToken": "1401", "MetaData": {"CreateTime":
+        "2008-04-01T01:39:09-07:00", "LastUpdatedTime": "2025-06-20T09:17:05-07:00"}}],
+        "maxResults": 1}, "time": "2009-04-30T11:43:58.798-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2327'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:26:48 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '1733'
+      intuit_tid:
+      - 1-6891f888-59a4f7334aff91193471172c
+      x-amzn-trace-id:
+      - Root=1-6891f888-59a4f7334aff91193471172c
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '729'
+      x-request-id:
+      - 1-6891f888-59a4f7334aff91193471172c
+      x-spanid:
+      - 19de8956-c81a-2ed3-a80b-060efe45f411
+    status:
+      code: 200
+      message: OK
+version: 1

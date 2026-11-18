@@ -1,0 +1,130 @@
+{
+  "streams": [
+    {
+      "stream": "Class",
+      "tap_stream_id": "Class",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "FullyQualifiedName": {
+            "type": ["string", "null"]
+          },
+          "domain": {
+            "type": ["string", "null"]
+          },
+          "Name": {
+            "type": ["string", "null"]
+          },
+          "SyncToken": {
+            "type": ["string", "null"]
+          },
+          "SubClass": {
+            "type": ["boolean", "null"]
+          },
+          "ParentRef": {
+            "type": ["string", "null"]
+          },
+          "sparse": {
+            "type": ["boolean", "null"]
+          },
+          "Active": {
+            "type": ["boolean", "null"]
+          },
+          "Id": {
+            "type": ["string", "null"]
+          },
+          "MetaData": {
+            "type": ["string", "null"]
+          }
+        }
+      },
+      "metadata": [
+        {
+          "breadcrumb": ["properties", "FullyQualifiedName"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "domain"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Name"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "SyncToken"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "SubClass"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "ParentRef"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "sparse"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Active"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "Id"],
+          "metadata": {
+            "inclusion": "automatic",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "MetaData"],
+          "metadata": {
+            "inclusion": "available",
+            "selected-by-default": true
+          }
+        },
+        {
+          "breadcrumb": ["properties", "MetaData.LastUpdatedTime"],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "valid-replication-keys": ["MetaData.LastUpdatedTime"],
+            "table-key-properties": ["Id"],
+            "selected": true
+          }
+        }
+      ]
+    }
+  ]
+}

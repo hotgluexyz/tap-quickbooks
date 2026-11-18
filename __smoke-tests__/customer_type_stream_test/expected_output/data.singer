@@ -1,0 +1,8 @@
+{"type": "STATE", "value": {"current_stream": "CustomerType"}}
+{"type": "SCHEMA", "stream": "CustomerType", "schema": {"type": "object", "additionalProperties": false, "properties": {"Name": {"type": ["string", "null"]}, "SyncToken": {"type": ["string", "null"]}, "Active": {"type": ["boolean", "null"]}, "Id": {"type": ["string", "null"]}, "MetaData": {"type": ["string", "null"]}}}, "key_properties": ["Id"]}
+{"type": "ACTIVATE_VERSION", "stream": "CustomerType", "version": 1794262964470}
+{"type": "RECORD", "stream": "CustomerType", "record": {"Name": "Fake-Matthew Chung", "SyncToken": "5469", "Active": false, "Id": "5000000000000054673", "MetaData": "{\"CreateTime\": \"1995-06-18T11:47:20-08:00\", \"LastUpdatedTime\": \"2023-02-28T23:33:10-08:00\"}"}, "version": 1794262964471, "time_extracted": "2026-11-09T22:22:44.471154Z"}
+{"type": "RECORD", "stream": "CustomerType", "record": {"Name": "Fake-Rhonda Moore", "SyncToken": "5469", "Active": false, "Id": "5000000000000054672", "MetaData": "{\"CreateTime\": \"1979-03-24T22:03:26-08:00\", \"LastUpdatedTime\": \"2023-02-28T23:01:49-08:00\"}"}, "version": 1794262964471, "time_extracted": "2026-11-09T22:22:44.471154Z"}
+{"type": "ACTIVATE_VERSION", "stream": "CustomerType", "version": 1794262964471}
+{"type": "STATE", "value": {"current_stream": "CustomerType", "bookmarks": {"CustomerType": {"version": null}}}}
+{"type": "STATE", "value": {"current_stream": null, "bookmarks": {"CustomerType": {"version": null}}}}
