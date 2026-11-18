@@ -1,0 +1,160 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-wPlixv",
+        "access_token": "acc***", "refresh_token": "ref***", "x_refresh_token_expires_in":
+        5749}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:57:46 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891ffca-777a43a8032a7140529b8952
+      x-amzn-trace-id:
+      - Root=1-6891ffca-777a43a8032a7140529b8952
+      x-envoy-upstream-service-time:
+      - '125'
+      x-request-id:
+      - 1-6891ffca-777a43a8032a7140529b8952
+      x-spanid:
+      - e9bef2f4-b009-f57c-46cb-39d79173787e
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+PaymentMethod++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"PaymentMethod": [{"Name": "Fake-William Lee", "Active":
+        true, "Type": "-Fallback-scrubbed-kbKcrJDEmSU", "domain": "-Fallback-scrubbed-ZZs",
+        "sparse": true, "Id": "6", "SyncToken": "5915", "MetaData": {"CreateTime":
+        "2018-03-01T15:50:54-08:00", "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}},
+        {"Name": "Fake-John Davis", "Active": true, "Type": "-Fallback-scrubbed-kbKcrJDEmSU",
+        "domain": "-Fallback-scrubbed-ZZs", "sparse": true, "Id": "14", "SyncToken":
+        "5915", "MetaData": {"CreateTime": "1973-02-20T04:47:04-07:00", "LastUpdatedTime":
+        "2023-03-14T17:48:07-07:00"}}, {"Name": "Fake-Raymond Andrade", "Active":
+        true, "Type": "-Fallback-scrubbed-SWJyYMPLpClXWLx", "domain": "-Fallback-scrubbed-ZZs",
+        "sparse": true, "Id": "1", "SyncToken": "5915", "MetaData": {"CreateTime":
+        "2018-03-01T15:50:54-08:00", "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}},
+        {"Name": "Fake-Sharon Miller", "Active": true, "Type": "-Fallback-scrubbed-SWJyYMPLpClXWLx",
+        "domain": "-Fallback-scrubbed-ZZs", "sparse": true, "Id": "8", "SyncToken":
+        "5915", "MetaData": {"CreateTime": "1983-08-30T13:58:20-08:00", "LastUpdatedTime":
+        "2023-03-08T14:30:45-08:00"}}, {"Name": "Fake-Mark Ramirez", "Active": true,
+        "Type": "-Fallback-scrubbed-SWJyYMPLpClXWLx", "domain": "-Fallback-scrubbed-ZZs",
+        "sparse": true, "Id": "2", "SyncToken": "5915", "MetaData": {"CreateTime":
+        "2018-03-01T15:50:54-08:00", "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}},
+        {"Name": "Fake-Mario Floyd", "Active": true, "Type": "-Fallback-scrubbed-SWJyYMPLpClXWLx",
+        "domain": "-Fallback-scrubbed-ZZs", "sparse": true, "Id": "9", "SyncToken":
+        "5915", "MetaData": {"CreateTime": "1983-08-30T13:58:20-08:00", "LastUpdatedTime":
+        "2023-03-08T14:30:45-08:00"}}, {"Name": "Fake-Jonathan Johnson", "Active":
+        true, "Type": "-Fallback-scrubbed-kbKcrJDEmSU", "domain": "-Fallback-scrubbed-ZZs",
+        "sparse": true, "Id": "7", "SyncToken": "5915", "MetaData": {"CreateTime":
+        "2018-03-01T15:50:54-08:00", "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}},
+        {"Name": "Fake-Matthew Bonilla", "Active": true, "Type": "-Fallback-scrubbed-kbKcrJDEmSU",
+        "domain": "-Fallback-scrubbed-ZZs", "sparse": true, "Id": "10", "SyncToken":
+        "5915", "MetaData": {"CreateTime": "1983-08-30T13:58:20-08:00", "LastUpdatedTime":
+        "2023-03-08T14:30:45-08:00"}}, {"Name": "Fake-Stephanie Vang", "Active": true,
+        "Type": "-Fallback-scrubbed-kbKcrJDEmSU", "domain": "-Fallback-scrubbed-ZZs",
+        "sparse": true, "Id": "5", "SyncToken": "5915", "MetaData": {"CreateTime":
+        "2018-03-01T15:50:54-08:00", "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}},
+        {"Name": "Fake-Randy Hall", "Active": true, "Type": "-Fallback-scrubbed-kbKcrJDEmSU",
+        "domain": "-Fallback-scrubbed-ZZs", "sparse": true, "Id": "11", "SyncToken":
+        "5915", "MetaData": {"CreateTime": "1983-08-30T13:58:20-08:00", "LastUpdatedTime":
+        "2023-03-08T14:30:45-08:00"}}, {"Name": "Fake-James Stone", "Active": true,
+        "Type": "-Fallback-scrubbed-kbKcrJDEmSU", "domain": "-Fallback-scrubbed-ZZs",
+        "sparse": true, "Id": "4", "SyncToken": "5915", "MetaData": {"CreateTime":
+        "2018-03-01T15:50:54-08:00", "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}},
+        {"Name": "Fake-David Thomas", "Active": true, "Type": "-Fallback-scrubbed-kbKcrJDEmSU",
+        "domain": "-Fallback-scrubbed-ZZs", "sparse": true, "Id": "12", "SyncToken":
+        "5915", "MetaData": {"CreateTime": "1983-08-30T13:58:20-08:00", "LastUpdatedTime":
+        "2023-03-08T14:30:45-08:00"}}, {"Name": "Fake-Donald Miller", "Active": true,
+        "Type": "-Fallback-scrubbed-kbKcrJDEmSU", "domain": "-Fallback-scrubbed-ZZs",
+        "sparse": true, "Id": "3", "SyncToken": "5915", "MetaData": {"CreateTime":
+        "2018-03-01T15:50:54-08:00", "LastUpdatedTime": "2021-02-10T14:42:05-08:00"}},
+        {"Name": "Fake-Claudia Dunn", "Active": true, "Type": "-Fallback-scrubbed-kbKcrJDEmSU",
+        "domain": "-Fallback-scrubbed-ZZs", "sparse": true, "Id": "13", "SyncToken":
+        "5915", "MetaData": {"CreateTime": "1983-08-30T13:58:20-08:00", "LastUpdatedTime":
+        "2023-03-08T14:30:45-08:00"}}], "startPosition": 1, "maxResults": 14}, "time":
+        "2007-05-07T02:36:12.341-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '4037'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 12:57:48 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '3099'
+      intuit_tid:
+      - 1-6891ffcb-4b3623256c3b7d060b92ba5e
+      x-amzn-trace-id:
+      - Root=1-6891ffcb-4b3623256c3b7d060b92ba5e
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '443'
+      x-request-id:
+      - 1-6891ffcb-4b3623256c3b7d060b92ba5e
+      x-spanid:
+      - b4846991-f553-3e03-97aa-1f5d4b8b1ab0
+    status:
+      code: 200
+      message: OK
+version: 1

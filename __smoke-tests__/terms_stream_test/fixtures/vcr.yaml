@@ -1,0 +1,154 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "refresh_token": "ref***", "access_token":
+        "acc***", "token_type": "-Fallback-scrubbed-CMVdAU", "x_refresh_token_expires_in":
+        5280}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 13:16:13 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6892041d-399c53335dd9ffad7a81a81b
+      x-amzn-trace-id:
+      - Root=1-6892041d-399c53335dd9ffad7a81a81b
+      x-envoy-upstream-service-time:
+      - '122'
+      x-request-id:
+      - 1-6892041d-399c53335dd9ffad7a81a81b
+      x-spanid:
+      - 4dc43612-4096-ad87-ca15-a01d93ea13f9
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Term++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Term": [{"Name": "Fake-Erika Wright", "Active":
+        true, "Type": "-Fallback-scrubbed-pxGIrqKb", "DueDays": 4060, "DiscountDays":
+        4060, "domain": "-Fallback-scrubbed-SpG", "sparse": true, "Id": "1", "SyncToken":
+        "8726", "MetaData": {"CreateTime": "1976-01-04T17:48:41-08:00", "LastUpdatedTime":
+        "2021-02-10T14:41:49-08:00"}}, {"Name": "Fake-Deborah Brown", "Active": true,
+        "Type": "-Fallback-scrubbed-pxGIrqKb", "DueDays": 4060, "DiscountDays": 4060,
+        "domain": "-Fallback-scrubbed-SpG", "sparse": true, "Id": "7", "SyncToken":
+        "8726", "MetaData": {"CreateTime": "2019-11-07T12:57:10-08:00", "LastUpdatedTime":
+        "2023-03-08T14:43:46-08:00"}}, {"Name": "Fake-Raymond Thompson", "Active":
+        true, "Type": "-Fallback-scrubbed-pxGIrqKb", "DueDays": 9467, "domain": "-Fallback-scrubbed-SpG",
+        "sparse": true, "Id": "5", "SyncToken": "8726", "MetaData": {"CreateTime":
+        "2004-08-11T21:46:52-08:00", "LastUpdatedTime": "2021-02-15T15:24:26-08:00"}},
+        {"Name": "Fake-Robert Woods", "Active": true, "Type": "-Fallback-scrubbed-mQBzaZpxcIr",
+        "DayOfMonthDue": 8416, "domain": "-Fallback-scrubbed-SpG", "sparse": true,
+        "Id": "8", "SyncToken": "8726", "MetaData": {"CreateTime": "2019-11-07T12:57:10-08:00",
+        "LastUpdatedTime": "2023-03-08T14:43:46-08:00"}}, {"Name": "Fake-Roberta Bass",
+        "Active": true, "Type": "-Fallback-scrubbed-pxGIrqKb", "DueDays": 4989, "DiscountDays":
+        4060, "domain": "-Fallback-scrubbed-SpG", "sparse": true, "Id": "2", "SyncToken":
+        "8726", "MetaData": {"CreateTime": "1976-01-04T17:48:41-08:00", "LastUpdatedTime":
+        "2021-02-10T14:41:49-08:00"}}, {"Name": "Fake-Brittney Collins", "Active":
+        true, "Type": "-Fallback-scrubbed-mQBzaZpxcIr", "DayOfMonthDue": 2717, "domain":
+        "-Fallback-scrubbed-SpG", "sparse": true, "Id": "9", "SyncToken": "8726",
+        "MetaData": {"CreateTime": "2019-11-07T12:57:10-08:00", "LastUpdatedTime":
+        "2023-03-08T14:43:46-08:00"}}, {"Name": "Fake-Leslie Mccarthy", "Active":
+        true, "Type": "-Fallback-scrubbed-pxGIrqKb", "DueDays": 2717, "DiscountDays":
+        4060, "domain": "-Fallback-scrubbed-SpG", "sparse": true, "Id": "3", "SyncToken":
+        "8726", "MetaData": {"CreateTime": "1976-01-04T17:48:41-08:00", "LastUpdatedTime":
+        "2021-02-10T14:41:49-08:00"}}, {"Name": "Fake-Victoria Miller", "Active":
+        true, "Type": "-Fallback-scrubbed-mQBzaZpxcIr", "DayOfMonthDue": 9467, "domain":
+        "-Fallback-scrubbed-SpG", "sparse": true, "Id": "10", "SyncToken": "8726",
+        "MetaData": {"CreateTime": "2019-11-07T12:57:10-08:00", "LastUpdatedTime":
+        "2023-03-08T14:43:46-08:00"}}, {"Name": "Fake-Dr. Ashley Cochran MD", "Active":
+        true, "Type": "-Fallback-scrubbed-mQBzaZpxcIr", "DayOfMonthDue": 8264, "domain":
+        "-Fallback-scrubbed-SpG", "sparse": true, "Id": "12", "SyncToken": "8726",
+        "MetaData": {"CreateTime": "2008-06-28T18:52:30-07:00", "LastUpdatedTime":
+        "2023-03-14T17:47:34-07:00"}}, {"Name": "Fake-Kelly Collier", "Active": true,
+        "Type": "-Fallback-scrubbed-pxGIrqKb", "DueDays": 2533, "DiscountDays": 4060,
+        "domain": "-Fallback-scrubbed-SpG", "sparse": true, "Id": "4", "SyncToken":
+        "8726", "MetaData": {"CreateTime": "1976-01-04T17:48:41-08:00", "LastUpdatedTime":
+        "2021-02-10T14:41:49-08:00"}}, {"Name": "Fake-Jacob Hughes", "Active": true,
+        "Type": "-Fallback-scrubbed-mQBzaZpxcIr", "DayOfMonthDue": 8264, "domain":
+        "-Fallback-scrubbed-SpG", "sparse": true, "Id": "11", "SyncToken": "8726",
+        "MetaData": {"CreateTime": "2019-11-07T12:57:10-08:00", "LastUpdatedTime":
+        "2023-03-08T14:43:46-08:00"}}], "startPosition": 1, "maxResults": 11}, "time":
+        "2019-03-29T09:32:20.368-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3503'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 13:16:15 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '2669'
+      intuit_tid:
+      - 1-6892041f-14b632cc414cb2fb168857b2
+      x-amzn-trace-id:
+      - Root=1-6892041f-14b632cc414cb2fb168857b2
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '363'
+      x-request-id:
+      - 1-6892041f-14b632cc414cb2fb168857b2
+      x-spanid:
+      - f92a0899-0244-c6db-ff8d-44ed952239ef
+    status:
+      code: 200
+      message: OK
+version: 1

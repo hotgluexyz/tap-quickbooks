@@ -1,0 +1,612 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "token_type": "-Fallback-scrubbed-WmmcQP",
+        "x_refresh_token_expires_in": 614, "access_token": "acc***", "refresh_token":
+        "ref***"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '155'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 18 Jun 2025 14:37:31 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6852cf2a-7cc2233439d84d294ac05cf2
+      x-amzn-trace-id:
+      - Root=1-6852cf2a-7cc2233439d84d294ac05cf2
+      x-envoy-upstream-service-time:
+      - '114'
+      x-request-id:
+      - 1-6852cf2a-7cc2233439d84d294ac05cf2
+      x-spanid:
+      - afa81839-489f-2a45-4827-4e7d1311d015
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/ProfitAndLoss?start_date=2025-01-01&end_date=2025-01-31&accounting_method=Accrual&minorversion=40
+  response:
+    body:
+      string: '{"Header": {"Time": "2022-05-30T06:50:13Z", "ReportName": "-Fallback-scrubbed-rEyLxcRUTGrRx",
+        "ReportBasis": "-Fallback-scrubbed-zLVyIlz", "StartPeriod": "1993-12-01",
+        "EndPeriod": "1978-05-25", "SummarizeColumnsBy": "-Fallback-scrubbed-KitbD",
+        "Currency": "-Fallback-scrubbed-UQu", "Option": [{"Name": "Fake-Dana Guzman",
+        "Value": "-Fallback-scrubbed-fvpK"}, {"Name": "Fake-Katherine Huerta", "Value":
+        "true"}]}, "Columns": {"Column": [{"ColTitle": "", "ColType": "Account", "MetaData":
+        [{"Name": "Fake-James Fitzgerald", "Value": "-Fallback-scrubbed-uhLGsGd"}]},
+        {"ColTitle": "Total", "ColType": "Money", "MetaData": [{"Name": "Fake-James
+        Fitzgerald", "Value": "-Fallback-scrubbed-hyWLH"}]}]}, "Rows": {"Row": [{"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-USceSx"}, {"value": ""}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-oiFdSmFlxZVK"}, {"value": "-206551030.975186"}]},
+        "type": "Section", "group": "-Fallback-scrubbed-USceSx"}, {"Header": {"ColData":
+        [{"value": "-Fallback-scrubbed-xbSKZwCESnEHnIJTag"}, {"value": ""}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-sebjcNZKVigDlpqEODbzSeOh"}, {"value":
+        "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-WyUq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-lJCWvsGVpzRM"}, {"value":
+        "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-LCsiUGubGmh"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-tGFHkrHS"}, {"value":
+        ""}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-iuGDKVXKsTMNDZ"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-tGFHkrHS"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-fnHhIYHvQrSUxloowdRn"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-CbXxvfijJDpeefojmg"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-vZLbQdrcVKkN"}, {"value":
+        ""}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-QkktEfBnNsoJNAAoIE"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-LGFtfCJJsAN"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-jnMEUJEcvuWeXF"}, {"value":
+        ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-prwlzDNlnAgcuEhnqKcwucr"},
+        {"value": "-206551030.975186"}], "type": "Data", "group": "-Fallback-scrubbed-EqatMdjJnYPWsQkVBvqruHA"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-PWFhkHrWMMvwoLHkBFrF"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-JxXYuTRTcmuwq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-BCnPbAwMwwrCyLav"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-AaPTmEDHaEEPiQ"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-kjYodOnjWc"}, {"value":
+        "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-UGjhoZWuy"}]}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2881'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Wed, 18 Jun 2025 14:37:33 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      intuit_tid:
+      - 1-6852cf2c-2d03ea3954cf3def2c92919c
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6852cf2c-2d03ea3954cf3def2c92919c
+      x-envoy-upstream-service-time:
+      - '436'
+      x-request-id:
+      - 1-6852cf2c-2d03ea3954cf3def2c92919c
+      x-spanid:
+      - c61978b9-ca6d-9ae9-670f-437fdc1d5ebe
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/ProfitAndLoss?start_date=2025-02-01&end_date=2025-03-03&accounting_method=Accrual&minorversion=40
+  response:
+    body:
+      string: '{"Header": {"Time": "2015-11-18T05:31:34Z", "ReportName": "-Fallback-scrubbed-rEyLxcRUTGrRx",
+        "ReportBasis": "-Fallback-scrubbed-zLVyIlz", "StartPeriod": "1996-03-14",
+        "EndPeriod": "2007-12-23", "SummarizeColumnsBy": "-Fallback-scrubbed-KitbD",
+        "Currency": "-Fallback-scrubbed-UQu", "Option": [{"Name": "Fake-Dana Guzman",
+        "Value": "-Fallback-scrubbed-fvpK"}, {"Name": "Fake-Katherine Huerta", "Value":
+        "true"}]}, "Columns": {"Column": [{"ColTitle": "", "ColType": "Account", "MetaData":
+        [{"Name": "Fake-James Fitzgerald", "Value": "-Fallback-scrubbed-uhLGsGd"}]},
+        {"ColTitle": "Total", "ColType": "Money", "MetaData": [{"Name": "Fake-James
+        Fitzgerald", "Value": "-Fallback-scrubbed-hyWLH"}]}]}, "Rows": {"Row": [{"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-USceSx"}, {"value": ""}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-oiFdSmFlxZVK"}, {"value": "-206551030.975186"}]},
+        "type": "Section", "group": "-Fallback-scrubbed-USceSx"}, {"Header": {"ColData":
+        [{"value": "-Fallback-scrubbed-xbSKZwCESnEHnIJTag"}, {"value": ""}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-sebjcNZKVigDlpqEODbzSeOh"}, {"value":
+        "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-WyUq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-lJCWvsGVpzRM"}, {"value":
+        "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-LCsiUGubGmh"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-tGFHkrHS"}, {"value":
+        ""}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-iuGDKVXKsTMNDZ"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-tGFHkrHS"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-fnHhIYHvQrSUxloowdRn"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-CbXxvfijJDpeefojmg"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-vZLbQdrcVKkN"}, {"value":
+        ""}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-QkktEfBnNsoJNAAoIE"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-LGFtfCJJsAN"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-jnMEUJEcvuWeXF"}, {"value":
+        ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-prwlzDNlnAgcuEhnqKcwucr"},
+        {"value": "-206551030.975186"}], "type": "Data", "group": "-Fallback-scrubbed-EqatMdjJnYPWsQkVBvqruHA"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-PWFhkHrWMMvwoLHkBFrF"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-JxXYuTRTcmuwq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-BCnPbAwMwwrCyLav"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-AaPTmEDHaEEPiQ"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-kjYodOnjWc"}, {"value":
+        "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-UGjhoZWuy"}]}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2881'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Wed, 18 Jun 2025 14:37:34 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      intuit_tid:
+      - 1-6852cf2e-3675a8fb6857eb37407929ce
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6852cf2e-3675a8fb6857eb37407929ce
+      x-envoy-upstream-service-time:
+      - '394'
+      x-request-id:
+      - 1-6852cf2e-3675a8fb6857eb37407929ce
+      x-spanid:
+      - 89609870-6861-f09e-3eb9-4eb67453dd5b
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/ProfitAndLoss?start_date=2025-03-04&end_date=2025-04-03&accounting_method=Accrual&minorversion=40
+  response:
+    body:
+      string: '{"Header": {"Time": "1982-04-02T06:55:04Z", "ReportName": "-Fallback-scrubbed-rEyLxcRUTGrRx",
+        "ReportBasis": "-Fallback-scrubbed-zLVyIlz", "StartPeriod": "2004-11-03",
+        "EndPeriod": "1989-11-13", "SummarizeColumnsBy": "-Fallback-scrubbed-KitbD",
+        "Currency": "-Fallback-scrubbed-UQu", "Option": [{"Name": "Fake-Dana Guzman",
+        "Value": "-Fallback-scrubbed-fvpK"}, {"Name": "Fake-Katherine Huerta", "Value":
+        "true"}]}, "Columns": {"Column": [{"ColTitle": "", "ColType": "Account", "MetaData":
+        [{"Name": "Fake-James Fitzgerald", "Value": "-Fallback-scrubbed-uhLGsGd"}]},
+        {"ColTitle": "Total", "ColType": "Money", "MetaData": [{"Name": "Fake-James
+        Fitzgerald", "Value": "-Fallback-scrubbed-hyWLH"}]}]}, "Rows": {"Row": [{"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-USceSx"}, {"value": ""}]}, "Rows":
+        {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-nfyzDwVCuJTcSm", "id":
+        "92"}, {"value": "413825899033.99"}], "type": "Data"}]}, "Summary": {"ColData":
+        [{"value": "-Fallback-scrubbed-oiFdSmFlxZVK"}, {"value": "413825899033.99"}]},
+        "type": "Section", "group": "-Fallback-scrubbed-USceSx"}, {"Header": {"ColData":
+        [{"value": "-Fallback-scrubbed-xbSKZwCESnEHnIJTag"}, {"value": ""}]}, "Rows":
+        {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-fNtJThLieaJkuBNncYvcgLnZq",
+        "id": "80"}, {"value": "11584.3565673966"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-sebjcNZKVigDlpqEODbzSeOh"}, {"value":
+        "11584.3565673966"}]}, "type": "Section", "group": "-Fallback-scrubbed-WyUq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-lJCWvsGVpzRM"}, {"value":
+        "-498546478707.73"}]}, "type": "Section", "group": "-Fallback-scrubbed-LCsiUGubGmh"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-tGFHkrHS"}, {"value":
+        ""}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-iuGDKVXKsTMNDZ"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-tGFHkrHS"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-fnHhIYHvQrSUxloowdRn"},
+        {"value": "-498546478707.73"}]}, "type": "Section", "group": "-Fallback-scrubbed-CbXxvfijJDpeefojmg"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-vZLbQdrcVKkN"}, {"value":
+        ""}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-QkktEfBnNsoJNAAoIE"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-LGFtfCJJsAN"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-jnMEUJEcvuWeXF"}, {"value":
+        ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-prwlzDNlnAgcuEhnqKcwucr"},
+        {"value": "-206551030.975186"}], "type": "Data", "group": "-Fallback-scrubbed-EqatMdjJnYPWsQkVBvqruHA"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-PWFhkHrWMMvwoLHkBFrF"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-JxXYuTRTcmuwq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-BCnPbAwMwwrCyLav"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-AaPTmEDHaEEPiQ"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-kjYodOnjWc"}, {"value":
+        "-498546478707.73"}]}, "type": "Section", "group": "-Fallback-scrubbed-UGjhoZWuy"}]}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3167'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Wed, 18 Jun 2025 14:37:36 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      intuit_tid:
+      - 1-6852cf30-33630c536947ba6522cb9dfd
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6852cf30-33630c536947ba6522cb9dfd
+      x-envoy-upstream-service-time:
+      - '316'
+      x-request-id:
+      - 1-6852cf30-33630c536947ba6522cb9dfd
+      x-spanid:
+      - 74374cb8-0293-565b-a60d-3a19837f7afc
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/ProfitAndLoss?start_date=2025-04-04&end_date=2025-05-04&accounting_method=Accrual&minorversion=40
+  response:
+    body:
+      string: '{"Header": {"Time": "1996-12-07T23:04:48Z", "ReportName": "-Fallback-scrubbed-rEyLxcRUTGrRx",
+        "ReportBasis": "-Fallback-scrubbed-zLVyIlz", "StartPeriod": "1995-01-05",
+        "EndPeriod": "1977-07-27", "SummarizeColumnsBy": "-Fallback-scrubbed-KitbD",
+        "Currency": "-Fallback-scrubbed-UQu", "Option": [{"Name": "Fake-Dana Guzman",
+        "Value": "-Fallback-scrubbed-fvpK"}, {"Name": "Fake-Katherine Huerta", "Value":
+        "true"}]}, "Columns": {"Column": [{"ColTitle": "", "ColType": "Account", "MetaData":
+        [{"Name": "Fake-James Fitzgerald", "Value": "-Fallback-scrubbed-uhLGsGd"}]},
+        {"ColTitle": "Total", "ColType": "Money", "MetaData": [{"Name": "Fake-James
+        Fitzgerald", "Value": "-Fallback-scrubbed-hyWLH"}]}]}, "Rows": {"Row": [{"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-USceSx"}, {"value": ""}]}, "Rows":
+        {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-nfyzDwVCuJTcSm", "id":
+        "92"}, {"value": "-373.834074059602"}], "type": "Data"}, {"Header": {"ColData":
+        [{"value": "-Fallback-scrubbed-seIPqPKjCVTeOShjAwaa", "id": "45"}, {"value":
+        "-206551030.975186"}]}, "Rows": {"Row": [{"Header": {"ColData": [{"value":
+        "-Fallback-scrubbed-zBTEFcioJvExk", "id": "46"}, {"value": "-206551030.975186"}]},
+        "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-oTXvWgBxLGwBILVioOWJarunrAGFq",
+        "id": "48"}, {"value": "28059.7863259313"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-VgwwAfvyfOfaOlCSiLj"}, {"value":
+        "28059.7863259313"}]}, "type": "Section"}]}, "Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-srWFWNYlAkTmwiLUGkvWsVclkx"}, {"value": "28059.7863259313"}]},
+        "type": "Section"}, {"ColData": [{"value": "-Fallback-scrubbed-NFzAkqGiDPnAxpdcTXiUuAm",
+        "id": "79"}, {"value": "12.967733874261"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-oiFdSmFlxZVK"}, {"value": "-439428.8050461"}]},
+        "type": "Section", "group": "-Fallback-scrubbed-USceSx"}, {"Header": {"ColData":
+        [{"value": "-Fallback-scrubbed-xbSKZwCESnEHnIJTag"}, {"value": ""}]}, "Rows":
+        {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-fNtJThLieaJkuBNncYvcgLnZq",
+        "id": "80"}, {"value": "9510817.7372181"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-sebjcNZKVigDlpqEODbzSeOh"}, {"value":
+        "9510817.7372181"}]}, "type": "Section", "group": "-Fallback-scrubbed-WyUq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-lJCWvsGVpzRM"}, {"value":
+        "-3287355069929.2"}]}, "type": "Section", "group": "-Fallback-scrubbed-LCsiUGubGmh"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-tGFHkrHS"}, {"value":
+        ""}]}, "Rows": {"Row": [{"Header": {"ColData": [{"value": "-Fallback-scrubbed-diqjncyglO",
+        "id": "55"}, {"value": "65519509203.953"}]}, "Rows": {"Row": [{"ColData":
+        [{"value": "-Fallback-scrubbed-vxiT", "id": "56"}, {"value": "-470527296842.225"}],
+        "type": "Data"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-mwXnQPVHxdlRsSKz"},
+        {"value": "94.8582844625543"}]}, "type": "Section"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-bqwgIQQNSljNFKqp", "id": "21"}, {"value": "-58889.979230608"}],
+        "type": "Data"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-iuGDKVXKsTMNDZ"},
+        {"value": "-89.5431036783382"}]}, "type": "Section", "group": "-Fallback-scrubbed-tGFHkrHS"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-fnHhIYHvQrSUxloowdRn"},
+        {"value": "731.641823367063"}]}, "type": "Section", "group": "-Fallback-scrubbed-CbXxvfijJDpeefojmg"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-vZLbQdrcVKkN"}, {"value":
+        ""}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-QkktEfBnNsoJNAAoIE"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-LGFtfCJJsAN"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-jnMEUJEcvuWeXF"}, {"value":
+        ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-prwlzDNlnAgcuEhnqKcwucr"},
+        {"value": "-206551030.975186"}], "type": "Data", "group": "-Fallback-scrubbed-EqatMdjJnYPWsQkVBvqruHA"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-PWFhkHrWMMvwoLHkBFrF"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-JxXYuTRTcmuwq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-BCnPbAwMwwrCyLav"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-AaPTmEDHaEEPiQ"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-kjYodOnjWc"}, {"value":
+        "731.641823367063"}]}, "type": "Section", "group": "-Fallback-scrubbed-UGjhoZWuy"}]}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '4494'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Wed, 18 Jun 2025 14:37:38 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      intuit_tid:
+      - 1-6852cf31-1b1553a06f5e58c558fd6e7a
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6852cf31-1b1553a06f5e58c558fd6e7a
+      x-envoy-upstream-service-time:
+      - '378'
+      x-request-id:
+      - 1-6852cf31-1b1553a06f5e58c558fd6e7a
+      x-spanid:
+      - ab4ce62e-e25e-bbad-c2d8-09c522cc3f90
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/ProfitAndLoss?start_date=2025-05-05&end_date=2025-06-04&accounting_method=Accrual&minorversion=40
+  response:
+    body:
+      string: '{"Header": {"Time": "1985-09-12T21:49:48Z", "ReportName": "-Fallback-scrubbed-rEyLxcRUTGrRx",
+        "ReportBasis": "-Fallback-scrubbed-zLVyIlz", "StartPeriod": "2021-06-05",
+        "EndPeriod": "1994-07-20", "SummarizeColumnsBy": "-Fallback-scrubbed-KitbD",
+        "Currency": "-Fallback-scrubbed-UQu", "Option": [{"Name": "Fake-Dana Guzman",
+        "Value": "-Fallback-scrubbed-fvpK"}, {"Name": "Fake-Katherine Huerta", "Value":
+        "true"}]}, "Columns": {"Column": [{"ColTitle": "", "ColType": "Account", "MetaData":
+        [{"Name": "Fake-James Fitzgerald", "Value": "-Fallback-scrubbed-uhLGsGd"}]},
+        {"ColTitle": "Total", "ColType": "Money", "MetaData": [{"Name": "Fake-James
+        Fitzgerald", "Value": "-Fallback-scrubbed-hyWLH"}]}]}, "Rows": {"Row": [{"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-USceSx"}, {"value": ""}]}, "Rows":
+        {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-nfyzDwVCuJTcSm", "id":
+        "92"}, {"value": "-4432.41875255841"}], "type": "Data"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-StNTEitiUVHsgEW", "id": "86"}, {"value": "-943311195746.83"}],
+        "type": "Data"}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-seIPqPKjCVTeOShjAwaa",
+        "id": "45"}, {"value": "-206551030.975186"}]}, "Rows": {"Row": [{"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-zBTEFcioJvExk", "id": "46"}, {"value":
+        "-206551030.975186"}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-oTXvWgBxLGwBILVioOWJarunrAGFq",
+        "id": "48"}, {"value": "-89327408437254.1"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-VgwwAfvyfOfaOlCSiLj"}, {"value":
+        "-89327408437254.1"}]}, "type": "Section"}]}, "Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-srWFWNYlAkTmwiLUGkvWsVclkx"}, {"value": "-89327408437254.1"}]},
+        "type": "Section"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-oiFdSmFlxZVK"},
+        {"value": "-56860.5246750485"}]}, "type": "Section", "group": "-Fallback-scrubbed-USceSx"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-xbSKZwCESnEHnIJTag"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-fNtJThLieaJkuBNncYvcgLnZq",
+        "id": "80"}, {"value": "-587.59283516438"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-sebjcNZKVigDlpqEODbzSeOh"}, {"value":
+        "-587.59283516438"}]}, "type": "Section", "group": "-Fallback-scrubbed-WyUq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-lJCWvsGVpzRM"}, {"value":
+        "-843996408112.223"}]}, "type": "Section", "group": "-Fallback-scrubbed-LCsiUGubGmh"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-tGFHkrHS"}, {"value":
+        ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-KlBiMeewBvR",
+        "id": "7"}, {"value": "90579217239.651"}], "type": "Data"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-diqjncyglO", "id": "55"}, {"value": "15411689983.352"}],
+        "type": "Data"}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-LnNyGhAYqPryIkcAYwIyYUEaO",
+        "id": "12"}, {"value": "-206551030.975186"}]}, "Rows": {"Row": [{"ColData":
+        [{"value": "-Fallback-scrubbed-fhAGCiPumW", "id": "69"}, {"value": "1176903291.13885"}],
+        "type": "Data"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-jAhFgtzgOZKiIHtwVvFbYXuOjfOEtok"},
+        {"value": "1176903291.13885"}]}, "type": "Section"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-zsoAPvDxC", "id": "78"}, {"value": "-938.100150961539"}],
+        "type": "Data"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-iuGDKVXKsTMNDZ"},
+        {"value": "-7718.35168062196"}]}, "type": "Section", "group": "-Fallback-scrubbed-tGFHkrHS"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-fnHhIYHvQrSUxloowdRn"},
+        {"value": "293474004679.733"}]}, "type": "Section", "group": "-Fallback-scrubbed-CbXxvfijJDpeefojmg"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-vZLbQdrcVKkN"}, {"value":
+        ""}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-QkktEfBnNsoJNAAoIE"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-LGFtfCJJsAN"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-jnMEUJEcvuWeXF"}, {"value":
+        ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-prwlzDNlnAgcuEhnqKcwucr"},
+        {"value": "-206551030.975186"}], "type": "Data", "group": "-Fallback-scrubbed-EqatMdjJnYPWsQkVBvqruHA"},
+        {"ColData": [{"value": "-Fallback-scrubbed-LdMJBbQJKQbHeePrI", "id": "40"},
+        {"value": "-183486966317.6"}], "type": "Data"}, {"ColData": [{"value": "-Fallback-scrubbed-bogQONEqAfnBIzyvjspuH",
+        "id": "107"}, {"value": "29593481488292.0"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-PWFhkHrWMMvwoLHkBFrF"}, {"value":
+        "219432929534.97"}]}, "type": "Section", "group": "-Fallback-scrubbed-JxXYuTRTcmuwq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-BCnPbAwMwwrCyLav"},
+        {"value": "-74102166656616.1"}]}, "type": "Section", "group": "-Fallback-scrubbed-AaPTmEDHaEEPiQ"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-kjYodOnjWc"}, {"value":
+        "3295529.48911115"}]}, "type": "Section", "group": "-Fallback-scrubbed-UGjhoZWuy"}]}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5012'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Wed, 18 Jun 2025 14:37:40 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      intuit_tid:
+      - 1-6852cf33-075e42ec5f01a12625248f48
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6852cf33-075e42ec5f01a12625248f48
+      x-envoy-upstream-service-time:
+      - '446'
+      x-request-id:
+      - 1-6852cf33-075e42ec5f01a12625248f48
+      x-spanid:
+      - c5bf3add-f89b-cb54-b57a-e7e61d15fd11
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/reports/ProfitAndLoss?start_date=2025-06-05&end_date=2025-06-18&accounting_method=Accrual&minorversion=40
+  response:
+    body:
+      string: '{"Header": {"Time": "2016-03-06T21:42:04Z", "ReportName": "-Fallback-scrubbed-rEyLxcRUTGrRx",
+        "ReportBasis": "-Fallback-scrubbed-zLVyIlz", "StartPeriod": "1987-01-10",
+        "EndPeriod": "2018-09-27", "SummarizeColumnsBy": "-Fallback-scrubbed-KitbD",
+        "Currency": "-Fallback-scrubbed-UQu", "Option": [{"Name": "Fake-Dana Guzman",
+        "Value": "-Fallback-scrubbed-fvpK"}, {"Name": "Fake-Katherine Huerta", "Value":
+        "true"}]}, "Columns": {"Column": [{"ColTitle": "", "ColType": "Account", "MetaData":
+        [{"Name": "Fake-James Fitzgerald", "Value": "-Fallback-scrubbed-uhLGsGd"}]},
+        {"ColTitle": "Total", "ColType": "Money", "MetaData": [{"Name": "Fake-James
+        Fitzgerald", "Value": "-Fallback-scrubbed-hyWLH"}]}]}, "Rows": {"Row": [{"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-USceSx"}, {"value": ""}]}, "Rows":
+        {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-sKXIZcGSQLEFbuGttLzletvBEBZM",
+        "id": "85"}, {"value": "65519509203.953"}], "type": "Data"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-nfyzDwVCuJTcSm", "id": "92"}, {"value": "267.533690063679"}],
+        "type": "Data"}, {"Header": {"ColData": [{"value": "-Fallback-scrubbed-seIPqPKjCVTeOShjAwaa",
+        "id": "45"}, {"value": "-206551030.975186"}]}, "Rows": {"Row": [{"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-zBTEFcioJvExk", "id": "46"}, {"value":
+        "-206551030.975186"}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-oTXvWgBxLGwBILVioOWJarunrAGFq",
+        "id": "48"}, {"value": "774440342901.178"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-VgwwAfvyfOfaOlCSiLj"}, {"value":
+        "774440342901.178"}]}, "type": "Section"}]}, "Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-srWFWNYlAkTmwiLUGkvWsVclkx"}, {"value": "774440342901.178"}]},
+        "type": "Section"}, {"ColData": [{"value": "-Fallback-scrubbed-NFzAkqGiDPnAxpdcTXiUuAm",
+        "id": "79"}, {"value": "12097058.68318"}], "type": "Data"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-ZsRqdtmH", "id": "1"}, {"value": "6652.2082288988"}],
+        "type": "Data"}]}, "Summary": {"ColData": [{"value": "-Fallback-scrubbed-oiFdSmFlxZVK"},
+        {"value": "3965087174705.74"}]}, "type": "Section", "group": "-Fallback-scrubbed-USceSx"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-xbSKZwCESnEHnIJTag"},
+        {"value": ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-fNtJThLieaJkuBNncYvcgLnZq",
+        "id": "80"}, {"value": "-3050656577582.0"}], "type": "Data"}, {"ColData":
+        [{"value": "-Fallback-scrubbed-aZmTZChfQVXWJimQUPg", "id": "93"}, {"value":
+        "-206551030.975186"}], "type": "Data"}]}, "Summary": {"ColData": [{"value":
+        "-Fallback-scrubbed-sebjcNZKVigDlpqEODbzSeOh"}, {"value": "-3050656577582.0"}]},
+        "type": "Section", "group": "-Fallback-scrubbed-WyUq"}, {"Summary": {"ColData":
+        [{"value": "-Fallback-scrubbed-lJCWvsGVpzRM"}, {"value": "-615627325.59138"}]},
+        "type": "Section", "group": "-Fallback-scrubbed-LCsiUGubGmh"}, {"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-tGFHkrHS"}, {"value": ""}]}, "Rows":
+        {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-KlBiMeewBvR", "id": "7"},
+        {"value": "6344808.61763341"}], "type": "Data"}, {"ColData": [{"value": "-Fallback-scrubbed-diqjncyglO",
+        "id": "55"}, {"value": "9114.36057814564"}], "type": "Data"}, {"Header": {"ColData":
+        [{"value": "-Fallback-scrubbed-LnNyGhAYqPryIkcAYwIyYUEaO", "id": "12"}, {"value":
+        "-206551030.975186"}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-fhAGCiPumW",
+        "id": "69"}, {"value": "2191181.51642161"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-jAhFgtzgOZKiIHtwVvFbYXuOjfOEtok"},
+        {"value": "2191181.51642161"}]}, "type": "Section"}, {"ColData": [{"value":
+        "-Fallback-scrubbed-zsoAPvDxC", "id": "78"}, {"value": "-938.100150961539"}],
+        "type": "Data"}, {"ColData": [{"value": "-Fallback-scrubbed-bqwgIQQNSljNFKqp",
+        "id": "21"}, {"value": "-58889.979230608"}], "type": "Data"}]}, "Summary":
+        {"ColData": [{"value": "-Fallback-scrubbed-iuGDKVXKsTMNDZ"}, {"value": "-95190.9711993126"}]},
+        "type": "Section", "group": "-Fallback-scrubbed-tGFHkrHS"}, {"Summary": {"ColData":
+        [{"value": "-Fallback-scrubbed-fnHhIYHvQrSUxloowdRn"}, {"value": "854726951.862545"}]},
+        "type": "Section", "group": "-Fallback-scrubbed-CbXxvfijJDpeefojmg"}, {"Header":
+        {"ColData": [{"value": "-Fallback-scrubbed-vZLbQdrcVKkN"}, {"value": ""}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-QkktEfBnNsoJNAAoIE"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-LGFtfCJJsAN"},
+        {"Header": {"ColData": [{"value": "-Fallback-scrubbed-jnMEUJEcvuWeXF"}, {"value":
+        ""}]}, "Rows": {"Row": [{"ColData": [{"value": "-Fallback-scrubbed-prwlzDNlnAgcuEhnqKcwucr"},
+        {"value": "-206551030.975186"}], "type": "Data", "group": "-Fallback-scrubbed-EqatMdjJnYPWsQkVBvqruHA"}]},
+        "Summary": {"ColData": [{"value": "-Fallback-scrubbed-PWFhkHrWMMvwoLHkBFrF"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-JxXYuTRTcmuwq"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-BCnPbAwMwwrCyLav"},
+        {"value": "-206551030.975186"}]}, "type": "Section", "group": "-Fallback-scrubbed-AaPTmEDHaEEPiQ"},
+        {"Summary": {"ColData": [{"value": "-Fallback-scrubbed-kjYodOnjWc"}, {"value":
+        "854726951.862545"}]}, "type": "Section", "group": "-Fallback-scrubbed-UGjhoZWuy"}]}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5263'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Wed, 18 Jun 2025 14:37:41 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      intuit_tid:
+      - 1-6852cf35-2b53ee25307e4baf6205a687
+      server:
+      - istio-envoy
+      x-amzn-trace-id:
+      - Root=1-6852cf35-2b53ee25307e4baf6205a687
+      x-envoy-upstream-service-time:
+      - '306'
+      x-request-id:
+      - 1-6852cf35-2b53ee25307e4baf6205a687
+      x-spanid:
+      - 247f289a-5bd2-6997-f1c7-b1bf174d4e80
+    status:
+      code: 200
+      message: OK
+version: 1

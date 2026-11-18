@@ -1,0 +1,548 @@
+interactions:
+- request:
+    body: grant_type=refresh_token
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
+  response:
+    body:
+      string: '{"expires_in": "360***", "x_refresh_token_expires_in": 2248, "refresh_token":
+        "ref***", "access_token": "acc***", "token_type": "-Fallback-scrubbed-KrFHPB"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '156'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:54:14 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      intuit_tid:
+      - 1-6891fef6-6030421d35787b777679dac0
+      x-amzn-trace-id:
+      - Root=1-6891fef6-6030421d35787b777679dac0
+      x-envoy-upstream-service-time:
+      - '104'
+      x-request-id:
+      - 1-6891fef6-6030421d35787b777679dac0
+      x-spanid:
+      - 36212774-306a-2ae1-dae7-90e9ad4c83d6
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: GET
+    uri: https://sandbox-quickbooks.api.intuit.com/v3/company/462***/query?query=SELECT+%2A+FROM+Item++STARTPOSITION+0+MAXRESULTS+100&minorversion=75
+  response:
+    body:
+      string: '{"QueryResponse": {"Item": [{"Name": "Fake-Kathleen Patrick", "Description":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "Active": false, "FullyQualifiedName":
+        "Fake-Kathleen Patrick", "Taxable": false, "UnitPrice": 4294, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "822", "name": "Fake-Jessica Brown"}, "PurchaseDesc":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "PurchaseCost": 986, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        8930, "InvStartDate": "1986-02-03", "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "ClassRef": {"value": "1132", "name": "Fake-Patricia
+        Hart"}, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "23", "SyncToken":
+        "106", "MetaData": {"CreateTime": "1978-08-27T22:13:01-08:00", "LastUpdatedTime":
+        "2025-07-24T10:22:54-07:00"}}, {"Name": "Fake-Casey Smith", "Sku": "-Fallback-scrubbed-pgCGWbGL",
+        "Description": "-Fallback-scrubbed-txwisKmKEhZLwpjEDnGUXZcyERAIPwDBOW", "Active":
+        false, "FullyQualifiedName": "Fake-Casey Smith", "Taxable": false, "UnitPrice":
+        1217, "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef": {"value":
+        "6944", "name": "Fake-Christopher Webb"}, "PurchaseCost": 1217, "TrackQtyOnHand":
+        true, "TaxClassificationRef": {"value": "-Fallback-scrubbed-SmNBDLCtmMBloimJfttoDvJt",
+        "name": "Fake-James Gonzalez"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "3", "SyncToken": "7080", "MetaData": {"CreateTime": "2010-12-09T16:54:40-08:00",
+        "LastUpdatedTime": "2023-08-23T16:02:47-07:00"}}, {"Name": "Fake-Amber Mercado",
+        "Sku": "6387", "Description": "-Fallback-scrubbed-OTKWjySYkdpkcaEBvIuxZODfIXHdXQgBiehRKIGpkuNIg",
+        "Active": false, "FullyQualifiedName": "Fake-Amber Mercado", "Taxable": true,
+        "UnitPrice": 2642, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ", "IncomeAccountRef":
+        {"value": "1379", "name": "Fake-Gabrielle Jones"}, "PurchaseCost": 1217, "TrackQtyOnHand":
+        true, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "41", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "1997-11-01T15:53:36-07:00", "LastUpdatedTime":
+        "2023-08-29T13:09:13-07:00"}}, {"Name": "Fake-Lisa Serrano", "Description":
+        "-Fallback-scrubbed-nJBtoeHZMiwZD", "Active": false, "FullyQualifiedName":
+        "Fake-Lisa Serrano", "Taxable": false, "UnitPrice": 862, "Type": "-Fallback-scrubbed-Lpluypb",
+        "IncomeAccountRef": {"value": "2441", "name": "Fake-Jill Juarez"}, "PurchaseCost":
+        1217, "ExpenseAccountRef": {"value": "9264", "name": "Fake-Leah Dennis"},
+        "PrefVendorRef": {"value": "6383", "name": "Fake-Robert Murphy"}, "TrackQtyOnHand":
+        true, "TaxClassificationRef": {"value": "-Fallback-scrubbed-SmNBDLCtmMBloimJfttoDvJt",
+        "name": "Fake-James Gonzalez"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "4", "SyncToken": "8834", "MetaData": {"CreateTime": "1977-08-02T07:08:19-08:00",
+        "LastUpdatedTime": "2023-09-29T14:39:06-07:00"}}, {"Name": "Fake-Jackson Valencia",
+        "Active": false, "FullyQualifiedName": "Fake-Jackson Valencia", "Taxable":
+        false, "UnitPrice": 4294, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost": 4632, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        77, "InvStartDate": "1993-06-20", "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "35", "SyncToken": "5466", "MetaData": {"CreateTime": "2022-05-09T16:24:32-07:00",
+        "LastUpdatedTime": "2025-07-25T12:34:35-07:00"}}, {"Name": "Fake-Krista Yang",
+        "Active": false, "FullyQualifiedName": "Fake-Krista Yang", "Taxable": true,
+        "UnitPrice": 1217, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        1217, "InvStartDate": "2003-03-01", "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "19", "SyncToken": "5466", "MetaData": {"CreateTime": "1975-09-21T12:45:23-08:00",
+        "LastUpdatedTime": "2023-03-18T01:42:45-07:00"}}, {"Name": "Fake-Johnny Brooks",
+        "Description": "-Fallback-scrubbed-EHohCqHpZDxlUIfngzPrnBsn", "Active": false,
+        "FullyQualifiedName": "Fake-Johnny Brooks", "Taxable": true, "UnitPrice":
+        1217, "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef": {"value":
+        "9962", "name": "Fake-Krista Gates"}, "PurchaseCost": 1217, "TrackQtyOnHand":
+        true, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "6", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "2022-06-22T23:46:40-08:00", "LastUpdatedTime":
+        "2021-02-15T10:43:14-08:00"}}, {"Name": "Fake-Mr. Stephen Franklin", "Description":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "Active": false, "FullyQualifiedName":
+        "Fake-Mr. Stephen Franklin", "Taxable": true, "UnitPrice": 4294, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "822", "name": "Fake-Jessica Brown"}, "PurchaseDesc":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "PurchaseCost": 986, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        4767, "InvStartDate": "2024-07-17", "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "26", "SyncToken": "3722", "MetaData": {"CreateTime": "2002-07-22T21:55:04-08:00",
+        "LastUpdatedTime": "2025-06-16T09:15:47-07:00"}}, {"Name": "Fake-Monica Washington",
+        "Description": "-Fallback-scrubbed-BGQelcWOi", "Active": false, "FullyQualifiedName":
+        "Fake-Monica Washington", "Taxable": true, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ",
+        "IncomeAccountRef": {"value": "1457", "name": "Fake-Kristy Campbell"}, "PurchaseCost":
+        1217, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "39", "SyncToken": "5466", "MetaData": {"CreateTime": "1975-01-31T20:14:31-07:00",
+        "LastUpdatedTime": "2023-08-24T09:11:20-07:00"}}, {"Name": "Fake-David Roman",
+        "Sku": "-Fallback-scrubbed-EJkUKxKy", "Description": "-Fallback-scrubbed-cgzRheYiyFClMlvOkfnAiDc",
+        "Active": false, "FullyQualifiedName": "Fake-David Roman", "Taxable": false,
+        "UnitPrice": 986, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "822", "name": "Fake-Jessica Brown"}, "PurchaseDesc": "-Fallback-scrubbed-faQPwFrGGfXKNdguWV",
+        "PurchaseCost": 2077, "ExpenseAccountRef": {"value": "6934", "name": "Fake-Elizabeth
+        Salas"}, "AssetAccountRef": {"value": "5058", "name": "Fake-Joseph Cruz"},
+        "TrackQtyOnHand": false, "QtyOnHand": 7444, "InvStartDate": "1979-11-02",
+        "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "25", "SyncToken": "1379", "MetaData": {"CreateTime": "1975-08-30T14:14:23-08:00",
+        "LastUpdatedTime": "2025-06-16T10:04:53-07:00"}}, {"Name": "Fake-Stephanie
+        Pratt", "Sku": "-Fallback-scrubbed-AEXdxtBg", "Description": "-Fallback-scrubbed-HVXLaLYoEuQL",
+        "Active": false, "FullyQualifiedName": "Fake-Stephanie Pratt", "Taxable":
+        false, "UnitPrice": 986, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "822", "name": "Fake-Jessica Brown"}, "PurchaseDesc": "-Fallback-scrubbed-HVXLaLYoEuQL",
+        "PurchaseCost": 2077, "ExpenseAccountRef": {"value": "6934", "name": "Fake-Elizabeth
+        Salas"}, "AssetAccountRef": {"value": "5058", "name": "Fake-Joseph Cruz"},
+        "TrackQtyOnHand": false, "QtyOnHand": 8318, "InvStartDate": "2019-04-15",
+        "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "20", "SyncToken": "3722", "MetaData": {"CreateTime": "2014-01-02T00:18:28-07:00",
+        "LastUpdatedTime": "2023-08-24T17:11:16-07:00"}}, {"Name": "Fake-Rachael Harris",
+        "Active": false, "FullyQualifiedName": "Fake-Rachael Harris", "Taxable": false,
+        "UnitPrice": 2642, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost": 2077, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        1632, "InvStartDate": "1993-06-20", "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "34", "SyncToken": "5466", "MetaData": {"CreateTime": "2009-03-11T10:53:37-07:00",
+        "LastUpdatedTime": "2025-06-16T08:18:57-07:00"}}, {"Name": "Fake-Jared Smith",
+        "Description": "-Fallback-scrubbed-rjNadHcLMzszPjlUjOCsDtnArAupGHuApLpXHGZWkTnSC",
+        "Active": false, "FullyQualifiedName": "Fake-Jared Smith", "Taxable": true,
+        "UnitPrice": 4294, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ", "IncomeAccountRef":
+        {"value": "1457", "name": "Fake-Kristy Campbell"}, "PurchaseCost": 1217, "TrackQtyOnHand":
+        true, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "40", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "1981-05-17T03:19:04-07:00", "LastUpdatedTime":
+        "2023-08-29T12:49:10-07:00"}}, {"Name": "Fake-Kristine Nunez", "Active": false,
+        "FullyQualifiedName": "Fake-Kristine Nunez", "Taxable": true, "UnitPrice":
+        1217, "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef": {"value":
+        "8834", "name": "Fake-Joshua Jackson"}, "PurchaseCost": 1217, "TrackQtyOnHand":
+        true, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "2", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "2014-12-16T20:11:20-08:00", "LastUpdatedTime":
+        "2021-02-10T14:42:05-08:00"}}, {"Name": "Fake-Teresa Jackson", "Sku": "-Fallback-scrubbed-sivaemb",
+        "Description": "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "Active": false, "FullyQualifiedName":
+        "Fake-Teresa Jackson", "Taxable": true, "UnitPrice": 4294, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "PurchaseCost": 986, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        57, "ReorderPoint": 2642, "InvStartDate": "1982-01-29", "domain": "-Fallback-scrubbed-UiE",
+        "sparse": true, "Id": "28", "SyncToken": "5466", "MetaData": {"CreateTime":
+        "2026-06-14T17:54:51-08:00", "LastUpdatedTime": "2025-06-16T09:40:29-07:00"}},
+        {"Name": "Fake-Tiffany Schmidt", "Sku": "-Fallback-scrubbed-zKWQajL", "Description":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "Active": false, "FullyQualifiedName":
+        "Fake-Tiffany Schmidt", "Taxable": true, "UnitPrice": 4294, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "PurchaseCost": 986, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        5835, "ReorderPoint": 2642, "InvStartDate": "1980-10-23", "domain": "-Fallback-scrubbed-UiE",
+        "sparse": true, "Id": "29", "SyncToken": "5466", "MetaData": {"CreateTime":
+        "1972-09-30T18:45:27-07:00", "LastUpdatedTime": "2025-06-19T06:53:54-07:00"}},
+        {"Name": "Fake-Elizabeth Robinson", "Sku": "-Fallback-scrubbed-iZSQSz", "Description":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "Active": false, "FullyQualifiedName":
+        "Fake-Elizabeth Robinson", "Taxable": false, "UnitPrice": 4294, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc":
+        "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF", "PurchaseCost": 986, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        2531, "ReorderPoint": 2642, "InvStartDate": "2000-09-26", "domain": "-Fallback-scrubbed-UiE",
+        "sparse": true, "Id": "27", "SyncToken": "7080", "MetaData": {"CreateTime":
+        "1980-04-12T16:22:29-08:00", "LastUpdatedTime": "2025-06-16T10:07:16-07:00"}},
+        {"Name": "Fake-Jacqueline Mclean", "Description": "-Fallback-scrubbed-eGlUUHsmjPETFJNjnVjtpyeCKYhkwWyM",
+        "Active": false, "FullyQualifiedName": "Fake-Jacqueline Mclean", "Taxable":
+        true, "UnitPrice": 2605, "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef":
+        {"value": "9994", "name": "Fake-Jacqueline Mclean"}, "PurchaseCost": 1217,
+        "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse": true,
+        "Id": "7", "SyncToken": "5466", "MetaData": {"CreateTime": "2016-10-07T04:10:39-08:00",
+        "LastUpdatedTime": "2021-02-15T10:43:54-08:00"}}, {"Name": "Fake-Jeffrey Lutz",
+        "Sku": "-Fallback-scrubbed-aMB", "Active": false, "FullyQualifiedName": "Fake-Jeffrey
+        Lutz", "Taxable": true, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ",
+        "PurchaseCost": 2605, "ExpenseAccountRef": {"value": "9264", "name": "Fake-Leah
+        Dennis"}, "PrefVendorRef": {"value": "5234", "name": "Fake-Mary Jimenez"},
+        "TrackQtyOnHand": true, "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "22", "SyncToken": "5466", "MetaData": {"CreateTime": "2024-11-11T04:19:51-07:00",
+        "LastUpdatedTime": "2022-10-11T17:41:24-07:00"}}, {"Name": "Fake-Kimberly
+        Sutton", "Active": false, "FullyQualifiedName": "Fake-Kimberly Sutton", "Taxable":
+        true, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        719, "InvStartDate": "2025-08-19", "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "53", "SyncToken": "5466", "MetaData": {"CreateTime": "2003-02-27T14:00:00-07:00",
+        "LastUpdatedTime": "2025-06-26T05:52:50-07:00"}}, {"Name": "Fake-Daniel Sanders",
+        "Active": false, "FullyQualifiedName": "Fake-Daniel Sanders", "Taxable": true,
+        "UnitPrice": 1217, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        4632, "InvStartDate": "2025-08-19", "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "54", "SyncToken": "5466", "MetaData": {"CreateTime": "2023-02-05T18:47:52-07:00",
+        "LastUpdatedTime": "2025-06-25T08:46:16-07:00"}}, {"Name": "Fake-Olivia Cook",
+        "Active": false, "FullyQualifiedName": "Fake-Olivia Cook", "Taxable": true,
+        "UnitPrice": 1217, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "PrefVendorRef": {"value": "6170", "name":
+        "Fake-Christopher Kelly"}, "TrackQtyOnHand": false, "QtyOnHand": 7045, "InvStartDate":
+        "2003-01-20", "ClassRef": {"value": "2007", "name": "Fake-Charles Browning"},
+        "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "50", "SyncToken":
+        "7080", "MetaData": {"CreateTime": "2003-08-27T00:22:51-07:00", "LastUpdatedTime":
+        "2025-06-19T06:25:33-07:00"}}, {"Name": "Fake-James Burns", "Sku": "-Fallback-scrubbed-avUPRV",
+        "Active": false, "FullyQualifiedName": "Fake-James Burns", "Taxable": true,
+        "UnitPrice": 1758, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ", "IncomeAccountRef":
+        {"value": "8834", "name": "Fake-Joshua Jackson"}, "PurchaseCost": 3776, "ExpenseAccountRef":
+        {"value": "9264", "name": "Fake-Leah Dennis"}, "TrackQtyOnHand": true, "domain":
+        "-Fallback-scrubbed-UiE", "sparse": true, "Id": "32", "SyncToken": "7080",
+        "MetaData": {"CreateTime": "2009-08-05T07:34:20-07:00", "LastUpdatedTime":
+        "2023-05-18T11:28:06-07:00"}}, {"Name": "Fake-Nicole Turner", "Sku": "-Fallback-scrubbed-oHc",
+        "Description": "-Fallback-scrubbed-kiUIkNLQupRhgQ", "Active": false, "FullyQualifiedName":
+        "Fake-Nicole Turner", "Taxable": false, "UnitPrice": 798, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc":
+        "-Fallback-scrubbed-KgRixCvZurWwsyzkLB", "PurchaseCost": 6894, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        4939, "InvStartDate": "1986-02-03", "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "24", "SyncToken": "3722", "MetaData": {"CreateTime": "1995-11-08T06:58:33-08:00",
+        "LastUpdatedTime": "2025-06-16T09:15:47-07:00"}}, {"Name": "Fake-Jonathan
+        Montoya", "Sku": "-Fallback-scrubbed-ggZHBVze", "Description": "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF",
+        "Active": false, "FullyQualifiedName": "Fake-Jonathan Montoya", "Taxable":
+        true, "UnitPrice": 4294, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc": "-Fallback-scrubbed-qBfsEHSBWGPZbASZWF",
+        "PurchaseCost": 986, "ExpenseAccountRef": {"value": "6934", "name": "Fake-Elizabeth
+        Salas"}, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "30", "SyncToken": "5466", "MetaData": {"CreateTime": "1985-04-18T11:17:35-07:00",
+        "LastUpdatedTime": "2023-03-24T14:58:57-07:00"}}, {"Name": "Fake-Ryan Perez",
+        "Description": "-Fallback-scrubbed-kmrwxtpoDKpYyyH", "Active": false, "FullyQualifiedName":
+        "Fake-Ryan Perez", "Taxable": false, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-Lpluypb",
+        "IncomeAccountRef": {"value": "6944", "name": "Fake-Christopher Webb"}, "PurchaseCost":
+        1217, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "8", "SyncToken": "8834", "MetaData": {"CreateTime": "2018-12-16T18:13:38-08:00",
+        "LastUpdatedTime": "2021-02-18T12:47:38-08:00"}}, {"Name": "Fake-Shannon Velazquez",
+        "Description": "Fake-Shannon Velazquez", "Active": false, "FullyQualifiedName":
+        "Fake-Shannon Velazquez", "Taxable": true, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-Lpluypb",
+        "IncomeAccountRef": {"value": "9171", "name": "Fake-Sherri Anderson"}, "PurchaseCost":
+        1217, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "9", "SyncToken": "5466", "MetaData": {"CreateTime": "1990-09-30T09:07:18-08:00",
+        "LastUpdatedTime": "2021-02-15T10:45:18-08:00"}}, {"Name": "Fake-Anna Smith",
+        "Description": "-Fallback-scrubbed-BTjAtGnWPFBFQkbdHxWXm", "Active": false,
+        "FullyQualifiedName": "Fake-Anna Smith", "Taxable": true, "UnitPrice": 7790,
+        "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef": {"value": "7826",
+        "name": "-Fallback-scrubbed-BTjAtGnWPFBFQkbdHxWXm"}, "PurchaseCost": 1217,
+        "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse": true,
+        "Id": "10", "SyncToken": "5466", "MetaData": {"CreateTime": "1975-02-24T19:04:56-08:00",
+        "LastUpdatedTime": "2021-02-15T10:45:49-08:00"}}, {"Name": "Fake-Timothy Bryant",
+        "Description": "-Fallback-scrubbed-CvJlhjKmWqFycyr", "Active": false, "FullyQualifiedName":
+        "Fake-Timothy Bryant", "Taxable": true, "UnitPrice": 986, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "822", "name": "Fake-Jessica Brown"}, "PurchaseDesc":
+        "-Fallback-scrubbed-CvJlhjKmWqFycyr", "PurchaseCost": 2077, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand":
+        1217, "InvStartDate": "2019-04-15", "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "21", "SyncToken": "5466", "MetaData": {"CreateTime": "2016-11-27T02:50:39-07:00",
+        "LastUpdatedTime": "2022-09-09T12:42:27-07:00"}}, {"Name": "Fake-Brandy Brown",
+        "Description": "-Fallback-scrubbed-mapdMQlneFZfP", "Active": false, "FullyQualifiedName":
+        "Fake-Brandy Brown", "Taxable": false, "UnitPrice": 986, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc":
+        "-Fallback-scrubbed-mapdMQlneFZfP", "PurchaseCost": 4632, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "PrefVendorRef": {"value": "5234", "name":
+        "Fake-Mary Jimenez"}, "TrackQtyOnHand": false, "QtyOnHand": 5492, "InvStartDate":
+        "1997-02-28", "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "11", "SyncToken": "106", "MetaData": {"CreateTime": "1985-05-04T05:57:14-08:00",
+        "LastUpdatedTime": "2022-02-14T10:05:55-08:00"}}, {"Name": "Fake-Benjamin
+        Boyle", "Description": "-Fallback-scrubbed-FWPXJNrOOkCibEEyPrQohTWBpieCHdMPCIL",
+        "Active": false, "FullyQualifiedName": "Fake-Benjamin Boyle", "Taxable": true,
+        "UnitPrice": 1217, "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef":
+        {"value": "5364", "name": "Fake-Molly Myers"}, "PurchaseCost": 1217, "TrackQtyOnHand":
+        true, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "12", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "1978-09-25T07:13:50-08:00", "LastUpdatedTime":
+        "2021-02-15T10:49:18-08:00"}}, {"Name": "Fake-Mr. Gabriel Miller MD", "Description":
+        "Fake-Mr. Gabriel Miller MD", "Active": false, "FullyQualifiedName": "Fake-Mr.
+        Gabriel Miller MD", "Taxable": false, "UnitPrice": 9691, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc":
+        "Fake-Mr. Gabriel Miller MD", "PurchaseCost": 3573, "ExpenseAccountRef": {"value":
+        "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value": "5058",
+        "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand": false, "QtyOnHand": 8334, "InvStartDate":
+        "1997-02-28", "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "5",
+        "SyncToken": "7080", "MetaData": {"CreateTime": "1971-10-01T09:27:52-08:00",
+        "LastUpdatedTime": "2021-12-10T12:33:33-08:00"}}, {"Name": "Fake-Kevin Oliver",
+        "Description": "-Fallback-scrubbed-uperJZKKphga", "Active": false, "FullyQualifiedName":
+        "Fake-Kevin Oliver", "Taxable": false, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-Lpluypb",
+        "IncomeAccountRef": {"value": "6944", "name": "Fake-Christopher Webb"}, "PurchaseCost":
+        1217, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "13", "SyncToken": "8834", "MetaData": {"CreateTime": "2017-02-18T14:55:28-08:00",
+        "LastUpdatedTime": "2021-02-18T12:47:31-08:00"}}, {"Name": "Fake-Joshua Jackson",
+        "Active": false, "FullyQualifiedName": "Fake-Joshua Jackson", "Taxable": false,
+        "UnitPrice": 1217, "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef":
+        {"value": "8834", "name": "Fake-Joshua Jackson"}, "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "9264", "name": "Fake-Leah Dennis"}, "PrefVendorRef": {"value":
+        "3937", "name": "Fake-Luis Hickman"}, "TrackQtyOnHand": true, "TaxClassificationRef":
+        {"value": "-Fallback-scrubbed-SmNBDLCtmMBloimJfttoDvJt", "name": "Fake-James
+        Gonzalez"}, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "1",
+        "SyncToken": "8834", "MetaData": {"CreateTime": "2014-12-16T20:11:20-08:00",
+        "LastUpdatedTime": "2023-09-29T16:05:52-07:00"}}, {"Name": "Fake-Tyler Clarke",
+        "Sku": "-Fallback-scrubbed-EcM", "Active": false, "FullyQualifiedName": "Fake-Tyler
+        Clarke", "Taxable": true, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ",
+        "PurchaseCost": 1217, "ExpenseAccountRef": {"value": "6249", "name": "Fake-Anthony
+        Hansen"}, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "42", "SyncToken": "5466", "MetaData": {"CreateTime": "2020-11-27T08:21:56-08:00",
+        "LastUpdatedTime": "2024-02-13T12:08:06-08:00"}}, {"Name": "Fake-Mrs. Lindsey
+        Booker MD", "Description": "Fake-Mrs. Lindsey Booker MD", "Active": false,
+        "FullyQualifiedName": "Fake-Mrs. Lindsey Booker MD", "Taxable": false, "UnitPrice":
+        1217, "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef": {"value":
+        "2621", "name": "Fake-Kimberly Waller"}, "PurchaseCost": 1217, "TrackQtyOnHand":
+        true, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "14", "SyncToken":
+        "8834", "MetaData": {"CreateTime": "2013-02-08T08:13:56-08:00", "LastUpdatedTime":
+        "2021-02-18T12:47:22-08:00"}}, {"Name": "Fake-Kaitlin Lopez", "Description":
+        "-Fallback-scrubbed-xwdMoAhFaLGjBCK", "Active": false, "FullyQualifiedName":
+        "Fake-Kaitlin Lopez", "Taxable": false, "UnitPrice": 4632, "Type": "-Fallback-scrubbed-Lpluypb",
+        "IncomeAccountRef": {"value": "2621", "name": "Fake-Kimberly Waller"}, "PurchaseDesc":
+        "-Fallback-scrubbed-xwdMoAhFaLGjBCK", "PurchaseCost": 865484400505.268, "ExpenseAccountRef":
+        {"value": "3408", "name": "Fake-Kimberly Waller"}, "TrackQtyOnHand": true,
+        "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "15", "SyncToken":
+        "7080", "MetaData": {"CreateTime": "2015-03-02T09:25:17-08:00", "LastUpdatedTime":
+        "2021-02-18T12:47:25-08:00"}}, {"Name": "Fake-Mrs. Teresa Allison DDS", "Description":
+        "Fake-Mrs. Teresa Allison DDS", "Active": false, "FullyQualifiedName": "Fake-Mrs.
+        Teresa Allison DDS", "Taxable": false, "UnitPrice": 3719, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc":
+        "Fake-Mrs. Teresa Allison DDS", "PurchaseCost": 76.640025732836, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "PrefVendorRef": {"value": "1467", "name":
+        "Fake-Michael Lee"}, "TrackQtyOnHand": false, "QtyOnHand": 7159, "InvStartDate":
+        "1997-02-28", "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "16", "SyncToken": "106", "MetaData": {"CreateTime": "2017-07-19T05:45:25-08:00",
+        "LastUpdatedTime": "2022-02-14T10:06:07-08:00"}}, {"Name": "Fake-Kayla Madden",
+        "Description": "Fake-Kayla Madden", "Active": false, "FullyQualifiedName":
+        "Fake-Kayla Madden", "Taxable": false, "UnitPrice": 7560, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseDesc":
+        "Fake-Kayla Madden", "PurchaseCost": 532930608.410862, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "PrefVendorRef": {"value": "5234", "name":
+        "Fake-Mary Jimenez"}, "TrackQtyOnHand": false, "QtyOnHand": 6447, "InvStartDate":
+        "1997-02-28", "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "17", "SyncToken": "106", "MetaData": {"CreateTime": "2012-05-24T14:15:35-08:00",
+        "LastUpdatedTime": "2022-02-14T10:06:19-08:00"}}, {"Name": "Fake-Steven Baldwin",
+        "Active": false, "FullyQualifiedName": "Fake-Steven Baldwin", "Type": "-Fallback-scrubbed-SXUgPvPM",
+        "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "31", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "1982-07-09T09:21:08-07:00", "LastUpdatedTime":
+        "2024-03-14T10:21:45-07:00"}}, {"Name": "Fake-Michael Arnold", "Sku": "-Fallback-scrubbed-EcM",
+        "Active": false, "SubItem": false, "ParentRef": {"value": "7123", "name":
+        "Fake-Steven Baldwin"}, "Level": 4183, "FullyQualifiedName": "-Fallback-scrubbed-UPNcfIqRPNXldAJssSKKxkcQ",
+        "Taxable": false, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ",
+        "IncomeAccountRef": {"value": "8834", "name": "Fake-Joshua Jackson"}, "PurchaseCost":
+        1217, "ExpenseAccountRef": {"value": "6249", "name": "Fake-Anthony Hansen"},
+        "TrackQtyOnHand": true, "TaxClassificationRef": {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv",
+        "name": "Fake-Donald Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "43", "SyncToken": "8834", "MetaData": {"CreateTime": "1999-05-23T01:57:01-08:00",
+        "LastUpdatedTime": "2025-07-25T12:27:56-07:00"}}, {"Name": "Fake-Maria Sanchez",
+        "Sku": "-Fallback-scrubbed-AwGE", "Active": false, "SubItem": false, "ParentRef":
+        {"value": "7123", "name": "Fake-Steven Baldwin"}, "Level": 4183, "FullyQualifiedName":
+        "-Fallback-scrubbed-vQfkGzuhUoUpccPHpUBxEXClejFZvWG", "Taxable": true, "UnitPrice":
+        1217, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ", "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "9349", "name": "Fake-Anthony Hansen"}, "TrackQtyOnHand": true,
+        "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "44", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "1987-12-30T02:53:39-08:00", "LastUpdatedTime":
+        "2024-02-25T01:54:39-08:00"}}, {"Name": "Fake-Joshua Mora", "Sku": "-Fallback-scrubbed-APVjK",
+        "Active": false, "SubItem": false, "ParentRef": {"value": "7123", "name":
+        "Fake-Steven Baldwin"}, "Level": 4183, "FullyQualifiedName": "-Fallback-scrubbed-vqYPTApbQwOHFakysVtGFilrP",
+        "Taxable": true, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ",
+        "PurchaseCost": 1217, "ExpenseAccountRef": {"value": "9349", "name": "Fake-Anthony
+        Hansen"}, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "45", "SyncToken": "5466", "MetaData": {"CreateTime": "2003-01-02T04:53:05-07:00",
+        "LastUpdatedTime": "2024-03-14T10:21:45-07:00"}}, {"Name": "Fake-Angie Garcia",
+        "Active": false, "SubItem": false, "ParentRef": {"value": "7123", "name":
+        "Fake-Steven Baldwin"}, "Level": 4183, "FullyQualifiedName": "-Fallback-scrubbed-qDNCNzdeHXYDfzUBFpQRuxDAnPWLlXjzIrz",
+        "Taxable": false, "UnitPrice": 7159, "Type": "-Fallback-scrubbed-zXnavaSGo",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost":
+        2210, "ExpenseAccountRef": {"value": "6934", "name": "Fake-Elizabeth Salas"},
+        "AssetAccountRef": {"value": "5058", "name": "Fake-Joseph Cruz"}, "TrackQtyOnHand":
+        false, "QtyOnHand": 3906, "InvStartDate": "1993-06-20", "TaxClassificationRef":
+        {"value": "-Fallback-scrubbed-xbIkxMzOIIAmxtXyscwVEVEv", "name": "Fake-Donald
+        Herrera"}, "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "36",
+        "SyncToken": "8834", "MetaData": {"CreateTime": "2007-07-28T07:22:39-07:00",
+        "LastUpdatedTime": "2025-06-09T08:48:13-07:00"}}, {"Name": "Fake-Ashley Vasquez",
+        "Sku": "-Fallback-scrubbed-URMXUzP", "Description": "-Fallback-scrubbed-fZBdkOeHDbdGAqXVDDOknhgJnnT",
+        "Active": false, "SubItem": false, "ParentRef": {"value": "7123", "name":
+        "Fake-Steven Baldwin"}, "Level": 4183, "FullyQualifiedName": "-Fallback-scrubbed-THmWzpCckbHXdYlwoqGpCCvXi",
+        "Taxable": true, "UnitPrice": 2642, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ",
+        "IncomeAccountRef": {"value": "822", "name": "Fake-Jessica Brown"}, "PurchaseCost":
+        1217, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "38", "SyncToken": "5466", "MetaData": {"CreateTime": "1989-04-10T17:40:56-07:00",
+        "LastUpdatedTime": "2023-08-06T23:07:56-07:00"}}, {"Name": "Fake-Anthony Smith",
+        "Sku": "-Fallback-scrubbed-oHc", "Description": "-Fallback-scrubbed-kiUIkNLQupRhgQ",
+        "Active": false, "SubItem": false, "ParentRef": {"value": "7123", "name":
+        "Fake-Steven Baldwin"}, "Level": 4183, "FullyQualifiedName": "-Fallback-scrubbed-dIzWSYIndbWBaOigPfQozx",
+        "Taxable": true, "UnitPrice": 798, "Type": "-Fallback-scrubbed-Lpluypb", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost": 6894, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "TrackQtyOnHand": true,
+        "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "33", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "1978-09-12T15:16:22-07:00", "LastUpdatedTime":
+        "2023-05-22T09:54:40-07:00"}}, {"Name": "Fake-Steven Phillips", "Sku": "-Fallback-scrubbed-hYKSXWLCU",
+        "Description": "-Fallback-scrubbed-kIkbAdFKhlHE", "Active": false, "SubItem":
+        false, "ParentRef": {"value": "7123", "name": "Fake-Steven Baldwin"}, "Level":
+        4183, "FullyQualifiedName": "-Fallback-scrubbed-uciNmUxJwCriZDDFfIXYVrVH",
+        "Taxable": true, "UnitPrice": 340, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ",
+        "IncomeAccountRef": {"value": "822", "name": "Fake-Jessica Brown"}, "PurchaseCost":
+        1217, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "37", "SyncToken": "5466", "MetaData": {"CreateTime": "1986-08-21T18:06:22-07:00",
+        "LastUpdatedTime": "2023-08-06T22:53:03-07:00"}}, {"Name": "Fake-Brian Williams",
+        "Active": false, "FullyQualifiedName": "Fake-Brian Williams", "Taxable": true,
+        "UnitPrice": 1217, "Type": "-Fallback-scrubbed-zXnavaSGo", "IncomeAccountRef":
+        {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "AssetAccountRef": {"value":
+        "5058", "name": "Fake-Joseph Cruz"}, "PrefVendorRef": {"value": "9297", "name":
+        "Fake-Kendra Medina"}, "TrackQtyOnHand": false, "QtyOnHand": 8708, "InvStartDate":
+        "2011-08-20", "ClassRef": {"value": "2007", "name": "Fake-Charles Browning"},
+        "domain": "-Fallback-scrubbed-UiE", "sparse": true, "Id": "46", "SyncToken":
+        "5466", "MetaData": {"CreateTime": "2000-10-03T00:44:25-07:00", "LastUpdatedTime":
+        "2025-06-10T13:32:07-07:00"}}, {"Name": "Fake-Kevin Gregory", "Active": false,
+        "FullyQualifiedName": "Fake-Kevin Gregory", "Taxable": true, "UnitPrice":
+        1217, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ", "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "PrefVendorRef": {"value":
+        "9297", "name": "Fake-Kendra Medina"}, "TrackQtyOnHand": true, "ClassRef":
+        {"value": "2007", "name": "Fake-Charles Browning"}, "domain": "-Fallback-scrubbed-UiE",
+        "sparse": true, "Id": "48", "SyncToken": "5466", "MetaData": {"CreateTime":
+        "2010-11-09T05:11:58-07:00", "LastUpdatedTime": "2025-06-11T07:26:26-07:00"}},
+        {"Name": "Fake-Theresa Parker", "Active": false, "FullyQualifiedName": "Fake-Theresa
+        Parker", "Taxable": true, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-Lpluypb",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost":
+        1217, "ExpenseAccountRef": {"value": "6934", "name": "Fake-Elizabeth Salas"},
+        "PrefVendorRef": {"value": "9297", "name": "Fake-Kendra Medina"}, "TrackQtyOnHand":
+        true, "ClassRef": {"value": "2007", "name": "Fake-Charles Browning"}, "domain":
+        "-Fallback-scrubbed-UiE", "sparse": true, "Id": "49", "SyncToken": "5466",
+        "MetaData": {"CreateTime": "1997-03-04T00:54:39-07:00", "LastUpdatedTime":
+        "2025-06-11T07:32:23-07:00"}}, {"Name": "Fake-Kristen Davies", "Active": false,
+        "FullyQualifiedName": "Fake-Kristen Davies", "Taxable": true, "UnitPrice":
+        1217, "Type": "-Fallback-scrubbed-EPaKYPMHPKIJ", "PurchaseCost": 1217, "ExpenseAccountRef":
+        {"value": "6934", "name": "Fake-Elizabeth Salas"}, "PrefVendorRef": {"value":
+        "6170", "name": "Fake-Christopher Kelly"}, "TrackQtyOnHand": true, "ClassRef":
+        {"value": "2007", "name": "Fake-Charles Browning"}, "domain": "-Fallback-scrubbed-UiE",
+        "sparse": true, "Id": "51", "SyncToken": "8834", "MetaData": {"CreateTime":
+        "1974-05-16T22:09:53-07:00", "LastUpdatedTime": "2025-07-01T07:06:38-07:00"}},
+        {"Name": "Fake-Nathan Ramirez", "Active": false, "FullyQualifiedName": "Fake-Nathan
+        Ramirez", "Taxable": true, "UnitPrice": 1217, "Type": "-Fallback-scrubbed-Lpluypb",
+        "IncomeAccountRef": {"value": "2238", "name": "Fake-Kevin Mccann"}, "PurchaseCost":
+        1217, "ExpenseAccountRef": {"value": "6934", "name": "Fake-Elizabeth Salas"},
+        "PrefVendorRef": {"value": "9297", "name": "Fake-Kendra Medina"}, "TrackQtyOnHand":
+        true, "ClassRef": {"value": "2007", "name": "Fake-Charles Browning"}, "domain":
+        "-Fallback-scrubbed-UiE", "sparse": true, "Id": "52", "SyncToken": "5466",
+        "MetaData": {"CreateTime": "2012-02-01T08:55:43-07:00", "LastUpdatedTime":
+        "2025-06-19T04:49:32-07:00"}}, {"Name": "Fake-Edward Hooper", "Description":
+        "-Fallback-scrubbed-CfbjthKqcJoaEVvRJIJQSGA", "Active": false, "FullyQualifiedName":
+        "Fake-Edward Hooper", "Taxable": true, "UnitPrice": 7790, "Type": "-Fallback-scrubbed-Lpluypb",
+        "IncomeAccountRef": {"value": "9962", "name": "Fake-Krista Gates"}, "PurchaseCost":
+        1217, "TrackQtyOnHand": true, "domain": "-Fallback-scrubbed-UiE", "sparse":
+        true, "Id": "18", "SyncToken": "5466", "MetaData": {"CreateTime": "2012-12-04T08:26:13-08:00",
+        "LastUpdatedTime": "2021-02-15T10:52:42-08:00"}}], "startPosition": 1, "maxResults":
+        53}, "time": "1984-09-14T15:16:14.751-07:00"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '36918'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 05 Aug 2025 12:54:17 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      content-length:
+      - '30012'
+      intuit_tid:
+      - 1-6891fef9-58bc4be3308614ae3b3e5eb8
+      x-amzn-trace-id:
+      - Root=1-6891fef9-58bc4be3308614ae3b3e5eb8
+      x-envoy-decorator-operation:
+      - v3-facade-service-desired-service.dev-devx-v3facadeservice-usw2-stg-ids.svc.cluster.local:8090/*
+      x-envoy-upstream-service-time:
+      - '337'
+      x-request-id:
+      - 1-6891fef9-58bc4be3308614ae3b3e5eb8
+      x-spanid:
+      - a602085c-2e4a-6034-fc83-8448ba09fadf
+    status:
+      code: 200
+      message: OK
+version: 1

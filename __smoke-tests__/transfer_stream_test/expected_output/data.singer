@@ -1,0 +1,6 @@
+{"type": "STATE", "value": {"current_stream": "Transfer"}}
+{"type": "SCHEMA", "stream": "Transfer", "schema": {"type": "object", "additionalProperties": false, "properties": {"Id": {"type": ["string", "null"]}, "ToAccountRef": {"type": ["string", "null"]}, "Amount": {"type": ["null", "number"]}, "FromAccountRef": {"type": ["string", "null"]}, "SyncToken": {"type": ["string", "null"]}, "PrivateNote": {"type": ["string", "null"]}, "TxnDate": {"type": ["string", "null"]}, "TransactionLocationType": {"type": ["string", "null"]}, "MetaData": {"type": ["string", "null"]}}}, "key_properties": ["Id"]}
+{"type": "ACTIVATE_VERSION", "stream": "Transfer", "version": 1750204800000}
+{"type": "ACTIVATE_VERSION", "stream": "Transfer", "version": 1750204800000}
+{"type": "STATE", "value": {"current_stream": "Transfer", "bookmarks": {"Transfer": {"version": null}}}}
+{"type": "STATE", "value": {"current_stream": null, "bookmarks": {"Transfer": {"version": null}}}}
