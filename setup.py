@@ -26,7 +26,7 @@ setup(name='tap-quickbooks',
           'jsonpath-ng>=1.5.3,<2.0.0',
           'pytz==2020.5',
           'attrs==20.2.0',
-          'hotglue-singer-sdk>=1.0.50,<2.0.0',
+          'hotglue-singer-sdk @ git+https://github.com/hotgluexyz/HotglueSingerSDK.git@feature/hgi-11581',
           "hotglue-etl-exceptions==0.1.0"
 
       ],
